@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>所有文章 - 我的 Hugo FixIt 网站</title>
+    <title>所有文章 - I am Lizhe1228</title>
     <link>http://Lizhe1228.github.io/posts/</link>
-    <description>所有文章 | 我的 Hugo FixIt 网站</description>
+    <description>所有文章 | I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 19 May 2023 12:59:24 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-  <title>First_post</title>
+  <title>Blog-QuickStart</title>
   <link>http://Lizhe1228.github.io/posts/first_post/</link>
   <pubDate>Fri, 19 May 2023 12:59:24 &#43;0800</pubDate>
   <author>作者</author>
   <guid>http://Lizhe1228.github.io/posts/first_post/</guid>
-  <description><![CDATA[]]></description>
+  <description><![CDATA[搭建个人博客的简易流程]]></description>
 </item>
 </channel>
 </rss>
