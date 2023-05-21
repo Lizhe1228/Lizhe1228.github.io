@@ -10,7 +10,7 @@
 <meta name="description" content="搭建个人博客的简易流程" /><meta name="keywords" content='教程' /><meta itemprop="name" content="Blog-QuickStart">
 <meta itemprop="description" content="搭建个人博客的简易流程"><meta itemprop="datePublished" content="2023-05-19T12:59:24+08:00" />
 <meta itemprop="dateModified" content="2023-05-19T12:59:24+08:00" />
-<meta itemprop="wordCount" content="957"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="1185"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="教程," /><meta property="og:title" content="Blog-QuickStart" />
 <meta property="og:description" content="搭建个人博客的简易流程" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/blog-quickstart\/"
-    },"genre": "posts","keywords": "教程","wordcount":  957 ,
+    },"genre": "posts","keywords": "教程","wordcount":  1185 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/blog-quickstart\/","datePublished": "2023-05-19T12:59:24+08:00","dateModified": "2023-05-19T12:59:24+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -188,7 +188,8 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><main class="container container-reverse"><aside class="toc" id="toc-auto"></aside>
+  </div><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
 
   <aside class="aside-custom">
     </aside>
@@ -198,9 +199,26 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="/nzr.jpg" srcset="/nzr.jpg, /nzr.jpg 1.5x, /nzr.jpg 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/blog/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> BLOG</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-19 12:59:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span title="更新于 2023-05-19 12:59:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 957 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
-    </div><div class="content" id="content" data-end-flag="The END"><hr>
-<h1 id="安装环境与框架">安装环境与框架</h1>
+      <div class="post-meta-line"><span title="发布于 2023-05-19 12:59:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span title="更新于 2023-05-19 12:59:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1185 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装环境与框架">安装环境与框架</a></li>
+    <li><a href="#部署到github">部署到GitHub</a></li>
+    <li><a href="#其他事项">其他事项</a>
+      <ul>
+        <li><a href="#关于解决git-push慢的方法">关于解决git push慢的方法</a></li>
+        <li><a href="#关于主题">关于主题</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="The END"><hr>
+<h2 id="安装环境与框架">安装环境与框架</h2>
 <p>本博客使用的是<a href="https://gohugo.io/"target="_blank" rel="external nofollow noopener noreferrer">Hugo框架</a>，Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
 <ul>
 <li>
@@ -254,7 +272,7 @@ title = &#39;My New Hugo Site&#39;
 <hr>
 </li>
 </ul>
-<h1 id="部署到github">部署到GitHub</h1>
+<h2 id="部署到github">部署到GitHub</h2>
 <ol>
 <li>在GitHub上创建一个 <em>username</em>.github.io 的仓库（username为自己的GitHub名字）</li>
 <li><code>cd public </code></li>
@@ -266,7 +284,24 @@ title = &#39;My New Hugo Site&#39;
 <li><code>git push -f origin master</code></li>
 </ol>
 <p>此时我们登录<em>username</em>.github.io就可以看到自己的博客了。</p>
-<p>注意，如果对文章内容进行了修改，或者添加了新的内容，需要重新进行<code>hugo</code>操作，生成新的<code>puplic</code>文件，再次在public文件夹下执行<code>git status</code>、<code>git add .</code>、<code>git commit -m &quot;Add a new post&quot;</code>、<code>git push -f origin master</code>指令，才可以更新远程仓库，更新博客。</p></div><div class="post-footer" id="post-footer">
+<p>注意，如果对文章内容进行了修改，或者添加了新的内容，需要重新进行<code>hugo</code>操作，生成新的<code>puplic</code>文件，再次在public文件夹下执行<code>git status</code>、<code>git add .</code>、<code>git commit -m &quot;Add a new post&quot;</code>、<code>git push -f origin master</code>指令，才可以更新远程仓库，更新博客。</p>
+<hr>
+<h2 id="其他事项">其他事项</h2>
+<h3 id="关于解决git-push慢的方法">关于解决git push慢的方法</h3>
+<h4 id="方法一修改host文件">方法一：修改host文件</h4>
+<p>修改C:\Windows\System32\drivers\etc\hosts文件，添加如下配置。</p>
+<pre tabindex="0"><code>140.82.114.4  github.com
+185.199.108.153  assets-cdn.github.com
+151.101.1.194  github.global.ssl.fastly.net
+</code></pre><p>以上三个ip在<a href="https://www.ipaddress.com/"target="_blank" rel="external nofollow noopener noreferrer">https://www.ipaddress.com/</a>可以查到，可能会有更新。</p>
+<h4 id="方法二git-设置-socks5-代理">方法二：git 设置 socks5 代理</h4>
+<p>用git内置代理，直接走系统中运行的代理工具中转，比如，你的 SS 本地端口是 1080，那么可以如下方式走代理：</p>
+<pre tabindex="0"><code>git config --global http.proxy socks5://127.0.0.1:1080
+git config --global https.proxy socks5://127.0.0.1:1080
+</code></pre><p>取消代理的方式：</p>
+<pre tabindex="0"><code>git config --global http.proxy &#34;&#34;
+git config --global https.proxy &#34;&#34;
+</code></pre><h3 id="关于主题">关于主题</h3></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
