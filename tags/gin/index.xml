@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>I am Lizhe1228</title>
-    <link>http://Lizhe1228.github.io/</link>
-    <description>一个东北不知名211研究生的个人博客，分享记录笔记</description>
+    <title>Gin - 标签 - I am Lizhe1228</title>
+    <link>http://Lizhe1228.github.io/tags/gin/</link>
+    <description>Gin - 标签 - I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sun, 21 May 2023 21:05:56 &#43;0800</lastBuildDate>
-      <atom:link href="http://Lizhe1228.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sun, 21 May 2023 21:05:56 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/gin/" rel="self" type="application/rss+xml" /><item>
   <title>Gin入门</title>
   <link>http://Lizhe1228.github.io/posts/gin/gin01/</link>
   <pubDate>Sun, 21 May 2023 21:05:56 &#43;0800</pubDate>
@@ -17,14 +15,6 @@
 <p><a href="https://www.liwenzhou.com/posts/Go/gin/"target="_blank" rel="external nofollow noopener noreferrer">https://www.liwenzhou.com/posts/Go/gin/</a></p>
 <p><a href="https://gin-gonic.com/zh-cn/docs/"target="_blank" rel="external nofollow noopener noreferrer">https://gin-gonic.com/zh-cn/docs/</a></p>
 <p><a href="https://github.com/gin-gonic/gin"target="_blank" rel="external nofollow noopener noreferrer">Gin</a>是一个用Go语言编写的web框架。它是一个类似于<code>martini</code>但拥有更好性能的API框架, 由于使用了<code>httprouter</code>，速度提高了近40倍。<code>Gin</code>是Go世界里最流行的Web框架，<a href="https://github.com/gin-gonic/gin"target="_blank" rel="external nofollow noopener noreferrer">Github</a>上有<code>68K+</code>star。 基于<a href="https://github.com/julienschmidt/httprouter"target="_blank" rel="external nofollow noopener noreferrer">httprouter</a>开发的Web框架。 <a href="https://gin-gonic.com/zh-cn/docs/"target="_blank" rel="external nofollow noopener noreferrer">中文文档</a>齐全，简单易用的轻量级框架</p>]]></description>
-</item>
-<item>
-  <title>Blog-QuickStart</title>
-  <link>http://Lizhe1228.github.io/posts/blog-quickstart/</link>
-  <pubDate>Fri, 19 May 2023 12:59:24 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/blog-quickstart/</guid>
-  <description><![CDATA[搭建个人博客的简易流程]]></description>
 </item>
 </channel>
 </rss>
