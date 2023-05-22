@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Go每日一练 - 分类 - I am Lizhe1228</title>
+    <link>http://Lizhe1228.github.io/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/</link>
+    <description>Go每日一练 - 分类 - I am Lizhe1228</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Mon, 22 May 2023 17:47:44 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/" rel="self" type="application/rss+xml" /><item>
+  <title>Go Exercises(Day1-35)</title>
+  <link>http://Lizhe1228.github.io/posts/go/day1-35/</link>
+  <pubDate>Mon, 22 May 2023 17:47:44 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/day1-35/</guid>
+  <description><![CDATA[<p>题目来源于 <a href="https://www.topgoer.cn/docs/gomianshiti/mianshiti"target="_blank" rel="external nofollow noopener noreferrer">https://www.topgoer.cn/docs/gomianshiti/mianshiti</a></p>]]></description>
+</item>
+</channel>
+</rss>
