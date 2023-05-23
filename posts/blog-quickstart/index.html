@@ -10,7 +10,7 @@
 <meta name="description" content="搭建个人博客的简易流程" /><meta name="keywords" content='教程' /><meta itemprop="name" content="Blog-QuickStart">
 <meta itemprop="description" content="搭建个人博客的简易流程"><meta itemprop="datePublished" content="2023-05-19T12:59:24+08:00" />
 <meta itemprop="dateModified" content="2023-05-19T12:59:24+08:00" />
-<meta itemprop="wordCount" content="1403"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="1523"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="教程," /><meta property="og:title" content="Blog-QuickStart" />
 <meta property="og:description" content="搭建个人博客的简易流程" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/blog-quickstart\/"
-    },"genre": "posts","keywords": "教程","wordcount":  1403 ,
+    },"genre": "posts","keywords": "教程","wordcount":  1523 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/blog-quickstart\/","datePublished": "2023-05-19T12:59:24+08:00","dateModified": "2023-05-19T12:59:24+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="/nzr.jpg" srcset="/nzr.jpg, /nzr.jpg 1.5x, /nzr.jpg 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/blog/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> BLOG</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-19 12:59:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span title="更新于 2023-05-19 12:59:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1403 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Blog-QuickStart">
+      <div class="post-meta-line"><span title="发布于 2023-05-19 12:59:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span title="更新于 2023-05-19 12:59:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1523 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Blog-QuickStart">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -214,6 +214,8 @@
           <ul>
             <li><a href="#fixlit">Fixlit</a></li>
             <li><a href="#代码行号复制">代码行号+复制</a></li>
+            <li><a href="#无法正确解析md中如font-color等内容">无法正确解析md中如<code>font color</code>等内容</a></li>
+            <li><a href="#toc目录中无法正确展示2级以上标题">toc目录中无法正确展示2级以上标题</a></li>
           </ul>
         </li>
         <li><a href="#一键push">一键push</a></li>
@@ -278,9 +280,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">baseURL = &#39;http://Lizhe1228.github.io/&#39;   # 为下一步部署到github做准备
-</span></span><span class="line"><span class="cl">languageCode = &#39;zh-CN&#39;
-</span></span><span class="line"><span class="cl">title = &#39;My New Hugo Site&#39;
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">baseURL</span> <span class="o">=</span> <span class="s1">&#39;http://Lizhe1228.github.io/&#39;</span>   <span class="c1"># 为下一步部署到github做准备</span>
+</span></span><span class="line"><span class="cl"><span class="nv">languageCode</span> <span class="o">=</span> <span class="s1">&#39;zh-CN&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">title</span> <span class="o">=</span> <span class="s1">&#39;My New Hugo Site&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -291,7 +293,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo new post/my-first-post.md  # &#34;my-first-post.md&#34; 是新建文章的文件名。 post是根目录下content里会自动生成的文件夹。
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new post/my-first-post.md  <span class="c1"># &#34;my-first-post.md&#34; 是新建文章的文件名。 post是根目录下content里会自动生成的文件夹。</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -303,7 +305,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo server -D  # -D 是指草稿模式的文章也会渲染到页面上
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server -D  <span class="c1"># -D 是指草稿模式的文章也会渲染到页面上</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>注意，若再次对配置文件等进行修改，需要重新执行<code>hugo server -D</code>。</p>
@@ -339,7 +341,7 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">140.82.114.4  github.com
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">140.82.114.4  github.com
 </span></span><span class="line"><span class="cl">185.199.108.153  assets-cdn.github.com
 </span></span><span class="line"><span class="cl">151.101.1.194  github.global.ssl.fastly.net
 </span></span></code></pre></td></tr></table>
@@ -353,7 +355,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git config --global http.proxy socks5://127.0.0.1:1080
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global http.proxy socks5://127.0.0.1:1080
 </span></span><span class="line"><span class="cl">git config --global https.proxy socks5://127.0.0.1:1080
 </span></span></code></pre></td></tr></table>
 </div>
@@ -364,8 +366,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git config --global http.proxy &#34;&#34;
-</span></span><span class="line"><span class="cl">git config --global https.proxy &#34;&#34;
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global http.proxy <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global https.proxy <span class="s2">&#34;&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="关于主题">关于主题</h3>
@@ -388,18 +390,66 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[markup]
-</span></span><span class="line"><span class="cl">  [markup.highlight]
-</span></span><span class="line"><span class="cl">    codeFences = true
-</span></span><span class="line"><span class="cl">    guessSyntax = true
-</span></span><span class="line"><span class="cl">    hl_Lines = &#34;&#34;
-</span></span><span class="line"><span class="cl">    lineNoStart = 1
-</span></span><span class="line"><span class="cl">    lineNos = true
-</span></span><span class="line"><span class="cl">    lineNumbersInTable = false
-</span></span><span class="line"><span class="cl">    noClasses = true
-</span></span><span class="line"><span class="cl">    style = &#34;github&#34;
-</span></span><span class="line"><span class="cl">    tabWidth = 4
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="p">[</span><span class="l">markup]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">[</span><span class="l">markup.highlight]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">codeFences = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">guessSyntax = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">hl_Lines = &#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">lineNoStart = 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">lineNos = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">lineNumbersInTable = false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">noClasses = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">style = &#34;github&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">tabWidth = 4</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="无法正确解析md中如font-color等内容">无法正确解析md中如<code>font color</code>等内容</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="p">[</span><span class="l">markup.goldmark]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">[</span><span class="l">markup.goldmark.extensions]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">definitionList = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">footnote = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">linkify = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">strikethrough = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">table = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">taskList = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">typographer = true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">[</span><span class="l">markup.goldmark.renderer]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c"># 是否在文档中直接使用 HTML 标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">unsafe = true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="toc目录中无法正确展示2级以上标题">toc目录中无法正确展示2级以上标题</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 目录设置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">[</span><span class="l">markup.tableOfContents]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="c"># 几级标题到几级标题 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">startLevel = 2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="l">endLevel = 6</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="一键push">一键push</h3>
 <p>为了避免每次更新博客后都需要输入<code>hugo -D</code>，<code>cd public</code>，<code>git</code>等命令，可以在根目录下配置一个bat脚本文件<code>push.bat</code>，每次push的时候在cmd中输入<code>push</code>即可。</p>
