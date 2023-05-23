@@ -10,7 +10,7 @@
 <meta name="description" content="搭建个人博客的简易流程" /><meta name="keywords" content='教程' /><meta itemprop="name" content="Blog-QuickStart">
 <meta itemprop="description" content="搭建个人博客的简易流程"><meta itemprop="datePublished" content="2023-05-19T12:59:24+08:00" />
 <meta itemprop="dateModified" content="2023-05-19T12:59:24+08:00" />
-<meta itemprop="wordCount" content="1523"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="1851"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="教程," /><meta property="og:title" content="Blog-QuickStart" />
 <meta property="og:description" content="搭建个人博客的简易流程" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/blog-quickstart\/"
-    },"genre": "posts","keywords": "教程","wordcount":  1523 ,
+    },"genre": "posts","keywords": "教程","wordcount":  1851 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/blog-quickstart\/","datePublished": "2023-05-19T12:59:24+08:00","dateModified": "2023-05-19T12:59:24+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="/nzr.jpg" srcset="/nzr.jpg, /nzr.jpg 1.5x, /nzr.jpg 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/blog/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> BLOG</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-19 12:59:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span title="更新于 2023-05-19 12:59:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1523 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Blog-QuickStart">
+      <div class="post-meta-line"><span title="发布于 2023-05-19 12:59:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span title="更新于 2023-05-19 12:59:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-19">2023-05-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1851 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Blog-QuickStart">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -219,6 +219,15 @@
           </ul>
         </li>
         <li><a href="#一键push">一键push</a></li>
+        <li><a href="#使用图床存储图片">使用图床存储图片</a>
+          <ul>
+            <li><a href="#配置腾讯云cos">配置腾讯云COS</a></li>
+            <li><a href="#腾讯云中新建秘钥">腾讯云中新建秘钥</a></li>
+            <li><a href="#配置picgo">配置PicGo</a></li>
+            <li><a href="#设置防盗链">设置防盗链</a></li>
+            <li><a href="#配置typora">配置Typora</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -475,7 +484,57 @@
 </span></span><span class="line"><span class="cl">pause
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><h3 id="使用图床存储图片">使用图床存储图片</h3>
+<p>使用<a href="https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.1"target="_blank" rel="external nofollow noopener noreferrer">PicGo</a> + <a href="https://typora.io/"target="_blank" rel="external nofollow noopener noreferrer">Typora</a> + <a href="https://console.cloud.tencent.com/cos"target="_blank" rel="external nofollow noopener noreferrer">腾讯云COS</a></p>
+<h4 id="配置腾讯云cos">配置腾讯云COS</h4>
+<p>使用腾讯云的对象存储功能，创建一个自己的存储桶</p>
+<img src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232237144.png" alt="image-20230523223736069" style="zoom:50%;" />
+<h4 id="腾讯云中新建秘钥">腾讯云中新建秘钥</h4>
+<p><a href="https://console.cloud.tencent.com/cam/capi"target="_blank" rel="external nofollow noopener noreferrer">访问秘钥</a></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232239057.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232239057.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232239057.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232239057.png 2x" sizes="auto" data-title="image-20230523223930009" data-alt="image-20230523223930009" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="配置picgo">配置PicGo</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">设定SecretKey：腾讯云的SecretId
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">设定SecretKey：腾讯云的SecretKey
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">设定Bucket：填写自己的bucket名称，就是新建存储桶时填写的名称
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">设定APPid：创建密钥时的APPID
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">设定存储区域：新建存储桶时的所属地域，例如ap-shanghai 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">设定存储路径：上传的文件存储在什么路径下，例如img/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">剩下两个没有就不填
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232240310.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232240310.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232240310.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232240310.png 2x" sizes="auto" data-title="image-20230523224035250" data-alt="image-20230523224035250" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232241396.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232241396.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232241396.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232241396.png 2x" sizes="auto" data-title="image-20230523224101344" data-alt="image-20230523224101344" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232241580.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232241580.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232241580.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232241580.png 2x" sizes="auto" data-title="image-20230523224121532" data-alt="image-20230523224121532" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="设置防盗链">设置防盗链</h4>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232243013.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232243013.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232243013.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232243013.png 2x" sizes="auto" data-title="image-20230523224300958" data-alt="image-20230523224300958" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232243682.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232243682.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232243682.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232243682.png 2x" sizes="auto" data-title="image-20230523224338630" data-alt="image-20230523224338630" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232244408.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232244408.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232244408.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232244408.png 2x" sizes="auto" data-title="image-20230523224402356" data-alt="image-20230523224402356" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>Referer中添加博客地址(<code>username.github.io</code>)和本地端口(<code>localhost:1313</code>)。</p>
+<h4 id="配置typora">配置Typora</h4>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232246142.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232246142.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232246142.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305232246142.png 2x" sizes="auto" data-title="image-20230523224632078" data-alt="image-20230523224632078" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
