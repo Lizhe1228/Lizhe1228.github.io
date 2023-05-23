@@ -4,9 +4,17 @@
     <link>http://Lizhe1228.github.io/</link>
     <description>一个东北不知名211研究生的个人博客，分享记录笔记</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Tue, 23 May 2023 10:26:26 &#43;0800</lastBuildDate>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Tue, 23 May 2023 15:23:03 &#43;0800</lastBuildDate>
       <atom:link href="http://Lizhe1228.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>Wsl</title>
+  <link>http://Lizhe1228.github.io/posts/wsl/</link>
+  <pubDate>Tue, 23 May 2023 15:23:03 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/wsl/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Docker微服务实战</title>
   <link>http://Lizhe1228.github.io/posts/docker/docker05/</link>
   <pubDate>Tue, 23 May 2023 10:26:26 &#43;0800</pubDate>
