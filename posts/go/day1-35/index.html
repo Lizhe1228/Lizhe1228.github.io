@@ -10,7 +10,7 @@
 <meta name="description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day1-35)">
 <meta itemprop="description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti"><meta itemprop="datePublished" content="2023-05-22T17:47:44+08:00" />
 <meta itemprop="dateModified" content="2023-05-22T17:47:44+08:00" />
-<meta itemprop="wordCount" content="1885"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="2779"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day1-35)" />
 <meta property="og:description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day1-35\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  1885 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  2779 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day1-35\/","datePublished": "2023-05-22T17:47:44+08:00","dateModified": "2023-05-22T17:47:44+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.jpg" srcset="/nzr.jpg, nzr.jpg 1.5x, /nzr.jpg 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-22 17:47:44"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span title="更新于 2023-05-22 17:47:44"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1885 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day1-35)">
+      <div class="post-meta-line"><span title="发布于 2023-05-22 17:47:44"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span title="更新于 2023-05-22 17:47:44"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2779 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 6 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day1-35)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -210,7 +210,13 @@
         <li><a href="#一些延伸">一些延伸</a></li>
       </ul>
     </li>
-    <li><a href="#day4">Day4</a></li>
+    <li><a href="#day4">Day4</a>
+      <ul>
+        <li><a href="#1下面这段代码能否通过编译不能的话原因是什么如果能输出什么">1.下面这段代码能否通过编译，不能的话原因是什么；如果能，输出什么?</a></li>
+        <li><a href="#2下面这段代码能否通过编译如果可以输出什么">2.下面这段代码能否通过编译，如果可以，输出什么？</a></li>
+        <li><a href="#3下面这段代码能否通过编译如果可以输出什么">3.下面这段代码能否通过编译，如果可以，输出什么？</a></li>
+      </ul>
+    </li>
     <li><a href="#day5">Day5</a></li>
     <li><a href="#day6">Day6</a></li>
     <li><a href="#day7">Day7</a></li>
@@ -472,7 +478,170 @@
 <p>如果觉得不好记忆，有一个识别引用类型的快捷办法：凡是零值是 <code>nil</code> 的，都是引用类型。指针作为特殊的透明引用，一般单独讨论。而 字符串 <code>string</code> 因为做了特殊处理，零值为 <code>&quot;&quot;</code> ，需要额外记住。除了引用类型和指针，剩下的类型都是直接值类型。</p>
 <p>那些说引用类型只有需要 <code>make()</code> 的切片、映射、通道 三种的说法，是<strong>错误</strong>的！</p>
 <h2 id="day4">Day4</h2>
-<h2 id="day5">Day5</h2>
+<h3 id="1下面这段代码能否通过编译不能的话原因是什么如果能输出什么">1.下面这段代码能否通过编译，不能的话原因是什么；如果能，输出什么?</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">list</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">([]</span><span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">list</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参考答案及解析：不能通过编译，new([]int) 之后的 list 是一个 <code>*[]int</code> 类型的<strong>指针</strong>，<font color=red>不能对指针执行 append 操作</font>。可以使用 make() 初始化之后再用。同样的，map 和 channel 建议使用 make() 或字面量的方式初始化，不要用 new() 。</p>
+<h3 id="2下面这段代码能否通过编译如果可以输出什么">2.下面这段代码能否通过编译，如果可以，输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s1</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s1</span><span class="p">,</span> <span class="nx">s2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参考答案及解析：不能通过编译。<font color=red>append() 的第二个参数不能直接使用 slice</font>，需使用 <font color=red>… </font>操作符，将一个切片追加到另一个切片上：<strong><code>append(s1,s2…)</code></strong>。<strong>或者直接跟上元素</strong>，形如：<code>append(s1,1,2,3)</code>。</p>
+<h3 id="3下面这段代码能否通过编译如果可以输出什么">3.下面这段代码能否通过编译，如果可以，输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">size</span> <span class="o">:=</span> <span class="mi">1024</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">max_size</span> <span class="p">=</span> <span class="nx">size</span><span class="o">*</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">size</span><span class="p">,</span> <span class="nx">max_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参考答案及解析：不能通过编译。这道题的主要知识点是变量声明的简短模式，形如：<code>x := 100</code>。但这种声明方式有限制：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">必须使用显示初始化；
+</span></span><span class="line"><span class="cl">不能提供数据类型，编译器会自动推导；
+</span></span><span class="line"><span class="cl">只能在函数内部使用简短模式；
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="day5">Day5</h2>
+<p>下面这段代码能否通过编译？不能的话，原因是什么？如果通过，输出什么？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sn1</span> <span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">age</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}{</span><span class="nx">age</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;qq&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sn2</span> <span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">age</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}{</span><span class="nx">age</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;qq&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">sn1</span> <span class="o">==</span> <span class="nx">sn2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;sn1 == sn2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">sm1</span> <span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">age</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">m</span>   <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}{</span><span class="nx">age</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="nx">m</span><span class="p">:</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">:</span> <span class="s">&#34;1&#34;</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sm2</span> <span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">age</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">m</span>   <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}{</span><span class="nx">age</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="nx">m</span><span class="p">:</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">:</span> <span class="s">&#34;1&#34;</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">sm1</span> <span class="o">==</span> <span class="nx">sm2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;sm1 == sm2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参考答案及解析：编译不通过 invalid operation: sm1 == sm2</p>
+<p>这道题目考的是结构体的比较，有几个需要注意的地方：</p>
+<ul>
+<li>
+<p>结构体<strong>只能比较是否相等</strong>，但是不能比较大小。</p>
+</li>
+<li>
+<p><strong>相同类型的结构体才能够进行比较</strong>，结构体是否相同不但与属性类型有关，还与属性<strong>顺序</strong>相关，sn3 与 sn1 就是不同的结构体；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">sn3</span><span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">age</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}{</span><span class="nx">age</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="nx">name</span><span class="p">:</span><span class="s">&#34;qq&#34;</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>如果 struct 的<font color=red><strong>所有成员都可以比较</strong>，<strong>则该 struct 就可以通过 == 或 != 进行比较是否相等</strong></font>，比较时逐个项进行比较，如果每一项都相等，则两个结构体才相等，否则不相等；</p>
+</li>
+</ul>
+<p>那什么是可比较的呢，常见的有 bool、数值型、字符、指针、数组等，像<strong>切片</strong>、<strong>map</strong>、<strong>函数</strong>等是<strong>不能比较</strong>的。 具体可以参考 Go 说明文档。https://golang.org/ref/spec#Comparison_operators</p>
 <h2 id="day6">Day6</h2>
 <h2 id="day7">Day7</h2>
 <h2 id="day8">Day8</h2>
