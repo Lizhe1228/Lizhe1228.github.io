@@ -5,7 +5,7 @@
     <description>所有文章 | I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
       <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Wed, 24 May 2023 09:59:54 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-  <title>Docker网路</title>
+  <title>Docker网络</title>
   <link>http://Lizhe1228.github.io/posts/docker/docker06/</link>
   <pubDate>Wed, 24 May 2023 09:59:54 &#43;0800</pubDate>
   <author>Lizhe1228</author>
@@ -37,7 +37,7 @@
   <description><![CDATA[]]></description>
 </item>
 <item>
-  <title>Go Exercises(Day1-35)</title>
+  <title>Go Exercises(Day1-10)</title>
   <link>http://Lizhe1228.github.io/posts/go/day1-35/</link>
   <pubDate>Mon, 22 May 2023 17:47:44 &#43;0800</pubDate>
   <author>Lizhe1228</author>
