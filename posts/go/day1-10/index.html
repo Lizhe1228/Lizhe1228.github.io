@@ -10,7 +10,7 @@
 <meta name="description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day1-10)">
 <meta itemprop="description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti"><meta itemprop="datePublished" content="2023-05-22T17:47:44+08:00" />
 <meta itemprop="dateModified" content="2023-05-22T17:47:44+08:00" />
-<meta itemprop="wordCount" content="5021"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="5649"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day1-10)" />
 <meta property="og:description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day1-10\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  5021 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  5649 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day1-10\/","datePublished": "2023-05-22T17:47:44+08:00","dateModified": "2023-05-22T17:47:44+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.jpg" srcset="/nzr.jpg, nzr.jpg 1.5x, /nzr.jpg 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-22 17:47:44"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span title="更新于 2023-05-22 17:47:44"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 5021 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 11 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day1-10)">
+      <div class="post-meta-line"><span title="发布于 2023-05-22 17:47:44"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span title="更新于 2023-05-22 17:47:44"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 5649 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 12 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day1-10)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -231,7 +231,17 @@
         <li><a href="#3下面赋值正确的是">3.下面赋值正确的是?</a></li>
       </ul>
     </li>
-    <li><a href="#day8">Day8</a></li>
+    <li><a href="#day8">Day8</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1关于init函数下面说法正确的是">1.关于init函数，下面说法正确的是？</a></li>
+            <li><a href="#2下面这段代码输出什么以及原因">2.下面这段代码输出什么以及原因？</a></li>
+            <li><a href="#3下面这段代码能否编译通过如果可以输出什么">3.下面这段代码能否编译通过？如果可以，输出什么？</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#day9">Day9</a></li>
     <li><a href="#day10">Day10</a></li>
   </ul>
@@ -277,7 +287,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>答案：</p>
+</div><hr>
+<p>答案：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -328,7 +339,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>答案：</p>
+</div><hr>
+<p>答案：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -416,7 +428,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div><hr>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -440,7 +453,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>缺陷：第二个返回值没有命名。</p>
+</div><hr>
+<p>缺陷：第二个返回值没有命名。</p>
 <p>解析：在函数有多个返回值时，<font color=red><strong>只要有一个返回值有命名，其他的也必须命名</strong></font>。如果有多个返回值必须加上括号()；如果只有一个返回值且命名也必须加上括号()。这里的第一个返回值有命名 sum，第二个没有命名，所以错误。</p>
 <h3 id="font-colorred3new与make的区别font"><font color=red>3.new()与make()的区别？</font></h3>
 <p>new(T) 和 make(T,args) 是 Go 语言内建函数，用来<strong>分配内存</strong>，但<strong>适用的类型不同</strong>。</p>
@@ -481,7 +495,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>参考答案及解析：不能通过编译，new([]int) 之后的 list 是一个 <code>*[]int</code> 类型的<strong>指针</strong>，<font color=red>不能对指针执行 append 操作</font>。可以使用 make() 初始化之后再用。同样的，map 和 channel 建议使用 make() 或字面量的方式初始化，不要用 new() 。</p>
+</div><hr>
+<p>参考答案及解析：不能通过编译，new([]int) 之后的 list 是一个 <code>*[]int</code> 类型的<strong>指针</strong>，<font color=red>不能对指针执行 append 操作</font>。可以使用 make() 初始化之后再用。同样的，map 和 channel 建议使用 make() 或字面量的方式初始化，不要用 new() 。</p>
 <h3 id="2下面这段代码能否通过编译如果可以输出什么">2.下面这段代码能否通过编译，如果可以，输出什么？</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -501,7 +516,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>参考答案及解析：不能通过编译。<font color=red>append() 的第二个参数不能直接使用 slice</font>，需使用 <font color=red>… </font>操作符，将一个切片追加到另一个切片上：<strong><code>append(s1,s2…)</code></strong>。<strong>或者直接跟上元素</strong>，形如：<code>append(s1,1,2,3)</code>。</p>
+</div><hr>
+<p>参考答案及解析：不能通过编译。<font color=red>append() 的第二个参数不能直接使用 slice</font>，需使用 <font color=red>… </font>操作符，将一个切片追加到另一个切片上：<strong><code>append(s1,s2…)</code></strong>。<strong>或者直接跟上元素</strong>，形如：<code>append(s1,1,2,3)</code>。</p>
 <h3 id="3下面这段代码能否通过编译如果可以输出什么">3.下面这段代码能否通过编译，如果可以，输出什么？</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -525,7 +541,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>参考答案及解析：不能通过编译。这道题的主要知识点是变量声明的简短模式，形如：<code>x := 100</code>。但这种声明方式有限制：</p>
+</div><hr>
+<p>参考答案及解析：不能通过编译。这道题的主要知识点是变量声明的简短模式，形如：<code>x := 100</code>。但这种声明方式有限制：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -600,7 +617,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>参考答案及解析：编译不通过 invalid operation: sm1 == sm2</p>
+</div><hr>
+<p>参考答案及解析：编译不通过 invalid operation: sm1 == sm2</p>
 <p>这道题目考的是结构体的比较，有几个需要注意的地方：</p>
 <ul>
 <li>
@@ -636,6 +654,7 @@
 <li>C.<code>(*p).name</code></li>
 <li>D.<code>p-&gt;name</code></li>
 </ul>
+<hr>
 <p>参考答案及解析：AC。&amp; 取址运算符，* 指针解引用。</p>
 <h3 id="2下面这段代码能否通过编译如果通过输出什么">2.下面这段代码能否通过编译？如果通过，输出什么？</h3>
 <div class="highlight"><div class="chroma">
@@ -670,7 +689,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>参考答案及解析：编译不通过，cannot use i (type int) as type MyInt1 in assignment。</p>
+</div><hr>
+<p>参考答案及解析：编译不通过，cannot use i (type int) as type MyInt1 in assignment。</p>
 <p>这道题考的是<strong>类型别名</strong>与<strong>类型定义</strong>的区别。</p>
 <p>第 5 行代码<code>type MyInt1 int</code>是基于类型 int <strong>创建了新类型 MyInt1</strong>，第 6 行代码<code>type MyInt2 = int</code>是创建了 int 的<strong>类型别名 MyInt2</strong>，注意类型别名的定义时使用 <code>= </code>。所以，第 10 行代码相当于是将 int 类型的变量赋值给 MyInt1 类型的变量，Go 是强类型语言，编译当然不通过；而 MyInt2 只是 int 的别名，本质上还是 int，可以赋值。</p>
 <p>第 10 行代码的赋值可以使用<font color=red><strong>强制类型转化</strong></font> <code>var i1 MyInt1 = MyInt1(i)</code></p>
@@ -682,6 +702,7 @@
 <li>C. str := ‘123’ + “abc”</li>
 <li>D. fmt.Sprintf(“abc%d”, 123)</li>
 </ul>
+<hr>
 <p>参考答案及解析：B.<code>str := “abc” + “123”</code>，D.<code> fmt.Sprintf(“abc%d”, 123)</code>。知识点：<font color=red>字符串连接</font>。除了以上两种连接方式，还有 <code>strings.Join()</code>、<code>buffer.WriteString()</code>等。</p>
 <h3 id="2下面这段代码能否编译通过如果可以输出什么">2.下面这段代码能否编译通过？如果可以，输出什么？</h3>
 <div class="highlight"><div class="chroma">
@@ -714,7 +735,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>参考答案及解析：编译通过，输出：<strong>0 2 zz zz 5</strong>。知识点：<strong>iota 的使用</strong>。</p>
+</div><hr>
+<p>参考答案及解析：编译通过，输出：<strong>0 2 zz zz 5</strong>。知识点：<strong>iota 的使用</strong>。</p>
 <p><strong>iota是golang语言的常量计数器,只能在常量的表达式中使用。</strong></p>
 <ol>
 <li>
@@ -748,8 +770,6 @@
 </div></li>
 <li>
 <p>自增长常量经常包含一个自定义枚举类型，允许你依靠编译器完成自增设置。</p>
-</li>
-</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -772,7 +792,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>下面是来自time包的例子，它首先定义了一个Weekday命名类型，然后为一周的每天定义了一个常量，从周日0开始。在其它编程语言中，这种类型一般被称为枚举类型。</p>
+</div></li>
+</ol>
+<p>​      下面是来自time包的例子，它首先定义了一个Weekday命名类型，然后为      一周的每天定义了一个常量，从周日0开始，在其它编程语言中，这种类型一  	  般被称为枚举类型。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -801,7 +823,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>周一将对应0，周一为1，如此等等。</p>
+</div><p>​	  周一将对应0，周一为1，如此等等。</p>
 <ol start="6">
 <li>
 <p><strong>可跳过的值</strong></p>
@@ -1101,6 +1123,7 @@
 <li>C. var x string = nil</li>
 <li>D. var x error = nil</li>
 </ul>
+<hr>
 <p>参考答案及解析：<strong>BD</strong>。知识点：<strong>nil 值</strong>。<font color=red>nil 只能赋值给指针、chan、func、interface、map 或 slice 类型的变量</font>。强调下 D 选项的 error 类型，它是一种内置接口类型，看下方贴出的源码就知道，所以 D 是对的。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1115,6 +1138,117 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="day8">Day8</h2>
+<h4 id="1关于init函数下面说法正确的是">1.关于init函数，下面说法正确的是？</h4>
+<ul>
+<li>A. 一个包中，可以包含多个 init 函数；</li>
+<li>B. 程序编译时，先执行依赖包的 init 函数，再执行 main 包内的 init 函数；</li>
+<li>C. main 包中，不能有 init 函数；</li>
+<li>D. init 函数可以被其他函数调用；</li>
+</ul>
+<hr>
+<p>参考答案及解析：<strong>AB</strong>。关于 init() 函数有几个需要注意的地方：</p>
+<ul>
+<li>
+<p>init() 函数是用于程序执行前做包的<strong>初始化</strong>的函数，比如初始化包里的变量等;</p>
+</li>
+<li>
+<p>一个包可以出现<strong>多个</strong> init() 函数，一个源文件也可以包含多个 init() 函数；</p>
+</li>
+<li>
+<p><strong>同一个包中多个 init() 函数的执行顺序没有明确定义，但是不同包的init函数是根据包导入的依赖关系决定的</strong>（看下图）;</p>
+</li>
+<li>
+<p>init() 函数在代码中<strong>不能被显示调用、不能被引用</strong>（赋值给函数变量），否则出现编译错误;</p>
+</li>
+<li>
+<p>一个包被引用多次，如 A import B,C import B,A import C，<strong>B 被引用多次，但 B 包只会初始化一次</strong>；</p>
+</li>
+<li>
+<p>引入包，<strong>不可出现死循坏</strong>。即 A import B,B import A，这种情况编译失败；</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271057480.jpeg" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271057480.jpeg, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271057480.jpeg 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271057480.jpeg 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+</li>
+</ul>
+<h4 id="2下面这段代码输出什么以及原因">2.下面这段代码输出什么以及原因？</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">hello</span><span class="p">()</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">     <span class="nx">h</span> <span class="o">:=</span> <span class="nx">hello</span>
+</span></span><span class="line"><span class="cl">     <span class="k">if</span> <span class="nx">h</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;nil&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;not nil&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A. nil</li>
+<li>B. not nil</li>
+<li>C. compilation error</li>
+</ul>
+<hr>
+<p>答案及解析：<strong>B</strong>。这道题目里面，是将 hello() （应该是hello吧）赋值给变量 h，而不是函数的返回值，所以输出 not nil。<font color=red>没懂，敲代码看一看</font></p>
+<h4 id="3下面这段代码能否编译通过如果可以输出什么">3.下面这段代码能否编译通过？如果可以，输出什么？</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">GetValue</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">i</span> <span class="o">:=</span> <span class="nf">GetValue</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">     <span class="k">switch</span> <span class="nx">i</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">case</span> <span class="kt">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">         <span class="nb">println</span><span class="p">(</span><span class="s">&#34;int&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="k">case</span> <span class="kt">string</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">println</span><span class="p">(</span><span class="s">&#34;string&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="k">case</span> <span class="kd">interface</span><span class="p">{}:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">println</span><span class="p">(</span><span class="s">&#34;interface&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">println</span><span class="p">(</span><span class="s">&#34;unknown&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：<strong>编译失败</strong>。考点：类型选择，类型选择的语法形如：i.(type)，其中 <strong>i 是接口</strong>，<strong>type 是固定关键字</strong>，需要注意的是，<font color=red>只有接口类型才可以使用类型选择</font>。看下关于接口的文章。</p>
 <h2 id="day9">Day9</h2>
 <h2 id="day10">Day10</h2></div><div class="post-footer" id="post-footer">
   <div class="post-info">
