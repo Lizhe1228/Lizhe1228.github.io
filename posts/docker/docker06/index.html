@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='docker' /><meta itemprop="name" content="Docker网络">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-05-24T09:59:54+08:00" />
 <meta itemprop="dateModified" content="2023-05-24T09:59:54+08:00" />
-<meta itemprop="wordCount" content="1191"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="2924"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="docker," /><meta property="og:title" content="Docker网络" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/docker\/docker06\/"
-    },"genre": "posts","keywords": "docker","wordcount":  1191 ,
+    },"genre": "posts","keywords": "docker","wordcount":  2924 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/docker\/docker06\/","datePublished": "2023-05-24T09:59:54+08:00","dateModified": "2023-05-24T09:59:54+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.jpg" srcset="/nzr.jpg, nzr.jpg 1.5x, /nzr.jpg 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/docker/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> docker</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-24 09:59:54"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-24">2023-05-24</time></span>&nbsp;<span title="更新于 2023-05-24 09:59:54"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-24">2023-05-24</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1191 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Docker网络">
+      <div class="post-meta-line"><span title="发布于 2023-05-24 09:59:54"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-24">2023-05-24</time></span>&nbsp;<span title="更新于 2023-05-24 09:59:54"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-24">2023-05-24</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2924 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 6 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Docker网络">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -222,7 +222,36 @@
             <li><a href="#结论">结论</a></li>
           </ul>
         </li>
-        <li><a href="#案例说明">案例说明</a></li>
+        <li><a href="#案例说明">案例说明</a>
+          <ul>
+            <li><a href="#bridge">bridge</a>
+              <ul>
+                <li><a href="#是什么">是什么</a></li>
+                <li><a href="#案例">案例</a>
+                  <ul>
+                    <li><a href="#说明-1">说明</a></li>
+                    <li><a href="#代码">代码</a></li>
+                    <li><a href="#两两匹配验证">两两匹配验证</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#host">host</a>
+              <ul>
+                <li><a href="#是什么-1">是什么</a></li>
+                <li><a href="#案例-1">案例</a></li>
+              </ul>
+            </li>
+            <li><a href="#none">none</a></li>
+            <li><a href="#container">container</a></li>
+            <li><a href="#自定义网络">自定义网络</a>
+              <ul>
+                <li><a href="#使用自定义网络之前">使用自定义网络之前</a></li>
+                <li><a href="#使用自定义网络之后">使用自定义网络之后</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -314,8 +343,102 @@
 </table>
 <h3 id="容器实例内默认网络ip生成规则">容器实例内默认网络IP生成规则</h3>
 <h4 id="说明">说明</h4>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271538955.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271538955.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271538955.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271538955.png 2x" sizes="auto" data-title="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271538955.png" data-alt="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271538955.png" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271539910.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271539910.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271539910.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271539910.png 2x" sizes="auto" data-title="image-20230527153905805" data-alt="image-20230527153905805" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271539766.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271539766.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271539766.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271539766.png 2x" sizes="auto" data-title="image-20230527153919674" data-alt="image-20230527153919674" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <h4 id="结论">结论</h4>
-<h3 id="案例说明">案例说明</h3></div><div class="post-footer" id="post-footer">
+<p>docker容器内部的ip是有可能会发生改变的。比如上面的情况中，原来172.17.0.3是属于u2的，后来u2挂了，该ip归新启动的u3所有了，如果我们其他的服务是按照ip互相连接的，就会出现错误。</p>
+<h3 id="案例说明">案例说明</h3>
+<h4 id="bridge">bridge</h4>
+<h5 id="是什么">是什么</h5>
+<p>Docker服务默认会创建一个docker0网桥（其上有一个docker0内部接口），该桥接网络的名称为docker0，它在<font color=red>内核层</font>联通了其他的物理或虚拟网卡，这就将所有容器和本地主机都放到<font color=red>同一个物理网络</font>。Docker默认指定了docker0接口的IP地址和子网掩码，让主机和容器之间可以通过网桥相互通信。</p>
+<p>查看bridge网络的详细信息，并通过grep获取名称项。</p>
+<p><code>docker network inspect bridge | grep name</code></p>
+<p><code>ifconfig | grep docker</code></p>
+<h5 id="案例">案例</h5>
+<h6 id="说明-1">说明</h6>
+<ol>
+<li>
+<p>Docker使用Linux桥接，在宿主机虚拟一个Docker容器网桥（docker0），Docker启动一个容器时会根据Docker网桥的桥段分配给容器一个IP地址，成为Container-IP，同时Docker网桥是每个容器的默认网关。因为在同一宿主机内的容器都接入同一个网桥，这样容器之间就能通过容器的Container-IP直接通信。</p>
+</li>
+<li>
+<p>docker run的时候，没有指定network的话默认使用的网络模式是bridge，使用的就是docker0。在宿主机ifconfig，就可以看到docker0和自己create的network，eth0，eth1，eth2……，lo代表127.0.0.1，即localhost，inet addr用来表示网卡的IP地址。</p>
+</li>
+<li>
+<p>网桥docker0创建一对 对等的虚拟设备接口一个叫veth，另一个叫eth0，成对匹配。</p>
+<ul>
+<li>整个宿主机的网桥模式都是docker0，类似一个交换机有一堆接口，每个接口叫veth，在本地主机和容器内分别创建一个虚拟接口，并让他们彼此联通（这样一对接口叫veth pair）</li>
+<li>每个容器实例内部也有一块网卡，每个接口叫eth0。</li>
+<li>docker0上面的每个veth匹配某个容器实例内部的eth0，两两配对，一一匹配。</li>
+</ul>
+<p>通过上述，将宿主机上的所有容器都连接到这个网络内部上，两个容器在同一个网络下，会从这个网关下各自拿到分配的ip，此时两个容器的网络是互通的。</p>
+</li>
+</ol>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271606498.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271606498.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271606498.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271606498.png 2x" sizes="auto" data-title="image-20230527160609393" data-alt="image-20230527160609393" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h6 id="代码">代码</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -p 8081:8080 --name tomcat81 billygoo/tomcat8-jdk8
+</span></span><span class="line"><span class="cl">docker run -d -p 8082:8080 --name tomcat81 billygoo/tomcat8-jdk8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="两两匹配验证">两两匹配验证</h6>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271621594.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271621594.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271621594.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271621594.png 2x" sizes="auto" data-title="image-20230527162138450" data-alt="image-20230527162138450" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="host">host</h4>
+<h5 id="是什么-1">是什么</h5>
+<p>直接使用宿主机的ip地址与外界进行通信，不再需要额外进行NAT转换。</p>
+<h5 id="案例-1">案例</h5>
+<p>容器将<font color=red>不会获得</font>一个独立的Network Namespace，而是和宿主机共用一个Network Namespace。<font color=red>容器将不会虚拟出自己的网卡而是使用宿主机的IP和端口。</font></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271625290.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271625290.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271625290.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271625290.png 2x" sizes="auto" data-title="image-20230527162559156" data-alt="image-20230527162559156" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>docker run -d -p 8083:8080 --network host --name tomcat83 billygoo/tomcat8-jdk8</code> <code>WARNING：Published ports are discarded when using host network mode</code></p>
+<p>这样启动会遇到警告，原因是docker启动时指定<code>--network=host</code>或<code>-net=host</code>，如果还指定了<code>-p</code>映射端口，那这个时候就会有此警告，并且通过<code>-p</code>设置的参数将不会起到任何作用，端口号会以主机端口号为主，重复时则递增。解决方法就是使用docker的其他网络模式，例如bridge或者直接无视。</p>
+<p>正确的写法应该是<code>docker run -d --network host --name tomcat83 billygoo/tomcat8-jdk8</code></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271635219.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271635219.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271635219.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271635219.png 2x" sizes="auto" data-title="image-20230527163505137" data-alt="image-20230527163505137" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271636530.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271636530.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271636530.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271636530.png 2x" sizes="auto" data-title="image-20230527163615468" data-alt="image-20230527163615468" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="none">none</h4>
+<p>禁用网络功能，只有lo（localhost）。在none模式下，并不为Docker容器进行任何网络配置。也就是说，这个Docker容器没有网卡、IP、路由等信息，只有一个lo，需要我们自己为Docker容器添加网卡、配置IP等。</p>
+<p><code>docker run -d -p 8084:8080 --network none --name tomcat84 billigoo/tomcat8-jdk8</code></p>
+<h4 id="container">container</h4>
+<p>新建的容器和已经存在的一个容器共享一个网络ip配置而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的IP，而是和一个指定的容器共享IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271641822.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271641822.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271641822.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271641822.png 2x" sizes="auto" data-title="image-20230527164139709" data-alt="image-20230527164139709" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>错误案例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -p 8085:8080 --name tomcat85 billygoo/tomcat8-jdk8
+</span></span><span class="line"><span class="cl">docker run -d -p 8086:8080 --network container:tomcat85  --name tomcat85 billygoo/tomcat8-jdk8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271647482.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271647482.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271647482.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271647482.png 2x" sizes="auto" data-title="image-20230527164702361" data-alt="image-20230527164702361" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>正确案例</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271647992.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271647992.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271647992.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271647992.png 2x" sizes="auto" data-title="image-20230527164753905" data-alt="image-20230527164753905" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271648516.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271648516.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271648516.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271648516.png 2x" sizes="auto" data-title="image-20230527164847414" data-alt="image-20230527164847414" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271650450.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271650450.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271650450.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271650450.png 2x" sizes="auto" data-title="image-20230527165001355" data-alt="image-20230527165001355" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="自定义网络">自定义网络</h4>
+<h5 id="使用自定义网络之前">使用自定义网络之前</h5>
+<p>案例：</p>
+<p><code>docker run -d -p 8081:8080 --name tomcat81 billygoo/tomcat8-jdk8</code></p>
+<p><code>docker run -d -p 8082:8080 --name tomcat82 billygoo/tomcat8-jdk8</code></p>
+<p>上述成功启动并用<code>docker exec</code>进入各自容器实例内部</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271831058.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271831058.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271831058.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271831058.png 2x" sizes="auto" data-title="image-20230527183108889" data-alt="image-20230527183108889" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271831287.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271831287.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271831287.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305271831287.png 2x" sizes="auto" data-title="image-20230527183125227" data-alt="image-20230527183125227" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h5 id="使用自定义网络之后">使用自定义网络之后</h5>
+<p>案例：</p>
+<p>自定义桥接网络，自定义网络默认使用的是桥接网络bridge。</p>
+<p>新建自定义网络。</p>
+<p><code>docker network create nzR_network</code></p>
+<p>新建容器加入上一步新建的自定义网络。</p>
+<p><code>docker run -d -p 8081:8080 --network nzR_neetwork --name tomcat81 billygoo/tomcat8-jdk8</code></p>
+<p><code>docker run -d -p 8082:8080 --network nzR_neetwork --name tomcat81 billygoo/tomcat8-jdk8</code></p>
+<p>互相ping测试</p>
+<p>此时在tomcat81下<code>ping tomcat82</code>或在tomcat82下<code>ping tomcat81</code>均可成功。</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
