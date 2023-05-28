@@ -10,7 +10,7 @@
 <meta name="description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day1-10)">
 <meta itemprop="description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti"><meta itemprop="datePublished" content="2023-05-22T17:47:44+08:00" />
 <meta itemprop="dateModified" content="2023-05-22T17:47:44+08:00" />
-<meta itemprop="wordCount" content="5649"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="10184"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day1-10)" />
 <meta property="og:description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day1-10\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  5649 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  10184 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day1-10\/","datePublished": "2023-05-22T17:47:44+08:00","dateModified": "2023-05-22T17:47:44+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.jpg" srcset="/nzr.jpg, nzr.jpg 1.5x, /nzr.jpg 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-22 17:47:44"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span title="更新于 2023-05-22 17:47:44"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 5649 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 12 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day1-10)">
+      <div class="post-meta-line"><span title="发布于 2023-05-22 17:47:44"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span title="更新于 2023-05-22 17:47:44"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 10184 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 21 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day1-10)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -242,7 +242,35 @@
         </li>
       </ul>
     </li>
-    <li><a href="#day9">Day9</a></li>
+    <li><a href="#day9">Day9</a>
+      <ul>
+        <li><a href="#1关于channel下面语法正确的是">1.关于channel，下面语法正确的是？</a></li>
+        <li><a href="#2下面这段代码输出什么">2.下面这段代码输出什么？</a></li>
+        <li><a href="#3下面这段代码输出什么">3.下面这段代码输出什么？</a></li>
+        <li><a href="#延伸">延伸</a>
+          <ul>
+            <li><a href="#切片传参的幻觉---传引用">切片传参的幻觉 - 传引用</a></li>
+            <li><a href="#理清三个重要概念">理清三个重要概念</a>
+              <ul>
+                <li><a href="#传值值传递"><em>传值（值传递）</em></a></li>
+                <li><a href="#传指针"><em>传指针</em></a></li>
+                <li><a href="#传引用引用传递"><em>传引用（引用传递）</em></a></li>
+              </ul>
+            </li>
+            <li><a href="#官方打假go函数传参只有值传递">官方打假：Go函数传参只有值传递</a></li>
+            <li><a href="#切片参数本质还是传值">切片参数本质还是传值</a></li>
+            <li><a href="#slice的结构体"><em>slice的结构体</em></a></li>
+            <li><a href="#go函数传值总结"><em>Go函数传值总结</em></a></li>
+            <li><a href="#切片参数修改形参一定影响实参吗">切片参数，修改形参一定影响实参吗</a>
+              <ul>
+                <li><a href="#切片扩容"><em>切片扩容</em></a></li>
+                <li><a href="#切片容量计算"><em>切片容量计算</em></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#day10">Day10</a></li>
   </ul>
 </nav></div>
@@ -1250,6 +1278,502 @@
 </div><hr>
 <p>参考答案及解析：<strong>编译失败</strong>。考点：类型选择，类型选择的语法形如：i.(type)，其中 <strong>i 是接口</strong>，<strong>type 是固定关键字</strong>，需要注意的是，<font color=red>只有接口类型才可以使用类型选择</font>。看下关于接口的文章。</p>
 <h2 id="day9">Day9</h2>
+<h3 id="1关于channel下面语法正确的是">1.关于channel，下面语法正确的是？</h3>
+<ul>
+<li>A. var ch chan int</li>
+<li>B. ch := make(chan int)</li>
+<li>C. &lt;- ch</li>
+<li>D. ch &lt;-</li>
+</ul>
+<hr>
+<p>参考答案及解析：ABC。A、B都是声明 channel；C 读取 channel；<strong>写 channel 是必须带上值</strong>，所以 D 错误。</p>
+<h3 id="2下面这段代码输出什么">2.下面这段代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">person</span> <span class="kd">struct</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">m</span> <span class="kd">map</span><span class="p">[</span><span class="nx">person</span><span class="p">]</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">person</span><span class="p">{</span><span class="s">&#34;mike&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">p</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A.0</li>
+<li>B.1</li>
+<li>C.Compilation error</li>
+</ul>
+<hr>
+<p>参考答案及解析：A。<strong>打印一个 map 中不存在的值时，返回元素类型的零值</strong>。这个例子中，m 的类型是 map[person]int，因为 m 中不存在 p，所以打印 int 类型的零值，即 0。</p>
+<h3 id="3下面这段代码输出什么">3.下面这段代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">hello</span><span class="p">(</span><span class="nx">num</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nx">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nx">i</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">hello</span><span class="p">(</span><span class="nx">i</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A.18</li>
+<li>B.5</li>
+<li>C.Compilation error</li>
+</ul>
+<hr>
+<p>参考答案及解析：18。知识点：<strong>可变参数</strong>。</p>
+<p>形如<code>...type</code>格式的类型只能作为函数的参数类型存在，并且必须是最后一个参数，它是一个语法糖（syntactic sugar），即这种语法对语言的功能并没有影响，但是更方便程序员使用，通常来说，使用语法糖能够增加程序的可读性，从而减少程序出错的可能。</p>
+<p>从内部实现机理上来说，类型<code>...type</code>本质上是一个数组切片，也就是<code>[]type</code>。</p>
+<p>做这道题时思考的一个问题，为什么看起来切片作为参数传进去的时候不是值传递呢？正如下面的情况，当我们要修改一个数的值的时候，需要传入指针，而修改切片的时候直接将切片作为参数就可以直接对切片进行修改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">i</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">changeSlice</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">num</span> <span class="o">:=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">changeInt</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">changeSlice</span><span class="p">(</span><span class="nx">num</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">changeInt</span><span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="nx">a</span> <span class="p">=</span> <span class="mi">250</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">18</span>
+</span></span><span class="line"><span class="cl"><span class="mi">250</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="延伸">延伸</h3>
+<p>切片作为函数参数是传值还是传引用？</p>
+<p>学习链接：https://juejin.cn/post/6888117219213967368</p>
+<h4 id="切片传参的幻觉---传引用">切片传参的幻觉 - 传引用</h4>
+<p>golang中函数的参数为切片时是传引用还是传值？对于这个问题，当你百度一轮过后，你会发现很大一部分人认为是传引用，通常他们会贴出下面这段代码进行佐证：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">pacakge</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">changeSlice</span><span class="p">(</span><span class="nx">s</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">111</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">slice</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;slice: %v \n&#34;</span><span class="p">,</span> <span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">changeSlice</span><span class="p">(</span><span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;slice: %v\n&#34;</span><span class="p">,</span> <span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面代码中，在main函数里边初始化一个切片变量slice，接着调用changeSlice函数，参数为切片变量slice。而函数changeSlice的主要处理逻辑是改变切片的第二个元素的值。下面我们看一下运行打印的结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">slice</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">slice</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">111</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从输出结果我们看到，函数changeSlice内对切片的修改，main函数中的切片变量slice也跟着修改了。咋一看，这不就是引用传递的表现吗？</p>
+<p>但事实上真的传引用吗？</p>
+<h4 id="理清三个重要概念">理清三个重要概念</h4>
+<p>在探讨函数切片参数到底是以哪种方式传递时，我们先来理清下面三个重要的概念：</p>
+<ul>
+<li>传值（值传递）</li>
+<li>传指针</li>
+<li>传引用（引用传递）</li>
+</ul>
+<h5 id="传值值传递"><em>传值（值传递）</em></h5>
+<p>是指在调用函数时将实际参数拷贝一份传递到函数中，这样在函数中对参数进行修改不会影响到实际参数。这个简单不必赘述。</p>
+<h5 id="传指针"><em>传指针</em></h5>
+<p>形参是指向实参地址的指针，当对形参的指向进行操作时，就相当于对实参本身进行操作。听起来比较绕是吧，我们来看个例子就知道了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pa</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">a</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;value: %p\n&#34;</span><span class="p">,</span> <span class="nx">pa</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;addr: %p\n&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">pa</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">modify</span><span class="p">(</span><span class="nx">pa</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;a 的值被修改了，新值为:&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">modify</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;函数内的 value: %p\n&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;函数内的 addr: %p\n&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="nx">p</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面代码中定义了一个变量 a，并把地址保存在指针变量pa里面；接着打印pa的值和pa的地址，然后调用modify函数，参数为指针变量pa；modify函数中首先打印形参p的值和p的地址，接着修改p的值为1。</p>
+<p>我们打印输出的结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">value</span><span class="p">:</span> <span class="mh">0xc000016088</span>
+</span></span><span class="line"><span class="cl"><span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc00000e028</span>
+</span></span><span class="line"><span class="cl"><span class="err">函数内的</span> <span class="nx">value</span><span class="p">:</span> <span class="mh">0xc000016088</span>
+</span></span><span class="line"><span class="cl"><span class="err">函数内的</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc00000e038</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="err">的值被修改了，新值为</span><span class="p">:</span> <span class="mi">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从输出结果中我们可以看到，<em>这是一个指针的拷贝</em>。指针pa 和 p 的值虽然相同，但是存放这两个指针的内存地址是不同的，因此这是两个不同的指针。</p>
+<p><em>注意：任何存放在内存里的东西都有自己的地址，指针也不例外，它虽然指向别的数据，但是也有存放该指针的内存</em>。</p>
+<p>结合图来看相信会更清晰一点：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281105794.webp" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281105794.webp, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281105794.webp 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281105794.webp 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h5 id="传引用引用传递"><em>传引用（引用传递）</em></h5>
+<p>是指在调用函数时将实际参数的地址传递到函数中，在函数中对参数所进行的修改，将影响实际参数。</p>
+<p>假设以上面demo为例子，如果在modify函数中打印指针变量p的地址也是0xc00000e028，那么我们就认为是引用传递</p>
+<p>但这里我们不能用go来举例子，原因请接着往下看。</p>
+<h4 id="官方打假go函数传参只有值传递">官方打假：Go函数传参只有值传递</h4>
+<p>看完<em>传值、传指针、传引用</em>的概念后，如果你坚持认为是传引用，好，大叔要在这里直接把你击垮。</p>
+<p>根据Go官方文档声明：<em>Go里面函数传参只有值传递一种方式</em>。也就是说，在Go中，函数的传参只有传值一种方式。<a href="https://link.juejin.cn?target=https%3A%2F%2Fgolang.org%2Fref%2Fspec%23Calls"target="_blank" rel="external nofollow noopener noreferrer">官方文档传送门</a></p>
+<p>如果你还不服气，咱们直接看例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">changeSlice</span><span class="p">(</span><span class="nx">s</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;func: %p \n&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">111</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">slice</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;slice: %v slice addr %p \n&#34;</span><span class="p">,</span> <span class="nx">slice</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">changeSlice</span><span class="p">(</span><span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;slice: %v slice addr %p \n&#34;</span><span class="p">,</span> <span class="nx">slice</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">slice</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span> <span class="nx">slice</span> <span class="nx">addr</span> <span class="mh">0xc0000a6020</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="p">:</span> <span class="mh">0xc0000a6060</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">slice</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">111</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span> <span class="nx">slice</span> <span class="nx">addr</span> <span class="mh">0xc0000a6020</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果函数切片参数传的是引用，那么上面这个例子中，main函数中打印的切片slice的地址应该和changSlice函数中打印切片的地址一样的，但从输出结果来看并不是这样的。</p>
+<p>因此在这里，我们可以非常肯定地说：<em>有关Go函数中切片参数是传引用的说法是错误的，另外有关有关引用传递是针对slice、map、channel三种数据类型地说法也是错误的</em>。</p>
+<h4 id="切片参数本质还是传值">切片参数本质还是传值</h4>
+<p>从上面的分析来看，切片参数传递的方式并非是传引用。反而极有可能是传指针，而在传指针那小节的分析中我们可以知道，传指针其实就是指针的拷贝，形参和实参是两个不同的指针，但是它们的值是一样的。本质上可以说还是传值。</p>
+<p>那到底是不是这样的呢？大叔疑问句都出来了，说明90%是有可能的，接下我们就验证一下那剩下的10%。</p>
+<h4 id="slice的结构体"><em>slice的结构体</em></h4>
+<p>我们先来看一下切片的结构体是长啥样的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">slice</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">array</span> <span class="nx">unsafe</span><span class="p">.</span><span class="nx">Pointer</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">len</span>   <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cap</span>   <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Pointer</span> <span class="o">*</span><span class="nx">ArbitraryType</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>切片，顾名思义就是数组切下来的一部分，其结构体包含了三部分，第一部分是指向底层数组的指针，其次是切片的大小len和切片的容量cap。（果然含有指针成员变量。）</p>
+<p>上面的结构体看着有点变扭，不够直观，我们造个例子：一个数组 arr := [5]int{0,1,2,3,4}，生成一个切片 slice := arr[1:4]，最终得到的切片如下：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281107606.webp" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281107606.webp, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281107606.webp 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281107606.webp 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>再看个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">slice1</span> <span class="o">:=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">slice2</span> <span class="o">:=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印一
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;arr %v, slice1 %v, slice2 %v   arr addr: %p, slice1 addr: %p, slice2 addr: %p\n&#34;</span><span class="p">,</span> <span class="nx">arr</span><span class="p">,</span> <span class="nx">slice1</span><span class="p">,</span> <span class="nx">slice2</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">arr</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">slice1</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">slice2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印二
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;arr[2] addr: %p, slice1[1] addr: %p, slice2[0] addr: %p\n&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">slice1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">slice2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="mi">2222</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印三
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;arr: %v, slice1: %v, slice2: %v\n&#34;</span><span class="p">,</span> <span class="nx">arr</span><span class="p">,</span> <span class="nx">slice1</span><span class="p">,</span> <span class="nx">slice2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">slice1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1111</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印四
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;arr: %v, slice1: %v, slice2: %v\n&#34;</span><span class="p">,</span> <span class="nx">arr</span><span class="p">,</span> <span class="nx">slice1</span><span class="p">,</span> <span class="nx">slice2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面代码中我们创建一个数组，并生成两个切片。打印它们的值和对应的地址。另外，修改数组或者切片的某个单元的值，观察数组和切片中单元的值的变化：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">arr</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">],</span> <span class="nx">slice1</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">],</span> <span class="nx">slice2</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>   <span class="nx">arr</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc000014090</span><span class="p">,</span> <span class="nx">slice1</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc00000c080</span><span class="p">,</span> <span class="nx">slice2</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc00000c0a0</span>
+</span></span><span class="line"><span class="cl"><span class="nx">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc0000140a0</span><span class="p">,</span> <span class="nx">slice1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc0000140a0</span><span class="p">,</span> <span class="nx">slice2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc0000140a0</span>
+</span></span><span class="line"><span class="cl"><span class="nx">arr</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2222</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">],</span> <span class="nx">slice1</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2222</span> <span class="mi">3</span><span class="p">],</span> <span class="nx">slice2</span><span class="p">:</span> <span class="p">[</span><span class="mi">2222</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">arr</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">1111</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">],</span> <span class="nx">slice1</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1111</span> <span class="mi">3</span><span class="p">],</span> <span class="nx">slice2</span><span class="p">:</span> <span class="p">[</span><span class="mi">1111</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>从打印一结果可以看出：创建的两个切片，它们各自拥有不同的地址</li>
+<li>从打印二结果可以看出：切片元素slice1[1]、slice2[0] 与数组元素arr[2]有着同样的地址，说明这些<em>切片共享着数组arr中的数据</em></li>
+<li>打印三和打印四可以看出：修改数组和切片共同部分的数据，对两者都有直接影响，再次印证第二点的结论。</li>
+</ul>
+<p>从上面的分析中我们可以知道，两个不同的切片之所以能相互影响，主要因素是切片内部的指针指向同一个数据源，且两个切片的指针指向的数据源中有交集。</p>
+<p>再回到切片作为函数参数的问题上，因为<em>Go里面函数传参只有值传递一种方式</em>，所以当切片作为参数时，其实也是切片的拷贝，但是在拷贝的切片中，其包含的指针成员变量的值是一样的，也就是说它们指向的数据源是一样，因此在调用函数内修改形参能影响实参。</p>
+<h4 id="go函数传值总结"><em>Go函数传值总结</em></h4>
+<p>通常，我们把在传值拷贝过程中，修改形参能直接修改实参的数据类型称为<em>引用类型</em>。</p>
+<p>于是我们又可以这样总结：</p>
+<p><em>Go语言中所有的传参都是值传递（传值），都是一个副本，一个拷贝。因为拷贝的内容有时候是非引用类型（int、string、struct等这些），这样就在函数中就无法修改原内容数据；有的是引用类型（指针、map、slice、chan等这些），这样就可以修改原内容数据。</em></p>
+<p>这里要注意的是：<em>引用类型和传引用是两个概念</em>。</p>
+<h4 id="切片参数修改形参一定影响实参吗">切片参数，修改形参一定影响实参吗</h4>
+<p>是的，看到这里，我们应该问自己一个问题：函数的切片参数，在函数内修改形参一定会影响外部的实参吗？（疑问句一出必然有鬼！）</p>
+<p>我们来看个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">slice</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">slice</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">slice</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">i</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;slice: %v, addr: %p \n&#34;</span><span class="p">,</span> <span class="nx">slice</span><span class="p">,</span> <span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">changeSlice</span><span class="p">(</span><span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;slice: %v, addr: %p \n&#34;</span><span class="p">,</span> <span class="nx">slice</span><span class="p">,</span> <span class="nx">slice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">changeSlice</span><span class="p">(</span><span class="nx">s</span> <span class="p">[]</span><span class="kt">int</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">111</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;func s: %v, addr: %p \n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面代码中，先是创建好一个长度为2，容量为3的空切片，然后给切片赋两个值，接着调用函数changeSlice，参数为赋完值的切片。函数changeSlice里面先是往切片中追加两个元素，然后再改变切片的第二个元素的值。</p>
+<p>我们来看看打印结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">slice</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">],</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc00001a100</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nx">s</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">111</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">],</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc000014090</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">slice</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">],</span> <span class="nx">addr</span><span class="p">:</span> <span class="mh">0xc00001a100</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从输出结果我们可以看到，函数内修改形参s后，外部的实参slice并没有跟着改变，而且注意到一点是，形参s和实参slice的指针成员变量的值是不一样的，也就是说它们指向的数据源不是同一个了。</p>
+<p>这又是为什么呢？</p>
+<h5 id="切片扩容"><em>切片扩容</em></h5>
+<p>首先我们来了解一个知识点：</p>
+<p><em>无论数组还是切片，都有长度限制。也就是追加切片的时候，如果元素正好在切片的容量范围内，直接在尾部追加一个元素即可。如果超出了最大容量，再追加元素就需要针对底层的数组进行复制和扩容操作了</em>。</p>
+<p>也就是说：</p>
+<ul>
+<li>使用append方法给slice追加元素的时候，由于slice的容量还未满，因此等同于扩展了slice指向数组的内容，可以理解为重新切了一个数组内容附给slice，同时修改了数组的内容。</li>
+<li>使用append方法给slice追加元素的时候，如果此时slice的容量已满，再进行追加时，超出了切片的容量，数组就会越界了，于是就会出现扩容操作</li>
+</ul>
+<p>当需要扩容时，append会做哪些操作呢？</p>
+<ol>
+<li>创建一个新的临时切片t，t的长度和slice切片的长度一样，但是t的容量是slice切片的2倍，新建切片的时候，底层也创建了一个匿名的数组，数组的长度和切片容量一样。（实际上不一定是两倍扩容，详情可参考文章<a href="https://link.juejin.cn?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzIyMTg2OTQ5NA%3D%3D%26mid%3D2247484589%26idx%3D1%26sn%3D7f98cdd463f52ef0bee309400ff5be61%26chksm%3De8376074df40e962eec9f9dad4c80f0d1c47f341344d0696d0f2d466aba61394c515fde8723b%26token%3D449529257%26lang%3Dzh_CN%23rd"target="_blank" rel="external nofollow noopener noreferrer"> Golang 中关于slice扩容策略</a>）</li>
+<li>复制slice里面的元素到t里，即填入匿名数组中。然后把t赋值给slice，现在slice的指向了底层的匿名数组。</li>
+<li>转变成小于容量的append方法。</li>
+</ol>
+<p>举个例子，数组arr = [3]int{0, 11, 22}，生成一个切片slice := arr[1:3]，使用append方法往切片slice中追加元素33，将发生以下操作：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281108689.webp" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281108689.webp, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281108689.webp 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281108689.webp 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>再回到刚刚举的例子，之所外部的实参切片变量slice不受形参切片变量s修改的影响，因为在执行完 <em>s = append(s, 4)</em> 这段代码后，切片s的指针指向的数组发生了扩容，其指针指向了新的数组，因此当再次修改其第二个元素的值时，是不会影响外部切片变量slice的。</p>
+<h5 id="切片容量计算"><em>切片容量计算</em></h5>
+<p>具体的切片容量计算可参考下面的例子：</p>
+<p>数组 [0, 1, 2, 3, 4] 中，数组有5个元素。如果切片 s = [1, 2, 3]，那么3在数组的索引为3，也就是数组还剩最后一个元素的大小，加上s已经有3个元素，因此最后s的容量为 1 + 3 = 4。如果切片是 s1 = [4]，4的索引在数组中是最大的了，数组空余的元素为0，那么s1的容量为 0 + 1 = 1。具体如下表：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281109878.webp" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281109878.webp, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281109878.webp 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281109878.webp 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <h2 id="day10">Day10</h2></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
