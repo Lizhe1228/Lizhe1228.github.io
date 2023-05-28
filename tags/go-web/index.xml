@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>go web - 标签 - I am Lizhe1228</title>
+    <link>http://Lizhe1228.github.io/tags/go-web/</link>
+    <description>go web - 标签 - I am Lizhe1228</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sun, 28 May 2023 18:34:37 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/go-web/" rel="self" type="application/rss+xml" /><item>
+  <title>Gin框架路由详解</title>
+  <link>http://Lizhe1228.github.io/posts/gin/gin02/</link>
+  <pubDate>Sun, 28 May 2023 18:34:37 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/gin/gin02/</guid>
+  <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
