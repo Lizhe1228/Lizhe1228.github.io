@@ -7,12 +7,12 @@
     <meta name="robots" content="noodp" />
     <title>Gin框架路由详解 - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
 <meta name="author-link" content="">
-<meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='gin, go web' /><meta itemprop="name" content="Gin框架路由详解">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-05-28T18:34:37+08:00" />
+<meta name="description" content="后面的代码太长了，还没有看……" /><meta name="keywords" content='gin, go web' /><meta itemprop="name" content="Gin框架路由详解">
+<meta itemprop="description" content="后面的代码太长了，还没有看……"><meta itemprop="datePublished" content="2023-05-28T18:34:37+08:00" />
 <meta itemprop="dateModified" content="2023-05-28T18:34:37+08:00" />
-<meta itemprop="wordCount" content="1790"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="6623"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="gin,go web," /><meta property="og:title" content="Gin框架路由详解" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="后面的代码太长了，还没有看……" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://Lizhe1228.github.io/posts/gin/gin02/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-28T18:34:37+08:00" />
@@ -21,9 +21,9 @@
 <meta name="twitter:image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 
 <meta name="twitter:title" content="Gin框架路由详解"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="后面的代码太长了，还没有看……"/>
 <meta name="application-name" content="Lizhe1228">
-<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/gin/gin02/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/docker/docker08/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/gin/gin02/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/docker/docker08/" /><link rel="next" href="http://Lizhe1228.github.io/posts/docker/docker09/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin02\/"
-    },"genre": "posts","keywords": "gin, go web","wordcount":  1790 ,
+    },"genre": "posts","keywords": "gin, go web","wordcount":  6623 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin02\/","datePublished": "2023-05-28T18:34:37+08:00","dateModified": "2023-05-28T18:34:37+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/gin/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Gin</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-28 18:34:37"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-28">2023-05-28</time></span>&nbsp;<span title="更新于 2023-05-28 18:34:37"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-28">2023-05-28</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1790 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Gin框架路由详解">
+      <div class="post-meta-line"><span title="发布于 2023-05-28 18:34:37"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-28">2023-05-28</time></span>&nbsp;<span title="更新于 2023-05-28 18:34:37"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-28">2023-05-28</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 6623 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 14 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Gin框架路由详解">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -202,10 +202,24 @@
   <ul>
     <li><a href="#radix-tree">Radix Tree</a></li>
     <li><a href="#rrun">r.Run()</a></li>
+    <li><a href="#查看go源码的一个小技巧">查看go源码的一个小技巧</a></li>
     <li><a href="#路由树节点">路由树节点</a></li>
+    <li><a href="#请求方法树">请求方法树</a></li>
+    <li><a href="#注册路由">注册路由</a>
+      <ul>
+        <li><a href="#查看源码">查看源码</a></li>
+        <li><a href="#addroute">addRoute</a>
+          <ul>
+            <li><a href="#insertchild">insertChild</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#路由匹配">路由匹配</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content" data-end-flag="The END"><p>gin框架使用的是定制版本的<a href="https://github.com/julienschmidt/httprouter"target="_blank" rel="external nofollow noopener noreferrer">httprouter</a>，其路由的原理是大量使用公共前缀的树结构，它基本上是一个紧凑的<a href="https://baike.sogou.com/v66237892.htm"target="_blank" rel="external nofollow noopener noreferrer">Trie tree</a>（或者只是<a href="https://baike.sogou.com/v73626121.htm"target="_blank" rel="external nofollow noopener noreferrer">Radix Tree</a>）。具有公共前缀的节点也共享一个公共父节点。</p>
+      </div><div class="content" id="content" data-end-flag="The END"><p>后面的代码太长了，还没有看……</p>
+<p>gin框架使用的是定制版本的<a href="https://github.com/julienschmidt/httprouter"target="_blank" rel="external nofollow noopener noreferrer">httprouter</a>，其路由的原理是大量使用公共前缀的树结构，它基本上是一个紧凑的<a href="https://baike.sogou.com/v66237892.htm"target="_blank" rel="external nofollow noopener noreferrer">Trie tree</a>（或者只是<a href="https://baike.sogou.com/v73626121.htm"target="_blank" rel="external nofollow noopener noreferrer">Radix Tree</a>）。具有公共前缀的节点也共享一个公共父节点。</p>
 <h2 id="radix-tree">Radix Tree</h2>
 <p>基数树（Radix Tree）又称为PAT位树（Patricia Trie or crit bit tree），是一种更节省空间的前缀树（Trie Tree）。对于基数树的每个节点，如果该节点是唯一的子树的话，就和父节点合并。下图为一个基数树示例：</p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281845004.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281845004.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281845004.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281845004.png 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
@@ -329,6 +343,7 @@
 </div>
 </div><p>查看<code>ListenAndServe</code>源码，<code>ListenAndServe</code>有两个参数<code>addr string, handler Handler</code>，其中第二个参数<code>Handler</code>是一个接口类型，实现的是<code>ServeHTTP</code>方法。所以说<code>r</code>就是一个实现了<code>ServeHTTP</code>方法的<code>engine *Engine</code>。</p>
 <p>接下来我们去寻找，<code>Engine</code>中实现的ServerHTTP方法。查看<code>Engine</code>的源码结构。</p>
+<p><code>**</code> 为我们阅读源代码总结的内容，学到的东西。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -342,22 +357,76 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// ServeHTTP conforms to the http.Handler interface.
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">engine</span> <span class="o">*</span><span class="nx">Engine</span><span class="p">)</span> <span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">c</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Get</span><span class="p">().(</span><span class="o">*</span><span class="nx">Context</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">writermem</span><span class="p">.</span><span class="nf">reset</span><span class="p">(</span><span class="nx">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// **通过使用对象池减少每次临时创建对象的内存申请和垃圾回收的消耗
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">c</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Get</span><span class="p">().(</span><span class="o">*</span><span class="nx">Context</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// **在从池子里取出对象之后，对其初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">c</span><span class="p">.</span><span class="nx">writermem</span><span class="p">.</span><span class="nf">reset</span><span class="p">(</span><span class="nx">w</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">Request</span> <span class="p">=</span> <span class="nx">req</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nf">reset</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">engine</span><span class="p">.</span><span class="nf">handleHTTPRequest</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 处理HTTP请求
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">engine</span><span class="p">.</span><span class="nf">handleHTTPRequest</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 放回池子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="路由树节点">路由树节点</h2>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//**相较于 for i := 0; i &lt; len(t); i++ 源码的方式更好，因为我们只求一遍len(t)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tl</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">tl</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">t</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">method</span> <span class="o">!=</span> <span class="nx">httpMethod</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//** 写代码的时候，把不可能实现的情况，如continue或者return写到前面，这样不就直接退出或者走下一步的流程了。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292112195.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292112195.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292112195.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292112195.png 2x" sizes="auto" data-title="image-20230529211231114" data-alt="image-20230529211231114" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>t := engine.trees</code></p>
+<p>下图中也是一个常见的写法，先写一个结构体，再写一个 _ 接口类型 = 空结构体的指针，<strong>目的是确保结构体实现了我们写的这个接口</strong>。是想把问题暴露给编译器，便于我们解决bug，如果我们的结构体忘记实现了该接口，那么173行的这段代码就会编译报错，我们就能发现问题了。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292114680.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292114680.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292114680.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292114680.png 2x" sizes="auto" data-title="image-20230529211416638" data-alt="image-20230529211416638" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>可以看到该tree就是请求方法的树结构，我们之前讲过，每一个请求对应着一颗树。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292118164.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292118164.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292118164.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292118164.png 2x" sizes="auto" data-title="image-20230529211823100" data-alt="image-20230529211823100" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>methodTrees</code></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292119078.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292119078.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292119078.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292119078.png 2x" sizes="auto" data-title="image-20230529211936035" data-alt="image-20230529211936035" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>methodTree</code></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292120065.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292120065.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292120065.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292120065.png 2x" sizes="auto" data-title="image-20230529212007023" data-alt="image-20230529212007023" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>可以发现Gin框架并没有使用hash，使用map去存请求，因为使用map会更占用内存，Gin选择的是树结构，一个请求方法对应一颗树。</p>
+<p><code>get</code>函数是根据请求方法遍历所有的请求树，返回给要的那颗。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292121605.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292121605.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292121605.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292121605.png 2x" sizes="auto" data-title="image-20230529212134527" data-alt="image-20230529212134527" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>r := gin.Default()</code></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292130270.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292130270.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292130270.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292130270.png 2x" sizes="auto" data-title="image-20230529213012228" data-alt="image-20230529213012228" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>*Engine</code></p>
+<p>我们也可以看到Engine在初始化的时候，建的trees就是一个切片，切片的容量是9，是因为在http1.1中有9种请求方法，最多就有9颗树。我们也可以学到，像这种初始化，如果我们提前知道切片的最大容量是多少，最好在初始化的时候给出容量，将内存一次性申请到位，防止后面的动态申请、扩容内存，当然要具体根据我们的项目来定。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292129816.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292129816.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292129816.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292129816.png 2x" sizes="auto" data-title="image-20230529212937738" data-alt="image-20230529212937738" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="查看go源码的一个小技巧">查看go源码的一个小技巧</h2>
+<p>点击结构体左侧的向上的箭头，可以查看该结构体实现了那些接口</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292042920.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292042920.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292042920.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292042920.png 2x" sizes="auto" data-title="image-20230529204214814" data-alt="image-20230529204214814" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292042238.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292042238.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292042238.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292042238.png 2x" sizes="auto" data-title="image-20230529204222179" data-alt="image-20230529204222179" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>我们点进Handler接口进一步查看。点击下面的箭头还可以查看，实现了该接口的所有类型，以及具体的实现方法。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292055941.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292055941.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292055941.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292055941.png 2x" sizes="auto" data-title="image-20230529205504878" data-alt="image-20230529205504878" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292058732.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292058732.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292058732.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292058732.png 2x" sizes="auto" data-title="image-20230529205812672" data-alt="image-20230529205812672" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>总结一下，通过上面的方法，我们可以快速找到一个结构体实现的接口，并且找到该结构体实现该接口的具体方法。</p>
+<p>接下来我们继续看<code>node</code>，见下一章。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292135090.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292135090.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292135090.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292135090.png 2x" sizes="auto" data-title="image-20230529213520023" data-alt="image-20230529213520023" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="路由树节点">路由树节点</h2>
 <p>路由树是由一个个节点构成的，gin框架路由树的节点由<code>node</code>结构体表示，它有以下字段：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -421,6 +490,1096 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="请求方法树">请求方法树</h2>
+<p>这里前面阅读源代码的部分有的有讲过。</p>
+<p>在gin的路由中，每一个<code>HTTP Method</code>(GET、POST、PUT、DELETE…)都对应了一棵 <code>radix tree</code>，我们注册路由的时候会调用下面的<code>addRoute</code>函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// gin.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">engine</span> <span class="o">*</span><span class="nx">Engine</span><span class="p">)</span> <span class="nf">addRoute</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">path</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handlers</span> <span class="nx">HandlersChain</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// liwenzhou.com...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   
+</span></span><span class="line"><span class="cl">   <span class="c1">// 获取请求方法对应的树
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">root</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">trees</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="nx">method</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">root</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	   <span class="c1">// 如果没有就创建一个
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">root</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">root</span><span class="p">.</span><span class="nx">fullPath</span> <span class="p">=</span> <span class="s">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">engine</span><span class="p">.</span><span class="nx">trees</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">engine</span><span class="p">.</span><span class="nx">trees</span><span class="p">,</span> <span class="nx">methodTree</span><span class="p">{</span><span class="nx">method</span><span class="p">:</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">root</span><span class="p">:</span> <span class="nx">root</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 这里后面有讲
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">root</span><span class="p">.</span><span class="nf">addRoute</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">handlers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从上面的代码中我们可以看到在注册路由的时候都是先根据请求方法获取对应的树，也就是gin框架会为每一个请求方法创建一棵对应的树。只不过需要注意到一个细节是gin框架中保存请求方法对应树关系并不是使用的map而是使用的切片，<code>engine.trees</code>的类型是<code>methodTrees</code>，其定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">methodTree</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">method</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">root</span>   <span class="o">*</span><span class="nx">node</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">methodTrees</span> <span class="p">[]</span><span class="nx">methodTree</span>  <span class="c1">// slice
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>而获取请求方法对应树的get方法定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">trees</span> <span class="nx">methodTrees</span><span class="p">)</span> <span class="nf">get</span><span class="p">(</span><span class="nx">method</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">tree</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">trees</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">method</span> <span class="o">==</span> <span class="nx">method</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">root</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为什么使用切片而不是map来存储<code>请求方法-&gt;树</code>的结构呢？我猜是出于节省内存的考虑吧，毕竟HTTP请求方法的数量是固定的，而且常用的就那几种，所以即使使用切片存储查询起来效率也足够了。顺着这个思路，我们可以看一下gin框架中<code>engine</code>的初始化方法中，确实对<code>tress</code>字段做了一次内存申请：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">New</span><span class="p">()</span> <span class="o">*</span><span class="nx">Engine</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">debugPrintWARNINGNew</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">engine</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Engine</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">RouterGroup</span><span class="p">:</span> <span class="nx">RouterGroup</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Handlers</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">basePath</span><span class="p">:</span> <span class="s">&#34;/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">root</span><span class="p">:</span>     <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// liwenzhou.com ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 初始化容量为9的切片（HTTP1.1请求方法共9种）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">trees</span><span class="p">:</span>                  <span class="nb">make</span><span class="p">(</span><span class="nx">methodTrees</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// liwenzhou.com...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">engine</span><span class="p">.</span><span class="nx">RouterGroup</span><span class="p">.</span><span class="nx">engine</span> <span class="p">=</span> <span class="nx">engine</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nx">New</span> <span class="p">=</span> <span class="kd">func</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">engine</span><span class="p">.</span><span class="nf">allocateContext</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">engine</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="注册路由">注册路由</h2>
+<p>注册路由的逻辑主要有<code>addRoute</code>函数和<code>insertChild</code>方法。</p>
+<h3 id="查看源码">查看源码</h3>
+<p><code>r.GET()</code></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292145030.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292145030.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292145030.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292145030.png 2x" sizes="auto" data-title="image-20230529214530958" data-alt="image-20230529214530958" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>插一嘴，这里为什么r作为Engine类型能调用GET方法，是因为下图，Engine中嵌套了RouterGroup。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292149690.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292149690.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292149690.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292149690.png 2x" sizes="auto" data-title="image-20230529214953643" data-alt="image-20230529214953643" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292147992.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292147992.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292147992.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292147992.png 2x" sizes="auto" data-title="image-20230529214724950" data-alt="image-20230529214724950" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>接下来<code>group.handle</code></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292152704.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292152704.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292152704.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292152704.png 2x" sizes="auto" data-title="image-20230529215230644" data-alt="image-20230529215230644" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>group.combineHandlers</code>一个拼接的操作，看一下怎么实现的。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292153611.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292153611.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292153611.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292153611.png 2x" sizes="auto" data-title="image-20230529215308538" data-alt="image-20230529215308538" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>group.engine.addRoute</code>是重点。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292155077.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292155077.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292155077.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292155077.png 2x" sizes="auto" data-title="image-20230529215552991" data-alt="image-20230529215552991" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="addroute">addRoute</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// tree.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// addRoute 将具有给定句柄的节点添加到路径中。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 不是并发安全的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">node</span><span class="p">)</span> <span class="nf">addRoute</span><span class="p">(</span><span class="nx">path</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handlers</span> <span class="nx">HandlersChain</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fullPath</span> <span class="o">:=</span> <span class="nx">path</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">n</span><span class="p">.</span><span class="nx">priority</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">numParams</span> <span class="o">:=</span> <span class="nf">countParams</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span>  <span class="c1">// 数一下参数个数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 空树就直接插入当前节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nf">insertChild</span><span class="p">(</span><span class="nx">numParams</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">fullPath</span><span class="p">,</span> <span class="nx">handlers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">nType</span> <span class="p">=</span> <span class="nx">root</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">parentFullPathIndex</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">walk</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 更新当前节点的最大参数个数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nx">numParams</span> <span class="p">&gt;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">=</span> <span class="nx">numParams</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 找到最长的通用前缀
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 这也意味着公共前缀不包含“:”&#34;或“*” /
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 因为现有键不能包含这些字符。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">i</span> <span class="o">:=</span> <span class="nf">longestCommonPrefix</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 分裂边缘（此处分裂的是当前树节点）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 例如一开始path是search，新加入support，s是他们通用的最长前缀部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 那么会将s拿出来作为parent节点，增加earch和upport作为child节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">child</span> <span class="o">:=</span> <span class="nx">node</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">path</span><span class="p">:</span>      <span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">[</span><span class="nx">i</span><span class="p">:],</span>  <span class="c1">// 公共前缀后的部分作为子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">wildChild</span><span class="p">:</span> <span class="nx">n</span><span class="p">.</span><span class="nx">wildChild</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">indices</span><span class="p">:</span>   <span class="nx">n</span><span class="p">.</span><span class="nx">indices</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">children</span><span class="p">:</span>  <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">handlers</span><span class="p">:</span>  <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">priority</span><span class="p">:</span>  <span class="nx">n</span><span class="p">.</span><span class="nx">priority</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">//子节点优先级-1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">fullPath</span><span class="p">:</span>  <span class="nx">n</span><span class="p">.</span><span class="nx">fullPath</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// Update maxParams (max of all children)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">child</span><span class="p">.</span><span class="nx">children</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">v</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">&gt;</span> <span class="nx">child</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">child</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">=</span> <span class="nx">v</span><span class="p">.</span><span class="nx">maxParams</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">children</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">node</span><span class="p">{</span><span class="o">&amp;</span><span class="nx">child</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// []byte for proper unicode char conversion, see #65
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">n</span><span class="p">.</span><span class="nx">indices</span> <span class="p">=</span> <span class="nb">string</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">[</span><span class="nx">i</span><span class="p">]})</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[:</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">wildChild</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">fullPath</span> <span class="p">=</span> <span class="nx">fullPath</span><span class="p">[:</span><span class="nx">parentFullPathIndex</span><span class="o">+</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 将新来的节点插入新的parent节点作为子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[</span><span class="nx">i</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">wildChild</span> <span class="p">{</span>  <span class="c1">// 如果是参数节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">parentFullPathIndex</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">n</span><span class="p">.</span><span class="nx">priority</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// Update maxParams of the child node
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="nx">numParams</span> <span class="p">&gt;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">=</span> <span class="nx">numParams</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">numParams</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// 检查通配符是否匹配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span> <span class="o">==</span> <span class="nx">path</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="c1">// 检查更长的通配符, 例如 :name and :names
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="o">||</span> <span class="nx">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)]</span> <span class="o">==</span> <span class="sc">&#39;/&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="k">continue</span> <span class="nx">walk</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="nx">pathSeg</span> <span class="o">:=</span> <span class="nx">path</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">nType</span> <span class="o">!=</span> <span class="nx">catchAll</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">pathSeg</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">SplitN</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">prefix</span> <span class="o">:=</span> <span class="nx">fullPath</span><span class="p">[:</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Index</span><span class="p">(</span><span class="nx">fullPath</span><span class="p">,</span> <span class="nx">pathSeg</span><span class="p">)]</span> <span class="o">+</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span>
+</span></span><span class="line"><span class="cl">				<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;&#39;&#34;</span> <span class="o">+</span> <span class="nx">pathSeg</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">					<span class="s">&#34;&#39; in new path &#39;&#34;</span> <span class="o">+</span> <span class="nx">fullPath</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">					<span class="s">&#34;&#39; conflicts with existing wildcard &#39;&#34;</span> <span class="o">+</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">					<span class="s">&#34;&#39; in existing prefix &#39;&#34;</span> <span class="o">+</span> <span class="nx">prefix</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">					<span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 取path首字母，用来与indices做比较
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">c</span> <span class="o">:=</span> <span class="nx">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 处理参数后加斜线情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">nType</span> <span class="o">==</span> <span class="nx">param</span> <span class="o">&amp;&amp;</span> <span class="nx">c</span> <span class="o">==</span> <span class="sc">&#39;/&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">parentFullPathIndex</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">n</span><span class="p">.</span><span class="nx">priority</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">				<span class="k">continue</span> <span class="nx">walk</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 检查路path下一个字节的子节点是否存在
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 比如s的子节点现在是earch和upport，indices为eu
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 如果新加一个路由为super，那么就是和upport有匹配的部分u，将继续分列现在的upport节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">max</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">indices</span><span class="p">);</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">max</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">c</span> <span class="o">==</span> <span class="nx">n</span><span class="p">.</span><span class="nx">indices</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">parentFullPathIndex</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">i</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nf">incrementChildPrio</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">					<span class="k">continue</span> <span class="nx">walk</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 否则就插入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">c</span> <span class="o">!=</span> <span class="sc">&#39;:&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">c</span> <span class="o">!=</span> <span class="sc">&#39;*&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// []byte for proper unicode char conversion, see #65
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// 注意这里是直接拼接第一个字符到n.indices
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">n</span><span class="p">.</span><span class="nx">indices</span> <span class="o">+=</span> <span class="nb">string</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="nx">c</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">child</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">node</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">maxParams</span><span class="p">:</span> <span class="nx">numParams</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">fullPath</span><span class="p">:</span>  <span class="nx">fullPath</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 追加子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">n</span><span class="p">.</span><span class="nx">children</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">,</span> <span class="nx">child</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">n</span><span class="p">.</span><span class="nf">incrementChildPrio</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">indices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">n</span> <span class="p">=</span> <span class="nx">child</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nf">insertChild</span><span class="p">(</span><span class="nx">numParams</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">fullPath</span><span class="p">,</span> <span class="nx">handlers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 已经注册过的节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;handlers are already registered for path &#39;&#34;</span> <span class="o">+</span> <span class="nx">fullPath</span> <span class="o">+</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="nx">handlers</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其实上面的代码很好理解，大家可以参照动画尝试将以下情形代入上面的代码逻辑，体味整个路由树构造的详细过程：</p>
+<ol>
+<li>第一次注册路由，例如注册search</li>
+<li>继续注册一条没有公共前缀的路由，例如blog</li>
+<li>注册一条与先前注册的路由有公共前缀的路由，例如support</li>
+</ol>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292200548.gif" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292200548.gif, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292200548.gif 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305292200548.gif 2x" sizes="auto" data-title="addroute" data-alt="addroute" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="insertchild">insertChild</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// tree.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">node</span><span class="p">)</span> <span class="nf">insertChild</span><span class="p">(</span><span class="nx">numParams</span> <span class="kt">uint8</span><span class="p">,</span> <span class="nx">path</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">fullPath</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">handlers</span> <span class="nx">HandlersChain</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 找到所有的参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">numParams</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 查找前缀直到第一个通配符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">wildcard</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">valid</span> <span class="o">:=</span> <span class="nf">findWildcard</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span> <span class="c1">// 没有发现通配符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">break</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 通配符的名称必须包含&#39;:&#39; 和 &#39;*&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="p">!</span><span class="nx">valid</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;only one wildcard per path segment is allowed, has: &#39;&#34;</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">wildcard</span> <span class="o">+</span> <span class="s">&#34;&#39; in path &#39;&#34;</span> <span class="o">+</span> <span class="nx">fullPath</span> <span class="o">+</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 检查通配符是否有名称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">wildcard</span><span class="p">)</span> <span class="p">&lt;</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;wildcards must be named with a non-empty name in path &#39;&#34;</span> <span class="o">+</span> <span class="nx">fullPath</span> <span class="o">+</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 检查这个节点是否有已经存在的子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 如果我们在这里插入通配符，这些子节点将无法访问
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;wildcard segment &#39;&#34;</span> <span class="o">+</span> <span class="nx">wildcard</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">				<span class="s">&#34;&#39; conflicts with existing children in path &#39;&#34;</span> <span class="o">+</span> <span class="nx">fullPath</span> <span class="o">+</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">wildcard</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;:&#39;</span> <span class="p">{</span> <span class="c1">// param
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 在当前通配符之前插入前缀
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">n</span><span class="p">.</span><span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[:</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[</span><span class="nx">i</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">wildChild</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">child</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">node</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">nType</span><span class="p">:</span>     <span class="nx">param</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">path</span><span class="p">:</span>      <span class="nx">wildcard</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">maxParams</span><span class="p">:</span> <span class="nx">numParams</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">fullPath</span><span class="p">:</span>  <span class="nx">fullPath</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">children</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">node</span><span class="p">{</span><span class="nx">child</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span> <span class="p">=</span> <span class="nx">child</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">priority</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">numParams</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 如果路径没有以通配符结束
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 那么将有另一个以&#39;/&#39;开始的非通配符子路径。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">wildcard</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">wildcard</span><span class="p">):]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="nx">child</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">node</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">maxParams</span><span class="p">:</span> <span class="nx">numParams</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">priority</span><span class="p">:</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">fullPath</span><span class="p">:</span>  <span class="nx">fullPath</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">n</span><span class="p">.</span><span class="nx">children</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">node</span><span class="p">{</span><span class="nx">child</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">n</span> <span class="p">=</span> <span class="nx">child</span>  <span class="c1">// 继续下一轮循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 否则我们就完成了。将处理函数插入新叶子中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="nx">handlers</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// catchAll
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nx">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="nx">wildcard</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="o">||</span> <span class="nx">numParams</span> <span class="p">&gt;</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;catch-all routes are only allowed at the end of the path in path &#39;&#34;</span> <span class="o">+</span> <span class="nx">fullPath</span> <span class="o">+</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;/&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;catch-all conflicts with existing handle for the path segment root in path &#39;&#34;</span> <span class="o">+</span> <span class="nx">fullPath</span> <span class="o">+</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// currently fixed width 1 for &#39;/&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">i</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">path</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;/&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;no / before catch-all in path &#39;&#34;</span> <span class="o">+</span> <span class="nx">fullPath</span> <span class="o">+</span> <span class="s">&#34;&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[:</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">		<span class="c1">// 第一个节点:路径为空的catchAll节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">child</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">node</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">wildChild</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">nType</span><span class="p">:</span>     <span class="nx">catchAll</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">maxParams</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fullPath</span><span class="p">:</span>  <span class="nx">fullPath</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 更新父节点的maxParams
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">children</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">node</span><span class="p">{</span><span class="nx">child</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">indices</span> <span class="p">=</span> <span class="nb">string</span><span class="p">(</span><span class="sc">&#39;/&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span> <span class="p">=</span> <span class="nx">child</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">priority</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 第二个节点:保存变量的节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">child</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">node</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">path</span><span class="p">:</span>      <span class="nx">path</span><span class="p">[</span><span class="nx">i</span><span class="p">:],</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">nType</span><span class="p">:</span>     <span class="nx">catchAll</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">maxParams</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">handlers</span><span class="p">:</span>  <span class="nx">handlers</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">priority</span><span class="p">:</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fullPath</span><span class="p">:</span>  <span class="nx">fullPath</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">n</span><span class="p">.</span><span class="nx">children</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">node</span><span class="p">{</span><span class="nx">child</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 如果没有找到通配符，只需插入路径和句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">n</span><span class="p">.</span><span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="nx">handlers</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">n</span><span class="p">.</span><span class="nx">fullPath</span> <span class="p">=</span> <span class="nx">fullPath</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>insertChild</code>函数是根据<code>path</code>本身进行分割，将<code>/</code>分开的部分分别作为节点保存，形成一棵树结构。参数匹配中的<code>:</code>和<code>*</code>的区别是，前者是匹配一个字段而后者是匹配后面所有的路径。</p>
+<h2 id="路由匹配">路由匹配</h2>
+<p>我们先来看gin框架处理请求的入口函数<code>ServeHTTP</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// gin.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">engine</span> <span class="o">*</span><span class="nx">Engine</span><span class="p">)</span> <span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 这里使用了对象池
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">c</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Get</span><span class="p">().(</span><span class="o">*</span><span class="nx">Context</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 这里有一个细节就是Get对象后做初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">c</span><span class="p">.</span><span class="nx">writermem</span><span class="p">.</span><span class="nf">reset</span><span class="p">(</span><span class="nx">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">Request</span> <span class="p">=</span> <span class="nx">req</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nf">reset</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">engine</span><span class="p">.</span><span class="nf">handleHTTPRequest</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>  <span class="c1">// 我们要找的处理HTTP请求的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="nx">engine</span><span class="p">.</span><span class="nx">pool</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>  <span class="c1">// 处理完请求后将对象放回池子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>函数很长，这里省略了部分代码，只保留相关逻辑代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// gin.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">engine</span> <span class="o">*</span><span class="nx">Engine</span><span class="p">)</span> <span class="nf">handleHTTPRequest</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// liwenzhou.com...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 根据请求方法找到对应的路由树
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">t</span> <span class="o">:=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">trees</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tl</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">tl</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">t</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">method</span> <span class="o">!=</span> <span class="nx">httpMethod</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">root</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">root</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 在路由树中根据path查找
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">value</span> <span class="o">:=</span> <span class="nx">root</span><span class="p">.</span><span class="nf">getValue</span><span class="p">(</span><span class="nx">rPath</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Params</span><span class="p">,</span> <span class="nx">unescape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">value</span><span class="p">.</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">c</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">handlers</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">c</span><span class="p">.</span><span class="nx">Params</span> <span class="p">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">params</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">c</span><span class="p">.</span><span class="nx">fullPath</span> <span class="p">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">fullPath</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">c</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span>  <span class="c1">// 执行函数链条
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">c</span><span class="p">.</span><span class="nx">writermem</span><span class="p">.</span><span class="nf">WriteHeaderNow</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// liwenzhou.com...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">c</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="nx">engine</span><span class="p">.</span><span class="nx">allNoRoute</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">serveError</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusNotFound</span><span class="p">,</span> <span class="nx">default404Body</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>路由匹配是由节点的 <code>getValue</code>方法实现的。<code>getValue</code>根据给定的路径(键)返回<code>nodeValue</code>值，保存注册的处理函数和匹配到的路径参数数据。</p>
+<p>如果找不到任何处理函数，则会尝试TSR(尾随斜杠重定向)。</p>
+<p>代码虽然很长，但还算比较工整。大家可以借助注释看一下路由查找及参数匹配的逻辑。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">/</span> <span class="nx">tree</span><span class="p">.</span><span class="k">go</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">nodeValue</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">handlers</span> <span class="nx">HandlersChain</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">params</span>   <span class="nx">Params</span>  <span class="c1">// []Param
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">tsr</span>      <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fullPath</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// liwenzhou.com...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">node</span><span class="p">)</span> <span class="nf">getValue</span><span class="p">(</span><span class="nx">path</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">po</span> <span class="nx">Params</span><span class="p">,</span> <span class="nx">unescape</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">(</span><span class="nx">value</span> <span class="nx">nodeValue</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">value</span><span class="p">.</span><span class="nx">params</span> <span class="p">=</span> <span class="nx">po</span>
+</span></span><span class="line"><span class="cl"><span class="nx">walk</span><span class="p">:</span> <span class="c1">// Outer loop for walking the tree
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">prefix</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">path</span> <span class="o">==</span> <span class="nx">prefix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 我们应该已经到达包含处理函数的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 检查该节点是否注册有处理函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">value</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span><span class="p">;</span> <span class="nx">value</span><span class="p">.</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">value</span><span class="p">.</span><span class="nx">fullPath</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">fullPath</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">path</span> <span class="o">==</span> <span class="s">&#34;/&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">wildChild</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">nType</span> <span class="o">!=</span> <span class="nx">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">value</span><span class="p">.</span><span class="nx">tsr</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 没有找到处理函数 检查这个路径末尾+/ 是否存在注册函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">indices</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">indices</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">max</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">indices</span><span class="p">);</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">max</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">indices</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;/&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">value</span><span class="p">.</span><span class="nx">tsr</span> <span class="p">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">						<span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">nType</span> <span class="o">==</span> <span class="nx">catchAll</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="k">return</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">return</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">prefix</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">path</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">prefix</span><span class="p">)]</span> <span class="o">==</span> <span class="nx">prefix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">prefix</span><span class="p">):]</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 如果该节点没有通配符(param或catchAll)子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 我们可以继续查找下一个子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="p">!</span><span class="nx">n</span><span class="p">.</span><span class="nx">wildChild</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">c</span> <span class="o">:=</span> <span class="nx">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">indices</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">indices</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">max</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">indices</span><span class="p">);</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">max</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="nx">c</span> <span class="o">==</span> <span class="nx">indices</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="c1">// 遍历树
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>						<span class="k">continue</span> <span class="nx">walk</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// 没找到
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// 如果存在一个相同的URL但没有末尾/的叶子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// 我们可以建议重定向到那里
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">value</span><span class="p">.</span><span class="nx">tsr</span> <span class="p">=</span> <span class="nx">path</span> <span class="o">==</span> <span class="s">&#34;/&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 根据节点类型处理通配符子节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">			<span class="k">switch</span> <span class="nx">n</span><span class="p">.</span><span class="nx">nType</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">case</span> <span class="nx">param</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// find param end (either &#39;/&#39; or path end)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">end</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="nx">end</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">path</span><span class="p">[</span><span class="nx">end</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;/&#39;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">end</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// 保存通配符的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="nb">cap</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">value</span><span class="p">.</span><span class="nx">params</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="nx">Params</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">i</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">value</span><span class="p">.</span><span class="nx">params</span> <span class="p">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[:</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// 在预先分配的容量内扩展slice
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Key</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">val</span> <span class="o">:=</span> <span class="nx">path</span><span class="p">[:</span><span class="nx">end</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">unescape</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="kd">var</span> <span class="nx">err</span> <span class="kt">error</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Value</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">url</span><span class="p">.</span><span class="nf">QueryUnescape</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Value</span> <span class="p">=</span> <span class="nx">val</span> <span class="c1">// fallback, in case of error
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Value</span> <span class="p">=</span> <span class="nx">val</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="c1">// 继续向下查询
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="nx">end</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[</span><span class="nx">end</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">						<span class="k">continue</span> <span class="nx">walk</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">					<span class="c1">// ... but we can&#39;t
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="nx">value</span><span class="p">.</span><span class="nx">tsr</span> <span class="p">=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="o">==</span> <span class="nx">end</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">					<span class="k">return</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">value</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span><span class="p">;</span> <span class="nx">value</span><span class="p">.</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">value</span><span class="p">.</span><span class="nx">fullPath</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">fullPath</span>
+</span></span><span class="line"><span class="cl">					<span class="k">return</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="c1">// 没有找到处理函数. 检查此路径末尾加/的路由是否存在注册函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="c1">// 用于 TSR 推荐
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="nx">n</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">value</span><span class="p">.</span><span class="nx">tsr</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span> <span class="o">==</span> <span class="s">&#34;/&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">case</span> <span class="nx">catchAll</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 保存通配符的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="nb">cap</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">value</span><span class="p">.</span><span class="nx">params</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="nx">Params</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">n</span><span class="p">.</span><span class="nx">maxParams</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">i</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">value</span><span class="p">.</span><span class="nx">params</span> <span class="p">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[:</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// 在预先分配的容量内扩展slice
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Key</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">path</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">unescape</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="kd">var</span> <span class="nx">err</span> <span class="kt">error</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Value</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">url</span><span class="p">.</span><span class="nf">QueryUnescape</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Value</span> <span class="p">=</span> <span class="nx">path</span> <span class="c1">// fallback, in case of error
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">value</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Value</span> <span class="p">=</span> <span class="nx">path</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="nx">value</span><span class="p">.</span><span class="nx">handlers</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">value</span><span class="p">.</span><span class="nx">fullPath</span> <span class="p">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">fullPath</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">				<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;invalid node type&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 找不到，如果存在一个在当前路径最后添加/的路由
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 我们会建议重定向到那里
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">value</span><span class="p">.</span><span class="nx">tsr</span> <span class="p">=</span> <span class="p">(</span><span class="nx">path</span> <span class="o">==</span> <span class="s">&#34;/&#34;</span><span class="p">)</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">			<span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">prefix</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">prefix</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)]</span> <span class="o">==</span> <span class="sc">&#39;/&#39;</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">path</span> <span class="o">==</span> <span class="nx">prefix</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">prefix</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span><span class="p">.</span><span class="nx">handlers</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
@@ -445,7 +1604,8 @@
     </section>
   </div>
 
-  <div class="post-nav"><a href="/posts/docker/docker08/" class="post-nav-item" rel="prev" title="Docker轻量级可视化工具Portainer"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Docker轻量级可视化工具Portainer</a></div>
+  <div class="post-nav"><a href="/posts/docker/docker08/" class="post-nav-item" rel="prev" title="Docker轻量级可视化工具Portainer"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Docker轻量级可视化工具Portainer</a>
+      <a href="/posts/docker/docker09/" class="post-nav-item" rel="next" title="Docke--CIG容器监控">Docke--CIG容器监控<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>

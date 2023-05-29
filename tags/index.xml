@@ -4,7 +4,23 @@
     <link>http://Lizhe1228.github.io/tags/</link>
     <description>Tags - 标签 - I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sun, 28 May 2023 18:34:37 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Mon, 29 May 2023 22:12:06 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+  <title>docker</title>
+  <link>http://Lizhe1228.github.io/tags/docker/</link>
+  <pubDate>Mon, 29 May 2023 22:12:06 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/tags/docker/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>k8s</title>
+  <link>http://Lizhe1228.github.io/tags/k8s/</link>
+  <pubDate>Mon, 29 May 2023 19:59:58 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/tags/k8s/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Gin</title>
   <link>http://Lizhe1228.github.io/tags/gin/</link>
   <pubDate>Sun, 28 May 2023 18:34:37 &#43;0800</pubDate>
@@ -18,14 +34,6 @@
   <pubDate>Sun, 28 May 2023 18:34:37 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/tags/go-web/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>docker</title>
-  <link>http://Lizhe1228.github.io/tags/docker/</link>
-  <pubDate>Sun, 28 May 2023 16:52:43 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/tags/docker/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
@@ -74,14 +82,6 @@
   <pubDate>Sun, 21 May 2023 21:05:56 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/tags/gorm/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>教程</title>
-  <link>http://Lizhe1228.github.io/tags/%E6%95%99%E7%A8%8B/</link>
-  <pubDate>Fri, 19 May 2023 12:59:24 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/tags/%E6%95%99%E7%A8%8B/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
