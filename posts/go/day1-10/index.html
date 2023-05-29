@@ -10,7 +10,7 @@
 <meta name="description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day1-10)">
 <meta itemprop="description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti"><meta itemprop="datePublished" content="2023-05-22T17:47:44+08:00" />
 <meta itemprop="dateModified" content="2023-05-22T17:47:44+08:00" />
-<meta itemprop="wordCount" content="10184"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="13439"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day1-10)" />
 <meta property="og:description" content="题目来源于 https://www.topgoer.cn/docs/gomianshiti/mianshiti" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day1-10\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  10184 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  13439 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day1-10\/","datePublished": "2023-05-22T17:47:44+08:00","dateModified": "2023-05-22T17:47:44+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-22 17:47:44"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span title="更新于 2023-05-22 17:47:44"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 10184 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 21 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day1-10)">
+      <div class="post-meta-line"><span title="发布于 2023-05-22 17:47:44"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span title="更新于 2023-05-22 17:47:44"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-22">2023-05-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 13439 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 27 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day1-10)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -271,7 +271,28 @@
         </li>
       </ul>
     </li>
-    <li><a href="#day10">Day10</a></li>
+    <li><a href="#day10">Day10</a>
+      <ul>
+        <li><a href="#1下面这段代码输出什么">1.下面这段代码输出什么？</a></li>
+        <li><a href="#2下面这段代码输出什么-1">2.下面这段代码输出什么？</a></li>
+        <li><a href="#3下面这段代码输出什么-1">3.下面这段代码输出什么？</a></li>
+        <li><a href="#延伸go中的类型比较">延伸——go中的类型比较</a>
+          <ul>
+            <li><a href="#go中的类型">go中的类型</a></li>
+            <li><a href="#基本类型">基本类型</a></li>
+            <li><a href="#复合类型">复合类型</a>
+              <ul>
+                <li><a href="#数组">数组</a></li>
+                <li><a href="#结构体">结构体</a></li>
+              </ul>
+            </li>
+            <li><a href="#引用类型">引用类型</a></li>
+            <li><a href="#接口类型">接口类型</a></li>
+            <li><a href="#总结">总结</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="The END"><p>题目来源于 <a href="https://www.topgoer.cn/docs/gomianshiti/mianshiti"target="_blank" rel="external nofollow noopener noreferrer">https://www.topgoer.cn/docs/gomianshiti/mianshiti</a></p>
@@ -1774,7 +1795,531 @@
 <p>具体的切片容量计算可参考下面的例子：</p>
 <p>数组 [0, 1, 2, 3, 4] 中，数组有5个元素。如果切片 s = [1, 2, 3]，那么3在数组的索引为3，也就是数组还剩最后一个元素的大小，加上s已经有3个元素，因此最后s的容量为 1 + 3 = 4。如果切片是 s1 = [4]，4的索引在数组中是最大的了，数组空余的元素为0，那么s1的容量为 0 + 1 = 1。具体如下表：</p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281109878.webp" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281109878.webp, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281109878.webp 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305281109878.webp 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
-<h2 id="day10">Day10</h2></div><div class="post-footer" id="post-footer">
+<h2 id="day10">Day10</h2>
+<h3 id="1下面这段代码输出什么">1.下面这段代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="mf">8.1</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A.13.1</li>
+<li>B.13</li>
+<li>C.compilation erro</li>
+</ul>
+<hr>
+<p>参考答案及解析：C。a 的类型是 int，b 的类型是 float，<strong>两个不同类型的数值不能相加</strong>，编译报错。</p>
+<h3 id="2下面这段代码输出什么-1">2.下面这段代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>  
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A.3</li>
+<li>B.4</li>
+<li>C.compilation error</li>
+</ul>
+<hr>
+<p>参考答案及解析：B。知识点**：操作符 [i,j]**。基于数组（切片）可以使用操作符 [i,j] 创建新的切片，从索引 i，到索引 j 结束，截取已有数组（切片）的任意部分，返回新的切片，新切片的值包含原数组（切片）的 i 索引的值，但是不包含 j 索引的值。<font color=red>左闭右开呗</font>。i、j 都是可选的，<strong>i 如果省略，默认是 0，j 如果省略，默认是原数组（切片）的长度</strong>。i、j 都不能超过这个长度值。</p>
+<p><strong>假如底层数组的大小为 k，截取之后获得的切片的长度和容量的计算方法：长度：<code>j-i</code>，容量：<code>k-i</code>。</strong></p>
+<p><strong>截取操作符还可以有第三个参数</strong>，形如 <code>[i,j,k]</code>，<strong>第三个参数 k 用来限制新切片的容量</strong>，但不能超过原数组（切片）的底层数组大小。截取获得的切片的长度和容量分别是：<code>j-i</code>、<code>k-i</code>。</p>
+<p>所以例子中，切片 t 为 [4]，长度和容量都是 1。</p>
+<h3 id="3下面这段代码输出什么-1">3.下面这段代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;equal&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;not equal&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A. compilation error</li>
+<li>B. equal</li>
+<li>C. not equal</li>
+</ul>
+<hr>
+<p>参考答案及解析：<strong>A</strong>。<strong>Go 中的数组是值类型</strong>，可比较，另外一方面，<strong>数组的长度也是数组类型的组成部分</strong>，所以 <strong>a 和 b 是不同的类型</strong>，是<strong>不能比较</strong>的，所以编译错误。</p>
+<h3 id="延伸go中的类型比较">延伸——go中的类型比较</h3>
+<p><a href="https://segmentfault.com/a/1190000039005467"target="_blank" rel="external nofollow noopener noreferrer">https://segmentfault.com/a/1190000039005467</a></p>
+<h4 id="go中的类型">go中的类型</h4>
+<p>首先来看看go包含的最基础的集中类型</p>
+<ul>
+<li>基本类型：go中最基本类型包括整型（<code>int、uint、int8、uint8、int16、uint16、int32、uint32、int64、uint64、byte、rune</code>等）、浮点型（<code>float32、float64</code>）、字符串（<code>string</code>也是个[]rune数组）和比较不常用的复数类型（<code>complex64/complex128</code>）。</li>
+<li>复合类型：主要包括<code>结构体</code>和<code>数组</code>。</li>
+<li>引用类型：<code>Slice、Map、Channel、指针</code>。</li>
+<li>接口类型：<code>Error、io.Reader等</code>。</li>
+</ul>
+<p>go作为强类型语言并不会和PHP等高级语言自动帮我们进行类型转换，所以我们在比较时必须用<code>==</code>两边的类型必须一致，即使他们底部类型一致也不行。看下面的代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Id</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">B</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Id</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">a</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">b</span> <span class="kt">int16</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 编译报错：invalid operation a == b (mismatched types int and int16)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">aStruct</span> <span class="o">:=</span> <span class="nx">A</span><span class="p">{</span><span class="nx">Id</span><span class="p">:</span><span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bStruct</span> <span class="o">:=</span> <span class="nx">B</span><span class="p">{</span><span class="nx">Id</span><span class="p">:</span><span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 编译报错：invalid operation: aStruct == bStruct (mismatched types A and B)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">aStruct</span> <span class="o">==</span> <span class="nx">bStruct</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意：在上述例子中，一个类型是A，一个类型是B，所以无法比较。再看下面的例子。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291408952.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291408952.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291408952.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291408952.png 2x" sizes="auto" data-title="image-20230529140838840" data-alt="image-20230529140838840" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291408778.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291408778.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291408778.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291408778.png 2x" sizes="auto" data-title="image-20230529140842706" data-alt="image-20230529140842706" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sn1</span> <span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">age</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}{</span><span class="nx">age</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;qq&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sn2</span> <span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">age</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}{</span><span class="nx">age</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s">&#34;qq&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">sn1</span> <span class="o">==</span> <span class="nx">sn2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;sn1 == sn2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个例子中，sn1和sn2是匿名结构体，里面的属性顺序相同，可以比较。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291410323.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291410323.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291410323.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291410323.png 2x" sizes="auto" data-title="image-20230529141015259" data-alt="image-20230529141015259" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291410573.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291410573.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291410573.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305291410573.png 2x" sizes="auto" data-title="image-20230529141007497" data-alt="image-20230529141007497" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="基本类型">基本类型</h4>
+<p>go的基本类型就比较简单，只要类型是一样的，那么他们就是可以比较的，举个栗子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">a</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">b</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 输出false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="复合类型">复合类型</h4>
+<h5 id="数组">数组</h5>
+<p>面试中也经常会问到go数组和切片的区别。数组在go中是必须先确定长度的，也就是长度不能再去扩容。并且它是个值拷贝，做参数传到一个函数中被修改，那么外部的值还是一样的不变的。Slice则相反。那么数组是否可以比较呢，看下面的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">d</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">c</span><span class="p">)</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">d</span><span class="p">)</span> <span class="c1">// invalid operation: a == d (mismatched types [2]int and [3]int)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看出，<code>相同长度的数组是可以比较的，而不同长度的数组是不能进行比较的</code>。原因是什么呢？这是因为数组类型中,数组的长度也是类型的一部分，不同长度的数组那么他们的类型也就被认为不同的，所以无法比较。</p>
+<h5 id="结构体">结构体</h5>
+<p>同样的<code>Struct</code>也是一样的。<code>Struct</code>的比较也从内部类型开始比较，每一类型的值相等才是相等的。如下例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">A</span><span class="p">{</span><span class="nx">id</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nx">name</span><span class="p">:</span><span class="s">&#34;123&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="nx">A</span><span class="p">{</span><span class="nx">id</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nx">name</span><span class="p">:</span><span class="s">&#34;123&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span> <span class="o">:=</span> <span class="nx">A</span><span class="p">{</span><span class="nx">id</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nx">name</span><span class="p">:</span><span class="s">&#34;1234&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">c</span><span class="p">)</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>那么可以理解成<code>Struct</code>结构体是可以比较的吗。我们再来看个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">son</span> <span class="p">[]</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">A</span><span class="p">{</span><span class="nx">id</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nx">name</span><span class="p">:</span><span class="s">&#34;123&#34;</span><span class="p">,</span><span class="nx">son</span><span class="p">:[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="nx">A</span><span class="p">{</span><span class="nx">id</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nx">name</span><span class="p">:</span><span class="s">&#34;123&#34;</span><span class="p">,</span><span class="nx">son</span><span class="p">:[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// invalid operation: a == b (struct containing []int cannot be compared)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>怎么又变成不可比较的呢？这就要看下面的引用类型了。</p>
+<h4 id="引用类型">引用类型</h4>
+<p>上面中的例子结构体中带上切片就无法比较了，在go中<code>Slice</code>和<code>Map</code>被定义成不能比较的类型。我们来看</p>
+<p>如果<code>Slice</code>是可比较，那么用什么来定义是一样的切片呢？如果用地址，那么如果两个地址指向的<code>Slice</code>是一样的呢？这显然不合适。如果和数组一样的方式，那么我切片扩容了呢，就不相等了。所以长度和容量导致不好比较。虽然可以在语言层面解决这个问题，但是 golang 团队认为不值得为此耗费精力。所以<code>Slice</code>被当成不可比较。
+同样的<code>Map</code>也被定义成不可比较类型。那么引用类型都是不可比较吗?也不是，看个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">A</span> <span class="p">{</span> <span class="nx">a</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span> <span class="p">:</span> <span class="s">&#34;test1&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">A</span> <span class="p">{</span> <span class="nx">a</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span> <span class="p">:</span> <span class="s">&#34;test1&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span> <span class="o">:=</span> <span class="nx">a</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">c</span><span class="p">)</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ch1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ch2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ch3</span> <span class="o">:=</span> <span class="nx">ch1</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ch1</span> <span class="o">==</span> <span class="nx">ch2</span><span class="p">)</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ch1</span> <span class="o">==</span> <span class="nx">ch3</span><span class="p">)</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>引用类型变量存储的是某个变量的内存地址。所以引用类型变量的比较，判断的是这两个引用类型存储的是不是同一个变量。</p>
+<ul>
+<li>如果是同一个变量，则内存地址肯定也一样，则引用类型变量相等，用&quot;==&ldquo;判断为true</li>
+<li>如果不是同一个变量，则内存地址肯定不一样，&quot;==&ldquo;结果为false‘</li>
+</ul>
+<h4 id="接口类型">接口类型</h4>
+<p>Go 语言根据接口类型是否包含一组方法将接口类型分成了两类：</p>
+<ul>
+<li>使用 <code>runtime.iface</code>结构体表示包含方法的接口</li>
+<li>使用 <code>runtime.eface</code>结构体表示不包含任何方法的 <code>interface{}</code> 类型</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">type</span> <span class="nc">eface</span><span class="w"> </span><span class="k">struct</span> <span class="p">{</span><span class="w"> </span><span class="c1">// 16 字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">_type</span><span class="w"> </span><span class="o">*</span><span class="n">_type</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">data</span><span class="w">  </span><span class="k">unsafe</span><span class="p">.</span><span class="n">Pointer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">type</span> <span class="nc">iface</span><span class="w"> </span><span class="k">struct</span> <span class="p">{</span><span class="w"> </span><span class="c1">// 16 字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">tab</span><span class="w">  </span><span class="o">*</span><span class="n">itab</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="k">unsafe</span><span class="p">.</span><span class="n">Pointer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>所以我们可以得知，一个接口值是由两个部分组成的，即该接口对应的类型和接口对应具体的值。接口值的比较涉及这两部分的比较，只有当类型和值都相等（动态值使用<code>==</code>比较），两个接口值才是相等的。看个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">b</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">c</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">d</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">c</span><span class="p">)</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">d</span><span class="p">)</span> <span class="c1">// false
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>a</code>和<code>c</code>类型相同（都是<code>int</code>），值也相同（都是<code>0</code>，基本类型比较），故两者相等。 <code>a</code>和<code>b</code>类型相同，值不等，故两者不等。 <code>a</code>和<code>d</code>类型不同，<code>a</code>为<code>int</code>，<code>d</code>为<code>float64</code>，故两者不等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="nx">A</span> <span class="p">{</span> <span class="nx">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="s">&#34;test&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">b</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="nx">A</span> <span class="p">{</span> <span class="nx">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="s">&#34;test&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">c</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="nx">A</span> <span class="p">{</span> <span class="nx">a</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="s">&#34;test&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">c</span><span class="p">)</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">d</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">A</span> <span class="p">{</span> <span class="nx">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="s">&#34;test&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">e</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">A</span> <span class="p">{</span> <span class="nx">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="s">&#34;test&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">d</span> <span class="o">==</span> <span class="nx">e</span><span class="p">)</span> <span class="c1">// false
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>a</code>和<code>b</code>类型相同（都是<code>A</code>），值也相同（结构体<code>A</code>），故两者相等。 <code>a</code>和<code>c</code>类型相同，值不同，故两者不等。 <code>d</code>和<code>e</code>类型相同（都是<code>*A</code>），值使用指针（引用）类型的比较，由于不是指向同一个地址，故不等。</p>
+<p>不过需要注意的是，如果接口中类型是切片或者<code>Map</code>不可比较的类型，那么会直接报错的。看个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">b</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// panic: runtime error: comparing uncomparable type []int
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>a</code>和<code>b</code>的类型是切片类型，而切片类型不可比较，所以<code>a == b</code>会<code>panic</code>。</p>
+<p><strong>接口值的比较不要求接口类型（注意不是动态类型）完全相同，只要一个接口可以转化为另一个就可以比较</strong>。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">f</span> <span class="o">*</span><span class="nx">os</span><span class="p">.</span><span class="nx">File</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">r</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span> <span class="p">=</span> <span class="nx">f</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">rc</span> <span class="nx">io</span><span class="p">.</span><span class="nx">ReadCloser</span> <span class="p">=</span> <span class="nx">f</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">r</span> <span class="o">==</span> <span class="nx">rc</span><span class="p">)</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span> <span class="p">=</span> <span class="nx">f</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// invalid operation: r == w (mismatched types io.Reader and io.Writer)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">r</span> <span class="o">==</span> <span class="nx">w</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>r</code>的类型为<code>io.Reader</code>接口，<code>rc</code>的类型为<code>io.ReadCloser</code>接口。查看源码，<code>io.ReadCloser</code>的定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">ReadCloser</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Reader</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Closer</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>io.ReadCloser</code>可转化为<code>io.Reader</code>，故两者可比较。</p>
+<p>而<code>io.Writer</code>不可转化为<code>io.Reader</code>，编译报错。</p>
+<h4 id="总结">总结</h4>
+<ul>
+<li>可比较：<code>int、ifloat、string、bool、complex、pointe、channel、interface、array</code></li>
+<li>不可比较：<code>slice、map、function</code></li>
+<li>复合类型中如果带有不可比较的类型，那么该类型也是不可比较的。可以理解不可比较类型具有传递性。</li>
+</ul></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
