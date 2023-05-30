@@ -2,13 +2,18 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>http://Lizhe1228.github.io/categories/</loc><lastmod>2023-05-29T22:12:06&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/categories/</loc><lastmod>2023-05-30T10:19:15&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/categories/go/</loc><lastmod>2023-05-30T10:19:15&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/tags/go/</loc><lastmod>2023-05-30T10:19:15&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/posts/go/interview01/</loc><lastmod>2023-05-30T10:19:15&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/</loc><lastmod>2023-05-30T10:19:15&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/posts/</loc><lastmod>2023-05-30T10:19:15&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/tags/</loc><lastmod>2023-05-30T10:19:15&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/tags/%E9%9D%A2%E8%AF%95/</loc><lastmod>2023-05-30T10:19:15&#43;08:00</lastmod></url><url>
+      <loc>http://Lizhe1228.github.io/posts/go/day11-20/</loc><lastmod>2023-05-30T10:00:36&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/tags/docker/</loc><lastmod>2023-05-29T22:12:06&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/categories/docker/</loc><lastmod>2023-05-29T22:12:06&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/posts/gin/gin03/</loc><lastmod>2023-05-29T22:12:06&#43;08:00</lastmod></url><url>
-      <loc>http://Lizhe1228.github.io/</loc><lastmod>2023-05-29T22:12:06&#43;08:00</lastmod></url><url>
-      <loc>http://Lizhe1228.github.io/posts/</loc><lastmod>2023-05-29T22:12:06&#43;08:00</lastmod></url><url>
-      <loc>http://Lizhe1228.github.io/tags/</loc><lastmod>2023-05-29T22:12:06&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/tags/k8s/</loc><lastmod>2023-05-29T19:59:58&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/categories/k8s/</loc><lastmod>2023-05-29T19:59:58&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/posts/k8s/k8s01/</loc><lastmod>2023-05-29T19:59:58&#43;08:00</lastmod></url><url>
@@ -31,10 +36,8 @@
       <loc>http://Lizhe1228.github.io/tags/git/</loc><lastmod>2023-05-22T21:01:33&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/categories/git/</loc><lastmod>2023-05-22T21:01:33&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/posts/git/git/</loc><lastmod>2023-05-22T21:01:33&#43;08:00</lastmod></url><url>
-      <loc>http://Lizhe1228.github.io/tags/go/</loc><lastmod>2023-05-22T17:47:44&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/posts/go/day1-10/</loc><lastmod>2023-05-22T17:47:44&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/</loc><lastmod>2023-05-22T17:47:44&#43;08:00</lastmod></url><url>
-      <loc>http://Lizhe1228.github.io/tags/%E9%9D%A2%E8%AF%95/</loc><lastmod>2023-05-22T17:47:44&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/posts/docker/docker04/</loc><lastmod>2023-05-22T09:48:50&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/posts/gin/gin01/</loc><lastmod>2023-05-21T21:05:56&#43;08:00</lastmod></url><url>
       <loc>http://Lizhe1228.github.io/tags/gorm/</loc><lastmod>2023-05-21T21:05:56&#43;08:00</lastmod></url><url>
