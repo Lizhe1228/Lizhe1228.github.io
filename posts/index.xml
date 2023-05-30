@@ -4,7 +4,15 @@
     <link>http://Lizhe1228.github.io/posts/</link>
     <description>所有文章 | I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Tue, 30 May 2023 10:19:15 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Tue, 30 May 2023 21:49:29 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Go操作数据库</title>
+  <link>http://Lizhe1228.github.io/posts/gin/gin04/</link>
+  <pubDate>Tue, 30 May 2023 21:49:29 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/gin/gin04/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Golang_Interview_关键字</title>
   <link>http://Lizhe1228.github.io/posts/go/interview01/</link>
   <pubDate>Tue, 30 May 2023 10:19:15 &#43;0800</pubDate>
@@ -29,12 +37,12 @@
   <description><![CDATA[]]></description>
 </item>
 <item>
-  <title>K8s01</title>
+  <title>K8s入门</title>
   <link>http://Lizhe1228.github.io/posts/k8s/k8s01/</link>
   <pubDate>Mon, 29 May 2023 19:59:58 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/k8s/k8s01/</guid>
-  <description><![CDATA[]]></description>
+  <description><![CDATA[<p>Kubernetes基础概念</p>]]></description>
 </item>
 <item>
   <title>Docke--CIG容器监控</title>
@@ -74,14 +82,6 @@
   <pubDate>Sat, 27 May 2023 22:14:52 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/docker/docker03/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Docker02</title>
-  <link>http://Lizhe1228.github.io/posts/docker/docker02/</link>
-  <pubDate>Sat, 27 May 2023 22:14:42 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/docker/docker02/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
