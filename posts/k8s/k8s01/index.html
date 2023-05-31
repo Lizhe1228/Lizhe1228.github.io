@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>K8s入门 - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
+    <title>K8s入门1 - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
 <meta name="author-link" content="">
-<meta name="description" content="Kubernetes基础概念" /><meta name="keywords" content='k8s' /><meta itemprop="name" content="K8s入门">
+<meta name="description" content="Kubernetes基础概念" /><meta name="keywords" content='k8s' /><meta itemprop="name" content="K8s入门1">
 <meta itemprop="description" content="Kubernetes基础概念"><meta itemprop="datePublished" content="2023-05-29T19:59:58+08:00" />
 <meta itemprop="dateModified" content="2023-05-29T19:59:58+08:00" />
-<meta itemprop="wordCount" content="2309"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
-<meta itemprop="keywords" content="k8s," /><meta property="og:title" content="K8s入门" />
+<meta itemprop="wordCount" content="4939"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="keywords" content="k8s," /><meta property="og:title" content="K8s入门1" />
 <meta property="og:description" content="Kubernetes基础概念" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://Lizhe1228.github.io/posts/k8s/k8s01/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
@@ -20,19 +20,19 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 
-<meta name="twitter:title" content="K8s入门"/>
+<meta name="twitter:title" content="K8s入门1"/>
 <meta name="twitter:description" content="Kubernetes基础概念"/>
 <meta name="application-name" content="Lizhe1228">
 <meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/k8s/k8s01/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/docker/docker09/" /><link rel="next" href="http://Lizhe1228.github.io/posts/gin/gin03/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "K8s入门",
+    "headline": "K8s入门1",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/k8s\/k8s01\/"
-    },"genre": "posts","keywords": "k8s","wordcount":  2309 ,
+    },"genre": "posts","keywords": "k8s","wordcount":  4939 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/k8s\/k8s01\/","datePublished": "2023-05-29T19:59:58+08:00","dateModified": "2023-05-29T19:59:58+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -177,7 +177,7 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
-    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">K8s入门</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">K8s入门1</li>
     </ol>
   </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content" id="toc-content-auto"></div></aside>
@@ -186,11 +186,11 @@
     </aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>K8s入门</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>K8s入门1</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/k8s/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> k8s</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-29 19:59:58"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-29">2023-05-29</time></span>&nbsp;<span title="更新于 2023-05-29 19:59:58"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-29">2023-05-29</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2309 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="K8s入门">
+      <div class="post-meta-line"><span title="发布于 2023-05-29 19:59:58"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-29">2023-05-29</time></span>&nbsp;<span title="更新于 2023-05-29 19:59:58"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-29">2023-05-29</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 4939 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 10 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="K8s入门1">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -201,7 +201,7 @@
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#是什么">是什么</a></li>
-    <li><a href="#架构">架构</a>
+    <li><a href="#k8s架构">K8s架构</a>
       <ul>
         <li><a href="#工作方式">工作方式</a></li>
         <li><a href="#组件架构">组件架构</a>
@@ -225,7 +225,40 @@
         </li>
       </ul>
     </li>
-    <li><a href="#kubeadm创建集群">Kubeadm创建集群</a></li>
+    <li><a href="#kubeadm创建集群">Kubeadm创建集群</a>
+      <ul>
+        <li><a href="#先为每台机器安装docker">先为每台机器安装docker</a></li>
+        <li><a href="#安装kubeadm">安装kubeadm</a>
+          <ul>
+            <li><a href="#基础环境">基础环境</a></li>
+            <li><a href="#安装kubeletkubeadmkubectl">安装kubelet、kubeadm、kubectl</a></li>
+          </ul>
+        </li>
+        <li><a href="#使用kubeadm引导集群">使用kubeadm引导集群</a>
+          <ul>
+            <li><a href="#下载各个机器需要的镜像">下载各个机器需要的镜像</a></li>
+            <li><a href="#初始化节点">初始化节点</a></li>
+            <li><a href="#根据提示继续">根据提示继续</a>
+              <ul>
+                <li><a href="#1设置kubeconfig">1、设置.kube/config</a></li>
+                <li><a href="#2安装网络组件">2、安装网络组件</a></li>
+              </ul>
+            </li>
+            <li><a href="#加入node节点在相应的子机器里使用-">加入node节点（在相应的子机器里使用 ）</a></li>
+            <li><a href="#验证集群">验证集群</a></li>
+            <li><a href="#部署dashboard">部署dashboard</a>
+              <ul>
+                <li><a href="#部署">部署</a></li>
+                <li><a href="#设置访问端口">设置访问端口</a></li>
+                <li><a href="#创建访问账号">创建访问账号</a></li>
+                <li><a href="#令牌访问">令牌访问</a></li>
+                <li><a href="#界面">界面</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="The END"><p>Kubernetes基础概念</p>
@@ -261,7 +294,7 @@ Kubernetes 允许你存储和管理敏感信息，例如密码、OAuth 令牌和
 </li>
 </ul>
 <p><font color=blue><strong>Kubernetes 为你提供了一个可弹性运行分布式系统的框架。 Kubernetes 会满足你的扩展要求、故障转移、部署模式等。 例如，Kubernetes 可以轻松管理系统的 Canary 部署。</strong></font></p>
-<h2 id="架构">架构</h2>
+<h2 id="k8s架构">K8s架构</h2>
 <h3 id="工作方式">工作方式</h3>
 <p>Kubernetes <strong>Cluster</strong> <strong>=</strong> N <strong>Master</strong> Node <strong>+</strong> N <strong>Worker</strong> Node：N主节点+N工作节点； N&gt;=1</p>
 <p>在生产环境的安装都是集群模式，很多台机器都安装k8s，每一台机器叫做一个节点。N通常选奇数，这样方便投票选领导。</p>
@@ -319,7 +352,1081 @@ Kubernetes 允许你存储和管理敏感信息，例如密码、OAuth 令牌和
 <p>kube-proxy 维护节点上的网络规则。这些网络规则允许从集群内部或外部的网络会话与 Pod 进行网络通信。</p>
 <p>如果操作系统提供了数据包过滤层并可用的话，kube-proxy 会通过它来实现网络规则。否则， kube-proxy 仅转发流量本身。</p>
 <h2 id="kubeadm创建集群">Kubeadm创建集群</h2>
-<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305301438559.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305301438559.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305301438559.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305301438559.png 2x" sizes="auto" data-title="image-20230530143849454" data-alt="image-20230530143849454" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p></div><div class="post-footer" id="post-footer">
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305301438559.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305301438559.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305301438559.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305301438559.png 2x" sizes="auto" data-title="image-20230530143849454" data-alt="image-20230530143849454" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="先为每台机器安装docker">先为每台机器安装docker</h3>
+<h3 id="安装kubeadm">安装kubeadm</h3>
+<ul>
+<li>
+<p>一台兼容的 Linux 主机。Kubernetes 项目为基于 Debian 和 Red Hat 的 Linux 发行版以及一些不提供包管理器的发行版提供通用的指令</p>
+</li>
+<li>
+<p>每台机器 2 GB 或更多的 RAM （如果少于这个数字将会影响你应用的运行内存)</p>
+</li>
+<li>
+<p>2 CPU 核或更多</p>
+</li>
+<li>
+<p>集群中的所有机器的网络彼此均能相互连接(公网和内网都可以)</p>
+</li>
+<li>
+<ul>
+<li><strong>设置防火墙放行规则</strong></li>
+</ul>
+</li>
+<li>
+<p>节点之中不可以有重复的主机名、MAC 地址或 product_uuid。请参见<a href="https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#verify-mac-address"target="_blank" rel="external nofollow noopener noreferrer">这里</a>了解更多详细信息。</p>
+</li>
+<li>
+<ul>
+<li><strong>设置不同hostname</strong></li>
+</ul>
+</li>
+<li>
+<p>开启机器上的某些端口。请参见<a href="https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports"target="_blank" rel="external nofollow noopener noreferrer">这里</a> 了解更多详细信息。</p>
+</li>
+<li>
+<ul>
+<li><strong>内网互信</strong></li>
+</ul>
+</li>
+<li>
+<p>禁用交换分区。为了保证 kubelet 正常工作，你 <strong>必须</strong> 禁用交换分区。</p>
+</li>
+<li>
+<ul>
+<li><strong>永久关闭</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="基础环境">基础环境</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#各个机器设置自己的域名</span>
+</span></span><span class="line"><span class="cl">hostnamectl set-hostname xxxx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将 SELinux 设置为 permissive 模式（相当于将其禁用）</span>
+</span></span><span class="line"><span class="cl">sudo setenforce <span class="m">0</span>
+</span></span><span class="line"><span class="cl">sudo sed -i <span class="s1">&#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39;</span> /etc/selinux/config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#关闭swap</span>
+</span></span><span class="line"><span class="cl">swapoff -a  
+</span></span><span class="line"><span class="cl">sed -ri <span class="s1">&#39;s/.*swap.*/#&amp;/&#39;</span> /etc/fstab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#允许 iptables 检查桥接流量</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/modules-load.d/k8s.conf
+</span></span></span><span class="line"><span class="cl"><span class="s">br_netfilter
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf
+</span></span></span><span class="line"><span class="cl"><span class="s">net.bridge.bridge-nf-call-ip6tables = 1
+</span></span></span><span class="line"><span class="cl"><span class="s">net.bridge.bridge-nf-call-iptables = 1
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">sudo sysctl --system
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="安装kubeletkubeadmkubectl">安装kubelet、kubeadm、kubectl</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+</span></span></span><span class="line"><span class="cl"><span class="s">[kubernetes]
+</span></span></span><span class="line"><span class="cl"><span class="s">name=Kubernetes
+</span></span></span><span class="line"><span class="cl"><span class="s">baseurl=http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+</span></span></span><span class="line"><span class="cl"><span class="s">enabled=1
+</span></span></span><span class="line"><span class="cl"><span class="s">gpgcheck=0
+</span></span></span><span class="line"><span class="cl"><span class="s">repo_gpgcheck=0
+</span></span></span><span class="line"><span class="cl"><span class="s">gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+</span></span></span><span class="line"><span class="cl"><span class="s">   http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+</span></span></span><span class="line"><span class="cl"><span class="s">exclude=kubelet kubeadm kubectl
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo yum install -y kubelet-1.20.9 kubeadm-1.20.9 kubectl-1.20.9 --disableexcludes<span class="o">=</span>kubernetes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> --now kubelet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>kubelet 现在每隔几秒就会重启，因为它陷入了一个等待 kubeadm 指令的死循环</p>
+<h3 id="使用kubeadm引导集群">使用kubeadm引导集群</h3>
+<h4 id="下载各个机器需要的镜像">下载各个机器需要的镜像</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo tee ./images.sh <span class="s">&lt;&lt;-&#39;EOF&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="s">images=(
+</span></span></span><span class="line"><span class="cl"><span class="s">kube-apiserver:v1.20.9
+</span></span></span><span class="line"><span class="cl"><span class="s">kube-proxy:v1.20.9
+</span></span></span><span class="line"><span class="cl"><span class="s">kube-controller-manager:v1.20.9
+</span></span></span><span class="line"><span class="cl"><span class="s">kube-scheduler:v1.20.9
+</span></span></span><span class="line"><span class="cl"><span class="s">coredns:1.7.0
+</span></span></span><span class="line"><span class="cl"><span class="s">etcd:3.4.13-0
+</span></span></span><span class="line"><span class="cl"><span class="s">pause:3.2
+</span></span></span><span class="line"><span class="cl"><span class="s">)
+</span></span></span><span class="line"><span class="cl"><span class="s">for imageName in ${images[@]} ; do
+</span></span></span><span class="line"><span class="cl"><span class="s">docker pull registry.cn-hangzhou.aliyuncs.com/lfy_k8s_images/$imageName
+</span></span></span><span class="line"><span class="cl"><span class="s">done
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">chmod +x ./images.sh <span class="o">&amp;&amp;</span> ./images.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="初始化节点">初始化节点</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#所有机器添加master域名映射，以下需要修改为自己的</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;自己的master的ip  cluster-endpoint&#34;</span> &gt;&gt; /etc/hosts
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#主节点初始化</span>
+</span></span><span class="line"><span class="cl">kubeadm init <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--apiserver-advertise-address<span class="o">=</span>自己的master的ip <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--control-plane-endpoint<span class="o">=</span>上面设置好的域名的值，比如这里就是cluster-endpoint <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--image-repository registry.cn-hangzhou.aliyuncs.com/lfy_k8s_images <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--kubernetes-version v1.20.9 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--service-cidr<span class="o">=</span>10.96.0.0/16 <span class="se">\ </span>                 
+</span></span><span class="line"><span class="cl">--pod-network-cidr<span class="o">=</span>192.168.0.0/16
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#所有网络范围不重叠（service和pod和主节点、工作节点）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Your Kubernetes control-plane has initialized successfully!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 我们使用我们的集群，需要先做这一步</span>
+</span></span><span class="line"><span class="cl">To start using your cluster, you need to run the following as a regular user:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  mkdir -p <span class="nv">$HOME</span>/.kube
+</span></span><span class="line"><span class="cl">  sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+</span></span><span class="line"><span class="cl">  sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Alternatively, <span class="k">if</span> you are the root user, you can run:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>/etc/kubernetes/admin.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 部署网络插件，使K8s里面的机器串起来，打通</span>
+</span></span><span class="line"><span class="cl">You should now deploy a pod network to the cluster.
+</span></span><span class="line"><span class="cl">Run <span class="s2">&#34;kubectl apply -f [podnetwork].yaml&#34;</span> with one of the options listed at:
+</span></span><span class="line"><span class="cl">  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用这个命令可以使集群中的其他节点也变为主节点</span>
+</span></span><span class="line"><span class="cl">You can now join any number of control-plane nodes by copying certificate authorities
+</span></span><span class="line"><span class="cl">and service account keys on each node and <span class="k">then</span> running the following as root:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  kubeadm join cluster-endpoint:6443 --token hums8f.vyx71prsg74ofce7 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --discovery-token-ca-cert-hash sha256:a394d059dd51d68bb007a532a037d0a477131480ae95f75840c461e85e2c6ae3 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --control-plane 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用这个命令可以使集群中的其他节点变为工作节点</span>
+</span></span><span class="line"><span class="cl">Then you can join any number of worker nodes by running the following on each as root:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubeadm join cluster-endpoint:6443 --token hums8f.vyx71prsg74ofce7 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --discovery-token-ca-cert-hash sha256:a394d059dd51d68bb007a532a037d0a477131480ae95f75840c461e85e2c6ae3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#查看集群所有节点  这个命令只能在主节点上运行</span>
+</span></span><span class="line"><span class="cl">kubectl get nodes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#根据配置文件，给集群创建资源</span>
+</span></span><span class="line"><span class="cl">kubectl apply -f xxxx.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#查看集群部署了哪些应用？</span>
+</span></span><span class="line"><span class="cl">docker <span class="nv">ps</span>   <span class="o">===</span>   kubectl get pods -A
+</span></span><span class="line"><span class="cl"><span class="c1"># 运行中的应用在docker里面叫容器，在k8s里面叫Pod</span>
+</span></span><span class="line"><span class="cl">kubectl get pods -A
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="根据提示继续">根据提示继续</h4>
+<p>master成功后提示如下：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311505637.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311505637.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311505637.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311505637.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h5 id="1设置kubeconfig">1、设置.kube/config</h5>
+<p>复制上面命令</p>
+<h5 id="2安装网络组件">2、安装网络组件</h5>
+<p><a href="https://docs.projectcalico.org/getting-started/kubernetes/self-managed-onprem/onpremises#install-calico-with-kubernetes-api-datastore-more-than-50-nodes"target="_blank" rel="external nofollow noopener noreferrer">calico官网</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://docs.projectcalico.org/manifests/calico.yaml -O
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubectl apply -f calico.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="加入node节点在相应的子机器里使用-">加入node节点（在相应的子机器里使用 ）</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm join cluster-endpoint:6443 --token x5g4uy.wpjjdbgra92s25pp <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--discovery-token-ca-cert-hash sha256:6255797916eaee52bf9dda9429db616fcd828436708345a308f4b917d3457a22
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的令牌只能维持24h，如果令牌过期了，在master下使用如下命令生成新的令牌。执行该命令后会得到一串命令，这串命令就是用来新加node节点的。</p>
+<p>kubeadm token create &ndash;print-join-command</p>
+<p><strong>高可用部署方式，也是在这一步的时候，使用添加主节点的命令即可</strong></p>
+<h4 id="验证集群">验证集群</h4>
+<ul>
+<li>
+<p>验证集群节点状态</p>
+</li>
+<li>
+<ul>
+<li>kubectl get nodes</li>
+</ul>
+</li>
+</ul>
+<h4 id="部署dashboard">部署dashboard</h4>
+<h5 id="部署">部署</h5>
+<p>kubernetes官方提供的可视化界面</p>
+<p><a href="https://github.com/kubernetes/dashboard"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/kubernetes/dashboard</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/aio/deploy/recommended.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span><span class="lnt">253
+</span><span class="lnt">254
+</span><span class="lnt">255
+</span><span class="lnt">256
+</span><span class="lnt">257
+</span><span class="lnt">258
+</span><span class="lnt">259
+</span><span class="lnt">260
+</span><span class="lnt">261
+</span><span class="lnt">262
+</span><span class="lnt">263
+</span><span class="lnt">264
+</span><span class="lnt">265
+</span><span class="lnt">266
+</span><span class="lnt">267
+</span><span class="lnt">268
+</span><span class="lnt">269
+</span><span class="lnt">270
+</span><span class="lnt">271
+</span><span class="lnt">272
+</span><span class="lnt">273
+</span><span class="lnt">274
+</span><span class="lnt">275
+</span><span class="lnt">276
+</span><span class="lnt">277
+</span><span class="lnt">278
+</span><span class="lnt">279
+</span><span class="lnt">280
+</span><span class="lnt">281
+</span><span class="lnt">282
+</span><span class="lnt">283
+</span><span class="lnt">284
+</span><span class="lnt">285
+</span><span class="lnt">286
+</span><span class="lnt">287
+</span><span class="lnt">288
+</span><span class="lnt">289
+</span><span class="lnt">290
+</span><span class="lnt">291
+</span><span class="lnt">292
+</span><span class="lnt">293
+</span><span class="lnt">294
+</span><span class="lnt">295
+</span><span class="lnt">296
+</span><span class="lnt">297
+</span><span class="lnt">298
+</span><span class="lnt">299
+</span><span class="lnt">300
+</span><span class="lnt">301
+</span><span class="lnt">302
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Copyright 2017 The Kubernetes Authors.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># you may not use this file except in compliance with the License.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># You may obtain a copy of the License at</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># See the License for the specific language governing permissions and</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># limitations under the License.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">kind: Namespace
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">kind: ServiceAccount
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: Service
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">spec:
+</span></span><span class="line"><span class="cl">  ports:
+</span></span><span class="line"><span class="cl">    - port: <span class="m">443</span>
+</span></span><span class="line"><span class="cl">      targetPort: <span class="m">8443</span>
+</span></span><span class="line"><span class="cl">  selector:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">kind: Secret
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard-certs
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">type: Opaque
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">kind: Secret
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard-csrf
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">type: Opaque
+</span></span><span class="line"><span class="cl">data:
+</span></span><span class="line"><span class="cl">  csrf: <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">kind: Secret
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard-key-holder
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">type: Opaque
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: ConfigMap
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard-settings
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: Role
+</span></span><span class="line"><span class="cl">apiVersion: rbac.authorization.k8s.io/v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">rules:
+</span></span><span class="line"><span class="cl">  <span class="c1"># Allow Dashboard to get, update and delete Dashboard exclusive secrets.</span>
+</span></span><span class="line"><span class="cl">  - apiGroups: <span class="o">[</span><span class="s2">&#34;&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resources: <span class="o">[</span><span class="s2">&#34;secrets&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resourceNames: <span class="o">[</span><span class="s2">&#34;kubernetes-dashboard-key-holder&#34;</span>, <span class="s2">&#34;kubernetes-dashboard-certs&#34;</span>, <span class="s2">&#34;kubernetes-dashboard-csrf&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    verbs: <span class="o">[</span><span class="s2">&#34;get&#34;</span>, <span class="s2">&#34;update&#34;</span>, <span class="s2">&#34;delete&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Allow Dashboard to get and update &#39;kubernetes-dashboard-settings&#39; config map.</span>
+</span></span><span class="line"><span class="cl">  - apiGroups: <span class="o">[</span><span class="s2">&#34;&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resources: <span class="o">[</span><span class="s2">&#34;configmaps&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resourceNames: <span class="o">[</span><span class="s2">&#34;kubernetes-dashboard-settings&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    verbs: <span class="o">[</span><span class="s2">&#34;get&#34;</span>, <span class="s2">&#34;update&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Allow Dashboard to get metrics.</span>
+</span></span><span class="line"><span class="cl">  - apiGroups: <span class="o">[</span><span class="s2">&#34;&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resources: <span class="o">[</span><span class="s2">&#34;services&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resourceNames: <span class="o">[</span><span class="s2">&#34;heapster&#34;</span>, <span class="s2">&#34;dashboard-metrics-scraper&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    verbs: <span class="o">[</span><span class="s2">&#34;proxy&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">  - apiGroups: <span class="o">[</span><span class="s2">&#34;&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resources: <span class="o">[</span><span class="s2">&#34;services/proxy&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resourceNames: <span class="o">[</span><span class="s2">&#34;heapster&#34;</span>, <span class="s2">&#34;http:heapster:&#34;</span>, <span class="s2">&#34;https:heapster:&#34;</span>, <span class="s2">&#34;dashboard-metrics-scraper&#34;</span>, <span class="s2">&#34;http:dashboard-metrics-scraper&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    verbs: <span class="o">[</span><span class="s2">&#34;get&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: ClusterRole
+</span></span><span class="line"><span class="cl">apiVersion: rbac.authorization.k8s.io/v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">rules:
+</span></span><span class="line"><span class="cl">  <span class="c1"># Allow Metrics Scraper to get metrics from the Metrics server</span>
+</span></span><span class="line"><span class="cl">  - apiGroups: <span class="o">[</span><span class="s2">&#34;metrics.k8s.io&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    resources: <span class="o">[</span><span class="s2">&#34;pods&#34;</span>, <span class="s2">&#34;nodes&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    verbs: <span class="o">[</span><span class="s2">&#34;get&#34;</span>, <span class="s2">&#34;list&#34;</span>, <span class="s2">&#34;watch&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apiVersion: rbac.authorization.k8s.io/v1
+</span></span><span class="line"><span class="cl">kind: RoleBinding
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">roleRef:
+</span></span><span class="line"><span class="cl">  apiGroup: rbac.authorization.k8s.io
+</span></span><span class="line"><span class="cl">  kind: Role
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">subjects:
+</span></span><span class="line"><span class="cl">  - kind: ServiceAccount
+</span></span><span class="line"><span class="cl">    name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">    namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apiVersion: rbac.authorization.k8s.io/v1
+</span></span><span class="line"><span class="cl">kind: ClusterRoleBinding
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">roleRef:
+</span></span><span class="line"><span class="cl">  apiGroup: rbac.authorization.k8s.io
+</span></span><span class="line"><span class="cl">  kind: ClusterRole
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">subjects:
+</span></span><span class="line"><span class="cl">  - kind: ServiceAccount
+</span></span><span class="line"><span class="cl">    name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">    namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: Deployment
+</span></span><span class="line"><span class="cl">apiVersion: apps/v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">spec:
+</span></span><span class="line"><span class="cl">  replicas: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">  revisionHistoryLimit: <span class="m">10</span>
+</span></span><span class="line"><span class="cl">  selector:
+</span></span><span class="line"><span class="cl">    matchLabels:
+</span></span><span class="line"><span class="cl">      k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">  template:
+</span></span><span class="line"><span class="cl">    metadata:
+</span></span><span class="line"><span class="cl">      labels:
+</span></span><span class="line"><span class="cl">        k8s-app: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">    spec:
+</span></span><span class="line"><span class="cl">      containers:
+</span></span><span class="line"><span class="cl">        - name: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">          image: kubernetesui/dashboard:v2.3.1
+</span></span><span class="line"><span class="cl">          imagePullPolicy: Always
+</span></span><span class="line"><span class="cl">          ports:
+</span></span><span class="line"><span class="cl">            - containerPort: <span class="m">8443</span>
+</span></span><span class="line"><span class="cl">              protocol: TCP
+</span></span><span class="line"><span class="cl">          args:
+</span></span><span class="line"><span class="cl">            - --auto-generate-certificates
+</span></span><span class="line"><span class="cl">            - --namespace<span class="o">=</span>kubernetes-dashboard
+</span></span><span class="line"><span class="cl">            <span class="c1"># Uncomment the following line to manually specify Kubernetes API server Host</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># If not specified, Dashboard will attempt to auto discover the API server and connect</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># to it. Uncomment only if the default does not work.</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># - --apiserver-host=http://my-address:port</span>
+</span></span><span class="line"><span class="cl">          volumeMounts:
+</span></span><span class="line"><span class="cl">            - name: kubernetes-dashboard-certs
+</span></span><span class="line"><span class="cl">              mountPath: /certs
+</span></span><span class="line"><span class="cl">              <span class="c1"># Create on-disk volume to store exec logs</span>
+</span></span><span class="line"><span class="cl">            - mountPath: /tmp
+</span></span><span class="line"><span class="cl">              name: tmp-volume
+</span></span><span class="line"><span class="cl">          livenessProbe:
+</span></span><span class="line"><span class="cl">            httpGet:
+</span></span><span class="line"><span class="cl">              scheme: HTTPS
+</span></span><span class="line"><span class="cl">              path: /
+</span></span><span class="line"><span class="cl">              port: <span class="m">8443</span>
+</span></span><span class="line"><span class="cl">            initialDelaySeconds: <span class="m">30</span>
+</span></span><span class="line"><span class="cl">            timeoutSeconds: <span class="m">30</span>
+</span></span><span class="line"><span class="cl">          securityContext:
+</span></span><span class="line"><span class="cl">            allowPrivilegeEscalation: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">            readOnlyRootFilesystem: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">            runAsUser: <span class="m">1001</span>
+</span></span><span class="line"><span class="cl">            runAsGroup: <span class="m">2001</span>
+</span></span><span class="line"><span class="cl">      volumes:
+</span></span><span class="line"><span class="cl">        - name: kubernetes-dashboard-certs
+</span></span><span class="line"><span class="cl">          secret:
+</span></span><span class="line"><span class="cl">            secretName: kubernetes-dashboard-certs
+</span></span><span class="line"><span class="cl">        - name: tmp-volume
+</span></span><span class="line"><span class="cl">          emptyDir: <span class="o">{}</span>
+</span></span><span class="line"><span class="cl">      serviceAccountName: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">      nodeSelector:
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;kubernetes.io/os&#34;</span>: linux
+</span></span><span class="line"><span class="cl">      <span class="c1"># Comment the following tolerations if Dashboard must not be deployed on master</span>
+</span></span><span class="line"><span class="cl">      tolerations:
+</span></span><span class="line"><span class="cl">        - key: node-role.kubernetes.io/master
+</span></span><span class="line"><span class="cl">          effect: NoSchedule
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: Service
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: dashboard-metrics-scraper
+</span></span><span class="line"><span class="cl">  name: dashboard-metrics-scraper
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">spec:
+</span></span><span class="line"><span class="cl">  ports:
+</span></span><span class="line"><span class="cl">    - port: <span class="m">8000</span>
+</span></span><span class="line"><span class="cl">      targetPort: <span class="m">8000</span>
+</span></span><span class="line"><span class="cl">  selector:
+</span></span><span class="line"><span class="cl">    k8s-app: dashboard-metrics-scraper
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: Deployment
+</span></span><span class="line"><span class="cl">apiVersion: apps/v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  labels:
+</span></span><span class="line"><span class="cl">    k8s-app: dashboard-metrics-scraper
+</span></span><span class="line"><span class="cl">  name: dashboard-metrics-scraper
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">spec:
+</span></span><span class="line"><span class="cl">  replicas: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">  revisionHistoryLimit: <span class="m">10</span>
+</span></span><span class="line"><span class="cl">  selector:
+</span></span><span class="line"><span class="cl">    matchLabels:
+</span></span><span class="line"><span class="cl">      k8s-app: dashboard-metrics-scraper
+</span></span><span class="line"><span class="cl">  template:
+</span></span><span class="line"><span class="cl">    metadata:
+</span></span><span class="line"><span class="cl">      labels:
+</span></span><span class="line"><span class="cl">        k8s-app: dashboard-metrics-scraper
+</span></span><span class="line"><span class="cl">      annotations:
+</span></span><span class="line"><span class="cl">        seccomp.security.alpha.kubernetes.io/pod: <span class="s1">&#39;runtime/default&#39;</span>
+</span></span><span class="line"><span class="cl">    spec:
+</span></span><span class="line"><span class="cl">      containers:
+</span></span><span class="line"><span class="cl">        - name: dashboard-metrics-scraper
+</span></span><span class="line"><span class="cl">          image: kubernetesui/metrics-scraper:v1.0.6
+</span></span><span class="line"><span class="cl">          ports:
+</span></span><span class="line"><span class="cl">            - containerPort: <span class="m">8000</span>
+</span></span><span class="line"><span class="cl">              protocol: TCP
+</span></span><span class="line"><span class="cl">          livenessProbe:
+</span></span><span class="line"><span class="cl">            httpGet:
+</span></span><span class="line"><span class="cl">              scheme: HTTP
+</span></span><span class="line"><span class="cl">              path: /
+</span></span><span class="line"><span class="cl">              port: <span class="m">8000</span>
+</span></span><span class="line"><span class="cl">            initialDelaySeconds: <span class="m">30</span>
+</span></span><span class="line"><span class="cl">            timeoutSeconds: <span class="m">30</span>
+</span></span><span class="line"><span class="cl">          volumeMounts:
+</span></span><span class="line"><span class="cl">          - mountPath: /tmp
+</span></span><span class="line"><span class="cl">            name: tmp-volume
+</span></span><span class="line"><span class="cl">          securityContext:
+</span></span><span class="line"><span class="cl">            allowPrivilegeEscalation: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">            readOnlyRootFilesystem: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">            runAsUser: <span class="m">1001</span>
+</span></span><span class="line"><span class="cl">            runAsGroup: <span class="m">2001</span>
+</span></span><span class="line"><span class="cl">      serviceAccountName: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">      nodeSelector:
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;kubernetes.io/os&#34;</span>: linux
+</span></span><span class="line"><span class="cl">      <span class="c1"># Comment the following tolerations if Dashboard must not be deployed on master</span>
+</span></span><span class="line"><span class="cl">      tolerations:
+</span></span><span class="line"><span class="cl">        - key: node-role.kubernetes.io/master
+</span></span><span class="line"><span class="cl">          effect: NoSchedule
+</span></span><span class="line"><span class="cl">      volumes:
+</span></span><span class="line"><span class="cl">        - name: tmp-volume
+</span></span><span class="line"><span class="cl">          emptyDir: <span class="o">{}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="设置访问端口">设置访问端口</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>找到type 找的方法是  输入 <code>/type:</code>，然后回车。</p>
+<p>type: ClusterIP 改为 type: NodePort</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get svc -A <span class="p">|</span>grep kubernetes-dashboard
+</span></span><span class="line"><span class="cl"><span class="c1">## 找到端口，在安全组放行</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>圈中的端口就是我们访问k8s控制台的端口号。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311529723.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311529723.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311529723.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311529723.png 2x" sizes="auto" data-title="image-20230531152956632" data-alt="image-20230531152956632" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>然后我们使用集群中任意一台机器的公网IP+端口号就可以访问到k8s的dashboard了。</p>
+<h5 id="创建访问账号">创建访问账号</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#创建访问账号，准备一个yaml文件； vi dash.yaml</span>
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">kind: ServiceAccount
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  name: admin-user
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">apiVersion: rbac.authorization.k8s.io/v1
+</span></span><span class="line"><span class="cl">kind: ClusterRoleBinding
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  name: admin-user
+</span></span><span class="line"><span class="cl">roleRef:
+</span></span><span class="line"><span class="cl">  apiGroup: rbac.authorization.k8s.io
+</span></span><span class="line"><span class="cl">  kind: ClusterRole
+</span></span><span class="line"><span class="cl">  name: cluster-admin
+</span></span><span class="line"><span class="cl">subjects:
+</span></span><span class="line"><span class="cl">- kind: ServiceAccount
+</span></span><span class="line"><span class="cl">  name: admin-user
+</span></span><span class="line"><span class="cl">  namespace: kubernetes-dashboard
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f dash.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="令牌访问">令牌访问</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#获取访问令牌</span>
+</span></span><span class="line"><span class="cl">kubectl -n kubernetes-dashboard get secret <span class="k">$(</span>kubectl -n kubernetes-dashboard get sa/admin-user -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&#34;{.secrets[0].name}&#34;</span><span class="k">)</span> -o go-template<span class="o">=</span><span class="s2">&#34;{{.data.token | base64decode}}&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>把下面生成的令牌复制到浏览器当中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">eyJhbGciOiJSUzI1NiIsImtpZCI6InpXSkU0TjhCUmVKQzBJaC03Nk9ES2NMZ1daRTRmQ1FMZU9rRUJ3VXRnM3MifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLXgyczhmIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIzOTZmYjdlNS0wMjA2LTQxMjctOGQzYS0xMzRlODVmYjU0MDAiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.Hf5mhl35_R0iBfBW7fF198h_klEnN6pRKfk_roAzOtAN-Aq21E4804PUhe9Rr9e_uFzLfoFDXacjJrHCuhiML8lpHIfJLK_vSD2pZNaYc2NWZq2Mso-BMGpObxGA23hW0nLQ5gCxlnxIAcyE76aYTAB6U8PxpvtVdgUknBVrwXG8UC_D8kHm9PTwa9jgbZfSYAfhOHWmZxNYo7CF2sHH-AT_WmIE8xLmB7J11vDzaunv92xoUoI0ju7OBA2WRr61bOmSd8WJgLCDcyBblxz4Wa-3zghfKlp0Rgb8l56AAI7ML_snF59X6JqaCuAcCJjIu0FUTS5DuyIObEeXY-z-Rw
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="界面">界面</h5>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311535059.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311535059.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311535059.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305311535059.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
@@ -328,9 +1435,9 @@ Kubernetes 允许你存储和管理敏感信息，例如密码、OAuth 令牌和
     <div class="post-info-line">
       <div class="post-info-md"></div>
       <div class="post-info-share">
-        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://Lizhe1228.github.io/posts/k8s/k8s01/" data-title="K8s入门" data-hashtags="k8s"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://Lizhe1228.github.io/posts/k8s/k8s01/" data-title="K8s入门1" data-hashtags="k8s"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
   <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://Lizhe1228.github.io/posts/k8s/k8s01/" data-hashtag="k8s"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://Lizhe1228.github.io/posts/k8s/k8s01/" data-title="K8s入门" data-ralateuid="6314435573"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://Lizhe1228.github.io/posts/k8s/k8s01/" data-title="K8s入门1" data-ralateuid="6314435573"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
       </div>
     </div>
