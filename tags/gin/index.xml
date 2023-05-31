@@ -4,7 +4,15 @@
     <link>http://Lizhe1228.github.io/tags/gin/</link>
     <description>Gin - 标签 - I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Tue, 30 May 2023 21:49:29 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/gin/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Wed, 31 May 2023 21:49:42 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/gin/" rel="self" type="application/rss+xml" /><item>
+  <title>Go操作数据库02</title>
+  <link>http://Lizhe1228.github.io/posts/gin/gin05/</link>
+  <pubDate>Wed, 31 May 2023 21:49:42 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/gin/gin05/</guid>
+  <description><![CDATA[<p>sqlx，一个更强大的连接类sql数据库的工具。</p>]]></description>
+</item>
+<item>
   <title>Go操作数据库01</title>
   <link>http://Lizhe1228.github.io/posts/gin/gin04/</link>
   <pubDate>Tue, 30 May 2023 21:49:29 &#43;0800</pubDate>
