@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Golang_Interview_关键字">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-05-30T10:19:15+08:00" />
 <meta itemprop="dateModified" content="2023-05-30T10:19:15+08:00" />
-<meta itemprop="wordCount" content="1043"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="2626"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Golang_Interview_关键字" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/interview01\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  1043 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  2626 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/interview01\/","datePublished": "2023-05-30T10:19:15+08:00","dateModified": "2023-05-30T10:19:15+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> go</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-30 10:19:15"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span title="更新于 2023-05-30 10:19:15"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1043 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Golang_Interview_关键字">
+      <div class="post-meta-line"><span title="发布于 2023-05-30 10:19:15"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span title="更新于 2023-05-30 10:19:15"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2626 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 6 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Golang_Interview_关键字">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -200,17 +200,33 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#1make和new的区别">1.make和new的区别</a></li>
-    <li><a href="#2slice的底层实现">2.slice的底层实现？</a></li>
-    <li><a href="#3slice和数组的区别">3.slice和数组的区别？</a></li>
-    <li><a href="#4slice的扩容机制">4.slice的扩容机制？</a></li>
+    <li><a href="#make和new的区别---span-stylecolor-redi-classfas-fa-exclamation-triangleispan">make和new的区别   <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#slice的底层实现-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">slice的底层实现？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#slice和数组的区别-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">slice和数组的区别？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#slice的扩容机制---span-stylecolor-redi-classfas-fa-exclamation-triangleispan">slice的扩容机制？   <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#channel的概念----span-stylecolor-redi-classfas-fa-exclamation-triangleispan">channel的概念？    <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#channel有哪些状态-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">channel有哪些状态？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#如何判断channel已经关闭-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">如何判断channel已经关闭？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#select的用途-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">select的用途？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#defer的概述--span-stylecolor-redi-classfas-fa-exclamation-triangleispan">defer的概述？  <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a></li>
+    <li><a href="#defer的使用场景-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">defer的使用场景？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></a>
+      <ul>
+        <li><a href="#并发处理">并发处理</a></li>
+        <li><a href="#锁场景">锁场景</a></li>
+        <li><a href="#资源释放">资源释放</a></li>
+        <li><a href="#panic-recover">panic-recover</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content" data-end-flag="The END"><h2 id="1make和new的区别">1.make和new的区别</h2>
+      </div><div class="content" id="content" data-end-flag="The END"><p><span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span>表示熟悉</p>
+<p><span style="color: skyblue;"><i class="fas fa-exclamation-triangle"></i></span>表示掌握</p>
+<p><span style="color:green;"><i class="fas fa-exclamation-triangle"></i></span>表示了解</p>
+<h2 id="make和new的区别---span-stylecolor-redi-classfas-fa-exclamation-triangleispan">make和new的区别   <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
 <p>new(T) 和 make(T,args) 是 Go 语言内建函数，用来<strong>分配内存</strong>，但<strong>适用的类型不同</strong>。</p>
 <p>new(T) 会为 T 类型的新值<strong>分配</strong>已置零的内存空间，并返回<font color=red>地址（指针）</font>，即类型为 <code>*T</code>的值。换句话说就是，返回一个<strong>指针</strong>，该指针指向新分配的、类型为 T 的零值。适用于<strong>值类型</strong>，如<strong>数组、结构体</strong>等；new可被替代，能够通过字面值快速初始化。</p>
 <p>make(T,args) <strong>分配并初始化</strong>，返回初始化之后的 T 类型的<font color=red>引用</font>，而并不是 T 类型的零值，也不是指针 <code>*T</code>；make() 只适用于 <strong>slice、map 和 channel</strong>；make函数会对三种类型的内部数据结构（长度、容量等）赋值。</p>
-<h2 id="2slice的底层实现">2.slice的底层实现？</h2>
+<h2 id="slice的底层实现-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">slice的底层实现？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
 <p>切片的底层是一个结构体，对应三个参数，一个是<strong>unsafe.Pointer指针</strong>，指向一个具体的底层数组，一个是<strong>cap</strong>，切片的容量，一个是<strong>len</strong>，切片的长度。</p>
 <p>因为切片是基于数组实现，所以<strong>它的底层的内存是连续分配的</strong>，效率非常高，可以通过索引获得数据。切片本身并不是动态数组或者数组指针，而是设定相关属性，将数据读写操作限定在指定的区域内。切片本身是一个只读对象，其工作机制类似数组指针的一种封装。</p>
 <p>如果make函数初始化了一个太大的切片，该切片就会逃逸到<strong>堆区</strong>；如果分配了一个比较小的切片，就会被分配到<strong>栈区</strong>，切片大小的临界值默认为64KB，因此make([]int64, 1023) 和 make([]int64, 1024) 是完全不同的内存布局。</p>
@@ -230,13 +246,13 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="3slice和数组的区别">3.slice和数组的区别？</h2>
+</div><h2 id="slice和数组的区别-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">slice和数组的区别？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
 <p><strong>切片是引用类型，数组是值类型</strong></p>
 <p>传递数组是通过<strong>拷贝</strong>的方式，<strong>传递切片</strong>是通过<strong>传递引用</strong>的方式。</p>
 <p><strong>数组的长度固定，而切片可以进行动态扩容</strong></p>
 <p>数组是一组内存空间连续的数据，一旦初始化长度大小就不会再改变，切片的长度可以进行扩展，当切片底层的数组容量不够时，切片会创建新的底层数组。</p>
 <p><strong>切片比数组多一个属性容量（cap)</strong></p>
-<h2 id="4slice的扩容机制">4.slice的扩容机制？</h2>
+<h2 id="slice的扩容机制---span-stylecolor-redi-classfas-fa-exclamation-triangleispan">slice的扩容机制？   <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
 <p>扩容主要分为两个过程：第一步是分配新的内存空间，第二步是将原有切片内容进行复制。分配新空间时候需要估计大致容量，然后再确定容量。</p>
 <p>根据该切片当前容量选择不同的策略：</p>
 <ul>
@@ -249,7 +265,196 @@
 <ul>
 <li>当切片比较小的，采用较大的扩容倍速进行扩容，避免频繁扩容，从而减少内存分配的次数和数据拷贝的代价</li>
 <li>当切片较大的时，采用较小的扩容倍速，主要避免空间浪费</li>
-</ul></div><div class="post-footer" id="post-footer">
+</ul>
+<h2 id="channel的概念----span-stylecolor-redi-classfas-fa-exclamation-triangleispan">channel的概念？    <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
+<p>channel又称为管道，用于数据传递或数据共享，其本质是一个先进先出的<strong>队列</strong>，使用goroutine+channel进行数据通讯简单高效，<strong>同时也线程安全</strong>，多个goroutine可同时修改一个channel，不需要加锁。</p>
+<h2 id="channel有哪些状态-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">channel有哪些状态？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
+<p><strong>nil</strong>：未初始化的状态，只进行了声明，或者手动赋值为nil。</p>
+<p><strong>active</strong>：正常的channel，可读或者可写。</p>
+<p><strong>closed</strong>：已关闭，channel的值不是nil。</p>
+<ul>
+<li>
+<p><strong>关闭的状态的channel仍然可以读值（取值），但不能写值（会报panic: send on closed channel）</strong>。</p>
+</li>
+<li>
+<p><strong>nil状态的channel是不能close（panic: close of nil channel）的。</strong></p>
+</li>
+<li>
+<p><strong>如果关闭后的 channel 没有数据可读取时，将得到零值，即对应类型的默认值。</strong></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>空channel</th>
+<th>已关闭channel</th>
+<th>活跃中的channel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>close(ch)</td>
+<td>panic</td>
+<td>panic</td>
+<td>成功关闭</td>
+</tr>
+<tr>
+<td>ch&lt;- v（写）</td>
+<td>永远阻塞</td>
+<td>panic</td>
+<td>成功发送或阻塞</td>
+</tr>
+<tr>
+<td>v,ok = &lt;-ch（读）</td>
+<td>永远阻塞</td>
+<td>不阻塞</td>
+<td>成功接收或阻塞</td>
+</tr>
+</tbody>
+</table>
+<h2 id="如何判断channel已经关闭-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">如何判断channel已经关闭？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">ch</span><span class="p">;</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;channel 已关闭，读取不到数据&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="select的用途-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">select的用途？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
+<p>select可以理解为是在语言层面实现了和I/O多路复用相似的功能：监听多个描述符的读/写等事件，一旦某个描述符就绪(一般是读或者写事件发生了)，就能够将发生的事件通知给关心的应用程序去处理该事件。</p>
+<p>golang的select机制是：监听多个channel，每一个case是一个事件，可以是读事件也可以是写事件，<strong>随机选择一个执行</strong>。可以设置default，它的作用是当监听的多个事件都阻塞住就会执行default的逻辑。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">select</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="o">&lt;-</span><span class="nx">ch1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 如果从 ch1 信道成功接收数据，则执行该分支代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">case</span> <span class="nx">ch2</span> <span class="o">&lt;-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 如果成功向 ch2 信道成功发送数据，则执行该分支代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 如果上面都没有成功，则进入 default 分支处理流程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition tip open">
+    <div class="details-summary admonition-title">
+      <i class="icon fa-solid fa-lightbulb fa-fw" aria-hidden="true"></i>提示<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><ul>
+<li>select语句只能用于信道的<strong>读写</strong>操作</li>
+<li>select中的case条件(非阻塞)是并发执行的，select会选择先操作成功的那个case条件去执行，如果多个同时返回，则<strong>随机选择</strong>一个执行，此时将无法保证执行顺序</li>
+<li>对于case条件语句中，如果存在信道值为nil的读写操作，则该分支将被忽略，可以理解为从select语句中删除了这个case语句</li>
+<li>如果有超时条件语句，判断逻辑为如果在这个时间段内一直没有满足条件的case，则<strong>执行这个超时case</strong>。<strong>如果此段时间内出现了可操作的case，则直接执行这个case</strong>。<strong>一般用超时语句代替了default语句</strong>。</li>
+<li>对于<strong>空的select{}</strong>，会引起死锁</li>
+<li>对于<strong>for中的select{}</strong>, 可能会引起<strong>cpu占用过高</strong>的问题</li>
+</ul>
+</div>
+    </div>
+  </div>
+<h2 id="defer的概述--span-stylecolor-redi-classfas-fa-exclamation-triangleispan">defer的概述？  <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
+<p>defer是go语言提供的一种用于注册延迟调用的机制：让函数或者语句在当前函数执行完毕(<strong>包括return正常结束或者panic导致的异常结束</strong>)之后进行调用。</p>
+<p><font color=red>panic和defer到底谁先执行，这个问题没有搞清楚，需要自己写代码测试一下，我好像知道怎么回事了，得分具体的情况</font></p>
+<p>defer具有以下特性：</p>
+<ul>
+<li><strong>延迟调用</strong>：defer在main函数return之前调用，且defer必须置于函数内部</li>
+<li><strong>LIFO</strong>：后进先出，压栈式执行</li>
+<li><strong>作用域</strong>：defer只和defer所在函数绑定在一起，作用域也只在这个函数，如果defer处于匿名函数中，会先调用匿名函数中的defer</li>
+</ul>
+<h2 id="defer的使用场景-span-stylecolor-redi-classfas-fa-exclamation-triangleispan">defer的使用场景？ <span style="color: red;"><i class="fas fa-exclamation-triangle"></i></span></h2>
+<p>defer关键字通常通常出现在一些成对出现的操作中，比如创建关闭链接、加锁解锁、打开关闭文件等操作。defer在一些资源回收的场景很有用。</p>
+<h3 id="并发处理">并发处理</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 程序逻辑
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="锁场景">锁场景</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">defer</span> <span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="资源释放">资源释放</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// new 一个客户端 client；
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">cli</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">clientv3</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">clientv3</span><span class="p">.</span><span class="nx">Config</span><span class="p">{</span><span class="nx">Endpoints</span><span class="p">:</span> <span class="nx">endpoints</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 释放该 client ，也就是说该 client 的声明周期就只在该函数中；
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">defer</span> <span class="nx">cli</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="panic-recover">panic-recover</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">v</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">v</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;PANIC=%v&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">

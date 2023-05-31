@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day11-20)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-05-30T10:00:36+08:00" />
 <meta itemprop="dateModified" content="2023-05-30T10:00:36+08:00" />
-<meta itemprop="wordCount" content="278"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="666"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day11-20)" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day11-20\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  278 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  666 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day11-20\/","datePublished": "2023-05-30T10:00:36+08:00","dateModified": "2023-05-30T10:00:36+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -189,8 +189,8 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Go Exercises(Day11-20)</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
-          <span class="post-category">收录于 <a href="/categories/go/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> go</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-30 10:00:36"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span title="更新于 2023-05-30 10:00:36"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 278 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day11-20)">
+          <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2023-05-30 10:00:36"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span title="更新于 2023-05-30 10:00:36"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 666 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day11-20)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -207,6 +207,14 @@
         <li><a href="#3下面这段代码输出什么">3.下面这段代码输出什么？</a></li>
       </ul>
     </li>
+    <li><a href="#day12">Day12</a>
+      <ul>
+        <li><a href="#1下面属于关键字的是">1.下面属于关键字的是？</a></li>
+        <li><a href="#2下面这段代码输出什么-1">2.下面这段代码输出什么？</a></li>
+        <li><a href="#3下面这段代码输出什么-1">3.下面这段代码输出什么？</a></li>
+      </ul>
+    </li>
+    <li><a href="#day13">Day13</a></li>
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="The END"><h2 id="day11">Day11</h2>
@@ -272,7 +280,95 @@
 <li>C. compilation error</li>
 </ul>
 <hr>
-<p>参考答案及解析：B。<font color=red>删除 map 不存在的键值对时，不会报错，相当于没有任何作用；获取不存在的键值对时，返回值类型对应的零值，所以返回 0。</font></p></div><div class="post-footer" id="post-footer">
+<p>参考答案及解析：B。<font color=red>删除 map 不存在的键值对时，不会报错，相当于没有任何作用；获取不存在的键值对时，返回值类型对应的零值，所以返回 0。</font></p>
+<h2 id="day12">Day12</h2>
+<h3 id="1下面属于关键字的是">1.下面属于关键字的是？</h3>
+<ul>
+<li>A.func</li>
+<li>B.struct</li>
+<li>C.class</li>
+<li>D.defer</li>
+</ul>
+<hr>
+<p>参考答案及解析：ABD。知识点：Go 语言的关键字。Go 语言有 25 个关键字，看下图：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305310936379.jpeg" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305310936379.jpeg, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305310936379.jpeg 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202305310936379.jpeg 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="2下面这段代码输出什么-1">2.下面这段代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nx">i</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">j</span> <span class="o">:=</span> <span class="o">+</span><span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%+d %+d&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A. -5 +5</li>
+<li>B. +5 +5</li>
+<li>C. 0 0</li>
+</ul>
+<hr>
+<p>参考答案及解析：A。%d表示输出十进制数字，<strong><code>+</code>表示输出数值的符号</strong>。这里不表示取反。</p>
+<h3 id="3下面这段代码输出什么-1">3.下面这段代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">People</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">People</span><span class="p">)</span> <span class="nf">ShowA</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;showA&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">p</span><span class="p">.</span><span class="nf">ShowB</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">People</span><span class="p">)</span> <span class="nf">ShowB</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;showB&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Teacher</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">People</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Teacher</span><span class="p">)</span> <span class="nf">ShowB</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;teacher showB&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span> <span class="o">:=</span> <span class="nx">Teacher</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nf">ShowB</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参考答案及解析：teacher showB。知识点：<strong>结构体嵌套</strong>。在嵌套结构体中，<strong>People 称为内部类型</strong>，<strong>Teacher 称为外部类型</strong>；<font color=red>通过嵌套，内部类型的属性、方法，可以为外部类型所有，就好像是外部类型自己的一样。此外，外部类型还可以定义自己的属性和方法，甚至可以<strong>定义与内部相同的方法</strong>，这样内部类型的方法就会被“<strong>屏蔽</strong>”</font>。这个例子中的 ShowB() 就是同名方法。</p>
+<h2 id="day13">Day13</h2></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">

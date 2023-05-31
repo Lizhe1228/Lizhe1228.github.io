@@ -4,7 +4,31 @@
     <link>http://Lizhe1228.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
     <description>面试 - 标签 - I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Tue, 30 May 2023 10:19:15 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/%E9%9D%A2%E8%AF%95/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Wed, 31 May 2023 10:54:58 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/%E9%9D%A2%E8%AF%95/" rel="self" type="application/rss+xml" /><item>
+  <title>Golang_Interview_垃圾回收</title>
+  <link>http://Lizhe1228.github.io/posts/go/interview04/</link>
+  <pubDate>Wed, 31 May 2023 10:54:58 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/interview04/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Golang_Interview_GMP</title>
+  <link>http://Lizhe1228.github.io/posts/go/interview03/</link>
+  <pubDate>Wed, 31 May 2023 10:54:54 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/interview03/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Golang_Interview_概述</title>
+  <link>http://Lizhe1228.github.io/posts/go/interview02/</link>
+  <pubDate>Wed, 31 May 2023 10:54:36 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/interview02/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Golang_Interview_关键字</title>
   <link>http://Lizhe1228.github.io/posts/go/interview01/</link>
   <pubDate>Tue, 30 May 2023 10:19:15 &#43;0800</pubDate>

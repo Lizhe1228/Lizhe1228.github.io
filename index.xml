@@ -4,9 +4,33 @@
     <link>http://Lizhe1228.github.io/</link>
     <description>一个东北不知名211研究生的个人博客，分享记录笔记</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Tue, 30 May 2023 21:49:29 &#43;0800</lastBuildDate>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Wed, 31 May 2023 10:54:58 &#43;0800</lastBuildDate>
       <atom:link href="http://Lizhe1228.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>Golang_Interview_垃圾回收</title>
+  <link>http://Lizhe1228.github.io/posts/go/interview04/</link>
+  <pubDate>Wed, 31 May 2023 10:54:58 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/interview04/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Golang_Interview_GMP</title>
+  <link>http://Lizhe1228.github.io/posts/go/interview03/</link>
+  <pubDate>Wed, 31 May 2023 10:54:54 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/interview03/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Golang_Interview_概述</title>
+  <link>http://Lizhe1228.github.io/posts/go/interview02/</link>
+  <pubDate>Wed, 31 May 2023 10:54:36 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/interview02/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Go操作数据库</title>
   <link>http://Lizhe1228.github.io/posts/gin/gin04/</link>
   <pubDate>Tue, 30 May 2023 21:49:29 &#43;0800</pubDate>
@@ -61,30 +85,6 @@
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/gin/gin02/</guid>
   <description><![CDATA[<p>后面的代码太长了，还没有看……</p>]]></description>
-</item>
-<item>
-  <title>Docker轻量级可视化工具Portainer</title>
-  <link>http://Lizhe1228.github.io/posts/docker/docker08/</link>
-  <pubDate>Sun, 28 May 2023 16:52:43 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/docker/docker08/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Docker-compose容器编排</title>
-  <link>http://Lizhe1228.github.io/posts/docker/docker07/</link>
-  <pubDate>Sun, 28 May 2023 14:45:34 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/docker/docker07/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Docker03</title>
-  <link>http://Lizhe1228.github.io/posts/docker/docker03/</link>
-  <pubDate>Sat, 27 May 2023 22:14:52 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/docker/docker03/</guid>
-  <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>
