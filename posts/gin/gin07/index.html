@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Go中使用Zap - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
+<meta name="author-link" content="">
+<meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='gin' /><meta itemprop="name" content="Go中使用Zap">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-08T16:08:46+08:00" />
+<meta itemprop="dateModified" content="2023-06-08T16:08:46+08:00" />
+<meta itemprop="wordCount" content="4672"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="keywords" content="gin," /><meta property="og:title" content="Go中使用Zap" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lizhe1228.github.io/posts/gin/gin07/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-08T16:08:46+08:00" />
+<meta property="article:modified_time" content="2023-06-08T16:08:46+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+
+<meta name="twitter:title" content="Go中使用Zap"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="Lizhe1228">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/gin/gin07/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/go/day21-30/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Go中使用Zap",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin07\/"
+    },"genre": "posts","keywords": "gin","wordcount":  4672 ,
+    "url": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin07\/","datePublished": "2023-06-08T16:08:46+08:00","dateModified": "2023-06-08T16:08:46+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Lizhe1228"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="I am Lizhe1228" data-alt="I am Lizhe1228" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-desktop" class="typeit"></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/friends/"
+                
+                
+              ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="/nzr-smile.svg" data-alt="/nzr-smile.svg" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-title-mobile" class="typeit"></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/friends/"
+                  
+                  
+                ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">Go中使用Zap</li>
+    </ol>
+  </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Go中使用Zap</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
+          <span class="post-category">收录于 <a href="/categories/gin/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Gin</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2023-06-08 16:08:46"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span title="更新于 2023-06-08 16:08:46"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 4672 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 10 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go中使用Zap">
+            <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#默认的go-logger">默认的Go Logger</a>
+      <ul>
+        <li><a href="#实现go-logger">实现Go Logger</a>
+          <ul>
+            <li><a href="#设置logger">设置Logger</a></li>
+            <li><a href="#使用logger">使用Logger</a></li>
+            <li><a href="#logger的运行">Logger的运行</a></li>
+          </ul>
+        </li>
+        <li><a href="#go-logger的优势和劣势">Go Logger的优势和劣势</a>
+          <ul>
+            <li><a href="#优势">优势</a></li>
+            <li><a href="#劣势">劣势</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#uber-go-zap">Uber-go Zap</a>
+      <ul>
+        <li><a href="#为什么选择uber-go-zap">为什么选择Uber-go zap</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#配置zap-logger">配置Zap Logger</a>
+          <ul>
+            <li><a href="#logger">Logger</a></li>
+            <li><a href="#sugared-logger">Sugared Logger</a></li>
+          </ul>
+        </li>
+        <li><a href="#定制logger">定制logger</a>
+          <ul>
+            <li><a href="#将日志写入文件而不是终端">将日志写入文件而不是终端</a></li>
+            <li><a href="#将json-encoder更改为普通的log-encoder">将JSON Encoder更改为普通的Log Encoder</a></li>
+            <li><a href="#更改时间编码并添加调用者详细信息">更改时间编码并添加调用者详细信息</a></li>
+            <li><a href="#addcallerskip">AddCallerSkip</a></li>
+            <li><a href="#将日志输出到多个位置">将日志输出到多个位置</a></li>
+            <li><a href="#将err日志单独输出到文件">将err日志单独输出到文件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#使用lumberjack进行日志的切割和归档">使用Lumberjack进行日志的切割和归档</a>
+      <ul>
+        <li><a href="#安装-1">安装</a></li>
+        <li><a href="#zap-logger中加入lumberjack">zap logger中加入Lumberjack</a></li>
+        <li><a href="#测试所有功能">测试所有功能</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="The END"><h2 id="介绍">介绍</h2>
+<p>在许多Go语言项目中，我们需要一个好的日志记录器能够提供下面这些功能：</p>
+<ul>
+<li>能够将事件记录到文件中，而不是应用程序控制台。</li>
+<li>日志切割-能够根据文件大小、时间或间隔等来切割日志文件。</li>
+<li>支持不同的日志级别。例如INFO，DEBUG，ERROR等。</li>
+<li>能够打印基本信息，如调用文件/函数名和行号，日志时间等。</li>
+</ul>
+<h2 id="默认的go-logger">默认的Go Logger</h2>
+<p>在介绍Uber-go的zap包之前，让我们先看看Go语言提供的基本日志功能。Go语言提供的默认日志包是https://golang.org/pkg/log/。</p>
+<h3 id="实现go-logger">实现Go Logger</h3>
+<p>实现一个Go语言中的日志记录器非常简单——创建一个新的日志文件，然后设置它为日志的输出位置。</p>
+<h4 id="设置logger">设置Logger</h4>
+<p>我们可以像下面的代码一样设置日志记录器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">SetupLogger</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">logFileLocation</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;/Users/nzR/test.log&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_APPEND</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_RDWR</span><span class="p">,</span> <span class="mo">0744</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">SetOutput</span><span class="p">(</span><span class="nx">logFileLocation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="使用logger">使用Logger</h4>
+<p>让我们来写一些虚拟的代码来使用这个日志记录器。</p>
+<p>在当前的示例中，我们将建立一个到URL的HTTP连接，并将状态代码/错误记录到日志文件中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">simpleHttpGet</span><span class="p">(</span><span class="nx">url</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Error fetching url %s : %s&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Status Code for %s : %s&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="logger的运行">Logger的运行</h4>
+<p>现在让我们执行上面的代码并查看日志记录器的运行情况。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">SetupLogger</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">simpleHttpGet</span><span class="p">(</span><span class="s">&#34;www.google.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">simpleHttpGet</span><span class="p">(</span><span class="s">&#34;http://www.google.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当我们执行上面的代码，我们能看到一个<code>test.log</code>文件被创建，下面的内容会被添加到这个日志文件中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">2019/05/24 01:14:13 Error fetching url www.google.com : Get www.google.com: unsupported protocol scheme <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">2019/05/24 01:14:14 Status Code <span class="k">for</span> http://www.google.com : <span class="m">200</span> OK
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="go-logger的优势和劣势">Go Logger的优势和劣势</h3>
+<h4 id="优势">优势</h4>
+<p>它最大的优点是使用非常简单。我们可以设置任何<code>io.Writer</code>作为日志记录输出并向其发送要写入的日志。</p>
+<h4 id="劣势">劣势</h4>
+<ul>
+<li>仅限基本的日志级别
+<ul>
+<li>只有一个<code>Print</code>选项。不支持<code>INFO</code>/<code>DEBUG</code>等多个级别。</li>
+</ul>
+</li>
+<li>对于错误日志，它有<code>Fatal</code>和<code>Panic</code>
+<ul>
+<li>Fatal日志通过调用<code>os.Exit(1)</code>来结束程序</li>
+<li>Panic日志在写入日志消息之后抛出一个panic</li>
+<li>但是它缺少一个ERROR日志级别，这个级别可以在不抛出panic或退出程序的情况下记录错误</li>
+</ul>
+</li>
+<li>缺乏日志格式化的能力——例如记录调用者的函数名和行号，格式化日期和时间格式。等等。</li>
+<li>不提供日志切割的能力。</li>
+</ul>
+<h2 id="uber-go-zap">Uber-go Zap</h2>
+<p><a href="https://github.com/uber-go/zap"target="_blank" rel="external nofollow noopener noreferrer">Zap</a>是非常快的、结构化的，分日志级别的Go日志库。</p>
+<h3 id="为什么选择uber-go-zap">为什么选择Uber-go zap</h3>
+<ul>
+<li>它同时提供了结构化日志记录和printf风格的日志记录</li>
+<li>它非常的快</li>
+</ul>
+<p>根据Uber-go Zap的文档，它的性能比类似的结构化日志包更好——也比标准库更快。 以下是Zap发布的基准测试信息</p>
+<p>记录一条消息和10个字段:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Package</th>
+<th style="text-align:center">Time</th>
+<th style="text-align:center">Time % to zap</th>
+<th style="text-align:center">Objects Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">⚡️ zap</td>
+<td style="text-align:center">862 ns/op</td>
+<td style="text-align:center">+0%</td>
+<td style="text-align:center">5 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">⚡️ zap (sugared)</td>
+<td style="text-align:center">1250 ns/op</td>
+<td style="text-align:center">+45%</td>
+<td style="text-align:center">11 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">zerolog</td>
+<td style="text-align:center">4021 ns/op</td>
+<td style="text-align:center">+366%</td>
+<td style="text-align:center">76 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">go-kit</td>
+<td style="text-align:center">4542 ns/op</td>
+<td style="text-align:center">+427%</td>
+<td style="text-align:center">105 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">apex/log</td>
+<td style="text-align:center">26785 ns/op</td>
+<td style="text-align:center">+3007%</td>
+<td style="text-align:center">115 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">logrus</td>
+<td style="text-align:center">29501 ns/op</td>
+<td style="text-align:center">+3322%</td>
+<td style="text-align:center">125 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">log15</td>
+<td style="text-align:center">29906 ns/op</td>
+<td style="text-align:center">+3369%</td>
+<td style="text-align:center">122 allocs/op</td>
+</tr>
+</tbody>
+</table>
+<p>记录一个静态字符串，没有任何上下文或printf风格的模板：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Package</th>
+<th style="text-align:center">Time</th>
+<th style="text-align:center">Time % to zap</th>
+<th style="text-align:center">Objects Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">⚡️ zap</td>
+<td style="text-align:center">118 ns/op</td>
+<td style="text-align:center">+0%</td>
+<td style="text-align:center">0 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">⚡️ zap (sugared)</td>
+<td style="text-align:center">191 ns/op</td>
+<td style="text-align:center">+62%</td>
+<td style="text-align:center">2 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">zerolog</td>
+<td style="text-align:center">93 ns/op</td>
+<td style="text-align:center">-21%</td>
+<td style="text-align:center">0 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">go-kit</td>
+<td style="text-align:center">280 ns/op</td>
+<td style="text-align:center">+137%</td>
+<td style="text-align:center">11 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">standard library</td>
+<td style="text-align:center">499 ns/op</td>
+<td style="text-align:center">+323%</td>
+<td style="text-align:center">2 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">apex/log</td>
+<td style="text-align:center">1990 ns/op</td>
+<td style="text-align:center">+1586%</td>
+<td style="text-align:center">10 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">logrus</td>
+<td style="text-align:center">3129 ns/op</td>
+<td style="text-align:center">+2552%</td>
+<td style="text-align:center">24 allocs/op</td>
+</tr>
+<tr>
+<td style="text-align:center">log15</td>
+<td style="text-align:center">3887 ns/op</td>
+<td style="text-align:center">+3194%</td>
+<td style="text-align:center">23 allocs/op</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装">安装</h3>
+<p>运行下面的命令安装zap</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go get -u go.uber.org/zap
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置zap-logger">配置Zap Logger</h3>
+<p>Zap提供了两种类型的日志记录器—<code>Sugared Logger</code>和<code>Logger</code>。</p>
+<p>在性能很好但不是很关键的上下文中，使用<code>SugaredLogger</code>。它比其他结构化日志记录包快4-10倍，并且支持结构化和printf风格的日志记录。</p>
+<p>在每一微秒和每一次内存分配都很重要的上下文中，使用<code>Logger</code>。它甚至比<code>SugaredLogger</code>更快，内存分配次数也更少，但它只支持强类型的结构化日志记录。</p>
+<h4 id="logger">Logger</h4>
+<ul>
+<li>通过调用<code>zap.NewProduction()</code>/<code>zap.NewDevelopment()</code>或者<code>zap.Example()</code>创建一个Logger。</li>
+<li>上面的每一个函数都将创建一个logger。唯一的区别在于它将记录的信息不同。例如production logger默认记录调用函数信息、日期和时间等。</li>
+<li>通过Logger调用Info/Error等。</li>
+<li>默认情况下日志都会打印到应用程序的console界面。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">logger</span> <span class="o">*</span><span class="nx">zap</span><span class="p">.</span><span class="nx">Logger</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">InitLogger</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">defer</span> <span class="nx">logger</span><span class="p">.</span><span class="nf">Sync</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">simpleHttpGet</span><span class="p">(</span><span class="s">&#34;www.google.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">simpleHttpGet</span><span class="p">(</span><span class="s">&#34;http://www.google.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">InitLogger</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">logger</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">NewProduction</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">simpleHttpGet</span><span class="p">(</span><span class="nx">url</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">logger</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">			<span class="s">&#34;Error fetching url..&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">zap</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;url&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">zap</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">logger</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;Success..&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">zap</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;statusCode&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">zap</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;url&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在上面的代码中，我们首先创建了一个Logger，然后使用Info/ Error等Logger方法记录消息。</p>
+<p>日志记录器方法的语法是这样的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">log</span> <span class="o">*</span><span class="nx">Logger</span><span class="p">)</span> <span class="nf">MethodXXX</span><span class="p">(</span><span class="nx">msg</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">fields</span> <span class="o">...</span><span class="nx">Field</span><span class="p">)</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中<code>MethodXXX</code>是一个可变参数函数，可以是Info / Error/ Debug / Panic等。每个方法都接受一个消息字符串和任意数量的<code>zapcore.Field</code>场参数。</p>
+<p>每个<code>zapcore.Field</code>其实就是一组键值对参数。</p>
+<p>我们执行上面的代码会得到如下输出结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;error&#34;</span>,<span class="s2">&#34;ts&#34;</span>:1572159218.912792,<span class="s2">&#34;caller&#34;</span>:<span class="s2">&#34;zap_demo/temp.go:25&#34;</span>,<span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Error fetching url..&#34;</span>,<span class="s2">&#34;url&#34;</span>:<span class="s2">&#34;www.sogo.com&#34;</span>,<span class="s2">&#34;error&#34;</span>:<span class="s2">&#34;Get www.sogo.com: unsupported protocol scheme \&#34;\&#34;&#34;</span>,<span class="s2">&#34;stacktrace&#34;</span>:<span class="s2">&#34;main.simpleHttpGet\n\t/Users/q1mi/zap_demo/temp.go:25\nmain.main\n\t/Users/q1mi/zap_demo/temp.go:14\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:203&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;info&#34;</span>,<span class="s2">&#34;ts&#34;</span>:1572159219.1227388,<span class="s2">&#34;caller&#34;</span>:<span class="s2">&#34;zap_demo/temp.go:30&#34;</span>,<span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Success..&#34;</span>,<span class="s2">&#34;statusCode&#34;</span>:<span class="s2">&#34;200 OK&#34;</span>,<span class="s2">&#34;url&#34;</span>:<span class="s2">&#34;http://www.sogo.com&#34;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="sugared-logger">Sugared Logger</h4>
+<p>现在让我们使用Sugared Logger来实现相同的功能。</p>
+<ul>
+<li>大部分的实现基本都相同。</li>
+<li>惟一的区别是，我们通过调用主logger的<code>. Sugar()</code>方法来获取一个<code>SugaredLogger</code>。</li>
+<li>然后使用<code>SugaredLogger</code>以<code>printf</code>格式记录语句</li>
+</ul>
+<p>下面是修改过后使用<code>SugaredLogger</code>代替<code>Logger</code>的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">sugarLogger</span> <span class="o">*</span><span class="nx">zap</span><span class="p">.</span><span class="nx">SugaredLogger</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">InitLogger</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">sugarLogger</span><span class="p">.</span><span class="nf">Sync</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">simpleHttpGet</span><span class="p">(</span><span class="s">&#34;www.google.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">simpleHttpGet</span><span class="p">(</span><span class="s">&#34;http://www.google.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">InitLogger</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">logger</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">NewProduction</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sugarLogger</span> <span class="p">=</span> <span class="nx">logger</span><span class="p">.</span><span class="nf">Sugar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">simpleHttpGet</span><span class="p">(</span><span class="nx">url</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sugarLogger</span><span class="p">.</span><span class="nf">Debugf</span><span class="p">(</span><span class="s">&#34;Trying to hit GET request for %s&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">sugarLogger</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Error fetching URL %s : Error = %s&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">sugarLogger</span><span class="p">.</span><span class="nf">Infof</span><span class="p">(</span><span class="s">&#34;Success! statusCode = %s for URL %s&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当你执行上面的代码会得到如下输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;error&#34;</span>,<span class="s2">&#34;ts&#34;</span>:1572159149.923002,<span class="s2">&#34;caller&#34;</span>:<span class="s2">&#34;logic/temp2.go:27&#34;</span>,<span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Error fetching URL www.sogo.com : Error = Get www.sogo.com: unsupported protocol scheme \&#34;\&#34;&#34;</span>,<span class="s2">&#34;stacktrace&#34;</span>:<span class="s2">&#34;main.simpleHttpGet\n\t/Users/q1mi/zap_demo/logic/temp2.go:27\nmain.main\n\t/Users/q1mi/zap_demo/logic/temp2.go:14\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:203&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;info&#34;</span>,<span class="s2">&#34;ts&#34;</span>:1572159150.192585,<span class="s2">&#34;caller&#34;</span>:<span class="s2">&#34;logic/temp2.go:29&#34;</span>,<span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Success! statusCode = 200 OK for URL http://www.sogo.com&#34;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>你应该注意到的了，到目前为止这两个logger都打印输出JSON结构格式。</p>
+<p>在本博客的后面部分，我们将更详细地讨论SugaredLogger，并了解如何进一步配置它。</p>
+<h3 id="定制logger">定制logger</h3>
+<h4 id="将日志写入文件而不是终端">将日志写入文件而不是终端</h4>
+<p>我们要做的第一个更改是把日志写入文件，而不是打印到应用程序控制台。</p>
+<ul>
+<li>我们将使用<code>zap.New(…)</code>方法来手动传递所有配置，而不是使用像<code>zap.NewProduction()</code>这样的预置方法来创建logger。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">New</span><span class="p">(</span><span class="nx">core</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">Core</span><span class="p">,</span> <span class="nx">options</span> <span class="o">...</span><span class="nx">Option</span><span class="p">)</span> <span class="o">*</span><span class="nx">Logger</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>zapcore.Core</code>需要三个配置——<code>Encoder</code>，<code>WriteSyncer</code>，<code>LogLevel</code>。</p>
+<p>1.<strong>Encoder</strong>:编码器(如何写入日志)。我们将使用开箱即用的<code>NewJSONEncoder()</code>，并使用预先设置的<code>ProductionEncoderConfig()</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">   <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewJSONEncoder</span><span class="p">(</span><span class="nx">zap</span><span class="p">.</span><span class="nf">NewProductionEncoderConfig</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>2.<strong>WriterSyncer</strong> ：指定日志将写到哪里去。我们使用<code>zapcore.AddSync()</code>函数并且将打开的文件句柄传进去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">   <span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">writeSyncer</span> <span class="o">:=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">AddSync</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>3.<strong>Log Level</strong>：哪种级别的日志将被写入。</p>
+<p>我们将修改上述部分中的Logger代码，并重写<code>InitLogger()</code>方法。其余方法—<code>main()</code> /<code>SimpleHttpGet()</code>保持不变。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">InitLogger</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">writeSyncer</span> <span class="o">:=</span> <span class="nf">getLogWriter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoder</span> <span class="o">:=</span> <span class="nf">getEncoder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">core</span> <span class="o">:=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewCore</span><span class="p">(</span><span class="nx">encoder</span><span class="p">,</span> <span class="nx">writeSyncer</span><span class="p">,</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">DebugLevel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">logger</span> <span class="o">:=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">core</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sugarLogger</span> <span class="p">=</span> <span class="nx">logger</span><span class="p">.</span><span class="nf">Sugar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getEncoder</span><span class="p">()</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">Encoder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewJSONEncoder</span><span class="p">(</span><span class="nx">zap</span><span class="p">.</span><span class="nf">NewProductionEncoderConfig</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getLogWriter</span><span class="p">()</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">WriteSyncer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span><span class="c1">// 可以在后面设置追加等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">AddSync</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当使用这些修改过的logger配置调用上述部分的<code>main()</code>函数时，以下输出将打印在文件——<code>test.log</code>中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;debug&#34;</span>,<span class="s2">&#34;ts&#34;</span>:1572160754.994731,<span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Trying to hit GET request for www.sogo.com&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;error&#34;</span>,<span class="s2">&#34;ts&#34;</span>:1572160754.994982,<span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Error fetching URL www.sogo.com : Error = Get www.sogo.com: unsupported protocol scheme \&#34;\&#34;&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;debug&#34;</span>,<span class="s2">&#34;ts&#34;</span>:1572160754.994996,<span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Trying to hit GET request for http://www.sogo.com&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;level&#34;</span>:<span class="s2">&#34;info&#34;</span>,<span class="s2">&#34;ts&#34;</span>:1572160757.3755069,<span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Success! statusCode = 200 OK for URL http://www.sogo.com&#34;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="将json-encoder更改为普通的log-encoder">将JSON Encoder更改为普通的Log Encoder</h4>
+<p>现在，我们希望将编码器从JSON Encoder更改为普通Encoder。为此，我们需要将<code>NewJSONEncoder()</code>更改为<code>NewConsoleEncoder()</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">return</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewConsoleEncoder</span><span class="p">(</span><span class="nx">zap</span><span class="p">.</span><span class="nf">NewProductionEncoderConfig</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当使用这些修改过的logger配置调用上述部分的<code>main()</code>函数时，以下输出将打印在文件——<code>test.log</code>中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1.572161051846623e+09	debug	Trying to hit GET request <span class="k">for</span> www.sogo.com
+</span></span><span class="line"><span class="cl">1.572161051846828e+09	error	Error fetching URL www.sogo.com : <span class="nv">Error</span> <span class="o">=</span> Get www.sogo.com: unsupported protocol scheme <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">1.5721610518468401e+09	debug	Trying to hit GET request <span class="k">for</span> http://www.sogo.com
+</span></span><span class="line"><span class="cl">1.572161052068744e+09	info	Success! <span class="nv">statusCode</span> <span class="o">=</span> <span class="m">200</span> OK <span class="k">for</span> URL http://www.sogo.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="更改时间编码并添加调用者详细信息">更改时间编码并添加调用者详细信息</h4>
+<p>鉴于我们对配置所做的更改，有下面两个问题：</p>
+<ul>
+<li>时间是以非人类可读的方式展示，例如1.572161051846623e+09</li>
+<li>调用方函数的详细信息没有显示在日志中</li>
+</ul>
+<p>我们要做的第一件事是覆盖默认的<code>ProductionConfig()</code>，并进行以下更改:</p>
+<ul>
+<li>修改时间编码器</li>
+<li>在日志文件中使用大写字母记录日志级别</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getEncoder</span><span class="p">()</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">Encoder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoderConfig</span> <span class="o">:=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">NewProductionEncoderConfig</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoderConfig</span><span class="p">.</span><span class="nx">EncodeTime</span> <span class="p">=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">ISO8601TimeEncoder</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoderConfig</span><span class="p">.</span><span class="nx">EncodeLevel</span> <span class="p">=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">CapitalLevelEncoder</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewConsoleEncoder</span><span class="p">(</span><span class="nx">encoderConfig</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来，我们将修改zap logger代码，添加将调用函数信息记录到日志中的功能。为此，我们将在<code>zap.New(..)</code>函数中添加一个<code>Option</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">logger</span> <span class="o">:=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">core</span><span class="p">,</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">AddCaller</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当使用这些修改过的logger配置调用上述部分的<code>main()</code>函数时，以下输出将打印在文件——<code>test.log</code>中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">2019-10-27T15:33:29.855+0800	DEBUG	logic/temp2.go:47	Trying to hit GET request <span class="k">for</span> www.sogo.com
+</span></span><span class="line"><span class="cl">2019-10-27T15:33:29.855+0800	ERROR	logic/temp2.go:50	Error fetching URL www.sogo.com : <span class="nv">Error</span> <span class="o">=</span> Get www.sogo.com: unsupported protocol scheme <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">2019-10-27T15:33:29.856+0800	DEBUG	logic/temp2.go:47	Trying to hit GET request <span class="k">for</span> http://www.sogo.com
+</span></span><span class="line"><span class="cl">2019-10-27T15:33:30.125+0800	INFO	logic/temp2.go:52	Success! <span class="nv">statusCode</span> <span class="o">=</span> <span class="m">200</span> OK <span class="k">for</span> URL http://www.sogo.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="addcallerskip">AddCallerSkip</h4>
+<p>当我们不是直接使用初始化好的logger实例记录日志，而是将其包装成一个函数等，此时日录日志的函数调用链会增加，想要获得准确的调用信息就需要通过<code>AddCallerSkip</code>函数来跳过。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">logger</span> <span class="o">:=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">core</span><span class="p">,</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">AddCaller</span><span class="p">(),</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">AddCallerSkip</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="将日志输出到多个位置">将日志输出到多个位置</h4>
+<p>我们可以将日志同时输出到文件和终端。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getLogWriter</span><span class="p">()</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">WriteSyncer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 利用io.MultiWriter支持文件和终端两个输出目标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">ws</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">MultiWriter</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">AddSync</span><span class="p">(</span><span class="nx">ws</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="将err日志单独输出到文件">将err日志单独输出到文件</h4>
+<p>有时候我们除了将全量日志输出到<code>xx.log</code>文件中之外，还希望将<code>ERROR</code>级别的日志单独输出到一个名为<code>xx.err.log</code>的日志文件中。我们可以通过以下方式实现。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">InitLogger</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoder</span> <span class="o">:=</span> <span class="nf">getEncoder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// test.log记录全量日志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">logF</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c1</span> <span class="o">:=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewCore</span><span class="p">(</span><span class="nx">encoder</span><span class="p">,</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">AddSync</span><span class="p">(</span><span class="nx">logF</span><span class="p">),</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">DebugLevel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// test.err.log记录ERROR级别的日志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">errF</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;./test.err.log&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c2</span> <span class="o">:=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewCore</span><span class="p">(</span><span class="nx">encoder</span><span class="p">,</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">AddSync</span><span class="p">(</span><span class="nx">errF</span><span class="p">),</span> <span class="nx">zap</span><span class="p">.</span><span class="nx">ErrorLevel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 使用NewTee将c1和c2合并到core
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">core</span> <span class="o">:=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewTee</span><span class="p">(</span><span class="nx">c1</span><span class="p">,</span> <span class="nx">c2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">logger</span> <span class="p">=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">core</span><span class="p">,</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">AddCaller</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="使用lumberjack进行日志的切割和归档">使用Lumberjack进行日志的切割和归档</h2>
+<p><em>Zap本身不支持切割归档日志文件</em></p>
+<p>官方的说法是为了添加日志切割归档功能，我们将使用第三方库<a href="https://github.com/natefinch/lumberjack"target="_blank" rel="external nofollow noopener noreferrer">Lumberjack</a>来实现。</p>
+<p>目前只支持按文件大小切割，原因是按时间切割效率低且不能保证日志数据不被破坏。详情戳https://github.com/natefinch/lumberjack/issues/54。</p>
+<p>想按日期切割可以使用<a href="https://github.com/lestrrat-go/file-rotatelogs"target="_blank" rel="external nofollow noopener noreferrer">github.com/lestrrat-go/file-rotatelogs</a>这个库，虽然目前不维护了，但也够用了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 使用file-rotatelogs按天切割日志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">rotatelogs</span> <span class="s">&#34;github.com/lestrrat-go/file-rotatelogs&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">l</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">rotatelogs</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">filename</span><span class="o">+</span><span class="s">&#34;.%Y%m%d%H%M&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">rotatelogs</span><span class="p">.</span><span class="nf">WithMaxAge</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">),</span>    <span class="c1">// 最长保存30天
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">rotatelogs</span><span class="p">.</span><span class="nf">WithRotationTime</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="o">*</span><span class="mi">24</span><span class="p">),</span> <span class="c1">// 24小时切割一次
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">zapcore</span><span class="p">.</span><span class="nf">AddSync</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装-1">安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go get gopkg.in/natefinch/lumberjack.v2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="zap-logger中加入lumberjack">zap logger中加入Lumberjack</h3>
+<p>要在zap中加入Lumberjack支持，我们需要修改<code>WriteSyncer</code>代码。我们将按照下面的代码修改<code>getLogWriter()</code>函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getLogWriter</span><span class="p">()</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">WriteSyncer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lumberJackLogger</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">lumberjack</span><span class="p">.</span><span class="nx">Logger</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Filename</span><span class="p">:</span>   <span class="s">&#34;./test.log&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">MaxSize</span><span class="p">:</span>    <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">MaxBackups</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">MaxAge</span><span class="p">:</span>     <span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Compress</span><span class="p">:</span>   <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">AddSync</span><span class="p">(</span><span class="nx">lumberJackLogger</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lumberjack Logger采用以下属性作为输入:</p>
+<ul>
+<li>Filename: 日志文件的位置</li>
+<li>MaxSize：在进行切割之前，日志文件的最大大小（以MB为单位）</li>
+<li>MaxBackups：保留旧文件的最大个数</li>
+<li>MaxAges：保留旧文件的最大天数</li>
+<li>Compress：是否压缩/归档旧文件</li>
+</ul>
+<h3 id="测试所有功能">测试所有功能</h3>
+<p>最终，使用Zap/Lumberjack logger的完整示例代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;gopkg.in/natefinch/lumberjack.v2&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;go.uber.org/zap&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;go.uber.org/zap/zapcore&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">sugarLogger</span> <span class="o">*</span><span class="nx">zap</span><span class="p">.</span><span class="nx">SugaredLogger</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">InitLogger</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">sugarLogger</span><span class="p">.</span><span class="nf">Sync</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">simpleHttpGet</span><span class="p">(</span><span class="s">&#34;www.sogo.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">simpleHttpGet</span><span class="p">(</span><span class="s">&#34;http://www.sogo.com&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">InitLogger</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">writeSyncer</span> <span class="o">:=</span> <span class="nf">getLogWriter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoder</span> <span class="o">:=</span> <span class="nf">getEncoder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">core</span> <span class="o">:=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewCore</span><span class="p">(</span><span class="nx">encoder</span><span class="p">,</span> <span class="nx">writeSyncer</span><span class="p">,</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">DebugLevel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">logger</span> <span class="o">:=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">core</span><span class="p">,</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">AddCaller</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sugarLogger</span> <span class="p">=</span> <span class="nx">logger</span><span class="p">.</span><span class="nf">Sugar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getEncoder</span><span class="p">()</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">Encoder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoderConfig</span> <span class="o">:=</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">NewProductionEncoderConfig</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoderConfig</span><span class="p">.</span><span class="nx">EncodeTime</span> <span class="p">=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">ISO8601TimeEncoder</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">encoderConfig</span><span class="p">.</span><span class="nx">EncodeLevel</span> <span class="p">=</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">CapitalLevelEncoder</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">NewConsoleEncoder</span><span class="p">(</span><span class="nx">encoderConfig</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getLogWriter</span><span class="p">()</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nx">WriteSyncer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lumberJackLogger</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">lumberjack</span><span class="p">.</span><span class="nx">Logger</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Filename</span><span class="p">:</span>   <span class="s">&#34;./test.log&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">MaxSize</span><span class="p">:</span>    <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">MaxBackups</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">MaxAge</span><span class="p">:</span>     <span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Compress</span><span class="p">:</span>   <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">zapcore</span><span class="p">.</span><span class="nf">AddSync</span><span class="p">(</span><span class="nx">lumberJackLogger</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">simpleHttpGet</span><span class="p">(</span><span class="nx">url</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sugarLogger</span><span class="p">.</span><span class="nf">Debugf</span><span class="p">(</span><span class="s">&#34;Trying to hit GET request for %s&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">sugarLogger</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Error fetching URL %s : Error = %s&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">sugarLogger</span><span class="p">.</span><span class="nf">Infof</span><span class="p">(</span><span class="s">&#34;Success! statusCode = %s for URL %s&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行上述代码，下面的内容会输出到文件——test.log中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">27</span><span class="nx">T15</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mf">32.944</span><span class="o">+</span><span class="mi">0800</span>	<span class="nx">DEBUG</span>	<span class="nx">logic</span><span class="o">/</span><span class="nx">temp2</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">48</span>	<span class="nx">Trying</span> <span class="nx">to</span> <span class="nx">hit</span> <span class="nx">GET</span> <span class="nx">request</span> <span class="k">for</span> <span class="nx">www</span><span class="p">.</span><span class="nx">sogo</span><span class="p">.</span><span class="nx">com</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">27</span><span class="nx">T15</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mf">32.944</span><span class="o">+</span><span class="mi">0800</span>	<span class="nx">ERROR</span>	<span class="nx">logic</span><span class="o">/</span><span class="nx">temp2</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">51</span>	<span class="nx">Error</span> <span class="nx">fetching</span> <span class="nx">URL</span> <span class="nx">www</span><span class="p">.</span><span class="nx">sogo</span><span class="p">.</span><span class="nx">com</span> <span class="p">:</span> <span class="nx">Error</span> <span class="p">=</span> <span class="nx">Get</span> <span class="nx">www</span><span class="p">.</span><span class="nx">sogo</span><span class="p">.</span><span class="nx">com</span><span class="p">:</span> <span class="nx">unsupported</span> <span class="nx">protocol</span> <span class="nx">scheme</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">27</span><span class="nx">T15</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mf">32.944</span><span class="o">+</span><span class="mi">0800</span>	<span class="nx">DEBUG</span>	<span class="nx">logic</span><span class="o">/</span><span class="nx">temp2</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">48</span>	<span class="nx">Trying</span> <span class="nx">to</span> <span class="nx">hit</span> <span class="nx">GET</span> <span class="nx">request</span> <span class="k">for</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//www.sogo.com
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">27</span><span class="nx">T15</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mf">33.165</span><span class="o">+</span><span class="mi">0800</span>	<span class="nx">INFO</span>	<span class="nx">logic</span><span class="o">/</span><span class="nx">temp2</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">53</span>	<span class="nx">Success</span><span class="p">!</span> <span class="nx">statusCode</span> <span class="p">=</span> <span class="mi">200</span> <span class="nx">OK</span> <span class="k">for</span> <span class="nx">URL</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//www.sogo.com
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>同时，可以在<code>main</code>函数中循环记录日志，测试日志文件是否会自动切割和归档（日志文件每1MB会切割并且在当前目录下最多保存5个备份）。</p>
+<p>至此，我们总结了如何将Zap日志程序集成到Go应用程序项目中。</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-06-08 16:08:46">更新于 2023-06-08&nbsp;</span>
+      </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://Lizhe1228.github.io/posts/gin/gin07/" data-title="Go中使用Zap" data-hashtags="gin"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://Lizhe1228.github.io/posts/gin/gin07/" data-hashtag="gin"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://Lizhe1228.github.io/posts/gin/gin07/" data-title="Go中使用Zap" data-ralateuid="6314435573"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/gin/' class="post-tag">Gin</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/go/day21-30/" class="post-nav-item" rel="prev" title="Go Exercises(Day21-30)"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Go Exercises(Day21-30)</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric">0%</span>
+        </div></div><a href="https://github.com/Lizhe1228" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/black/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":20},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"typeit-header-desktop":"Lizhe1228's blog","typeit-header-title-mobile":"Lizhe1228's blog"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"},"siteTime":"2023-05-21","typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"typeit-header-desktop":["typeit-header-desktop"],"typeit-header-title-mobile":["typeit-header-title-mobile"]},"duration":-1,"loop":false,"speed":100}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
