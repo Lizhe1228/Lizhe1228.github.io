@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day11-20)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-05-30T10:00:36+08:00" />
 <meta itemprop="dateModified" content="2023-05-30T10:00:36+08:00" />
-<meta itemprop="wordCount" content="3785"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="4485"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day11-20)" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day11-20\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  3785 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  4485 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day11-20\/","datePublished": "2023-05-30T10:00:36+08:00","dateModified": "2023-05-30T10:00:36+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-30 10:00:36"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span title="更新于 2023-05-30 10:00:36"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3785 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 8 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day11-20)">
+      <div class="post-meta-line"><span title="发布于 2023-05-30 10:00:36"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span title="更新于 2023-05-30 10:00:36"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-30">2023-05-30</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 4485 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 9 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day11-20)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -253,6 +253,17 @@
     <li><a href="#day18">Day18</a>
       <ul>
         <li><a href="#f1f2f3函数分别返回什么">f1()、f2()、f3()函数分别返回什么？</a></li>
+      </ul>
+    </li>
+    <li><a href="#day19">Day19</a>
+      <ul>
+        <li><a href="#下面代码段输出什么">下面代码段输出什么？</a></li>
+      </ul>
+    </li>
+    <li><a href="#day20">Day20</a>
+      <ul>
+        <li><a href="#1下面这段代码正确的输出是什么">1.下面这段代码正确的输出是什么？</a></li>
+        <li><a href="#2下面代码输出什么-2">2.下面代码输出什么？</a></li>
       </ul>
     </li>
   </ul>
@@ -1179,7 +1190,155 @@
 </div>
 </div><hr>
 <p><code>f1()=1、f2()=5、f3()=1</code></p>
-<p>f2()的原理不是特别清楚，f1、f3简单。</p></div><div class="post-footer" id="post-footer">
+<p>f2()的原理不是特别清楚，f1、f3简单。</p>
+<h2 id="day19">Day19</h2>
+<h3 id="下面代码段输出什么">下面代码段输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">person</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Person</span><span class="p">{</span><span class="mi">28</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 1. 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 2.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">defer</span> <span class="kd">func</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}(</span><span class="nx">person</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 3.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="p">=</span> <span class="mi">29</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：29 29 28。变量 person 是一个指针变量 。</p>
+<p>1.person.age 此时是将 28 当做 defer 函数的参数，会把 28 缓存在栈中，等到最后执行该 defer 语句的时候取出，即输出 28；</p>
+<p>2.defer 缓存的是结构体 Person{28} 的地址，最终 Person{28} 的 age 被重新赋值为 29，所以 defer 语句最后执行的时候，依靠缓存的地址取出的 age 便是 29，即输出 29；</p>
+<p>3.闭包引用，输出 29；</p>
+<p>又由于 defer 的执行顺序为先进后出，即 3 2 1，所以输出 29 29 28。</p>
+<h2 id="day20">Day20</h2>
+<h3 id="1下面这段代码正确的输出是什么">1.下面这段代码正确的输出是什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;D&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;F&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">f</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;M&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A. F M D</li>
+<li>B. D F M</li>
+<li>C. F D M</li>
+</ul>
+<hr>
+<p>参考答案及解析：C。被调用函数里的 defer 语句在返回之前就会被执行，所以输出顺序是 F D M。</p>
+<h3 id="2下面代码输出什么-2">2.下面代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">person</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Person</span><span class="p">{</span><span class="mi">28</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 1.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 2.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">defer</span> <span class="kd">func</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}(</span><span class="nx">person</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 3.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">person</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Person</span><span class="p">{</span><span class="mi">29</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：29 28 28。这道题在第 19 天题目的基础上做了一点点小改动，前一题最后一行代码 person.age = 29 是修改引用对象的成员 age，这题最后一行代码 person = &amp;Person{29} 是修改引用对象本身，来看看有什么区别。</p>
+<p>1处.person.age 这一行代码跟之前含义是一样的，此时是将 28 当做 defer 函数的参数，会把 28 缓存在栈中，等到最后执行该 defer 语句的时候取出，即输出 28；</p>
+<p>2处.defer 缓存的是结构体 <strong>Person{28}</strong> 的地址，<strong>这个地址指向的结构体没有被改变</strong>，最后 defer 语句后面的函数执行的时候取出仍是 28；</p>
+<p>3处.闭包引用，person 的值已经被改变，指向结构体 Person{29}，所以输出 29.</p>
+<p>由于 defer 的执行顺序为先进后出，即 3 2 1，所以输出 29 28 28。</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
