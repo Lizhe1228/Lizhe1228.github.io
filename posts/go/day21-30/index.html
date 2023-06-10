@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day21-30)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-08T10:40:55+08:00" />
 <meta itemprop="dateModified" content="2023-06-08T10:40:55+08:00" />
-<meta itemprop="wordCount" content="693"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="2812"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day21-30)" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day21-30\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  693 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  2812 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day21-30\/","datePublished": "2023-06-08T10:40:55+08:00","dateModified": "2023-06-08T10:40:55+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-08 10:40:55"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span title="更新于 2023-06-08 10:40:55"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 693 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day21-30)">
+      <div class="post-meta-line"><span title="发布于 2023-06-08 10:40:55"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span title="更新于 2023-06-08 10:40:55"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2812 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 6 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day21-30)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -213,7 +213,23 @@
         <li><a href="#2return之后的defer语句会执行吗下面这段代码输出什么">2.return之后的defer语句会执行吗，下面这段代码输出什么？</a></li>
       </ul>
     </li>
-    <li><a href="#day23">Day23</a></li>
+    <li><a href="#day23">Day23</a>
+      <ul>
+        <li><a href="#1下面这段代码输出什么为什么">1.下面这段代码输出什么？为什么？</a></li>
+        <li><a href="#2下面选项正确的是">2.下面选项正确的是？</a></li>
+        <li><a href="#延伸">延伸</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#一代码块">一、代码块</a></li>
+                <li><a href="#二作用域">二、作用域</a></li>
+                <li><a href="#三捕获迭代变量的坑">三、捕获迭代变量的“坑”</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#day24">Day24</a></li>
     <li><a href="#day25">Day25</a></li>
     <li><a href="#day26">Day26</a></li>
@@ -400,7 +416,222 @@
 </div><hr>
 <p>参考答案及解析：2 1。defer 关键字后面的函数或者方法想要执行必须先注册，<strong>return 之后的 defer 是不能注册的</strong>， <strong>也就不能执行后面的函数或方法</strong>。</p>
 <h2 id="day23">Day23</h2>
-<h2 id="day24">Day24</h2>
+<h3 id="1下面这段代码输出什么为什么">1.下面这段代码输出什么？为什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">s1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s2</span> <span class="o">:=</span> <span class="nx">s1</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s2</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>[1 2 4]</p>
+<p>[1 2 4]</p>
+<p>我们知道，golang 中切片底层的数据结构是数组。当使用 s1[1:] 获得切片 s2，和 s1 共享同一个底层数组，这会导致 s2[1] = 4 语句影响 s1。</p>
+<p>而 append 操作会导致底层数组扩容，生成新的数组，因此追加数据后的 s2 不会影响 s1。</p>
+<p>但是为什么对 s2 赋值后影响的却是 s1 的第三个元素呢？这是因为切片 s2 是从数组的第二个元素开始，s2 索引为 1 的元素对应的是 s1 索引为 2 的元素。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306100911441.jpeg" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306100911441.jpeg, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306100911441.jpeg 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306100911441.jpeg 2x" sizes="auto" data-title="img" data-alt="img" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="2下面选项正确的是">2.下面选项正确的是？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">a</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="kc">false</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">b</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">;</span> <span class="kc">false</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">println</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A. 1 2</li>
+<li>B. compilation error</li>
+</ul>
+<hr>
+<p>参考答案及解析：A。知识点：代码块和变量作用域。</p>
+<h3 id="延伸">延伸</h3>
+<h5 id="一代码块">一、代码块</h5>
+<p>在 Go 语言中，代码块（也叫句法块）一般就是一个由花括号括起来的区域，里面可以包含表达式和语句。Go 语言本身以及我们编写的代码共同形成了一个非常大的代码块，也叫全域代码块。这主要体现在，只要是公开的全局变量，都可以被任何代码所使用。</p>
+<p>相对小一些的代码块是代码包，一个代码包可以包含许多子代码包，所以这样的代码块也可以很大。</p>
+<p>接下来，每个源码文件也都是一个代码块，每个函数也是一个代码块，每个if语句、for语句、switch语句和select语句都是一个代码块。甚至，switch或select语句中的case子句也都是独立的代码块。走个极端，我就在main函数中写一对紧挨着的花括号也算一个代码块：叫“空代码块”。</p>
+<p>Go 语言的代码块是一层套一层的，就像大圆套小圆。</p>
+<h5 id="二作用域">二、作用域</h5>
+<p>声明语句的作用域是指源代码中可以有效使用这个名字的范围。也就是说，我们声明的函数也好，变量也好，都是有它的“适用范围”的，弄清楚这个范围很重要！一个程序实体的作用域总是会被限制在某个代码块中，而这个作用域最大的用处，就是对程序实体的访问权限的控制。</p>
+<p>这里需要重点区分下另外一个概念：生命周期！这两个完全是不同的概念，不要混为一谈。</p>
+<ul>
+<li>作用域：对应的是一个源代码的文本区域，它是一个编译时的属性。</li>
+<li>生命周期：是指程序运行时变量存在的有效时间段，在此时间区域内它可以被程序的其他部分引用，是一个运行时的概念。</li>
+</ul>
+<p>句法块内部声明的名字是无法被外部块访问的。这个块决定了内部声明的名字的作用域范围。声明语句对应的词法域决定了作用域范围的大小。</p>
+<p>当编译器遇到一个名字引用时，它会对其定义进行查找，查找过程从最内层的词法域向全局的作用域（从内到外）进行。</p>
+<p>通过下面的示例代码，感受下作用域：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">  <span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">block</span> <span class="p">=</span> <span class="s">&#34;package&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">block</span> <span class="o">:=</span> <span class="s">&#34;function&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">block</span> <span class="o">:=</span> <span class="s">&#34;inner&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;The block is %s.\n&#34;</span><span class="p">,</span> <span class="nx">block</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;The block is %s.\n&#34;</span><span class="p">,</span> <span class="nx">block</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这段代码中有四个代码块，它们是：全域代码块、main包代表的代码块、main函数代表的代码块，以及在main函数中的一个用花括号包起来的代码块。最后执行之后的结果如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">  <span class="nx">The</span> <span class="nx">block</span> <span class="nx">is</span> <span class="nx">inner</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">The</span> <span class="nx">block</span> <span class="nx">is</span> <span class="nx">function</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">            
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>首先，代码引用变量的时候总会最优先查找当前代码块中的那个变量</li>
+<li>其次，如果当前代码块中没有声明以此为名的变量，那么程序会沿着代码块的嵌套关系，从直接包含当前代码块的那个代码块开始，一层一层地查找。</li>
+<li>一般情况下，程序会一直查到当前代码包代表的代码块。如果仍然找不到，那么 Go 语言的编译器就会报错了。</li>
+</ul>
+<p>所以，虽然通过var block = &ldquo;package&quot;声明的变量作用域是整个main代码包，但是在main函数中，它却被那两个同名的变量“屏蔽”了。相似的，虽然main函数首先声明的block的作用域，是整个main函数，但是在最内层的那个代码块中，它却是不可能被引用到的。反过来讲，最内层代码块中的block也不可能被该块之外的代码引用到。</p>
+<h5 id="三捕获迭代变量的坑">三、捕获迭代变量的“坑”</h5>
+<p>这里特别强调一个Go词法作用域的陷阱。请务必仔细的阅读，弄清楚发生问题的原因。相信你一定在这里踩过雷！</p>
+<p>首先看下下面的程序示例：你被要求首先创建一些目录，再将目录删除。在下面的例子中我们用函数值来完成删除操作。下面的示例代码需要引入os包。为了使代码简单，我们忽略了所有的异常处理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">rmdirs</span> <span class="p">[]</span><span class="kd">func</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">d</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">tempDirs</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">dir</span> <span class="o">:=</span> <span class="nx">d</span> <span class="c1">// NOTE: necessary!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">os</span><span class="p">.</span><span class="nf">MkdirAll</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span> <span class="mo">0755</span><span class="p">)</span> <span class="c1">// creates parent directories too
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">rmdirs</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">rmdirs</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">os</span><span class="p">.</span><span class="nf">RemoveAll</span><span class="p">(</span><span class="nx">dir</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...do some work…
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">rmdir</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">rmdirs</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">rmdir</span><span class="p">()</span> <span class="c1">// clean up
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>你可能会感到困惑，为什么要在循环体中用循环变量d赋值一个新的局部变量，而不是像下面的代码一样直接使用循环变量dir。需要注意，下面的代码是错误的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">rmdirs</span> <span class="p">[]</span><span class="kd">func</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">dir</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">tempDirs</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">os</span><span class="p">.</span><span class="nf">MkdirAll</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span> <span class="mo">0755</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">rmdirs</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">rmdirs</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">os</span><span class="p">.</span><span class="nf">RemoveAll</span><span class="p">(</span><span class="nx">dir</span><span class="p">)</span> <span class="c1">// NOTE: incorrect!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>问题的原因在于循环变量的作用域。在上面的程序中，for循环语句引入了新的词法块，循环变量dir在这个词法块中被声明。在该循环中生成的所有函数值都共享相同的循环变量。需要注意，函数值中记录的是循环变量的内存地址，而不是循环变量某一时刻的值。以dir为例，后续的迭代会不断更新dir的值，当删除操作执行时，for循环已完成，dir中存储的值等于最后一次迭代的值。这意味着，每次对os.RemoveAll的调用删除的都是相同的目录（这说是还不是下面部分的代码）。</p>
+<p>所以，看出来创建一个与循环变量同名的局部变量的重要性和合理性了吧！</p>
+<p>不止在range中，在下面的例子中，依然存在这个问题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">rmdirs</span> <span class="p">[]</span><span class="kd">func</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">dirs</span> <span class="o">:=</span> <span class="nf">tempDirs</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">dirs</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">os</span><span class="p">.</span><span class="nf">MkdirAll</span><span class="p">(</span><span class="nx">dirs</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="mo">0755</span><span class="p">)</span> <span class="c1">// OK
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">rmdirs</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">rmdirs</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">os</span><span class="p">.</span><span class="nf">RemoveAll</span><span class="p">(</span><span class="nx">dirs</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="c1">// NOTE: incorrect!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="day24">Day24</h2>
 <h2 id="day25">Day25</h2>
 <h2 id="day26">Day26</h2>
 <h2 id="day27">Day27</h2>
