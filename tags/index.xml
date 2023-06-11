@@ -4,12 +4,52 @@
     <link>http://Lizhe1228.github.io/tags/</link>
     <description>Tags - 标签 - I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sat, 10 Jun 2023 16:15:26 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sun, 11 Jun 2023 12:13:51 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+  <title>微服务</title>
+  <link>http://Lizhe1228.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+  <pubDate>Sun, 11 Jun 2023 12:13:51 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>项目</title>
+  <link>http://Lizhe1228.github.io/tags/%E9%A1%B9%E7%9B%AE/</link>
+  <pubDate>Sun, 11 Jun 2023 12:13:51 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/tags/%E9%A1%B9%E7%9B%AE/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>云原生</title>
+  <link>http://Lizhe1228.github.io/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/</link>
+  <pubDate>Sun, 11 Jun 2023 12:13:51 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Gin</title>
   <link>http://Lizhe1228.github.io/tags/gin/</link>
-  <pubDate>Sat, 10 Jun 2023 16:15:26 &#43;0800</pubDate>
+  <pubDate>Sun, 11 Jun 2023 12:13:47 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/tags/gin/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>go web</title>
+  <link>http://Lizhe1228.github.io/tags/go-web/</link>
+  <pubDate>Sun, 11 Jun 2023 12:13:47 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/tags/go-web/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>fiber</title>
+  <link>http://Lizhe1228.github.io/tags/fiber/</link>
+  <pubDate>Sun, 11 Jun 2023 12:13:44 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/tags/fiber/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
@@ -42,46 +82,6 @@
   <pubDate>Mon, 29 May 2023 19:12:50 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/tags/docker/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>go web</title>
-  <link>http://Lizhe1228.github.io/tags/go-web/</link>
-  <pubDate>Sun, 28 May 2023 18:34:37 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/tags/go-web/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>微服务</title>
-  <link>http://Lizhe1228.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
-  <pubDate>Sun, 28 May 2023 14:45:34 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>WSL</title>
-  <link>http://Lizhe1228.github.io/tags/wsl/</link>
-  <pubDate>Tue, 23 May 2023 15:23:03 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/tags/wsl/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Git</title>
-  <link>http://Lizhe1228.github.io/tags/git/</link>
-  <pubDate>Mon, 22 May 2023 21:01:33 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/tags/git/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>GORM</title>
-  <link>http://Lizhe1228.github.io/tags/gorm/</link>
-  <pubDate>Sun, 21 May 2023 21:05:56 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/tags/gorm/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
