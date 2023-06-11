@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='gin, go web' /><meta itemprop="name" content="go web开发中遇到的小技术与知识点">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-10T16:15:26+08:00" />
 <meta itemprop="dateModified" content="2023-06-10T16:15:26+08:00" />
-<meta itemprop="wordCount" content="364"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="1379"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="gin,go web," /><meta property="og:title" content="go web开发中遇到的小技术与知识点" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/"
-    },"genre": "posts","keywords": "gin, go web","wordcount":  364 ,
+    },"genre": "posts","keywords": "gin, go web","wordcount":  1379 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/","datePublished": "2023-06-10T16:15:26+08:00","dateModified": "2023-06-10T16:15:26+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/gin/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Gin</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 364 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
+      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1379 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -203,7 +203,13 @@
     <li><a href="#分布式id生成器">分布式ID生成器</a>
       <ul>
         <li><a href="#分布式id的特点">分布式ID的特点</a></li>
-        <li><a href="#雪花算法">雪花算法</a></li>
+        <li><a href="#雪花算法snowflake">雪花算法（snowflake）</a></li>
+        <li><a href="#snowflake的go实现">SnowFlake的Go实现</a>
+          <ul>
+            <li><a href="#1httpsgithubcombwmarrinsnowflake">1.https://github.com/bwmarrin/snowflake</a></li>
+            <li><a href="#2httpsgithubcomsonysonyflake">2.https://github.com/sony/sonyflake</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -219,7 +225,221 @@
 <p>不仅仅适用于用户ID，实际互联网中有很多场景需要能够生成类似MySQL自增ID这样不断增大，同时又不会重复的id。以支持业务中的高并发场景。</p>
 <p>比较典型的场景有：电商促销时短时间内会有大量的订单涌入到系统，比如每秒10w+；明星出轨时微博短时间内会产生大量的相关微博转发和评论消息。在这些业务场景下将数据插入数据库之前，我们需要给这些订单和消息先分配一个唯一-ID， 然后再保存到数据库中。对这个id的要求是希望其中能带有一
 些时间信息，这样即使我们后端的系统对消息进行了分库分表，也能够以时间顺序对这些消息进行排序。</p>
-<h3 id="雪花算法">雪花算法</h3></div><div class="post-footer" id="post-footer">
+<h3 id="雪花算法snowflake">雪花算法（snowflake）</h3>
+<p>雪花算法，它是Twitter开源的由64位整数组成分布式ID，性能较高，并且在单机上递增。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111830501.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111830501.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111830501.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111830501.png 2x" sizes="auto" data-title="image-20230611183027409" data-alt="image-20230611183027409" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<ol>
+<li><strong>第一位</strong>占用1bit，其值始终是0，没有实际作用。</li>
+<li><strong>时间戳</strong>占用41bit，单位为毫秒，总共可以容纳约69年的时间。当然，我们的时间毫秒计数不会真的从1970年开始记，那样我们的系统跑到2039/9/7 23:47:35 就不能用了，所以这里的时间戳只是相对于某个时间的增量，比如我们的系统上线是2020-07-01，那么我们完全可以把这个timestamp当作是从2020-07-01 00:00:00. 000的偏移量。</li>
+<li><strong>工作机器id</strong>占用10bit，其中高位5bit是数据中心ID，低位5bit是工作节点ID,最多可以容纳1024个节点。</li>
+<li><strong>序列号</strong>占用12bit，用来记录同毫秒内产生的不同id。每个节点每毫秒0开始不断累加，最多可以累加到4095，同一毫秒一共可以产生4096个ID。</li>
+</ol>
+<p>SnowFlake算法在同一毫秒内最多可以生成1<code>024*4096=4194304</code>个全局唯一ID。</p>
+<h3 id="snowflake的go实现">SnowFlake的Go实现</h3>
+<h4 id="1httpsgithubcombwmarrinsnowflake">1.https://github.com/bwmarrin/snowflake</h4>
+<p>这是一个相当轻量化的snowflake的Go实现。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111840512.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111840512.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111840512.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111840512.png 2x" sizes="auto" data-title="image-20230611184034452" data-alt="image-20230611184034452" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/bwmarrin/snowflake&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">node</span> <span class="o">*</span><span class="nx">snowflake</span><span class="p">.</span><span class="nx">Node</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Init</span><span class="p">(</span><span class="nx">startTime</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">machineID</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">st</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">st</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">&#34;2006-01-02&#34;</span><span class="p">,</span> <span class="nx">startTime</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">snowflake</span><span class="p">.</span><span class="nx">Epoch</span> <span class="p">=</span> <span class="nx">st</span><span class="p">.</span><span class="nf">UnixNano</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000000</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">node</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">snowflake</span><span class="p">.</span><span class="nf">NewNode</span><span class="p">(</span><span class="nx">machineID</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">GenID</span><span class="p">()</span> <span class="kt">int64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">node</span><span class="p">.</span><span class="nf">Generate</span><span class="p">().</span><span class="nf">Int64</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">Init</span><span class="p">(</span><span class="s">&#34;2020-07-01&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;init failed, err:%v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">id</span> <span class="o">:=</span> <span class="nf">GenID</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2httpsgithubcomsonysonyflake">2.https://github.com/sony/sonyflake</h4>
+<p>sonyflake是Sony公司的一个开源项目，基本思路和snowflake差不多，不过位分配上稍有不同：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111848959.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111848959.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111848959.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306111848959.png 2x" sizes="auto" data-title="image-20230611184840909" data-alt="image-20230611184840909" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>这里的时间只用了了39个bit，但时间的单位变成了10ms，所以理论上比41位表示的时间还要久(174年)。<code>Sequence ID </code>和之前的定义一致， <code>Machine ID</code> 其实就是节点id。 sonyflake 库有以下配置参数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Settings</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">StartTime</span>      <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">MachineID</span>      <span class="kd">func</span><span class="p">()</span> <span class="p">(</span><span class="kt">uint16</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">CheckMachineID</span> <span class="kd">func</span><span class="p">(</span><span class="kt">uint16</span><span class="p">)</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中：</p>
+<ul>
+<li>StartTime 选项和我们之前的 Epoch 差不不多，如果不设置的话，默认是从 2014-09-0100:00:00 +0000 UTC 开始。</li>
+<li>MachineID 可以由用户自定义的函数，如果用户不定义的话，会默认将本机IP的低16位作为 machine id 。</li>
+<li>CheckMachineID 是由用户提供的检查 MachineID 是否冲突的函数</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/sony/sonyflake&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sonyFlake</span>     <span class="o">*</span><span class="nx">sonyflake</span><span class="p">.</span><span class="nx">Sonyflake</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sonyMachineID</span> <span class="kt">uint16</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getMachineID</span><span class="p">()</span> <span class="p">(</span><span class="kt">uint16</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">sonyMachineID</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 需传⼊入当前的机器器ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">Init</span><span class="p">(</span><span class="nx">startTime</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">machineId</span> <span class="kt">uint16</span><span class="p">)</span> <span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sonyMachineID</span> <span class="p">=</span> <span class="nx">machineId</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">st</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">st</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">&#34;2006-01-02&#34;</span><span class="p">,</span> <span class="nx">startTime</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">settings</span> <span class="o">:=</span> <span class="nx">sonyflake</span><span class="p">.</span><span class="nx">Settings</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">StartTime</span><span class="p">:</span> <span class="nx">st</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">MachineID</span><span class="p">:</span> <span class="nx">getMachineID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sonyFlake</span> <span class="p">=</span> <span class="nx">sonyflake</span><span class="p">.</span><span class="nf">NewSonyflake</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// GenID ⽣生成id
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">GenID</span><span class="p">()</span> <span class="p">(</span><span class="nx">id</span> <span class="kt">uint64</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">sonyFlake</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">err</span> <span class="p">=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;snoy flake not inited&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">id</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">sonyFlake</span><span class="p">.</span><span class="nf">NextID</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">Init</span><span class="p">(</span><span class="s">&#34;2020-07-01&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Init failed, err:%v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">id</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nf">GenID</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
