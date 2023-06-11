@@ -200,7 +200,7 @@
 <li>创建用户表的时候，对于id和user_id的理解：
 <ul>
 <li>字段user_id不采用id一样的自增的形式，原因有二：首先，防止注册的用户通过该id就能知道一共有多少个用户了，防止这种信息的泄露；其次，当我们使用分库分表的时候，防止出现不同库中的user_id字段相同的情况</li>
-<li>我们使用的方法是分布式ID生成器、雪花算法</li>
+<li>我们使用的方法是<a href="https://lizhe1228.github.io/posts/gin/gin12/#%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90%E5%99%A8"target="_blank" rel="external nofollow noopener noreferrer">分布式ID生成器、雪花算法</a></li>
 </ul>
 </li>
 </ol></div><div class="post-footer" id="post-footer">
