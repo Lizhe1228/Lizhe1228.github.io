@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='gin, go web' /><meta itemprop="name" content="go web开发中遇到的小技术与知识点">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-10T16:15:26+08:00" />
 <meta itemprop="dateModified" content="2023-06-10T16:15:26+08:00" />
-<meta itemprop="wordCount" content="1378"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="6145"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="gin,go web," /><meta property="og:title" content="go web开发中遇到的小技术与知识点" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/"
-    },"genre": "posts","keywords": "gin, go web","wordcount":  1378 ,
+    },"genre": "posts","keywords": "gin, go web","wordcount":  6145 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/","datePublished": "2023-06-10T16:15:26+08:00","dateModified": "2023-06-10T16:15:26+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/gin/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Gin</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1378 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
+      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 6145 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 13 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -210,6 +210,16 @@
             <li><a href="#2httpsgithubcomsonysonyflake">2.https://github.com/sony/sonyflake</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#validator库参数校验若干实用技巧">validator库参数校验若干实用技巧</a>
+      <ul>
+        <li><a href="#基本示例">基本示例</a></li>
+        <li><a href="#翻译校验错误提示信息">翻译校验错误提示信息</a></li>
+        <li><a href="#自定义错误提示信息的字段名">自定义错误提示信息的字段名</a></li>
+        <li><a href="#自定义结构体校验方法">自定义结构体校验方法</a></li>
+        <li><a href="#自定义字段校验方法">自定义字段校验方法</a></li>
+        <li><a href="#自定义翻译方法">自定义翻译方法</a></li>
       </ul>
     </li>
   </ul>
@@ -437,6 +447,771 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">id</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nf">GenID</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="validator库参数校验若干实用技巧">validator库参数校验若干实用技巧</h2>
+<p>在web开发中一个不可避免的环节就是对请求参数进行校验，通常我们会在代码中定义与请求参数相对应的模型（结构体），借助模型绑定快捷地解析请求中的参数，例如 gin 框架中的<code>Bind</code>和<code>ShouldBind</code>系列方法。本文就以 gin 框架的请求参数校验为例，介绍一些<code>validator</code>库的实用技巧。</p>
+<p>gin框架使用<a href="https://github.com/go-playground/validator"target="_blank" rel="external nofollow noopener noreferrer">github.com/go-playground/validator</a>进行参数校验，目前已经支持<code>github.com/go-playground/validator/v10</code>了，我们需要在定义结构体时使用 <code>binding</code> tag标识相关校验规则，可以查看<a href="https://godoc.org/github.com/go-playground/validator#hdr-Baked_In_Validators_and_Tags"target="_blank" rel="external nofollow noopener noreferrer">validator文档</a>查看支持的所有 tag。</p>
+<h3 id="基本示例">基本示例</h3>
+<p>首先来看gin框架内置使用<code>validator</code>做参数校验的基本示例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">SignUpParam</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Age</span>        <span class="kt">uint8</span>  <span class="s">`json:&#34;age&#34; binding:&#34;gte=1,lte=130&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>       <span class="kt">string</span> <span class="s">`json:&#34;name&#34; binding:&#34;required&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Email</span>      <span class="kt">string</span> <span class="s">`json:&#34;email&#34; binding:&#34;required,email&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Password</span>   <span class="kt">string</span> <span class="s">`json:&#34;password&#34; binding:&#34;required&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">RePassword</span> <span class="kt">string</span> <span class="s">`json:&#34;re_password&#34; binding:&#34;required,eqfield=Password&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span> <span class="o">:=</span> <span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/signup&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">var</span> <span class="nx">u</span> <span class="nx">SignUpParam</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">ShouldBind</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">u</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="s">&#34;msg&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">			<span class="p">})</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 保存入库等业务逻辑代码...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">		<span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;success&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span> <span class="p">=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;:8999&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们使用curl发送一个POST请求测试下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{&#34;name&#34;:&#34;q1mi&#34;,&#34;age&#34;:18,&#34;email&#34;:&#34;123.com&#34;}&#39;</span> http://127.0.0.1:8999/signup
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="s2">&#34;Key: &#39;SignUpParam.Email&#39; Error:Field validation for &#39;Email&#39; failed on the &#39;email&#39; tag\nKey: &#39;SignUpParam.Password&#39; Error:Field validation for &#39;Password&#39; failed on the &#39;required&#39; tag\nKey: &#39;SignUpParam.RePassword&#39; Error:Field validation for &#39;RePassword&#39; failed on the &#39;required&#39; tag&#34;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从最终的输出结果可以看到 <code>validator</code> 的检验生效了，但是错误提示的字段不是特别友好，我们可能需要将它翻译成中文。</p>
+<h3 id="翻译校验错误提示信息">翻译校验错误提示信息</h3>
+<p><code>validator</code>库本身是支持国际化的，借助相应的语言包可以实现校验错误提示信息的自动翻译。下面的示例代码演示了如何将错误提示信息翻译成中文，翻译成其他语言的方法类似。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/gin-gonic/gin/binding&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/go-playground/locales/en&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/go-playground/locales/zh&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ut</span> <span class="s">&#34;github.com/go-playground/universal-translator&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/go-playground/validator/v10&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">enTranslations</span> <span class="s">&#34;github.com/go-playground/validator/v10/translations/en&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">zhTranslations</span> <span class="s">&#34;github.com/go-playground/validator/v10/translations/zh&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义一个全局翻译器T
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">trans</span> <span class="nx">ut</span><span class="p">.</span><span class="nx">Translator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// InitTrans 初始化翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">InitTrans</span><span class="p">(</span><span class="nx">locale</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 修改gin框架中的Validator引擎属性，实现自定制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">binding</span><span class="p">.</span><span class="nx">Validator</span><span class="p">.</span><span class="nf">Engine</span><span class="p">().(</span><span class="o">*</span><span class="nx">validator</span><span class="p">.</span><span class="nx">Validate</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">zhT</span> <span class="o">:=</span> <span class="nx">zh</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span> <span class="c1">// 中文翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">enT</span> <span class="o">:=</span> <span class="nx">en</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span> <span class="c1">// 英文翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 第一个参数是备用（fallback）的语言环境
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 后面的参数是应该支持的语言环境（支持多个）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// uni := ut.New(zhT, zhT) 也是可以的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">uni</span> <span class="o">:=</span> <span class="nx">ut</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">enT</span><span class="p">,</span> <span class="nx">zhT</span><span class="p">,</span> <span class="nx">enT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// locale 通常取决于 http 请求头的 &#39;Accept-Language&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kd">var</span> <span class="nx">ok</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 也可以使用 uni.FindTranslator(...) 传入多个locale进行查找
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">trans</span><span class="p">,</span> <span class="nx">ok</span> <span class="p">=</span> <span class="nx">uni</span><span class="p">.</span><span class="nf">GetTranslator</span><span class="p">(</span><span class="nx">locale</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;uni.GetTranslator(%s) failed&#34;</span><span class="p">,</span> <span class="nx">locale</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 注册翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">switch</span> <span class="nx">locale</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s">&#34;en&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">err</span> <span class="p">=</span> <span class="nx">enTranslations</span><span class="p">.</span><span class="nf">RegisterDefaultTranslations</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">trans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s">&#34;zh&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">err</span> <span class="p">=</span> <span class="nx">zhTranslations</span><span class="p">.</span><span class="nf">RegisterDefaultTranslations</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">trans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">err</span> <span class="p">=</span> <span class="nx">enTranslations</span><span class="p">.</span><span class="nf">RegisterDefaultTranslations</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">trans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">SignUpParam</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Age</span>        <span class="kt">uint8</span>  <span class="s">`json:&#34;age&#34; binding:&#34;gte=1,lte=130&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>       <span class="kt">string</span> <span class="s">`json:&#34;name&#34; binding:&#34;required&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Email</span>      <span class="kt">string</span> <span class="s">`json:&#34;email&#34; binding:&#34;required,email&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Password</span>   <span class="kt">string</span> <span class="s">`json:&#34;password&#34; binding:&#34;required&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">RePassword</span> <span class="kt">string</span> <span class="s">`json:&#34;re_password&#34; binding:&#34;required,eqfield=Password&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">InitTrans</span><span class="p">(</span><span class="s">&#34;zh&#34;</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;init trans failed, err:%v\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span> <span class="o">:=</span> <span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">.</span><span class="nf">POST</span><span class="p">(</span><span class="s">&#34;/signup&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">var</span> <span class="nx">u</span> <span class="nx">SignUpParam</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">ShouldBind</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">u</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 获取validator.ValidationErrors类型的errors
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">errs</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">err</span><span class="p">.(</span><span class="nx">validator</span><span class="p">.</span><span class="nx">ValidationErrors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 非validator.ValidationErrors类型错误直接返回
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="s">&#34;msg&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">				<span class="p">})</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// validator.ValidationErrors类型错误则进行翻译
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="s">&#34;msg&#34;</span><span class="p">:</span><span class="nx">errs</span><span class="p">.</span><span class="nf">Translate</span><span class="p">(</span><span class="nx">trans</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">			<span class="p">})</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 保存入库等具体业务逻辑代码...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">		<span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="s">&#34;success&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span> <span class="p">=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;:8999&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>同样的请求再来一次：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{&#34;name&#34;:&#34;q1mi&#34;,&#34;age&#34;:18,&#34;email&#34;:&#34;123.com&#34;}&#39;</span> http://127.0.0.1:8999/signup
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这一次的输出结果如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;SignUpParam.Email&#34;</span>:<span class="s2">&#34;Email必须是一个有效的邮箱&#34;</span>,<span class="s2">&#34;SignUpParam.Password&#34;</span>:<span class="s2">&#34;Password为必填字段&#34;</span>,<span class="s2">&#34;SignUpParam.RePassword&#34;</span>:<span class="s2">&#34;RePassword为必填字段&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="自定义错误提示信息的字段名">自定义错误提示信息的字段名</h3>
+<p>上面的错误提示看起来是可以了，但是还是差点意思，首先是错误提示中的字段并不是请求中使用的字段，例如：<code>RePassword</code>是我们后端定义的结构体中的字段名，而请求中使用的是<code>re_password</code>字段。如何是错误提示中的字段使用自定义的名称，例如<code>json</code>tag指定的值呢？</p>
+<p>只需要在初始化翻译器的时候像下面一样添加一个获取<code>json</code> tag的自定义方法即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// InitTrans 初始化翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">InitTrans</span><span class="p">(</span><span class="nx">locale</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 修改gin框架中的Validator引擎属性，实现自定制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">binding</span><span class="p">.</span><span class="nx">Validator</span><span class="p">.</span><span class="nf">Engine</span><span class="p">().(</span><span class="o">*</span><span class="nx">validator</span><span class="p">.</span><span class="nx">Validate</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 注册一个获取json tag的自定义方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">v</span><span class="p">.</span><span class="nf">RegisterTagNameFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">fld</span> <span class="nx">reflect</span><span class="p">.</span><span class="nx">StructField</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">name</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">SplitN</span><span class="p">(</span><span class="nx">fld</span><span class="p">.</span><span class="nx">Tag</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;json&#34;</span><span class="p">),</span> <span class="s">&#34;,&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">name</span> <span class="o">==</span> <span class="s">&#34;-&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">name</span>
+</span></span><span class="line"><span class="cl">		<span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">zhT</span> <span class="o">:=</span> <span class="nx">zh</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span> <span class="c1">// 中文翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">enT</span> <span class="o">:=</span> <span class="nx">en</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span> <span class="c1">// 英文翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 第一个参数是备用（fallback）的语言环境
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 后面的参数是应该支持的语言环境（支持多个）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// uni := ut.New(zhT, zhT) 也是可以的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">uni</span> <span class="o">:=</span> <span class="nx">ut</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">enT</span><span class="p">,</span> <span class="nx">zhT</span><span class="p">,</span> <span class="nx">enT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// ... liwenzhou.com ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>再尝试发请求，看一下效果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;SignUpParam.email&#34;</span>:<span class="s2">&#34;email必须是一个有效的邮箱&#34;</span>,<span class="s2">&#34;SignUpParam.password&#34;</span>:<span class="s2">&#34;password为必填字段&#34;</span>,<span class="s2">&#34;SignUpParam.re_password&#34;</span>:<span class="s2">&#34;re_password为必填字段&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到现在错误提示信息中使用的就是我们结构体中<code>json</code>tag设置的名称了。</p>
+<p>但是还是有点瑕疵，那就是最终的错误提示信息中心还是有我们后端定义的结构体名称——<code>SignUpParam</code>，这个名称其实是不需要随错误提示返回给前端的，前端并不需要这个值。我们需要想办法把它去掉。</p>
+<p>这里参考https://github.com/go-playground/validator/issues/633#issuecomment-654382345提供的方法，定义一个去掉结构体名称前缀的自定义方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">removeTopStruct</span><span class="p">(</span><span class="nx">fields</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">res</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">field</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">fields</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">res</span><span class="p">[</span><span class="nx">field</span><span class="p">[</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Index</span><span class="p">(</span><span class="nx">field</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]]</span> <span class="p">=</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">res</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们在代码中使用上述函数将翻译后的<code>errors</code>做一下处理即可：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">ShouldBind</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">u</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 获取validator.ValidationErrors类型的errors
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">errs</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">err</span><span class="p">.(</span><span class="nx">validator</span><span class="p">.</span><span class="nx">ValidationErrors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 非validator.ValidationErrors类型错误直接返回
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="s">&#34;msg&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">		<span class="p">})</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// validator.ValidationErrors类型错误则进行翻译
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 并使用removeTopStruct函数去除字段名中的结构体名称标识
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;msg&#34;</span><span class="p">:</span> <span class="nf">removeTopStruct</span><span class="p">(</span><span class="nx">errs</span><span class="p">.</span><span class="nf">Translate</span><span class="p">(</span><span class="nx">trans</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看一下最终的效果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;email必须是一个有效的邮箱&#34;</span>,<span class="s2">&#34;password&#34;</span>:<span class="s2">&#34;password为必填字段&#34;</span>,<span class="s2">&#34;re_password&#34;</span>:<span class="s2">&#34;re_password为必填字段&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这一次看起来就比较符合我们预期的标准了。</p>
+<h3 id="自定义结构体校验方法">自定义结构体校验方法</h3>
+<p>上面的校验还是有点小问题，就是当涉及到一些复杂的校验规则，比如<code>re_password</code>字段需要与<code>password</code>字段的值相等这样的校验规则，我们的自定义错误提示字段名称方法就不能很好解决错误提示信息中的其他字段名称了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{&#34;name&#34;:&#34;q1mi&#34;,&#34;age&#34;:18,&#34;email&#34;:&#34;123.com&#34;,&#34;password&#34;:&#34;123&#34;,&#34;re_password&#34;:&#34;321&#34;}&#39;</span> http://127.0.0.1:8999/signup
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后输出的错误提示信息如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;email必须是一个有效的邮箱&#34;</span>,<span class="s2">&#34;re_password&#34;</span>:<span class="s2">&#34;re_password必须等于Password&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到<code>re_password</code>字段的提示信息中还是出现了<code>Password</code>这个结构体字段名称。这有点小小的遗憾，毕竟自定义字段名称的方法不能影响被当成param传入的值。</p>
+<p>此时如果想要追求更好的提示效果，将上面的Password字段也改为和<code>json</code> tag一致的名称，就需要我们自定义结构体校验的方法。</p>
+<p>例如，我们为<code>SignUpParam</code>自定义一个校验方法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// SignUpParamStructLevelValidation 自定义SignUpParam结构体校验函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">SignUpParamStructLevelValidation</span><span class="p">(</span><span class="nx">sl</span> <span class="nx">validator</span><span class="p">.</span><span class="nx">StructLevel</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">su</span> <span class="o">:=</span> <span class="nx">sl</span><span class="p">.</span><span class="nf">Current</span><span class="p">().</span><span class="nf">Interface</span><span class="p">().(</span><span class="nx">SignUpParam</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">su</span><span class="p">.</span><span class="nx">Password</span> <span class="o">!=</span> <span class="nx">su</span><span class="p">.</span><span class="nx">RePassword</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 输出错误提示信息，最后一个参数就是传递的param
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">sl</span><span class="p">.</span><span class="nf">ReportError</span><span class="p">(</span><span class="nx">su</span><span class="p">.</span><span class="nx">RePassword</span><span class="p">,</span> <span class="s">&#34;re_password&#34;</span><span class="p">,</span> <span class="s">&#34;RePassword&#34;</span><span class="p">,</span> <span class="s">&#34;eqfield&#34;</span><span class="p">,</span> <span class="s">&#34;password&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后在初始化校验器的函数中注册该自定义校验方法即可：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">InitTrans</span><span class="p">(</span><span class="nx">locale</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 修改gin框架中的Validator引擎属性，实现自定制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">binding</span><span class="p">.</span><span class="nx">Validator</span><span class="p">.</span><span class="nf">Engine</span><span class="p">().(</span><span class="o">*</span><span class="nx">validator</span><span class="p">.</span><span class="nx">Validate</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// ... liwenzhou.com ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">		<span class="c1">// 为SignUpParam注册自定义校验方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">v</span><span class="p">.</span><span class="nf">RegisterStructValidation</span><span class="p">(</span><span class="nx">SignUpParamStructLevelValidation</span><span class="p">,</span> <span class="nx">SignUpParam</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">zhT</span> <span class="o">:=</span> <span class="nx">zh</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span> <span class="c1">// 中文翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">enT</span> <span class="o">:=</span> <span class="nx">en</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span> <span class="c1">// 英文翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// ... liwenzhou.com ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最终再请求一次，看一下效果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;email&#34;</span>:<span class="s2">&#34;email必须是一个有效的邮箱&#34;</span>,<span class="s2">&#34;re_password&#34;</span>:<span class="s2">&#34;re_password必须等于password&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这一次<code>re_password</code>字段的错误提示信息就符合我们预期了。</p>
+<h3 id="自定义字段校验方法">自定义字段校验方法</h3>
+<p>除了上面介绍到的自定义结构体校验方法，<code>validator</code>还支持为某个字段自定义校验方法，并使用<code>RegisterValidation()</code>注册到校验器实例中。</p>
+<p>接下来我们来为<code>SignUpParam</code>添加一个需要使用自定义校验方法<code>checkDate</code>做参数校验的字段<code>Date</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">SignUpParam</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Age</span>        <span class="kt">uint8</span>  <span class="s">`json:&#34;age&#34; binding:&#34;gte=1,lte=130&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>       <span class="kt">string</span> <span class="s">`json:&#34;name&#34; binding:&#34;required&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Email</span>      <span class="kt">string</span> <span class="s">`json:&#34;email&#34; binding:&#34;required,email&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Password</span>   <span class="kt">string</span> <span class="s">`json:&#34;password&#34; binding:&#34;required&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">RePassword</span> <span class="kt">string</span> <span class="s">`json:&#34;re_password&#34; binding:&#34;required,eqfield=Password&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 需要使用自定义校验方法checkDate做参数校验的字段Date
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Date</span>       <span class="kt">string</span> <span class="s">`json:&#34;date&#34; binding:&#34;required,datetime=2006-01-02,checkDate&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中<code>datetime=2006-01-02</code>是内置的用于校验日期类参数是否满足指定格式要求的tag。 如果传入的<code>date</code>参数不满足<code>2006-01-02</code>这种格式就会提示如下错误：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;date&#34;</span>:<span class="s2">&#34;date的格式必须是2006-01-02&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>针对date字段除了内置的<code>datetime=2006-01-02</code>提供的格式要求外，假设我们还要求该字段的时间必须是一个未来的时间（晚于当前时间），像这样针对某个字段的特殊校验需求就需要我们使用自定义字段校验方法了。</p>
+<p>首先我们要在需要执行自定义校验的字段后面添加自定义tag，这里使用的是<code>checkDate</code>，注意使用英文分号分隔开。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// customFunc 自定义字段级别校验方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">customFunc</span><span class="p">(</span><span class="nx">fl</span> <span class="nx">validator</span><span class="p">.</span><span class="nx">FieldLevel</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">date</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">&#34;2006-01-02&#34;</span><span class="p">,</span> <span class="nx">fl</span><span class="p">.</span><span class="nf">Field</span><span class="p">().</span><span class="nf">String</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">date</span><span class="p">.</span><span class="nf">Before</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>定义好了字段及其自定义校验方法后，就需要将它们联系起来并注册到我们的校验器实例中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 在校验器注册自定义的校验方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">v</span><span class="p">.</span><span class="nf">RegisterValidation</span><span class="p">(</span><span class="s">&#34;checkDate&#34;</span><span class="p">,</span> <span class="nx">customFunc</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样，我们就可以对请求参数中<code>date</code>字段执行自定义的<code>checkDate</code>进行校验了。 我们发送如下请求测试一下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Content-type: application/json&#34;</span> -X POST -d <span class="s1">&#39;{&#34;name&#34;:&#34;q1mi&#34;,&#34;age&#34;:18,&#34;email&#34;:&#34;123@qq.com&#34;,&#34;password&#34;:&#34;123&#34;, &#34;re_password&#34;: &#34;123&#34;, &#34;date&#34;:&#34;2020-01-02&#34;}&#39;</span> http://127.0.0.1:8999/signup
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时得到的响应结果是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;date&#34;</span>:<span class="s2">&#34;Key: &#39;SignUpParam.date&#39; Error:Field validation for &#39;date&#39; failed on the &#39;checkDate&#39; tag&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这…自定义字段级别的校验方法的错误提示信息很“简单粗暴”，和我们上面的中文提示风格有出入，必须想办法搞定它呀！</p>
+<h3 id="自定义翻译方法">自定义翻译方法</h3>
+<p>我们现在需要为自定义字段校验方法提供一个自定义的翻译方法，从而实现该字段错误提示信息的自定义显示。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// registerTranslator 为自定义字段添加翻译功能
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">registerTranslator</span><span class="p">(</span><span class="nx">tag</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">validator</span><span class="p">.</span><span class="nx">RegisterTranslationsFunc</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">trans</span> <span class="nx">ut</span><span class="p">.</span><span class="nx">Translator</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">trans</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nx">tag</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// translate 自定义字段的翻译方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">translate</span><span class="p">(</span><span class="nx">trans</span> <span class="nx">ut</span><span class="p">.</span><span class="nx">Translator</span><span class="p">,</span> <span class="nx">fe</span> <span class="nx">validator</span><span class="p">.</span><span class="nx">FieldError</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">msg</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">trans</span><span class="p">.</span><span class="nf">T</span><span class="p">(</span><span class="nx">fe</span><span class="p">.</span><span class="nf">Tag</span><span class="p">(),</span> <span class="nx">fe</span><span class="p">.</span><span class="nf">Field</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">fe</span><span class="p">.(</span><span class="kt">error</span><span class="p">).</span><span class="nf">Error</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">msg</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>定义好了相关翻译方法之后，我们在<code>InitTrans</code>函数中通过调用<code>RegisterTranslation()</code>方法来注册我们自定义的翻译方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// InitTrans 初始化翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">InitTrans</span><span class="p">(</span><span class="nx">locale</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// ...liwenzhou.com...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl">		<span class="c1">// 注册翻译器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">switch</span> <span class="nx">locale</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s">&#34;en&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">err</span> <span class="p">=</span> <span class="nx">enTranslations</span><span class="p">.</span><span class="nf">RegisterDefaultTranslations</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">trans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="s">&#34;zh&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">err</span> <span class="p">=</span> <span class="nx">zhTranslations</span><span class="p">.</span><span class="nf">RegisterDefaultTranslations</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">trans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">err</span> <span class="p">=</span> <span class="nx">enTranslations</span><span class="p">.</span><span class="nf">RegisterDefaultTranslations</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">trans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 注意！因为这里会使用到trans实例
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// 所以这一步注册要放到trans初始化的后面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">v</span><span class="p">.</span><span class="nf">RegisterTranslation</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">			<span class="s">&#34;checkDate&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">trans</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nf">registerTranslator</span><span class="p">(</span><span class="s">&#34;checkDate&#34;</span><span class="p">,</span> <span class="s">&#34;{0}必须要晚于当前日期&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">translate</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样再次尝试发送请求，就能得到想要的错误提示信息了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;date&#34;</span>:<span class="s2">&#34;date必须要晚于当前日期&#34;</span><span class="o">}}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
