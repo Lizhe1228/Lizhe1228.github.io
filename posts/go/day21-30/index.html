@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day21-30)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-08T10:40:55+08:00" />
 <meta itemprop="dateModified" content="2023-06-08T10:40:55+08:00" />
-<meta itemprop="wordCount" content="3564"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="4922"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day21-30)" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day21-30\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  3564 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  4922 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day21-30\/","datePublished": "2023-06-08T10:40:55+08:00","dateModified": "2023-06-08T10:40:55+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-08 10:40:55"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span title="更新于 2023-06-08 10:40:55"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3564 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 8 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day21-30)">
+      <div class="post-meta-line"><span title="发布于 2023-06-08 10:40:55"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span title="更新于 2023-06-08 10:40:55"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-08">2023-06-08</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 4922 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 10 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day21-30)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -242,7 +242,24 @@
         <li><a href="#2下面这段代码输出什么为什么">2.下面这段代码输出什么？为什么？</a></li>
       </ul>
     </li>
-    <li><a href="#day26">Day26</a></li>
+    <li><a href="#day26">Day26</a>
+      <ul>
+        <li><a href="#1下面这段代码输出什么-1">1.下面这段代码输出什么？</a></li>
+        <li><a href="#延伸-1">延伸：</a>
+          <ul>
+            <li><a href="#1iota只能在常量的表达式中使用">1、iota只能在常量的表达式中使用。</a></li>
+            <li><a href="#2每次-const-出现时都会让-iota-初始化为0">2、每次 const 出现时，都会让 iota 初始化为0.</a></li>
+            <li><a href="#3自定义类型">3、自定义类型</a></li>
+            <li><a href="#4可跳过的值">4、可跳过的值</a></li>
+            <li><a href="#5位掩码表达式">5、位掩码表达式</a></li>
+            <li><a href="#6定义数量级">6、定义数量级</a></li>
+            <li><a href="#7定义在一行的情况">7、定义在一行的情况</a></li>
+            <li><a href="#8中间插队">8、中间插队</a></li>
+          </ul>
+        </li>
+        <li><a href="#2下面这段代码输出什么为什么-1">2.下面这段代码输出什么？为什么？</a></li>
+      </ul>
+    </li>
     <li><a href="#day27">Day27</a></li>
     <li><a href="#day28">Day28</a></li>
     <li><a href="#day29">Day29</a></li>
@@ -846,6 +863,326 @@ defer 定义的函数是延迟函数，故 calc(“1”,1,3) 会被延迟执行�
 <hr>
 <p>参考答案及解析：B。编译错误 <code>Student does not implement People (Speak method has pointer receiver)</code>，值类型 Student 没有实现接口的 Speak() 方法，而是指针类型 <code>*Student</code> 实现该方法。应当改为<code>  var peo People = &amp;Student{}</code>或者<code>stu := new(Student)      var peo People = stu</code></p>
 <h2 id="day26">Day26</h2>
+<h3 id="1下面这段代码输出什么-1">1.下面这段代码输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="p">=</span> <span class="kc">iota</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="p">=</span> <span class="kc">iota</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;name&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span>    <span class="p">=</span> <span class="kc">iota</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">d</span>    <span class="p">=</span> <span class="kc">iota</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：0 1 1 2。知识点：iota 的用法。</p>
+<p>iota 是 golang 语言的常量计数器，只能在常量的表达式中使用。</p>
+<p><strong>iota 在 const 关键字出现时将被重置为0</strong>，const中每新增一行常量声明将使 iota 计数一次。</p>
+<h3 id="延伸-1">延伸：</h3>
+<p>iota是golang语言的常量计数器,只能在常量的表达式中使用。</p>
+<p>iota在const关键字出现时将被重置为0(const内部的第一行之前)，const中每新增一行常量声明将使iota计数一次(iota可理解为const语句块中的行索引)。</p>
+<p>使用iota能简化定义，在定义枚举时很有用。</p>
+<p><strong>举例如下：</strong></p>
+<h4 id="1iota只能在常量的表达式中使用">1、iota只能在常量的表达式中使用。</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="kc">iota</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="err">编译错误：</span> <span class="nx">undefined</span><span class="p">:</span> <span class="kc">iota</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2每次-const-出现时都会让-iota-初始化为0">2、每次 const 出现时，都会让 iota 初始化为0.</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="nx">a</span> <span class="p">=</span> <span class="kc">iota</span> <span class="c1">// a=0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">b</span> <span class="p">=</span> <span class="kc">iota</span>   <span class="c1">//b=0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nx">c</span>      <span class="c1">//c=1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3自定义类型">3、自定义类型</h4>
+<p>自增长常量经常包含一个自定义枚举类型，允许你依靠编译器完成自增设置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Stereotype</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">TypicalNoob</span> <span class="nx">Stereotype</span> <span class="p">=</span> <span class="kc">iota</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">TypicalHipster</span>        <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">TypicalUnixWizard</span>       <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">TypicalStartupFounder</span>     <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="4可跳过的值">4、可跳过的值</h4>
+<p>设想你在处理消费者的音频输出。音频可能无论什么都没有任何输出，或者它可能是单声道，立体声，或是环绕立体声的。
+这可能有些潜在的逻辑定义没有任何输出为 0，单声道为 1，立体声为 2，值是由通道的数量提供。
+所以你给 Dolby 5.1 环绕立体声什么值。
+一方面，它有6个通道输出，但是另一方面，仅仅 5 个通道是全带宽通道（因此 5.1 称号 - 其中 .1 表示的是低频效果通道）。
+不管怎样，我们不想简单的增加到 3。
+我们可以使用下划线跳过不想要的值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">AudioOutput</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">OutMute</span> <span class="nx">AudioOutput</span> <span class="p">=</span> <span class="kc">iota</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">OutMono</span>          <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">OutStereo</span>         <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">_</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">_</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">OutSurround</span>        <span class="c1">// 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="5位掩码表达式">5、位掩码表达式</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Allergen</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">IgEggs</span> <span class="nx">Allergen</span> <span class="p">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="kc">iota</span> <span class="c1">// 1 &lt;&lt; 0 which is 00000001
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">IgChocolate</span>             <span class="c1">// 1 &lt;&lt; 1 which is 00000010
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">IgNuts</span>               <span class="c1">// 1 &lt;&lt; 2 which is 00000100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">IgStrawberries</span>           <span class="c1">// 1 &lt;&lt; 3 which is 00001000
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">IgShellfish</span>             <span class="c1">// 1 &lt;&lt; 4 which is 00010000
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个工作是因为当你在一个 const 组中仅仅有一个标示符在一行的时候，它将使用增长的 iota 取得前面的表达式并且再运用它，。在 Go 语言的 spec 中， 这就是所谓的隐性重复最后一个非空的表达式列表。</p>
+<p>如果你对鸡蛋，巧克力和海鲜过敏，把这些 bits 翻转到 “on” 的位置（从左到右映射 bits）。然后你将得到一个 bit 值 00010011，它对应十进制的 19。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">IgEggs</span> <span class="p">|</span> <span class="nx">IgChocolate</span> <span class="p">|</span> <span class="nx">IgShellfish</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// output:
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 19
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="6定义数量级">6、定义数量级</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">ByteSize</span> <span class="kt">float64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">_</span>           <span class="p">=</span> <span class="kc">iota</span>                   <span class="c1">// ignore first value by assigning to blank identifier
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">KB</span> <span class="nx">ByteSize</span> <span class="p">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="kc">iota</span><span class="p">)</span> <span class="c1">// 1 &lt;&lt; (10*1)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">MB</span>                                   <span class="c1">// 1 &lt;&lt; (10*2)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">GB</span>                                   <span class="c1">// 1 &lt;&lt; (10*3)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">TB</span>                                   <span class="c1">// 1 &lt;&lt; (10*4)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">PB</span>                                   <span class="c1">// 1 &lt;&lt; (10*5)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">EB</span>                                   <span class="c1">// 1 &lt;&lt; (10*6)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ZB</span>                                   <span class="c1">// 1 &lt;&lt; (10*7)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">YB</span>                                   <span class="c1">// 1 &lt;&lt; (10*8)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="7定义在一行的情况">7、定义在一行的情况</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Apple</span><span class="p">,</span> <span class="nx">Banana</span> <span class="p">=</span> <span class="kc">iota</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">iota</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Cherimoya</span><span class="p">,</span> <span class="nx">Durian</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Elderberry</span><span class="p">,</span> <span class="nx">Fig</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>iota 在下一行增长，而不是立即取得它的引用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Apple: 1
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Banana: 2
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Cherimoya: 2
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Durian: 3
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Elderberry: 3
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Fig: 4
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="8中间插队">8、中间插队</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">i</span> <span class="p">=</span> <span class="kc">iota</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">j</span> <span class="p">=</span> <span class="mf">3.14</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">k</span> <span class="p">=</span> <span class="kc">iota</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">l</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>那么打印出来的结果是 i=0,j=3.14,k=2,l=3</p>
+<h3 id="2下面这段代码输出什么为什么-1">2.下面这段代码输出什么？为什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">People</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Student</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">stu</span> <span class="o">*</span><span class="nx">Student</span><span class="p">)</span> <span class="nf">Show</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">s</span> <span class="o">*</span><span class="nx">Student</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">s</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;s is nil&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;s is not nil&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">p</span> <span class="nx">People</span> <span class="p">=</span> <span class="nx">s</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">p</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;p is nil&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;p is not nil&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：<code>s is nil</code> 和 <code>p is not nil</code>。这道题会不会有点诧异，我们分配给变量 p 的值明明是 nil，然而 p 却不是 nil。记住一点，当且仅当动态值和动态类型都为 nil 时，接口类型值才为 nil。上面的代码，给变量 p 赋值之后，<strong>p 的动态值是 nil</strong>，<strong>但是动态类型却是 <code>*Student</code></strong>，是一个 nil 指针，所以相等条件不成。</p>
 <h2 id="day27">Day27</h2>
 <h2 id="day28">Day28</h2>
 <h2 id="day29">Day29</h2>
