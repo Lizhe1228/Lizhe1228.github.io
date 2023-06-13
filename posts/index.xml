@@ -18,7 +18,8 @@
   <pubDate>Sun, 11 Jun 2023 12:13:47 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/projects/pro03/</guid>
-  <description><![CDATA[<p>项目日记</p>]]></description>
+  <description><![CDATA[<p>项目日记</p>
+<p>通过这样一个项目，和之前做的fiber+react的项目，能更深刻的理解一个企业级的项目是什么样的，之前的项目有些地方封装的还是不够好，现在才慢慢体会到，比如请求的响应也进行封装，定义业务状态码。</p>]]></description>
 </item>
 <item>
   <title>储算分离系统</title>

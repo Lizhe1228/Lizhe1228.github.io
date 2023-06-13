@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='gin, go web' /><meta itemprop="name" content="go web开发中遇到的小技术与知识点">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-10T16:15:26+08:00" />
 <meta itemprop="dateModified" content="2023-06-10T16:15:26+08:00" />
-<meta itemprop="wordCount" content="6145"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="8572"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="gin,go web," /><meta property="og:title" content="go web开发中遇到的小技术与知识点" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/"
-    },"genre": "posts","keywords": "gin, go web","wordcount":  6145 ,
+    },"genre": "posts","keywords": "gin, go web","wordcount":  8572 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/","datePublished": "2023-06-10T16:15:26+08:00","dateModified": "2023-06-10T16:15:26+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/gin/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Gin</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 6145 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 13 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
+      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 8572 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 18 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -220,6 +220,27 @@
         <li><a href="#自定义结构体校验方法">自定义结构体校验方法</a></li>
         <li><a href="#自定义字段校验方法">自定义字段校验方法</a></li>
         <li><a href="#自定义翻译方法">自定义翻译方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#用户认证">用户认证</a>
+      <ul>
+        <li><a href="#cookie---session-认证模式">Cookie - Session 认证模式</a></li>
+        <li><a href="#token-认证模式">Token 认证模式</a></li>
+        <li><a href="#jwt介绍">JWT介绍</a>
+          <ul>
+            <li><a href="#header">Header</a></li>
+            <li><a href="#payload">Payload</a></li>
+            <li><a href="#signature">Signature</a></li>
+            <li><a href="#jwt优缺点">JWT优缺点</a></li>
+          </ul>
+        </li>
+        <li><a href="#基于jwt实现认证实践">基于JWT实现认证实践</a>
+          <ul>
+            <li><a href="#定义需求">定义需求</a></li>
+            <li><a href="#生成jwt">生成JWT</a></li>
+            <li><a href="#解析jwt">解析JWT</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -1212,6 +1233,244 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;msg&#34;</span>:<span class="o">{</span><span class="s2">&#34;date&#34;</span>:<span class="s2">&#34;date必须要晚于当前日期&#34;</span><span class="o">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="用户认证">用户认证</h2>
+<p>HTTP是一个无状态的协议，一次请求结束后，下次再发送请求，服务器就不知道这个请求是谁发来的了(同一个IP不代表同一个用户)，在Web应用中，用户的认证和鉴权是非常重要的一环，实践中有多种可用方案，并且各有千秋。</p>
+<h3 id="cookie---session-认证模式">Cookie - Session 认证模式</h3>
+<p>在Web应用发展的初期，大部分采用基于Cookie - Session的会话管理方式，逻辑如下。</p>
+<ul>
+<li>客户端使用用户名、密码进行认证</li>
+<li>服务端验证用户名、密码，正确后生成并存储Session，将SessionID通过Cookie返回给客户端</li>
+<li>客户端访问需要认证的接口时在Cookie中携带SessionID</li>
+<li>服务端通过SessionID查找Session并进行鉴权，返回给客户端需要的数据</li>
+</ul>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131900205.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131900205.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131900205.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131900205.png 2x" sizes="auto" data-title="image-20230613190030050" data-alt="image-20230613190030050" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>基于Session的方式存在多种问题</p>
+<ul>
+<li>服务端需要存储Session，并且由于Session需要经常快速查找，通常存储在内存或内存数据库中，同时在线用户较多时需要占用大量的服务器资源。</li>
+<li>当需要扩展时，创建Session的服务器可能不是验证Session的服务器，所以还需要将所有Session单独存储并共享。</li>
+<li>由于客户端使用Cookie存储SessionID，在跨域场景下需要进行兼容性处理，同时这种方式也难以防范CSRF攻击。</li>
+</ul>
+<h3 id="token-认证模式">Token 认证模式</h3>
+<p>鉴于基于Session的会话管理方式存在上述多个缺点，基于Token的无状态会话管理方式诞生了，所谓无状态，就是服务端可以不再存储信息，甚至是不再存储Session，逻辑如下。</p>
+<ul>
+<li>客户端使用用户名、密码进行认证</li>
+<li>服务端验证用户名、密码正确后生成Token返回给客户端</li>
+<li>客户端保存Token，访问需要认证的接口时在URL参数或HTTP Header中加入Token</li>
+<li>服务端通过解码Token进行鉴权，返回给客户端需要的数据</li>
+</ul>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131907510.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131907510.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131907510.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131907510.png 2x" sizes="auto" data-title="image-20230613190712402" data-alt="image-20230613190712402" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>基于Token的会话管理方式有效解决了基于Session的会话管理方式带来的问题。</p>
+<ul>
+<li>服务端不需要存储和用户鉴权有关的信息，鉴权信息会被加密到Token中，服务端只需要读取Token中包含的鉴权信息即可</li>
+<li>避免了共享Session导致的不易扩展问题</li>
+<li>不需要依赖Cookie， 有效避免Cookie带来的CSRF攻击问题</li>
+<li>使用CORS可以快速解决跨域问题</li>
+</ul>
+<h3 id="jwt介绍">JWT介绍</h3>
+<p>JWT是JSON Web Token的缩写，<strong>是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准((RFC 7519)</strong>。JWT本身没有定义任何技术实现，它只是定义了<strong>一种基于Token的会话管理的规则</strong>，涵盖Token需要包含的标准内容和Token的生成过程，特别适用于分布式站点的单点登录(SSO) 场景。</p>
+<p>一个JWT Token就像这样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyODAxODcyNzQ4ODMyMzU4NSwiZXhwIjoxNTk0NTQwMjkxLCJpc3MiOiJibHVlYmVsbCJ9.lk_ZrAtYGCeZhK3iupHxP1kgjBJzQTVTtX0iZYFx9wU
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>它是由<code>.</code>分隔的三部分组成，这三部分依次是：</p>
+<ul>
+<li>头部（Header）</li>
+<li>负载（Payload）</li>
+<li>签名（Signature）</li>
+</ul>
+<p>头部和负载是以JSON形式存在，这就是JWT中的JSON，三部分的内容都分别单独经过了Base64编码，以<code>.</code>拼接成一个JWT Token。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131916483.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131916483.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131916483.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306131916483.png 2x" sizes="auto" data-title="image-20230613191653399" data-alt="image-20230613191653399" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="header">Header</h4>
+<p>jwt中的Header中存储了所使用的加密算法和Token类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">	&#34;alg&#34;: &#34;HS256&#34;,
+</span></span><span class="line"><span class="cl">	&#34;typ&#34;: &#34;JWT&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="payload">Payload</h4>
+<p>Payload表示负载，也是一个JSON对象，JWT规定了7个官方字段供选用，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">iss (issuer)：签发⼈人
+</span></span><span class="line"><span class="cl">exp (expiration time)：过期时间
+</span></span><span class="line"><span class="cl">sub (subject)：主题
+</span></span><span class="line"><span class="cl">aud (audience)：受众
+</span></span><span class="line"><span class="cl">nbf (Not Before)：⽣生效时间
+</span></span><span class="line"><span class="cl">iat (Issued At)：签发时间
+</span></span><span class="line"><span class="cl">jti (JWT ID)：编号
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>除了官方字段，开发者也可以自己指定字段和内容，例如下面的内容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">&#34;sub&#34;: &#34;1234567890&#34;,
+</span></span><span class="line"><span class="cl">&#34;name&#34;: &#34;John Doe&#34;,
+</span></span><span class="line"><span class="cl">&#34;admin&#34;: true
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意，JWT默认是不加密的，任何人都可以读到，所以不要把秘密信息放在这个部分。这个JSON对象也要使用Base64URL算法转成字符串。</p>
+<h4 id="signature">Signature</h4>
+<p>Signature部分是对前两部分的签名，防止数据篡改。</p>
+<p>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用Header里面指定的签名算法（默认是HMAC SHA256），按照下面的公式产生签名。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HMACSHA256(base64UrlEncode(header) + &#34;.&#34; + base64UrlEncode(payload),secret)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="jwt优缺点">JWT优缺点</h4>
+<p>JWT拥有基于Token的会话管理方式所拥有的一切优势，不依赖Cookie，使得其可以防止CSRF攻击，也能在禁用Cookie的浏览器环境中正常运行。</p>
+<p>而JWT的最大优势是<strong>服务端不再需要存储Session</strong>，使得服务端认证鉴权业务可以方便扩展，避免存储Session所需要引入的Redis等组件，<strong>降低了系统架构复杂度</strong>。<strong>但这也是JWT最大的劣势</strong>，由于有效期存储在Token中，JWT Token一旦签发，就会在有效期内一直可用，<strong>无法在服务端废止</strong>，当用户进行登出操作，只能依赖客户端删除掉本地存储的JWT Token，如果需要禁用用户，单纯使用JWT就无法做到了。</p>
+<h3 id="基于jwt实现认证实践">基于JWT实现认证实践</h3>
+<p>使用<code>jwt-go</code>这个库来实现我们生成JWT和解析JWT的功能。</p>
+<h4 id="定义需求">定义需求</h4>
+<p>我们需要定制自己的需求来决定JWT中保存哪些数据，比如我们规定在JWT中要存储<code>username</code>信息，那么我们就定义一个<code>MyClaims</code>结构体如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// MyClaims 自定义声明结构体并内嵌jwt.StandardClaims
+</span></span></span><span class="line"><span class="cl"><span class="c1">// jwt包自带的jwt.StandardClaims只包含了官方字段
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 我们这里需要额外记录一个username字段，所以要自定义结构体
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 如果想要保存更多信息，都可以添加到这个结构体中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">MyClaims</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Username</span> <span class="kt">string</span> <span class="s">`json:&#34;username&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jwt</span><span class="p">.</span><span class="nx">StandardClaims</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后我们定义JWT的过期时间，这里以2小时为例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="nx">TokenExpireDuration</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span> <span class="o">*</span> <span class="mi">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来还需要定义Secret：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">MySecret</span> <span class="p">=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;剑来&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="生成jwt">生成JWT</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// GenToken 生成JWT
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">GenToken</span><span class="p">(</span><span class="nx">username</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 创建一个我们自己的声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">c</span> <span class="o">:=</span> <span class="nx">MyClaims</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">username</span><span class="p">,</span> <span class="c1">// 自定义字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">jwt</span><span class="p">.</span><span class="nx">StandardClaims</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">ExpiresAt</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="nx">TokenExpireDuration</span><span class="p">).</span><span class="nf">Unix</span><span class="p">(),</span> <span class="c1">// 过期时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">Issuer</span><span class="p">:</span>    <span class="s">&#34;my-project&#34;</span><span class="p">,</span>                               <span class="c1">// 签发人
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 使用指定的签名方法创建签名对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">token</span> <span class="o">:=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nf">NewWithClaims</span><span class="p">(</span><span class="nx">jwt</span><span class="p">.</span><span class="nx">SigningMethodHS256</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 使用指定的secret签名并获得完整的编码后的字符串token
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="nx">token</span><span class="p">.</span><span class="nf">SignedString</span><span class="p">(</span><span class="nx">MySecret</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="解析jwt">解析JWT</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// ParseToken 解析JWT
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">ParseToken</span><span class="p">(</span><span class="nx">tokenString</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">MyClaims</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 解析token
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">token</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nf">ParseWithClaims</span><span class="p">(</span><span class="nx">tokenString</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">MyClaims</span><span class="p">{},</span> <span class="kd">func</span><span class="p">(</span><span class="nx">token</span> <span class="o">*</span><span class="nx">jwt</span><span class="p">.</span><span class="nx">Token</span><span class="p">)</span> <span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">MySecret</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">claims</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">token</span><span class="p">.</span><span class="nx">Claims</span><span class="p">.(</span><span class="o">*</span><span class="nx">MyClaims</span><span class="p">);</span> <span class="nx">ok</span> <span class="o">&amp;&amp;</span> <span class="nx">token</span><span class="p">.</span><span class="nx">Valid</span> <span class="p">{</span> <span class="c1">// 校验token
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="nx">claims</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;invalid token&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
