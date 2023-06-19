@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>DiffAttack - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
+<meta name="author-link" content="">
+<meta name="description" content="Diffusion Models for Imperceptible and Transferable Adversarial Attack
+不可感知和可转移对抗性攻击的扩散模型" /><meta name="keywords" content='diffusion, Adversarial Attack' /><meta itemprop="name" content="DiffAttack">
+<meta itemprop="description" content="Diffusion Models for Imperceptible and Transferable Adversarial Attack
+不可感知和可转移对抗性攻击的扩散模型"><meta itemprop="datePublished" content="2023-06-19T18:50:23+08:00" />
+<meta itemprop="dateModified" content="2023-06-19T18:50:23+08:00" />
+<meta itemprop="wordCount" content="4116"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="keywords" content="diffusion,Adversarial Attack," /><meta property="og:title" content="DiffAttack" />
+<meta property="og:description" content="Diffusion Models for Imperceptible and Transferable Adversarial Attack
+不可感知和可转移对抗性攻击的扩散模型" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lizhe1228.github.io/posts/papers/0619-1/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-19T18:50:23+08:00" />
+<meta property="article:modified_time" content="2023-06-19T18:50:23+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+
+<meta name="twitter:title" content="DiffAttack"/>
+<meta name="twitter:description" content="Diffusion Models for Imperceptible and Transferable Adversarial Attack
+不可感知和可转移对抗性攻击的扩散模型"/>
+<meta name="application-name" content="Lizhe1228">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/papers/0619-1/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/projects/pro05/" /><link rel="next" href="http://Lizhe1228.github.io/posts/papers/mine/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "DiffAttack",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/Lizhe1228.github.io\/posts\/papers\/0619-1\/"
+    },"genre": "posts","keywords": "diffusion, Adversarial Attack","wordcount":  4116 ,
+    "url": "http:\/\/Lizhe1228.github.io\/posts\/papers\/0619-1\/","datePublished": "2023-06-19T18:50:23+08:00","dateModified": "2023-06-19T18:50:23+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Lizhe1228"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="I am Lizhe1228" data-alt="I am Lizhe1228" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-desktop" class="typeit"></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/friends/"
+                
+                
+              ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="/nzr-smile.svg" data-alt="/nzr-smile.svg" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-title-mobile" class="typeit"></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/friends/"
+                  
+                  
+                ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">DiffAttack</li>
+    </ol>
+  </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>DiffAttack</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
+          <span class="post-category">收录于 <a href="/categories/%E8%AE%BA%E6%96%87/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 论文</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2023-06-19 18:50:23"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span title="更新于 2023-06-19 18:50:23"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 4116 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 9 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="DiffAttack">
+            <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#method">Method</a>
+      <ul>
+        <li><a href="#problem-formulation">Problem Formulation</a></li>
+        <li><a href="#basic-framework-of-destruction-and-reconstruction">Basic Framework of Destruction and Reconstruction</a></li>
+        <li><a href="#deceivestrong-diffusion-model">“Deceive“Strong Diffusion Model</a></li>
+        <li><a href="#preserve-content-structure">Preserve Content Structure</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="The END"><p>Diffusion Models for Imperceptible and Transferable Adversarial Attack</p>
+<p>不可感知和可转移对抗性攻击的扩散模型</p>
+<h2 id="abstract">Abstract</h2>
+<p>许多现有的对抗攻击在<strong>图像RGB空间</strong>上产生Lp范数扰动。尽管在<strong>可迁移性</strong>和攻击成功率方面取得了一些成就，但精心制作的对抗样本很容易被人眼感知。对于视觉的不可感知性，<strong>最近的一些研究探索了不受Lp范数约束的无限制攻击</strong>，<strong>但缺乏攻击黑盒模型的可迁移性</strong>。在这项工作中，我们通过利用扩散模型的生成和判别能力，提出了一种新的难以察觉和可迁移的攻击。<strong>具体来说，我们不是在像素空间中直接操作，而是在扩散模型的潜在空间中进行扰动</strong>。<strong>结合精心设计的内容保存结构，我们可以生成嵌入语义线索的人类不敏感的扰动</strong>。为了更好的可迁移性，我们进一步“欺骗”扩散模型，它可以被视为一个额外的识别代理，通过将其注意力从目标区域转移开。据我们所知，我们提出的方法DiffAttack是第一个将扩散模型引入对抗攻击领域的方法。在各种模型结构(包括cnn, Transformers, mLp)和防御方法上的大量实验，证明了我们的攻击方法优于其他攻击方法。
+（可迁移性指的是什么？不受Lp范数约束的无限制攻击又是什么？）</p>
+<h2 id="introduction">Introduction</h2>
+<p>此外，这些对抗性样本在不同模型架构之间的可转移性[9]对实际实现构成了更大的危险。(Nicolas Papernot, Patrick McDaniel, and Ian Goodfellow. Transferability in machine learning: from
+phenomena to black-box attacks using adversarial samples. arXiv preprint arXiv:1605.07277, 2016. 1, 3)</p>
+<p>与攻击者可以访问目标模型的结构和参数的白盒攻击[10–12，7]相比，黑盒攻击[13–26，9]无法获取目标模型的信息，因此更接近真实世界的场景。在黑箱方向中，我们在这里关注基于转移的攻击[15，19–23，9]，这些攻击直接应用在代理模型上构建的对抗性样本来欺骗目标模型。通过采用不同的优化策略[27，23]，设计各种损失函数[16，17，19，22]，利用多种数据扩充[13，14，20，21]等，现有方法取得了很大成功，并很好地提高了攻击的可转移性。</p>
+<p><strong>基于Lp范数的方法</strong>。上述大多数方法都采用RGB颜色空间中的Lp范数作为人类感知的指标，同时约束对抗性扰动的幅度在一个特定范围。尽管付出了努力，但这些基于像素的攻击仍然很容易被人眼感知，最近发现Lp范数不适合测量两幅图像之间的感知距离[28，29]。从图1中显示的例子来看，尽管L∞值较低，但通过Lp损失优化的扰动是明显的，并且看起来类似于高频噪声（表示替代模型上的过拟合），这可能会阻碍向其他黑匣子模型的转移[30，31]，并且很容易通过净化防御进行防御。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191922157.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191922157.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191922157.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191922157.png 2x" sizes="auto" data-title="image-20230619192230993" data-alt="image-20230619192230993" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><strong>面向难以察觉的攻击</strong>最近的工作[34，30，35，36，28，37]探索了在不使用Lp范数约束（也称为无限制攻击）的情况下欺骗人类感知的新方法。通过对诸如对象属性[36，30]、颜色映射矩阵[35]、图像纹理[37]等空间应用扰动，尽管RGB空间中的Lp范数值很大，但对抗性示例是很难察觉的。此外，最近的工作[30，37，35]表明，无限制攻击产生的扰动更多地集中在具有高级语义的相对大规模的模式上，而不是操纵像素级的强度，从而有利于攻击向其他黑匣子模型甚至防御黑匣子模型的可转移性。然而，这些方法的可转移性仍然落后于基于像素的方法。</p>
+<p>在这项工作中，我们提出了一种新的基于扩散模型的无限制攻击[38-42]。我们不是直接操纵像素，而是优化现成的预训练扩散模型的潜层空间[42]。除了上述高level的扰动的可转移性优势外，我们将扩散模型引入对抗性攻击领域的动机主要源于其两个有益的特性。1） 良好的隐蔽性。扩散模型倾向于对符合人类感知的自然图像进行采样，这自然满足了对抗性攻击所需的不可感知性。最近对真实图像编辑的研究[43-45]进一步支持了我们的观点，即扰动可以应用于高级语义，而不会影响图像的真实性。2） 强代理的近似。一方面，正如[32]所指出的，扩散模型的去噪过程可以作为一种强大的净化防御。另一方面，<strong>扩散模型在大规模数据集上训练的扩散模型天生具有强大的判别能力[46，47]（why？？？）</strong>，并且可以近似为基于转移的攻击的强代理模型。如果攻击能够欺骗这个“强大的模型”，那么我们可能会期望良好的可转移性到其他模型和防御。为了有效地利用扩散模型的上述良好性质，我们从三个方面进行了工作。首先，<strong>我们按照DDIM[43，44]构建了基本框架，该方法将图像反转为噪声，然后在潜在空间中应用修改</strong>。与改变引导文本以实现内容编辑的方法[48，49]相比，我们专注于对<strong>隐层空间</strong>的直接操作，这对攻击的成功有很大好处。其次，<strong>我们建议偏离文本和图像像素之间的交叉注意力映射</strong>，<strong>通过这种方式，我们可以将扩散模型转换为一个可以在实际中被欺骗和攻击的代理模型</strong>。<strong>最后，为了避免扭曲初始语义</strong>，我们考虑了具体的措施，包括<strong>自注意约束和反转强度</strong>。我们将提出的无限制攻击称为DiffAttack。</p>
+<ul>
+<li>
+<p>据我们所知，我们是第一个揭示扩散模型潜力的人，可以制作出具有令人满意的不可感知性和可转移性的对抗性例子。</p>
+</li>
+<li>
+<p>我们提出了DiffAttack，这是一种新的无限制攻击，其中扩散模型的良好特性被特定的设计所利用。</p>
+</li>
+<li>
+<p>对各种架构（如细胞神经网络、变压器和MLPMixer）和防御（包括最近的扩散纯化）的广泛实验表明，我们的工作优于现有的基于转移的方法</p>
+</li>
+</ul>
+<h2 id="method">Method</h2>
+<h3 id="problem-formulation">Problem Formulation</h3>
+<p>给定一个干净的图像x和它对应的标签y，攻击者的目标是制造扰动，使分类器的决策Fθ (θ表示模型的参数)从正确变为错误:</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191947269.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191947269.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191947269.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191947269.png 2x" sizes="auto" data-title="image-20230619194759197" data-alt="image-20230619194759197" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>其中Attack(·)为攻击方法，x’表示精心制作的对抗样本。由于Fθ的信息在黑盒场景中是不可访问的，因此对抗样本是在替代模型Gφ上制作的。与对扰动应用Lp范数进行约束的基于像素的攻击[7，10，23]不同，我们在扩散模型的隐层空间中施加扰动，并依赖于扩散模型的特性实现视觉上的自然和成功的攻击。我们将在下面详细描述我们的设计。</p>
+<h3 id="basic-framework-of-destruction-and-reconstruction">Basic Framework of Destruction and Reconstruction</h3>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191949376.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191949376.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191949376.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191949376.png 2x" sizes="auto" data-title="image-20230619194924298" data-alt="image-20230619194924298" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>利用SD，DDIM将图片加噪。优化隐层空间去欺骗分类器。交叉注意力映射(是什么？)被用来欺骗扩散模型，我们使用自注意力机制来保留结构。</p>
+<p>由于对抗性攻击旨在通过干扰初始图像来欺骗目标模型，因此可以将其近似为一种特殊的真实图像编辑。受最近扩散编辑方法[44，43，49]的启发，我们的框架还利用了DDIM反演技术[59]（详细信息见附录B），即通过反演确定性采样过程，将干净图像映射回扩散隐层空间。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191957952.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191957952.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191957952.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191957952.png 2x" sizes="auto" data-title="image-20230619195726899" data-alt="image-20230619195726899" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>其中Inverse(·)表示DDIM反演操作，我们对从x0(初始图像)到xt的几个时间步进行反演。</p>
+<p>现有的许多方法[44，43，49]都提出了修改文本嵌入进行图像编辑，通过这种方式，在文本引导的迭代去噪过程中，图像潜在文本可以逐渐转移到目标语义空间。然而，在我们的探索中（见附录C），我们发现引导文本嵌入上的扰动很难在其他黑匣子模型上工作，导致可转移性较弱。因此，与编辑方法不同，我们在这里建议直接扰动潜在的xt</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192002522.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192002522.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192002522.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192002522.png 2x" sizes="auto" data-title="image-20230619200203460" data-alt="image-20230619200203460" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>其中J(·)为交叉熵损失，Denoise(·)为扩散去噪过程。</p>
+<p>一个可能的问题是，这种直接的方法可能会导致不自然的结果，然而，我们可以在图1中观察到，从扰动的潜影重建的图像和初始的干净图像之间的差异几乎无法区分。此外，我们可以注意到，在使用基于像素的攻击时，差异图像可能包含许多高级语义线索，而不是高频噪声。我们将这些归因于稳定扩散模型的去噪过程，以及其自动编码器强大的映射能力。这些语义丰富的扰动不仅可以增强不可感知性，而且对攻击的可转移性也有很大好处[30，37，35]。</p>
+<h3 id="deceivestrong-diffusion-model">“Deceive“Strong Diffusion Model</h3>
+<p>扩散模型的反向过程是一种很强的对抗性净化防御。因此，我们的扰动潜信号在解码为最终图像之前经历了净化，从而确保了精心制作的对抗样本的自然性以及对其他净化降噪的鲁棒性。</p>
+<p>除了避开去噪部分外，我们还进一步提高了攻击的可迁移性。给定一张图像及其对应的标题，从图3中我们可以看到，在反演的重建过程中，交叉注意图显示出了引导文本与图像像素之间的强关系，这说明了预训练扩散模型的强大识别能力。赫兹等人[48]也验证了这种关系，其识别能力最近被用于下游任务[46，47]。因此，在海量数据上训练的扩散模型可以近似为一个强识别模型，我们的动机是，如果我们精心设计的攻击可以“欺骗”这个强大的模型，我们可能会期望向其他黑匣子模型的可转移性有很大提高。</p>
+<p>C表示为干净图像的类别，我们将其设置为groundtruth类别的名称(我们也可以简单地使用预测类别Gφ，因此不依赖于真实标签)。我们在所有去噪步骤中累积图像像素与C之间的交叉注意映射并得到平均值。为了“欺骗”预训练的扩散模型，我们建议最小化以下公式:</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192017095.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192017095.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192017095.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192017095.png 2x" sizes="auto" data-title="image-20230619201754026" data-alt="image-20230619201754026" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>其中Var(·)计算输入的方差，Cross(·)表示去噪过程中所有交叉注意图的累加，SDM为稳定扩散。这种洞察力是为了分散扩散模型对标记对象的注意力。通过将交叉注意力均匀地分布到图像的每个像素上，我们可以破坏原始的强语义关系，确保我们精心制作的对抗样本很好地“欺骗”了强扩散模型。</p>
+<h3 id="preserve-content-structure">Preserve Content Structure</h3>
+<p>如第3.2节所述，我们的无限制攻击可以近似为图像编辑方法，因此内容结构的变化是不可避免的。如果变化的程度没有得到控制，那么由此产生的对抗性示例可能会失去初始干净图像的大部分语义（见图5），从而失去对抗性攻击的重要性，这不是我们想要的。因此，我们在这里主要从两个角度来保留内容结构。</p>
+<p><strong>Self-Attention Control.</strong></p>
+<p>研究发现，基于自相似的描述符可以在忽略图像外观的情况下捕获结构信息。根据这个想法，我们可以从图3中观察到，扩散模型中的自注意也嵌入了这个属性，这与主要关注高级语义的交叉注意形成对比。因此，我们建议利用自注意图进行结构保留。我们设定了逆潜函数的一个副本xt(fix)，它是固定的，没有扰动。通过分别计算xt(f)和xt的自注意映射(记为St(f)和St)，我们强迫St接近St(f)，方法如下:</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192028356.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192028356.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192028356.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192028356.png 2x" sizes="auto" data-title="image-20230619202831302" data-alt="image-20230619202831302" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>我们在这里将自注意约束应用于所有去噪步骤。由于xt(f)很好地重建了原始的干净图像，我们可以通过这种方式保留结构。</p>
+<p><strong>Inversion Strength Trade-off.</strong> 随着DDIM反演强度的增加，潜函数xt将更接近于纯高斯分布，对其的扰动会受到更多去噪步骤的影响而造成严重的失真。而有限的反演无法提供足够的攻击空间，因为潜函数先验太强。我们在去噪过程的后面控制反转以保留高级语义，并减少DDIM样本的总步骤以获得更多的编辑空间。</p>
+<p>一般情况下，DiffAttack的最终目标函数如下，其中α、β、γ分别表示各损失的权重因子:</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192035419.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192035419.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192035419.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306192035419.png 2x" sizes="auto" data-title="image-20230619203502372" data-alt="image-20230619203502372" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-06-19 18:50:23">更新于 2023-06-19&nbsp;</span>
+      </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://Lizhe1228.github.io/posts/papers/0619-1/" data-title="DiffAttack" data-hashtags="diffusion,Adversarial Attack"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://Lizhe1228.github.io/posts/papers/0619-1/" data-hashtag="diffusion"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://Lizhe1228.github.io/posts/papers/0619-1/" data-title="DiffAttack" data-ralateuid="6314435573"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/diffusion/' class="post-tag">diffusion</a><a href='/tags/adversarial-attack/' class="post-tag">Adversarial Attack</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/projects/pro05/" class="post-nav-item" rel="prev" title="Pro05"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Pro05</a>
+      <a href="/posts/papers/mine/" class="post-nav-item" rel="next" title="Mine">Mine<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric">0%</span>
+        </div></div><a href="https://github.com/Lizhe1228" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/black/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":20},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"typeit-header-desktop":"Lizhe1228's blog","typeit-header-title-mobile":"Lizhe1228's blog"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"},"siteTime":"2023-05-21","typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"typeit-header-desktop":["typeit-header-desktop"],"typeit-header-title-mobile":["typeit-header-title-mobile"]},"duration":-1,"loop":false,"speed":100}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
