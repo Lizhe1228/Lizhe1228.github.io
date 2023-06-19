@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='k8s' /><meta itemprop="name" content="K8s入门2">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-05-31T15:38:24+08:00" />
 <meta itemprop="dateModified" content="2023-05-31T15:38:24+08:00" />
-<meta itemprop="wordCount" content="0"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="892"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="k8s," /><meta property="og:title" content="K8s入门2" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/k8s\/k8s02\/"
-    },"genre": "posts","keywords": "k8s","wordcount":  0 ,
+    },"genre": "posts","keywords": "k8s","wordcount":  892 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/k8s\/k8s02\/","datePublished": "2023-05-31T15:38:24+08:00","dateModified": "2023-05-31T15:38:24+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -179,7 +179,8 @@
   </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
     <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">K8s入门2</li>
     </ol>
-  </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"></aside>
+  </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
 
   <aside class="aside-custom">
     </aside>
@@ -189,10 +190,186 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/k8s/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> k8s</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-31 15:38:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span title="更新于 2023-05-31 15:38:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 0 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 0 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="K8s入门2">
+      <div class="post-meta-line"><span title="发布于 2023-05-31 15:38:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span title="更新于 2023-05-31 15:38:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 892 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="K8s入门2">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
-    </div><div class="content" id="content" data-end-flag="The END"></div><div class="post-footer" id="post-footer">
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#资源创建方式">资源创建方式</a></li>
+    <li><a href="#namespace">Namespace</a></li>
+    <li><a href="#pod">Pod</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="The END"><h2 id="资源创建方式">资源创建方式</h2>
+<ol>
+<li>命令行</li>
+<li>YAML</li>
+</ol>
+<h2 id="namespace">Namespace</h2>
+<p>名称空间，用来隔离资源，对资源进行隔离划分。默认只隔离资源，不隔离网络。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191417794.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191417794.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191417794.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191417794.png 2x" sizes="auto" data-title="image-20230619141712641" data-alt="image-20230619141712641" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>通过命令行创建名称空间</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get ns       <span class="c1"># 查看所有名称空间</span>
+</span></span><span class="line"><span class="cl">kubectl create ns hello <span class="c1"># 创建名称空间</span>
+</span></span><span class="line"><span class="cl">kubectl delete ns hello <span class="c1"># 删除名称空间</span>
+</span></span><span class="line"><span class="cl">kubectl get pods -A  <span class="c1"># 查看k8s中部署的全部应用的名字、名称空间等信息</span>
+</span></span><span class="line"><span class="cl">kubectl get pods     <span class="c1"># 只会查看default名称空间下部署的应用，如果我们创建资源时，不指定名称空间，都会放在default名称空间下</span>
+</span></span><span class="line"><span class="cl">kubectl get pod -n 名称空间   <span class="c1"># 查看指定名称空间下部署的应用</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过配置文件法创建名称空间</p>
+<p><code>vi hello.yaml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hello</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>kubectl apply -f hello.yaml</code></p>
+<p>可以通过<code>kubectl delete -f hello.yaml</code>删除名称空间，通过配置文件创建的资源推荐使用这种办法删除。</p>
+<h2 id="pod">Pod</h2>
+<p>运行中的<strong>一组</strong>容器（一个pod中可能有不止一个容器，见下下图），Pod是kubernetes中应用的最小单位。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191430359.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191430359.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191430359.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191430359.png 2x" sizes="auto" data-title="image-20230619143002240" data-alt="image-20230619143002240" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191432676.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191432676.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191432676.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191432676.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>下图中的1/1指的是一个pod中共有一个容器，有一个容器正在运行，所以也会出现1/2，2/2的情况。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191433913.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191433913.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191433913.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191433913.png 2x" sizes="auto" data-title="image-20230619143343788" data-alt="image-20230619143343788" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 使用命令行创建pod mynginx是pod的名字  --image=nginx 指定镜像</span>
+</span></span><span class="line"><span class="cl">kubectl run mynginx --image<span class="o">=</span>nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看default名称空间的Pod</span>
+</span></span><span class="line"><span class="cl">kubectl get pod （-n default）
+</span></span><span class="line"><span class="cl"><span class="c1"># 描述 会有一项Events 查看进行的事项</span>
+</span></span><span class="line"><span class="cl">kubectl describe pod 你自己的Pod名字
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除</span>
+</span></span><span class="line"><span class="cl">kubectl delete pod Pod名字
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看Pod的运行日志</span>
+</span></span><span class="line"><span class="cl">kubectl logs Pod名字
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 每个Pod - k8s都会分配一个ip 通过这个命令可以查到这个ip</span>
+</span></span><span class="line"><span class="cl">kubectl get pod -owide
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用Pod的ip+pod里面运行容器的端口</span>
+</span></span><span class="line"><span class="cl">curl 192.168.169.136
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 集群中的任意一个机器以及任意的应用都能通过Pod分配的ip来访问这个Pod</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 像docker一样进入交互模式</span>
+</span></span><span class="line"><span class="cl">kubectl <span class="nb">exec</span> -it mynginx -- /bin/bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看描述，可以发现，这个任务交给了k8s-node2，我们可以在各个node下运行<code>docker ps | grep mynginx</code>进行验证。（实际上，我们可以发现一个事儿，底层的东西就是docker）</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191440569.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191440569.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191440569.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191440569.png 2x" sizes="auto" data-title="image-20230619144048500" data-alt="image-20230619144048500" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>用配置文件创建pod</p>
+<p><code>vi pod.yaml</code></p>
+<p><code>kubectl apply -f pod.yaml</code></p>
+<p><code>kubectl delete-f pod.yaml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">mynginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mynginx</span><span class="w"> </span><span class="c"># pod的名字</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  namespace: default</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mynginx</span><span class="w"> </span><span class="c"># 容器的名字</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">myapp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">myapp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">tomcat:8.5.68</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">tomcat</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>当然也可以通过可视化界面创建。</p>
+<p><em>此时的应用还不能外部访问</em>，因为还没有暴露端口。</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
