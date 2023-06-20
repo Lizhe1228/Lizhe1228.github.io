@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='k8s' /><meta itemprop="name" content="K8s入门2">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-05-31T15:38:24+08:00" />
 <meta itemprop="dateModified" content="2023-05-31T15:38:24+08:00" />
-<meta itemprop="wordCount" content="892"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="2740"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="k8s," /><meta property="og:title" content="K8s入门2" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/k8s\/k8s02\/"
-    },"genre": "posts","keywords": "k8s","wordcount":  892 ,
+    },"genre": "posts","keywords": "k8s","wordcount":  2740 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/k8s\/k8s02\/","datePublished": "2023-05-31T15:38:24+08:00","dateModified": "2023-05-31T15:38:24+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/k8s/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> k8s</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-05-31 15:38:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span title="更新于 2023-05-31 15:38:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 892 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="K8s入门2">
+      <div class="post-meta-line"><span title="发布于 2023-05-31 15:38:24"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span title="更新于 2023-05-31 15:38:24"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2740 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 6 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="K8s入门2">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -203,6 +203,17 @@
     <li><a href="#资源创建方式">资源创建方式</a></li>
     <li><a href="#namespace">Namespace</a></li>
     <li><a href="#pod">Pod</a></li>
+    <li><a href="#deployment">Deployment</a>
+      <ul>
+        <li><a href="#1多副本">1.多副本</a></li>
+        <li><a href="#2扩缩容">2.扩缩容</a></li>
+        <li><a href="#3自愈故障转移">3.自愈&amp;故障转移</a></li>
+        <li><a href="#4滚动更新">4.滚动更新</a></li>
+        <li><a href="#5版本回退">5.版本回退</a></li>
+      </ul>
+    </li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#ingress">Ingress</a></li>
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="The END"><h2 id="资源创建方式">资源创建方式</h2>
@@ -251,7 +262,7 @@
 </div><p><code>kubectl apply -f hello.yaml</code></p>
 <p>可以通过<code>kubectl delete -f hello.yaml</code>删除名称空间，通过配置文件创建的资源推荐使用这种办法删除。</p>
 <h2 id="pod">Pod</h2>
-<p>运行中的<strong>一组</strong>容器（一个pod中可能有不止一个容器，见下下图），Pod是kubernetes中应用的最小单位。</p>
+<p>运行中的<strong>一组</strong>容器（一个pod中可能有不止一个容器，见下下图），Pod是kubernetes中应用的最小单位（虽然pod中是有docker的）。</p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191430359.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191430359.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191430359.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191430359.png 2x" sizes="auto" data-title="image-20230619143002240" data-alt="image-20230619143002240" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191432676.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191432676.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191432676.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306191432676.png 2x" sizes="auto" data-title="image.png" data-alt="image.png" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>下图中的1/1指的是一个pod中共有一个容器，有一个容器正在运行，所以也会出现1/2，2/2的情况。</p>
@@ -338,7 +349,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mynginx</span><span class="w"> </span><span class="c"># 容器的名字</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div><p>当然也可以通过可视化界面创建。</p>
+<p><em>此时的应用还不能外部访问</em>，因为还没有暴露端口。</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -364,12 +377,193 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">tomcat:8.5.68</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">tomcat:8.5.68 </span><span class="w"> </span><span class="c"># 实现了在一个pod里面装了两个容器</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">tomcat</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>当然也可以通过可视化界面创建。</p>
-<p><em>此时的应用还不能外部访问</em>，因为还没有暴露端口。</p></div><div class="post-footer" id="post-footer">
+</div><p>一个pod里两个容器，通过访问ip的不同端口访问不同的软件，而如果要用nginx访问tomcat，只需要用127.0.0.1即可，因为一个pod内的容器共享网络空间、共享存储。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201432232.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201432232.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201432232.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201432232.png 2x" sizes="auto" data-title="image-20230620143237145" data-alt="image-20230620143237145" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>一个小问题一个pod里面能不能启两个一样的容器，如两个ngnix或两个tomcat 。</p>
+<p>发现报错了。使用命令查看一下怎么回事。</p>
+<p>结论是不能这样做。因为会出现端口被占用的情况。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201445260.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201445260.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201445260.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201445260.png 2x" sizes="auto" data-title="image-20230620144540191" data-alt="image-20230620144540191" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201447819.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201447819.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201447819.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201447819.png 2x" sizes="auto" data-title="image-20230620144708703" data-alt="image-20230620144708703" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="deployment">Deployment</h2>
+<p>控制Pod，使Pod拥有多副本，自愈，扩缩容等能力。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 清除所有Pod，比较下面两个命令有何不同效果？</span>
+</span></span><span class="line"><span class="cl">kubectl run mynginx --image<span class="o">=</span>nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubectl create deployment mytomcat --image<span class="o">=</span>tomcat:8.5.68
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果使用<code>kubectl delete pod mynginx</code>和<code>kubectl delete pod mytomcat</code>删除两个pod。通过<code>watch -n 1 kubectl get pod</code>会发现后者具有自愈能力，删了一个会再新启动一个，新启的名字和之前不同，再次删除还会再次重启。结论是我们通过deployment启的pod不会怕宕机。</p>
+<p>那如果我们真的想删除掉这个pod怎么办呢，我们的方法是删除这次部署。<code>kubectl get deploy</code>查看部署，<code>kubectl delete deploy mytomcat</code>删除掉这个部署。</p>
+<h3 id="1多副本">1.多副本</h3>
+<p>好比我们有一个订单业务，在一台机器上运行肯定是不够的，我们想让它运行在多台机器。</p>
+<p><code>my-dep</code>是这次部署的名字 ，<code>--image=nginx</code>使用的镜像，<code>--replicas=3</code>部署多少份。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl create deployment my-dep --image<span class="o">=</span>nginx --replicas<span class="o">=</span><span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201501774.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201501774.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201501774.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201501774.png 2x" sizes="auto" data-title="image-20230620150152709" data-alt="image-20230620150152709" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>上图表示本次部署一共启三个应用，0个已准备好，3个正在启动。</p>
+<p>在可视化界面创建多副本的pod的部署以及删除部署。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201505011.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201505011.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201505011.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201505011.png 2x" sizes="auto" data-title="image-20230620150526913" data-alt="image-20230620150526913" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201503989.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201503989.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201503989.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201503989.png 2x" sizes="auto" data-title="image-20230620150357894" data-alt="image-20230620150357894" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>通过配置文件部署多副本的pod。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-dep</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-dep</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">  </span><span class="c"># 3份副本</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-dep</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-dep</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2扩缩容">2.扩缩容</h3>
+<p>当业务的压力更大，当前的pod数不能满足需求的时候，需要进行扩容，当流量高峰过去之后，还可以进行缩容。</p>
+<p>后面还会有k8s的动态扩缩容，自己判断当前的负载能力。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201826971.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201826971.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201826971.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201826971.png 2x" sizes="auto" data-title="image-20230620182612860" data-alt="image-20230620182612860" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201826981.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201826981.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201826981.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201826981.png 2x" sizes="auto" data-title="image-20230620182644891" data-alt="image-20230620182644891" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>my-dep</code>是部署的名字 <code>--replicas=5</code>扩容成5份</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">kubectl scale --replicas=5 deployment/my-dep</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>--replicas=2</code>  再缩容成2份</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">kubectl scale --replicas=2 deployment/my-dep</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>也可以采用这种方式进行扩缩容，使用下面的命令修改<code>replicas</code>，下面的命令会相当于直接打开vim编辑。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">kubectl edit deployment my-dep</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201830390.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201830390.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201830390.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201830390.png 2x" sizes="auto" data-title="image-20230620183003336" data-alt="image-20230620183003336" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>在可视化界面里面进行扩缩容</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201833420.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201833420.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201833420.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201833420.png 2x" sizes="auto" data-title="image-20230620183324321" data-alt="image-20230620183324321" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201834143.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201834143.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201834143.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201834143.png 2x" sizes="auto" data-title="image-20230620183401085" data-alt="image-20230620183401085" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="3自愈故障转移">3.自愈&amp;故障转移</h3>
+<p>当一个pod崩溃出故障的时候，k8s会尝试重启修复这个pod，这个是自愈。</p>
+<p>而当一个pod的机器宕机了或者断电了，无法再提供服务了，下线了，k8s就会尝试把这个pod中的服务转移到其他pod，这个过程叫做故障转移。</p>
+<p>下图模拟的是故障转移的过程，我们手动的将w6shc所在的机器进行关机，在大约5分钟（如果这个阈值太小了，就不合理了，出一点小问题就会杀死，重启）后会看到如下的变化，w6shc先停了，又新启了一个hz2xf的pod，这个pod在另外一个节点上运行。</p>
+<p><code>kubectl get pod -w</code>和<code>watch -n 1 kubectl get pod</code>一样都是用来实时检测状态的，如果有更新，终端就会打印输出。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201842490.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201842490.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201842490.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201842490.png 2x" sizes="auto" data-title="image-20230620184209408" data-alt="image-20230620184209408" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="4滚动更新">4.滚动更新</h3>
+<p>不停机更新。当部署的3个pod备份v1版本的要更新到v2版本时。会先启一个pod v2版本，等到其启动成功了，在使用他，同时杀死v1的pod。3个pod依次按顺序等上一个完成更新了再更新下一个。如果一次性把老版本全删掉，就会出现因为新版本有问题了，服务全部不好使了。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201845874.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201845874.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201845874.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306201845874.png 2x" sizes="auto" data-title="image-20230620184559762" data-alt="image-20230620184559762" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>deployment/my-dep</code>指定一个部署  <code>nginx=nginx:1.16.1</code>前面的nginx是容器名 <code>--record</code>记录这次版本的更新，通过记录我们会发现，新启动的pod就是新启的，因为pod的name会发生变化。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl <span class="nb">set</span> image deployment/my-dep <span class="nv">nginx</span><span class="o">=</span>nginx:1.16.1 --record
+</span></span><span class="line"><span class="cl">kubectl rollout status deployment/my-dep <span class="c1"># 干嘛的？</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5版本回退">5.版本回退</h3>
+<p>版本回退的逻辑和滚动更新相同，都是先启着，启完了再换、停。再回退下一个备份，以此类推。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#历史记录 查看版本历史记录</span>
+</span></span><span class="line"><span class="cl">kubectl rollout <span class="nb">history</span> deployment/my-dep
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#查看某个历史详情</span>
+</span></span><span class="line"><span class="cl">kubectl rollout <span class="nb">history</span> deployment/my-dep --revision<span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#回滚(回到上次)</span>
+</span></span><span class="line"><span class="cl">kubectl rollout undo deployment/my-dep
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#回滚(回到指定版本)</span>
+</span></span><span class="line"><span class="cl">kubectl rollout undo deployment/my-dep --to-revision<span class="o">=</span><span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更多：</p>
+<p>除了Deployment，k8s还有 <code>StatefulSet</code> 、<code>DaemonSet</code> 、<code>Job</code>  等 类型资源。我们都称为 <code>工作负载</code>。</p>
+<p>有状态应用使用  <code>StatefulSet</code>  部署，无状态应用使用 <code>Deployment</code> 部署</p>
+<p><a href="https://kubernetes.io/zh/docs/concepts/workloads/controllers/"target="_blank" rel="external nofollow noopener noreferrer">https://kubernetes.io/zh/docs/concepts/workloads/controllers/</a></p>
+<p><code>StatefulSet</code>有状态指的是，比如一个Pod死掉了，需要新启一个Pod，能读取到原来Pod中的ip、存储数据等有用的内容。</p>
+<p>总结一下，虽然Pod是应用的最终载体，但是我们使用各种工作负载去控制Pod，让Pod有更多强大的功能。</p>
+<h2 id="service">Service</h2>
+<p>截止到上面为止，我们的应用还不能通过浏览器进行访问呢，只能在内网机器内进行访问。而<code>Service</code>就是用来将一组Pods公开为网络服务的抽象方法。</p>
+<h2 id="ingress">Ingress</h2></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">

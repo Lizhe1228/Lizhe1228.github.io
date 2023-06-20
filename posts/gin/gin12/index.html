@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='gin, go web' /><meta itemprop="name" content="go web开发中遇到的小技术与知识点">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-10T16:15:26+08:00" />
 <meta itemprop="dateModified" content="2023-06-10T16:15:26+08:00" />
-<meta itemprop="wordCount" content="10356"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="11048"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="gin,go web," /><meta property="og:title" content="go web开发中遇到的小技术与知识点" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/"
-    },"genre": "posts","keywords": "gin, go web","wordcount":  10356 ,
+    },"genre": "posts","keywords": "gin, go web","wordcount":  11048 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/","datePublished": "2023-06-10T16:15:26+08:00","dateModified": "2023-06-10T16:15:26+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/gin/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Gin</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 10356 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 21 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
+      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 11048 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 23 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -257,6 +257,13 @@
             <li><a href="#示例">示例</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#air热加载">air热加载</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#air_exampleconf示例">air_example.conf示例</a></li>
+        <li><a href="#问题">问题</a></li>
       </ul>
     </li>
   </ul>
@@ -1729,7 +1736,112 @@
 <ul>
 <li><code>BINARY=&quot;bluebell&quot;</code>是定义变量。</li>
 <li><code>.PHONY</code>用来定义伪目标。不创建目标文件，而是去执行这个目标下面的命令。</li>
-</ul></div><div class="post-footer" id="post-footer">
+</ul>
+<h2 id="air热加载">air热加载</h2>
+<p>Air能够实时监听项目的代码文件，在代码发生变更之后自动重新编译并执行，大大提高gin框架项目的开发效率。（常见的Flask或Django框架都是支持实时加载的）</p>
+<h3 id="安装">安装</h3>
+<p><code>go get -u github.com/cosmtrek/air</code></p>
+<h3 id="air_exampleconf示例">air_example.conf示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1"># [Air](https://github.com/cosmtrek/air) TOML 格式的配置文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 工作目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"># 使用 . 或绝对路径，请注意 `tmp_dir` 目录必须在 `root` 目录下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;.&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">tmp_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;tmp&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="n">build</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 只需要写你平常编译使用的shell命令。你也可以使用 `make`
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Windows平台示例: cmd = &#34;go build -o tmp\main.exe .&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;go build -o ./tmp/main .&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 由`cmd`命令得到的二进制文件名
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Windows平台示例：bin = &#34;tmp\main.exe&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">bin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;tmp/main&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 自定义执行程序的命令，可以添加额外的编译标识例如添加 GIN_MODE=release
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Windows平台示例：full_bin = &#34;tmp\main.exe&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">full_bin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;APP_ENV=dev APP_USER=air ./tmp/main&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 监听以下文件扩展名的文件.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">include_ext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;go&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;tpl&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;tmpl&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;html&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 忽略这些文件扩展名或目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">exclude_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;assets&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;tmp&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;vendor&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;frontend/node_modules&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 监听以下指定目录的文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">include_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 排除以下文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">exclude_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 如果文件更改过于频繁，则没有必要在每次更改时都触发构建。可以设置触发构建的延迟时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="c1"># ms
+</span></span></span><span class="line"><span class="cl"><span class="c1"># 发生构建错误时，停止运行旧的二进制文件。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">stop_on_error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># air的日志文件名，该日志文件放置在你的`tmp_dir`中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;air_errors.log&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="n">log</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 显示日志时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="n">color</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 自定义每个部分显示的颜色。如果找不到颜色，使用原始的应用程序日志。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;magenta&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">watcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;cyan&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;yellow&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">runner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;green&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="n">misc</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1"># 退出时删除tmp目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">clean_on_exit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="问题">问题</h3>
+<p>我使用命令没有安装成功，是在github上下载的exe，https://github.com/cosmtrek/air/releases，重命名为air.exe放在goroot的bin目录下。</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
