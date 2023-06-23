@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Transformer - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
+<meta name="author-link" content="">
+<meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='深度学习, 注意力机制, Transfomer' /><meta itemprop="name" content="Transformer">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-23T20:24:36+08:00" />
+<meta itemprop="dateModified" content="2023-06-23T20:24:36+08:00" />
+<meta itemprop="wordCount" content="1548"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="keywords" content="深度学习,注意力机制,Transfomer," /><meta property="og:title" content="Transformer" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lizhe1228.github.io/posts/dl/transformer/transformer/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-23T20:24:36+08:00" />
+<meta property="article:modified_time" content="2023-06-23T20:24:36+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+
+<meta name="twitter:title" content="Transformer"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="Lizhe1228">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/transformer/transformer/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/dl/transformer/self_attention/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Transformer",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/Lizhe1228.github.io\/posts\/dl\/transformer\/transformer\/"
+    },"genre": "posts","keywords": "深度学习, 注意力机制, Transfomer","wordcount":  1548 ,
+    "url": "http:\/\/Lizhe1228.github.io\/posts\/dl\/transformer\/transformer\/","datePublished": "2023-06-23T20:24:36+08:00","dateModified": "2023-06-23T20:24:36+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Lizhe1228"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="I am Lizhe1228" data-alt="I am Lizhe1228" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-desktop" class="typeit"></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/friends/"
+                
+                
+              ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="/nzr-smile.svg" data-alt="/nzr-smile.svg" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-title-mobile" class="typeit"></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/friends/"
+                  
+                  
+                ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">Transformer</li>
+    </ol>
+  </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Transformer</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
+          <span class="post-category">收录于 <a href="/categories/transfomer/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Transfomer</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2023-06-23 20:24:36"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-23">2023-06-23</time></span>&nbsp;<span title="更新于 2023-06-23 20:24:36"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-23">2023-06-23</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1548 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 4 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Transformer">
+            <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#encoder">Encoder</a></li>
+    <li><a href="#decoder">Decoder</a>
+      <ul>
+        <li><a href="#autoregressive">autoregressive</a></li>
+        <li><a href="#non-autoregressive">non-autoregressive</a></li>
+      </ul>
+    </li>
+    <li><a href="#encoder和decoder之间的信息传递">Encoder和Decoder之间的信息传递</a></li>
+    <li><a href="#transformer的训练">Transformer的训练</a>
+      <ul>
+        <li><a href="#copy-mechanism">Copy Mechanism</a></li>
+        <li><a href="#guided--attention">Guided  Attention</a></li>
+        <li><a href="#beam-search">Beam Search</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="The END"><p>transformer就是一个seq2seq的问题。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232043667.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232043667.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232043667.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232043667.png 2x" sizes="auto" data-title="image-20230623204350459" data-alt="image-20230623204350459" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="encoder">Encoder</h2>
+<p>我们先来看一下encoder做的事情，输入一串向量，输出相同长度的向量。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232045287.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232045287.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232045287.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232045287.png 2x" sizes="auto" data-title="image-20230623204518031" data-alt="image-20230623204518031" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>transformer中的encoder详解：Add&amp;Norm就是一个残差加上layer norm的过程。</p>
+<p>一个encoder是由n个block组成的。每一个block又有几层。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232049134.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232049134.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232049134.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232049134.png 2x" sizes="auto" data-title="image-20230623204944837" data-alt="image-20230623204944837" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232049685.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232049685.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232049685.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232049685.png 2x" sizes="auto" data-title="image-20230623204905495" data-alt="image-20230623204905495" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>当然后来还有人更改transformer的原始架构。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232053870.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232053870.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232053870.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232053870.png 2x" sizes="auto" data-title="image-20230623205346731" data-alt="image-20230623205346731" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="decoder">Decoder</h2>
+<p>encoder做的事情就是输入一串向量，产生一串向量，decoder要做的就是根据encoder生成的向量去产生最终我们要的输出。</p>
+<h3 id="autoregressive">autoregressive</h3>
+<p>接下来我们来看decoder的部分。先看第一种autoregressive的decoder：</p>
+<p>第一次 根据一个特殊的<code>begin</code>起始符号会输出一个字<code>机</code>，选择得分最高的那个字输出（是经过softmax后的）。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232100980.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232100980.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232100980.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232100980.png 2x" sizes="auto" data-title="image-20230623210012748" data-alt="image-20230623210012748" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>第二次我们的输入是 <code>begin</code>和<code>机</code>，根据这两个输入经过decoder算出下一个字输出什么，然后得到<code>器</code>的概率最大，依次类推，把每一次得到的输出加起来当做下一次的输入……</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232102185.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232102185.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232102185.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232102185.png 2x" sizes="auto" data-title="image-20230623210223942" data-alt="image-20230623210223942" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>接下来看一下transformer中decoder的具体结构：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232103999.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232103999.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232103999.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232103999.png 2x" sizes="auto" data-title="image-20230623210317778" data-alt="image-20230623210317778" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>通过对比，发现decoder比encoder中间多了一次注意力AddNorm的操作，同时第一层使用的是masked的多头注意力，那么masked的多头是什么呢？</p>
+<p>下图是原始的self-attention，而masked后，每一个向量的产生不再和他右边的向量有关。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232106538.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232106538.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232106538.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232106538.png 2x" sizes="auto" data-title="image-20230623210628185" data-alt="image-20230623210628185" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>例如，在生成b1时，只关注a1：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232107180.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232107180.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232107180.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232107180.png 2x" sizes="auto" data-title="image-20230623210749787" data-alt="image-20230623210749787" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>在生成b2时，只关注a1、a2：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232108512.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232108512.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232108512.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232108512.png 2x" sizes="auto" data-title="image-20230623210816161" data-alt="image-20230623210816161" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>在生成b3时，只关注a1、a2、a3：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232108929.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232108929.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232108929.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232108929.png 2x" sizes="auto" data-title="image-20230623210858608" data-alt="image-20230623210858608" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>在生成b4时，才关注a1、a2、a3、a4：</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232109188.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232109188.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232109188.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232109188.png 2x" sizes="auto" data-title="image-20230623210918866" data-alt="image-20230623210918866" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>设计成masked的原因？</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232111506.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232111506.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232111506.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232111506.png 2x" sizes="auto" data-title="image-20230623211116341" data-alt="image-20230623211116341" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>那么接下来的问题就是，这种一次次的迭代何时停止呢，因为seq2seq的问题，我们并不能知道最后输出的向量的长度是多少。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232113119.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232113119.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232113119.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232113119.png 2x" sizes="auto" data-title="image-20230623211335898" data-alt="image-20230623211335898" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>解决方法是我们还需要准备一个特殊的符号<code>End</code>，当<code>End</code>的得分最大时，就停止输出了。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232115361.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232115361.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232115361.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232115361.png 2x" sizes="auto" data-title="image-20230623211544112" data-alt="image-20230623211544112" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232115131.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232115131.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232115131.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232115131.png 2x" sizes="auto" data-title="image-20230623211555881" data-alt="image-20230623211555881" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="non-autoregressive">non-autoregressive</h3>
+<p>接下来看另一种decoder，non-autoregressive的。</p>
+<p>NAT不同于AT的一个个输出，而是一次性输入n个begin，一次性产生n个输出。而n的数量，可以单独的train出来，预测一下输出的长度，这个model的输入是encoder的输出，输出就是decoder应该输出的长度n。还有一种做法是，输入足够多的begin，然后观察输出，截取到end左边的部分，右边的就不要了。显而易见NAT的速度更快，同时输出的长度可控。缺点就是效果有时不如AT好。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232118618.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232118618.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232118618.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232118618.png 2x" sizes="auto" data-title="image-20230623211838447" data-alt="image-20230623211838447" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="encoder和decoder之间的信息传递">Encoder和Decoder之间的信息传递</h2>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232126260.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232126260.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232126260.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232126260.png 2x" sizes="auto" data-title="image-20230623212655079" data-alt="image-20230623212655079" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>q来自decoder，k来自encoder。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232128927.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232128927.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232128927.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232128927.png 2x" sizes="auto" data-title="image-20230623212845733" data-alt="image-20230623212845733" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232130129.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232130129.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232130129.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232130129.png 2x" sizes="auto" data-title="image-20230623212959936" data-alt="image-20230623212959936" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232133896.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232133896.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232133896.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232133896.png 2x" sizes="auto" data-title="image-20230623213038114" data-alt="image-20230623213038114" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232135931.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232135931.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232135931.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232135931.png 2x" sizes="auto" data-title="image-20230623213534695" data-alt="image-20230623213534695" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="transformer的训练">Transformer的训练</h2>
+<p>训练的过程其实和分类任务相似，和ground truth做一个loss，最小化这个loss</p>
+<p><img loading="lazy" src="C:/Users/%E6%9D%8E%E5%93%B2/AppData/Roaming/Typora/typora-user-images/image-20230623213736346.png" srcset="C:/Users/%E6%9D%8E%E5%93%B2/AppData/Roaming/Typora/typora-user-images/image-20230623213736346.png, C:/Users/%E6%9D%8E%E5%93%B2/AppData/Roaming/Typora/typora-user-images/image-20230623213736346.png 1.5x, C:/Users/%E6%9D%8E%E5%93%B2/AppData/Roaming/Typora/typora-user-images/image-20230623213736346.png 2x" sizes="auto" data-title="image-20230623213736346" data-alt="image-20230623213736346" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232140300.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232140300.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232140300.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232140300.png 2x" sizes="auto" data-title="image-20230623214028061" data-alt="image-20230623214028061" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>另外一个地方，需要注意的是，我们在训练的时候，给decoder的输入是groundtruth。这个思想叫做Teacher Forcing。当然测试的时候不给他看正确答案。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232141909.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232141909.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232141909.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232141909.png 2x" sizes="auto" data-title="image-20230623214145689" data-alt="image-20230623214145689" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="copy-mechanism">Copy Mechanism</h3>
+<p>有些场景，decoder的输出内容是可以从输入内容中复制过来的，比如聊天机器人，输入的内容有些在机器人的回答中是有的。或者在做摘要的时候。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232145630.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232145630.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232145630.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232145630.png 2x" sizes="auto" data-title="image-20230623214551501" data-alt="image-20230623214551501" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232146245.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232146245.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232146245.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232146245.png 2x" sizes="auto" data-title="image-20230623214603107" data-alt="image-20230623214603107" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="guided--attention">Guided  Attention</h3>
+<p>引导注意力，要求机器在做attention的时候是有固定的方式的。例如以语音合成为例，注意的部分应该是从左向右的，我们应该强迫他从左向右看。</p>
+<p><code>Monotonic Attetion``location-aware attention</code></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232150979.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232150979.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232150979.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232150979.png 2x" sizes="auto" data-title="image-20230623215046774" data-alt="image-20230623215046774" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="beam-search">Beam Search</h3>
+<p>看下图，考虑一个问题，我们应该怎么选择一条正确的道路呢，策略应该是什么样的？方法就是Beam Search。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232154889.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232154889.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232154889.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232154889.png 2x" sizes="auto" data-title="image-20230623215417730" data-alt="image-20230623215417730" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>训练的时候loss是看的每一个向量的，而测试时候计算的是整个句子的bluescore。为什么训练的时候不用bluescore，是不好微分，不好调优。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232158271.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232158271.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232158271.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232158271.png 2x" sizes="auto" data-title="image-20230623215813072" data-alt="image-20230623215813072" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>之前讲过一个问题，train的时候给decoder看的全是正确答案，训练出来的结果不一定好，因为一旦一步错，就步步错了。解决办法是给正确答案加入一些错误的信息。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232159372.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232159372.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232159372.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232159372.png 2x" sizes="auto" data-title="image-20230623215915151" data-alt="image-20230623215915151" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232201163.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232201163.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232201163.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232201163.png 2x" sizes="auto" data-title="image-20230623220139902" data-alt="image-20230623220139902" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232201493.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232201493.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232201493.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306232201493.png 2x" sizes="auto" data-title="image-20230623220151328" data-alt="image-20230623220151328" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-06-23 20:24:36">更新于 2023-06-23&nbsp;</span>
+      </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://Lizhe1228.github.io/posts/dl/transformer/transformer/" data-title="Transformer" data-hashtags="深度学习,注意力机制,Transfomer"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://Lizhe1228.github.io/posts/dl/transformer/transformer/" data-hashtag="深度学习"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://Lizhe1228.github.io/posts/dl/transformer/transformer/" data-title="Transformer" data-ralateuid="6314435573"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/' class="post-tag">深度学习</a><a href='/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/' class="post-tag">注意力机制</a><a href='/tags/transfomer/' class="post-tag">Transfomer</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/dl/transformer/self_attention/" class="post-nav-item" rel="prev" title="Self_attention"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Self_attention</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric">0%</span>
+        </div></div><a href="https://github.com/Lizhe1228" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/black/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":20},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"typeit-header-desktop":"Lizhe1228's blog","typeit-header-title-mobile":"Lizhe1228's blog"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"},"siteTime":"2023-05-21","typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"typeit-header-desktop":["typeit-header-desktop"],"typeit-header-title-mobile":["typeit-header-title-mobile"]},"duration":-1,"loop":false,"speed":100}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

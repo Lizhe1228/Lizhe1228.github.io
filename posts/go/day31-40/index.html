@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day31-40)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-19T10:06:56+08:00" />
 <meta itemprop="dateModified" content="2023-06-19T10:06:56+08:00" />
-<meta itemprop="wordCount" content="1071"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="3024"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day31-40)" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day31-40\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  1071 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  3024 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day31-40\/","datePublished": "2023-06-19T10:06:56+08:00","dateModified": "2023-06-19T10:06:56+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-19 10:06:56"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span title="更新于 2023-06-19 10:06:56"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1071 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day31-40)">
+      <div class="post-meta-line"><span title="发布于 2023-06-19 10:06:56"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span title="更新于 2023-06-19 10:06:56"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3024 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day31-40)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -212,9 +212,27 @@
         <li><a href="#2下面代码里的counter的输出值">2.下面代码里的counter的输出值</a></li>
       </ul>
     </li>
-    <li><a href="#day33">Day33</a></li>
-    <li><a href="#day34">Day34</a></li>
-    <li><a href="#day35">Day35</a></li>
+    <li><a href="#day33">Day33</a>
+      <ul>
+        <li><a href="#1关于协程下面说法正确的是">1.关于协程，下面说法正确的是（）</a></li>
+        <li><a href="#2关于循环语句下面说法正确的是">2.关于循环语句，下面说法正确的是（）</a></li>
+        <li><a href="#3下面代码输出正确的是">3.下面代码输出正确的是？</a></li>
+      </ul>
+    </li>
+    <li><a href="#day34">Day34</a>
+      <ul>
+        <li><a href="#1关于类型转化下面选项正确的是">1.关于类型转化，下面选项正确的是？</a></li>
+        <li><a href="#2关于switch语句下面说法正确的有">2.关于switch语句，下面说法正确的有？</a></li>
+        <li><a href="#3如果add函数的调用代码为">3.如果Add()函数的调用代码为：</a></li>
+      </ul>
+    </li>
+    <li><a href="#day35">Day35</a>
+      <ul>
+        <li><a href="#1关于bool变量b的赋值下面错误的用法是">1.关于bool变量b的赋值，下面错误的用法是？</a></li>
+        <li><a href="#2关于变量的自增和自减操作下面语句正确的是">2.关于变量的自增和自减操作，下面语句正确的是？</a></li>
+        <li><a href="#3关于getpodaction定义下面赋值正确的是">3.关于GetPodAction定义，下面赋值正确的是</a></li>
+      </ul>
+    </li>
     <li><a href="#day36">Day36</a></li>
     <li><a href="#day37">Day37</a></li>
     <li><a href="#day38">Day38</a></li>
@@ -429,8 +447,358 @@
 <hr>
 <p>参考答案及解析：C。for range map 是无序的，如果第一次循环到 A，则输出 3；否则输出 2。第一次遍历出来的kv如果是A的话，那不就3个全能遍历到，如果第一次遍历的是其他的，然后又把A删除了，以后就遍历不到A了，只能遍历出其余两个。</p>
 <h2 id="day33">Day33</h2>
+<h3 id="1关于协程下面说法正确的是">1.关于协程，下面说法正确的是（）</h3>
+<ul>
+<li>A. 协程和线程都可以实现程序的并发执行；</li>
+<li>B. 线程比协程更轻量级；</li>
+<li>C. 协程不存在死锁问题；</li>
+<li>D. 通过 channel 来进行协程间的通信；</li>
+</ul>
+<hr>
+<p>参考答案及解析：AD。</p>
+<h3 id="2关于循环语句下面说法正确的是">2.关于循环语句，下面说法正确的是（）</h3>
+<ul>
+<li>A. 循环语句既支持 for 关键字，也支持 while 和 do-while；</li>
+<li>B. 关键字 for 的基本使用方法与 C/C++ 中没有任何差异；</li>
+<li>C. for 循环支持 continue 和 break 来控制循环，但是它提供了一个更高级的 break，可以选择中断哪一个循环；</li>
+<li>D. for 循环不支持以逗号为间隔的多个赋值语句，必须使用平行赋值的方式来初始化多个变量；</li>
+</ul>
+<hr>
+<p>参考答案及解析：CD。a[i], a[j] = a[j], a[i]，平行赋值。Go语言中支持使用 “break” 语句以及 “continue” 语句来控制循环，同时也支持使用 “label” 来标记循环，从而可以使用 “break” 语句中断指定的循环。</p>
+<h3 id="3下面代码输出正确的是">3.下面代码输出正确的是？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="s">&#34;B&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">i</span><span class="p">,</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#34;Z&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;s: %v \n&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A. s: [Z,B,C]</li>
+<li>B. s: [A,Z,C]</li>
+</ul>
+<hr>
+<p>参考答案及解析：A。知识点：多重赋值。</p>
+<p>多重赋值分为两个步骤，有先后顺序：</p>
+<ul>
+<li>计算等号左边的索引表达式和取址表达式，接着计算等号右边的表达式；</li>
+<li>赋值；</li>
+</ul>
+<p>所以本例，会先计算 s[i-1]，等号右边是两个表达式是常量，所以赋值运算等同于 i, s[0] = 2, “Z”。</p>
+<p>在Go语言中，<code>i, j = j, i</code> 是一种用于交换两个变量的常见技巧，通常称为元组赋值或平行赋值（Tuple Assignment）。</p>
+<p>该语法的原理是同时进行多个变量的赋值操作，并且右边的表达式会在赋值之前进行求值。在这种情况下，右边的表达式 <code>j, i</code> 是一个元组（tuple），它包含两个值，分别是变量 <code>j</code> 和 <code>i</code> 的当前值。</p>
+<p>具体的执行过程如下：</p>
+<ol>
+<li>首先，将元组 <code>(j, i)</code> 中的值读取出来。</li>
+<li>接着，将右边元组中的第一个值 <code>j</code> 赋给左边的第一个变量 <code>i</code>。</li>
+<li>最后，将右边元组中的第二个值 <code>i</code> 赋给左边的第二个变量 <code>j</code>。</li>
+</ol>
+<p>这样就实现了变量 <code>i</code> 和 <code>j</code> 之间的值交换。</p>
+<p>这种交换技巧的优势是在不需要引入额外的临时变量的情况下，完成了两个变量的交换操作。在某些情况下，这可以提高代码的可读性和简洁性。</p>
 <h2 id="day34">Day34</h2>
+<h3 id="1关于类型转化下面选项正确的是">1.关于类型转化，下面选项正确的是？</h3>
+<p>A.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyInt</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">j</span> <span class="nx">MyInt</span> <span class="p">=</span> <span class="nx">i</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>B.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyInt</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">j</span> <span class="nx">MyInt</span> <span class="p">=</span> <span class="p">(</span><span class="nx">MyInt</span><span class="p">)</span><span class="nx">i</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>C.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyInt</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">j</span> <span class="nx">MyInt</span> <span class="p">=</span> <span class="nf">MyInt</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>D.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyInt</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">j</span> <span class="nx">MyInt</span> <span class="p">=</span> <span class="nx">i</span><span class="p">.(</span><span class="nx">MyInt</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：C。知识点：强制类型转化。</p>
+<h3 id="2关于switch语句下面说法正确的有">2.关于switch语句，下面说法正确的有？</h3>
+<ul>
+<li>A. 条件表达式必须为常量或者整数；</li>
+<li>B. 单个case中，可以出现多个结果选项；</li>
+<li>C. 需要用break来明确退出一个case；</li>
+<li>D. 只有在case中明确添加fallthrough关键字，才会继续执行紧跟的下一个case；</li>
+</ul>
+<hr>
+<p>参考答案及解析：BD。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">switch</span> <span class="nx">i</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">0</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;0&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">fallthrough</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;3&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// 单个case中，可以出现多个结果选项
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">case</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;4, 5, 6&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Default&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>switch后面的表达式甚至不是必需的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">switch</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">Num</span> <span class="o">&amp;&amp;</span> <span class="nx">Num</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;0-3&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">4</span> <span class="o">&lt;=</span> <span class="nx">Num</span> <span class="o">&amp;&amp;</span> <span class="nx">Num</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;4-6&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">7</span> <span class="o">&lt;=</span> <span class="nx">Num</span> <span class="o">&amp;&amp;</span> <span class="nx">Num</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;7-9&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>总结：</p>
+<ul>
+<li>左花括号{必须与switch处于同一行；</li>
+<li>条件表达式不限制为常量或者整数；</li>
+<li>单个case中，可以出现多个结果选项；</li>
+<li>与C语言等规则相反，Go语言不需要用break来明确退出一个case；</li>
+<li>只有在case中明确添加fallthrough关键字，才会继续执行紧跟的下一个case；</li>
+<li>可以不设定switch之后的条件表达式，在此种情况下，整个switch结构与多个if&hellip;else&hellip;的逻辑作用等同。</li>
+</ul>
+<h3 id="3如果add函数的调用代码为">3.如果Add()函数的调用代码为：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">a</span> <span class="nx">Integer</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">b</span> <span class="nx">Integer</span> <span class="p">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">i</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">a</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sum</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="o">*</span><span class="nx">Integer</span><span class="p">).</span><span class="nf">Add</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">sum</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>则Add函数定义正确的是()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">A</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Integer</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">Integer</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">b</span> <span class="nx">Integer</span><span class="p">)</span> <span class="nx">Integer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">B</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Integer</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="nx">Integer</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Integer</span><span class="p">)</span> <span class="nx">Integer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="o">*</span><span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">C</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Integer</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">Integer</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">b</span> <span class="nx">Integer</span><span class="p">)</span> <span class="nx">Integer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">*</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">D</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Integer</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">Integer</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Integer</span><span class="p">)</span> <span class="nx">Integer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">*</span><span class="nx">a</span> <span class="o">+</span> <span class="o">*</span><span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：AC。知识点：类型断言、方法集。（查书再看看）</p>
+<p>go 中有些的变量不可以寻址，指的是不能通过&amp;获得其地址。</p>
+<p>所以 func( <code>*A</code> ) 只能接收 <code>*A</code>, func( A ) 可以接收 A 或者 <code>*A</code> ,通过指针一定能得到变量的值 <code>*A</code> -&gt; A</p>
+<p>还比如 map 里面 的 value 也是不可寻地址的，因为 map 扩容后，value 地址就会改变。</p>
 <h2 id="day35">Day35</h2>
+<h3 id="1关于bool变量b的赋值下面错误的用法是">1.关于bool变量b的赋值，下面错误的用法是？</h3>
+<ul>
+<li>A. b = true</li>
+<li>B. b = 1</li>
+<li>C. b = bool(1)</li>
+<li>D. b = (1 == 2)</li>
+</ul>
+<hr>
+<p>参考答案及解析：BC。</p>
+<h3 id="2关于变量的自增和自减操作下面语句正确的是">2.关于变量的自增和自减操作，下面语句正确的是？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">A</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nx">i</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">B</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nx">j</span> <span class="p">=</span> <span class="nx">i</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">C</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">++</span><span class="nx">i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">D</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nx">i</span><span class="o">--</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：AD。知识点：自增自减操作。i++ 和 i– 在 Go 语言中是<strong>语句</strong>，<strong>不是表达式</strong>，<strong>因此不能赋值给另外的变量</strong>。此外没有 ++i 和&ndash;i。</p>
+<h3 id="3关于getpodaction定义下面赋值正确的是">3.关于GetPodAction定义，下面赋值正确的是</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Fragment</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">Exec</span><span class="p">(</span><span class="nx">transInfo</span> <span class="o">*</span><span class="nx">TransInfo</span><span class="p">)</span> <span class="kt">error</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">GetPodAction</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">g</span> <span class="nx">GetPodAction</span><span class="p">)</span> <span class="nf">Exec</span><span class="p">(</span><span class="nx">transInfo</span> <span class="o">*</span><span class="nx">TransInfo</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>A. var fragment Fragment = new(GetPodAction)</li>
+<li>B. var fragment Fragment = GetPodAction</li>
+<li>C. var fragment Fragment = &amp;GetPodAction{}</li>
+<li>D. var fragment Fragment = GetPodAction{}</li>
+</ul>
+<p>参考答案及解析：ACD。</p>
 <h2 id="day36">Day36</h2>
 <h2 id="day37">Day37</h2>
 <h2 id="day38">Day38</h2>
