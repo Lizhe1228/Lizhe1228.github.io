@@ -4,7 +4,15 @@
     <link>http://Lizhe1228.github.io/posts/</link>
     <description>所有文章 | I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Fri, 23 Jun 2023 20:24:36 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sat, 24 Jun 2023 20:39:41 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Attention</title>
+  <link>http://Lizhe1228.github.io/posts/dl/transformer/attention/</link>
+  <pubDate>Sat, 24 Jun 2023 20:39:41 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/dl/transformer/attention/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Transformer</title>
   <link>http://Lizhe1228.github.io/posts/dl/transformer/transformer/</link>
   <pubDate>Fri, 23 Jun 2023 20:24:36 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
   <guid>http://Lizhe1228.github.io/posts/projects/pro03/</guid>
   <description><![CDATA[<p>项目日记</p>
 <p>通过这样一个项目，和之前做的fiber+react的项目，能更深刻的理解一个企业级的项目是什么样的，之前的项目有些地方封装的还是不够好，现在才慢慢体会到，比如请求的响应也进行封装，定义业务状态码。</p>]]></description>
-</item>
-<item>
-  <title>储算分离系统</title>
-  <link>http://Lizhe1228.github.io/posts/projects/pro02/</link>
-  <pubDate>Sun, 11 Jun 2023 12:13:44 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/projects/pro02/</guid>
-  <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>
