@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day31-40)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-19T10:06:56+08:00" />
 <meta itemprop="dateModified" content="2023-06-19T10:06:56+08:00" />
-<meta itemprop="wordCount" content="3024"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="3254"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day31-40)" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day31-40\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  3024 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  3254 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day31-40\/","datePublished": "2023-06-19T10:06:56+08:00","dateModified": "2023-06-19T10:06:56+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-19 10:06:56"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span title="更新于 2023-06-19 10:06:56"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3024 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day31-40)">
+      <div class="post-meta-line"><span title="发布于 2023-06-19 10:06:56"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span title="更新于 2023-06-19 10:06:56"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3254 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day31-40)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -233,7 +233,13 @@
         <li><a href="#3关于getpodaction定义下面赋值正确的是">3.关于GetPodAction定义，下面赋值正确的是</a></li>
       </ul>
     </li>
-    <li><a href="#day36">Day36</a></li>
+    <li><a href="#day36">Day36</a>
+      <ul>
+        <li><a href="#1关于函数声明下面语法正确的是">1.关于函数声明，下面语法正确的是？</a></li>
+        <li><a href="#2关于整型切片的初始化下面正确的是">2.关于整型切片的初始化，下面正确的是？</a></li>
+        <li><a href="#3下面代码会触发异常吗请说明">3.下面代码会触发异常吗？请说明。</a></li>
+      </ul>
+    </li>
     <li><a href="#day37">Day37</a></li>
     <li><a href="#day38">Day38</a></li>
     <li><a href="#day39">Day39</a></li>
@@ -800,6 +806,59 @@
 </ul>
 <p>参考答案及解析：ACD。</p>
 <h2 id="day36">Day36</h2>
+<h3 id="1关于函数声明下面语法正确的是">1.关于函数声明，下面语法正确的是？</h3>
+<ul>
+<li>A. func f(a, b int) (value int, err error)</li>
+<li>B. func f(a int, b int) (value int, err error)</li>
+<li>C. func f(a, b int) (value int, error)</li>
+<li>D. func f(a int, b int) (int, int, error)</li>
+</ul>
+<hr>
+<p>参考答案及解析：ABD。</p>
+<h3 id="2关于整型切片的初始化下面正确的是">2.关于整型切片的初始化，下面正确的是？</h3>
+<ul>
+<li>A. s := make([]int)</li>
+<li>B. s := make([]int, 0)</li>
+<li>C. s := make([]int, 5, 10)</li>
+<li>D. s := []int{1, 2, 3, 4, 5}</li>
+</ul>
+<hr>
+<p>参考答案及解析：BCD</p>
+<h3 id="3下面代码会触发异常吗请说明">3.下面代码会触发异常吗？请说明。</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">runtime</span><span class="p">.</span><span class="nf">GOMAXPROCS</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">int_chan</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">string_chan</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">int_chan</span> <span class="o">&lt;-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">string_chan</span> <span class="o">&lt;-</span> <span class="s">&#34;hello&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">select</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nx">value</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">int_chan</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nx">value</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">string_chan</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">panic</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：select 会随机选择一个可用通道做收发操作，所以可能触发异常，也可能不会。</p>
 <h2 id="day37">Day37</h2>
 <h2 id="day38">Day38</h2>
 <h2 id="day39">Day39</h2>
