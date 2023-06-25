@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='go, 面试' /><meta itemprop="name" content="Go Exercises(Day31-40)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-19T10:06:56+08:00" />
 <meta itemprop="dateModified" content="2023-06-19T10:06:56+08:00" />
-<meta itemprop="wordCount" content="3254"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="3700"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="go,面试," /><meta property="og:title" content="Go Exercises(Day31-40)" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/go\/day31-40\/"
-    },"genre": "posts","keywords": "go, 面试","wordcount":  3254 ,
+    },"genre": "posts","keywords": "go, 面试","wordcount":  3700 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/go\/day31-40\/","datePublished": "2023-06-19T10:06:56+08:00","dateModified": "2023-06-19T10:06:56+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-19 10:06:56"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span title="更新于 2023-06-19 10:06:56"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3254 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day31-40)">
+      <div class="post-meta-line"><span title="发布于 2023-06-19 10:06:56"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span title="更新于 2023-06-19 10:06:56"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-19">2023-06-19</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3700 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 8 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Go Exercises(Day31-40)">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -240,7 +240,13 @@
         <li><a href="#3下面代码会触发异常吗请说明">3.下面代码会触发异常吗？请说明。</a></li>
       </ul>
     </li>
-    <li><a href="#day37">Day37</a></li>
+    <li><a href="#day37">Day37</a>
+      <ul>
+        <li><a href="#1关于channel的特性下面说法正确的是">1.关于channel的特性，下面说法正确的是？</a></li>
+        <li><a href="#2下面代码有什么问题">2.下面代码有什么问题？</a></li>
+        <li><a href="#3下面代码能否编译通过如果通过输出什么">3.下面代码能否编译通过？如果通过，输出什么？</a></li>
+      </ul>
+    </li>
     <li><a href="#day38">Day38</a></li>
     <li><a href="#day39">Day39</a></li>
     <li><a href="#day40">Day40</a></li>
@@ -860,6 +866,80 @@
 </div><hr>
 <p>参考答案及解析：select 会随机选择一个可用通道做收发操作，所以可能触发异常，也可能不会。</p>
 <h2 id="day37">Day37</h2>
+<h3 id="1关于channel的特性下面说法正确的是">1.关于channel的特性，下面说法正确的是？</h3>
+<ul>
+<li>A. 给一个 nil channel 发送数据，造成永远阻塞</li>
+<li>B. 从一个 nil channel 接收数据，造成永远阻塞</li>
+<li>C. 给一个已经关闭的 channel 发送数据，引起 panic</li>
+<li>D. 从一个已经关闭的 channel 接收数据，如果缓冲区中为空，则返回一个零值</li>
+</ul>
+<hr>
+<p>参考答案及解析：ABCD。</p>
+<h3 id="2下面代码有什么问题">2.下面代码有什么问题？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">j</span> <span class="p">=</span> <span class="mi">123</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">j</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>参考答案及解析：编译报错cannot take the address of i。知识点：常量。<font color=red>常量不同于变量的在运行期分配内存，常量通常会被编译器在预处理阶段直接展开，作为指令数据使用，所以常量无法寻址</font>。</p>
+<h3 id="3下面代码能否编译通过如果通过输出什么">3.下面代码能否编译通过？如果通过，输出什么？</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">GetValue</span><span class="p">(</span><span class="nx">m</span> <span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">id</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     <span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">exist</span> <span class="o">:=</span> <span class="nx">m</span><span class="p">[</span><span class="nx">id</span><span class="p">];</span> <span class="nx">exist</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">return</span> <span class="s">&#34;exist&#34;</span><span class="p">,</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">intmap</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">1</span><span class="p">:</span> <span class="s">&#34;a&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">2</span><span class="p">:</span> <span class="s">&#34;b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">3</span><span class="p">:</span> <span class="s">&#34;c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">v</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetValue</span><span class="p">(</span><span class="nx">intmap</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参考答案及解析：不能通过编译。知识点：函数返回值类型。<strong>nil 可以用作 interface、function、pointer、map、slice 和 channel 的“空值”</strong>。但是如果不特别指定的话，Go 语言不能识别类型，所以会报错:cannot use nil as type string in return argument.</p>
 <h2 id="day38">Day38</h2>
 <h2 id="day39">Day39</h2>
 <h2 id="day40">Day40</h2></div><div class="post-footer" id="post-footer">
