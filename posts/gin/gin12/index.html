@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='gin, go web' /><meta itemprop="name" content="go web开发中遇到的小技术与知识点">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-10T16:15:26+08:00" />
 <meta itemprop="dateModified" content="2023-06-10T16:15:26+08:00" />
-<meta itemprop="wordCount" content="11048"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="12711"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="gin,go web," /><meta property="og:title" content="go web开发中遇到的小技术与知识点" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/"
-    },"genre": "posts","keywords": "gin, go web","wordcount":  11048 ,
+    },"genre": "posts","keywords": "gin, go web","wordcount":  12711 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/","datePublished": "2023-06-10T16:15:26+08:00","dateModified": "2023-06-10T16:15:26+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/gin/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Gin</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 11048 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 23 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
+      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 12711 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 26 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -266,6 +266,18 @@
         <li><a href="#问题">问题</a></li>
       </ul>
     </li>
+    <li><a href="#swagger">swagger</a>
+      <ul>
+        <li><a href="#gin-swagger实战">gin-swagger实战</a>
+          <ul>
+            <li><a href="#第一步添加注释">第一步：添加注释</a></li>
+            <li><a href="#第二步生成接口文档数据">第二步：生成接口文档数据</a></li>
+            <li><a href="#第三步引入gin-swagger渲染文档数据">第三步：引入gin-swagger渲染文档数据</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#go_test">go_test</a></li>
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="The END"><h2 id="分布式id生成器">分布式ID生成器</h2>
@@ -1841,7 +1853,283 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="问题">问题</h3>
-<p>我使用命令没有安装成功，是在github上下载的exe，https://github.com/cosmtrek/air/releases，重命名为air.exe放在goroot的bin目录下。</p></div><div class="post-footer" id="post-footer">
+<p>我使用命令没有安装成功，是在github上下载的exe，https://github.com/cosmtrek/air/releases，重命名为air.exe放在goroot的bin目录下。</p>
+<h2 id="swagger">swagger</h2>
+<p>Swagger本质上是一种用于描述使用JSON表示的RESTful API的接口描述语言。Swagger与一组开源软件工具一起使用，以设计、构建、记录和使用RESTful Web服务。Swagger包括自动文档，代码生成和测试用例生成。</p>
+<p>在前后端分离的项目开发过程中，如果后端同学能够提供一份清晰明了的接口文档，那么就能极大地提高大家的沟通效率和开发效率。可是编写接口文档历来都是令人头痛的，而且后续接口文档的维护也十分耗费精力。</p>
+<p>最好是有一种方案能够既满足我们输出文档的需要又能随代码的变更自动更新，而Swagger正是那种能帮我们解决接口文档问题的工具。</p>
+<p>这里以gin框架为例，使用<a href="https://github.com/swaggo/gin-swagger"target="_blank" rel="external nofollow noopener noreferrer">gin-swagger</a>库以使用Swagger 2.0自动生成RESTful API文档。</p>
+<h3 id="gin-swagger实战">gin-swagger实战</h3>
+<p>想要使用<code>gin-swagger</code>为你的代码自动生成接口文档，一般需要下面三个步骤：</p>
+<ol>
+<li>按照swagger要求给接口代码添加声明式注释，具体参照<a href="https://swaggo.github.io/swaggo.io/declarative_comments_format/"target="_blank" rel="external nofollow noopener noreferrer">声明式注释格式</a>。</li>
+<li>使用swag工具扫描代码自动生成API接口文档数据</li>
+<li>使用gin-swagger渲染在线接口文档页面</li>
+</ol>
+<h4 id="第一步添加注释">第一步：添加注释</h4>
+<p>在程序入口main函数上以注释的方式写下项目相关介绍信息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// @title 这里写标题
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @version 1.0
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @description 这里写描述信息
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @termsOfService http://swagger.io/terms/
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @contact.name 这里写联系人信息
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @contact.url http://www.swagger.io/support
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @contact.email support@swagger.io
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @license.name Apache 2.0
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @host 这里写接口服务的host
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @BasePath 这里写base path
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span> <span class="o">:=</span> <span class="nx">gin</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// liwenzhou.com ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">.</span><span class="nf">Run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在你代码中处理请求的接口函数（通常位于controller层）按如下方式写上注释：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// GetPostListHandler2 升级版帖子列表接口
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Summary 升级版帖子列表接口
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Description 可按社区按时间或分数排序查询帖子列表接口
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Tags 帖子相关接口
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Accept application/json
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Produce application/json
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Param Authorization header string false &#34;Bearer 用户令牌&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Param object query models.ParamPostList false &#34;查询参数&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Security ApiKeyAuth
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Success 200 {object} _ResponsePostList
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @Router /posts2 [get]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">GetPostListHandler2</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// GET请求参数(query string)：/api/v1/posts2?page=1&amp;size=10&amp;order=time
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 初始化结构体时指定初始参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">p</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">models</span><span class="p">.</span><span class="nx">ParamPostList</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Page</span><span class="p">:</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Size</span><span class="p">:</span>  <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Order</span><span class="p">:</span> <span class="nx">models</span><span class="p">.</span><span class="nx">OrderTime</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">ShouldBindQuery</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">zap</span><span class="p">.</span><span class="nf">L</span><span class="p">().</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;GetPostListHandler2 with invalid params&#34;</span><span class="p">,</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">ResponseError</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">CodeInvalidParam</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">logic</span><span class="p">.</span><span class="nf">GetPostListNew</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 获取数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">zap</span><span class="p">.</span><span class="nf">L</span><span class="p">().</span><span class="nf">Error</span><span class="p">(</span><span class="s">&#34;logic.GetPostList() failed&#34;</span><span class="p">,</span> <span class="nx">zap</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="nx">err</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">ResponseError</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">CodeServerBusy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">ResponseSuccess</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 返回响应
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面注释中参数类型使用了<code>object</code>，<code>models.ParamPostList</code>具体定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// bluebell/models/params.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ParamPostList 获取帖子列表query string参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">ParamPostList</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">CommunityID</span> <span class="kt">int64</span>  <span class="s">`json:&#34;community_id&#34; form:&#34;community_id&#34;`</span>   <span class="c1">// 可以为空
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Page</span>        <span class="kt">int64</span>  <span class="s">`json:&#34;page&#34; form:&#34;page&#34; example:&#34;1&#34;`</span>       <span class="c1">// 页码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Size</span>        <span class="kt">int64</span>  <span class="s">`json:&#34;size&#34; form:&#34;size&#34; example:&#34;10&#34;`</span>      <span class="c1">// 每页数据量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Order</span>       <span class="kt">string</span> <span class="s">`json:&#34;order&#34; form:&#34;order&#34; example:&#34;score&#34;`</span> <span class="c1">// 排序依据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>响应数据类型也使用的<code>object</code>，我个人习惯在controller层专门定义一个<code>docs_models.go</code>文件来存储文档中使用的响应数据model。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// bluebell/controller/docs_models.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// _ResponsePostList 帖子列表接口响应数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">_ResponsePostList</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Code</span>    <span class="nx">ResCode</span>                 <span class="s">`json:&#34;code&#34;`</span>    <span class="c1">// 业务响应状态码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Message</span> <span class="kt">string</span>                  <span class="s">`json:&#34;message&#34;`</span> <span class="c1">// 提示信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Data</span>    <span class="p">[]</span><span class="o">*</span><span class="nx">models</span><span class="p">.</span><span class="nx">ApiPostDetail</span> <span class="s">`json:&#34;data&#34;`</span>    <span class="c1">// 数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="第二步生成接口文档数据">第二步：生成接口文档数据</h4>
+<p>编写完注释后，使用以下命令安装swag工具：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go get -u github.com/swaggo/swag/cmd/swag
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在项目根目录执行以下命令，使用swag工具生成接口文档数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">swag init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行完上述命令后，如果你写的注释格式没问题，此时你的项目根目录下会多出一个<code>docs</code>文件夹。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./docs
+</span></span><span class="line"><span class="cl">├── docs.go
+</span></span><span class="line"><span class="cl">├── swagger.json
+</span></span><span class="line"><span class="cl">└── swagger.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="第三步引入gin-swagger渲染文档数据">第三步：引入gin-swagger渲染文档数据</h4>
+<p>然后在项目代码中注册路由的地方按如下方式引入<code>gin-swagger</code>相关内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// liwenzhou.com ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span> <span class="s">&#34;bluebell/docs&#34;</span>  <span class="c1">// 千万不要忘了导入把你上一步生成的docs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gs</span> <span class="s">&#34;github.com/swaggo/gin-swagger&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/swaggo/gin-swagger/swaggerFiles&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注册swagger api相关路由</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/swagger/*any&#34;</span><span class="p">,</span> <span class="nx">gs</span><span class="p">.</span><span class="nf">WrapHandler</span><span class="p">(</span><span class="nx">swaggerFiles</span><span class="p">.</span><span class="nx">Handler</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>把你的项目程序运行起来，打开浏览器访问http://localhost:8080/swagger/index.html就能看到Swagger 2.0 Api文档了。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306261437598.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306261437598.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306261437598.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306261437598.png 2x" sizes="auto" data-title="gin_swagger文档" data-alt="gin_swagger文档" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><code>gin-swagger</code>同时还提供了<code>DisablingWrapHandler</code>函数，方便我们通过设置某些环境变量来禁用Swagger。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/swagger/*any&#34;</span><span class="p">,</span> <span class="nx">gs</span><span class="p">.</span><span class="nf">DisablingWrapHandler</span><span class="p">(</span><span class="nx">swaggerFiles</span><span class="p">.</span><span class="nx">Handler</span><span class="p">,</span> <span class="s">&#34;NAME_OF_ENV_VARIABLE&#34;</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时如果将环境变量<code>NAME_OF_ENV_VARIABLE</code>设置为任意值，则<code>/swagger/*any</code>将返回404响应，就像未指定路由时一样。</p>
+<h2 id="go_test">go_test</h2>
+<p><a href="https://www.liwenzhou.com/posts/Go/unit-test/"target="_blank" rel="external nofollow noopener noreferrer">https://www.liwenzhou.com/posts/Go/unit-test/</a></p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
