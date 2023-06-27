@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Controlnet - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
+<meta name="author-link" content="">
+<meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='draft' /><meta itemprop="name" content="Controlnet">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-27T20:30:10+08:00" />
+<meta itemprop="dateModified" content="2023-06-27T20:30:10+08:00" />
+<meta itemprop="wordCount" content="3797"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="keywords" content="draft," /><meta property="og:title" content="Controlnet" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lizhe1228.github.io/posts/dl/diffusion/controlnet/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-27T20:30:10+08:00" />
+<meta property="article:modified_time" content="2023-06-27T20:30:10+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+
+<meta name="twitter:title" content="Controlnet"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="Lizhe1228">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/diffusion/controlnet/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/dl/vscode-ssh/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Controlnet",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/controlnet\/"
+    },"genre": "posts","keywords": "draft","wordcount":  3797 ,
+    "url": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/controlnet\/","datePublished": "2023-06-27T20:30:10+08:00","dateModified": "2023-06-27T20:30:10+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="I am Lizhe1228" data-alt="I am Lizhe1228" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-desktop" class="typeit"></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/friends/"
+                
+                
+              ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="/nzr-smile.svg" data-alt="/nzr-smile.svg" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-title-mobile" class="typeit"></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/friends/"
+                  
+                  
+                ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">Controlnet</li>
+    </ol>
+  </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Controlnet</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      </span></span>
+          <span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2023-06-27 20:30:10"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-27">2023-06-27</time></span>&nbsp;<span title="更新于 2023-06-27 20:30:10"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-27">2023-06-27</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3797 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 8 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Controlnet">
+            <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#related-work">Related Work</a>
+      <ul>
+        <li><a href="#hypernetwork-and-neural-network-structure">HyperNetwork and Neural Network Structure</a></li>
+        <li><a href="#diffusion-probabilistic-model">Diffusion Probabilistic Model</a></li>
+        <li><a href="#text-to-image-diffusion">Text-to-Image Diffusion</a></li>
+        <li><a href="#personalizationcustomization-and-control-of-pretrained-diffusion-model">Personalization,Customization, and Control of Pretrained Diffusion Model</a></li>
+        <li><a href="#image-to-image-translation">Image-to-Image Translation</a></li>
+      </ul>
+    </li>
+    <li><a href="#method">Method</a>
+      <ul>
+        <li><a href="#controlnet">ControlNet</a></li>
+        <li><a href="#controlnet-in-image-diffusion-model">ControlNet in Image Diffusion Model</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#improved-training">Improved Training</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="The END"><h2 id="abstract">Abstract</h2>
+<p>ControlNet控制预训练好的扩散模型，让他们能支持额外的输入控制条件。ControlNet能端到端地学习task-specific conditions，鲁棒性非常好，数据集小的情况下，比如50k以内，也可以。ControlNet的训练和微调一个diffusion模型一样快，并且允许在个人设备上进行训练。像SD这种模型，就可以使用ControlNet让他有更多的控制条件去控制图像的生成，比如edge map，segementation maps，keypoints等等。</p>
+<h2 id="introduction">Introduction</h2>
+<p>几个问题：</p>
+<ol>
+<li>这种基于prompt的控制满足了我们的需求吗？例如，在图像处理中，考虑到许多具有清晰问题表述的长期任务，这些大型模型能否应用于促进这些特定任务。</li>
+<li>我们应该创建什么样的framework去广泛的问题条件和用户控制？</li>
+<li>在特定的任务中，大模型能否保留从数十亿张图像中获得的优势和能力？</li>
+</ol>
+<p>针对这几个问题，调查了很多图像生成的应用，有了如下发现：</p>
+<ol>
+<li>在特定任务领域可用的数据规模并不总是像图像文本领域那样大。许多特定问题（例如对象形状/法线、姿态理解等）的最大数据集大小通常不到100k，即比LAION5B小5×104倍。这将需要稳健的神经网络训练方法，以避免过拟合，并在大型模型针对特定问题进行训练时保留泛化能力。</li>
+<li>在处理图像处理任务时，不总是有大型计算集群可用的数据驱动解决方案。这使得快速训练方法对于在可接受的时间和内存空间内针对特定任务优化大型模型非常重要（例如，在个人设备上）。这将进一步要求利用预训练权重，以及微调策略或迁移学习。</li>
+<li>各种图像处理问题具有不同形式的问题定义、用户控制或图像注释。在解决这些问题时，尽管可以以“程序化”的方式调节图像扩散算法，例如约束去噪过程、编辑多头注意力激活等，但是这些手工制定的规则的行为本质上是由人类指令所规定的。考虑一些特定任务，例如深度到图像、姿态到人体等，这些问题本质上需要将原始输入解释为对象级别或场景级别的理解，使得手工制定的程序化方法不太可行。为了在许多任务中实现学习的解决方案，端到端学习是不可或缺的。</li>
+</ol>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272128547.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272128547.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272128547.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272128547.png 2x" sizes="auto" data-title="上传图片" data-alt="上传图片" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><em>图1：使用Canny边缘图对Stable Diffusion进行控制。Canny边缘图被输入，而源图像在生成右侧的图像时未被使用。输出是通过一个默认提示“高质量、详细和专业的图像”来实现的。本文中，此提示作为默认提示使用，不提及图像内容和对象名称。本文中的大多数图像都是高分辨率图像，在放大后查看效果最佳。</em></p>
+<p>本文提出了ControlNet，一种端到端的神经网络架构，可控制大型图像扩散模型（如Stable Diffusion）来学习特定任务的输入条件进行控制。ControlNet将大型扩散模型的权重复制到一个“可训练副本”和一个“锁定副本”中：锁定副本保留了从数十亿图像中学到的网络能力，而可训练副本则在特定任务的数据集上进行训练，以学习条件控制。可训练和锁定的神经网络块通过一种称为“零卷积”的独特卷积层连接，其中卷积权重以一种学习的方式逐步从零增长到优化的参数。由于lock层权重被保留，因此训练在不同规模的数据集上具有鲁棒性。由于零卷积不会向深层特征添加新的噪声，因此与从头开始训练新层相比，训练速度与微调扩散模型一样快。</p>
+<p>我们使用不同条件的数据集（例如，Canny边缘、Hough线、用户涂鸦、人体关键点、分割图、形状法线、深度等）训练了几个ControlNet。我们还在不同规模的数据集上实验了ControlNet，包括样本少于50k甚至1k的小数据集和数百万样本的大数据集。我们还展示了在某些任务中（例如深度到图像），使用个人电脑（一块Nvidia RTX 3090TI）训练ControlNet可以达到与在大型计算集群上训练的商业模型相竞争的结果。</p>
+<h2 id="related-work">Related Work</h2>
+<h3 id="hypernetwork-and-neural-network-structure">HyperNetwork and Neural Network Structure</h3>
+<p>HyperNetwork起源于一种神经语言处理方法[14]，用于训练一个小型循环神经网络来影响一个更大的神经网络的权重。HyperNetwork在使用生成对抗网络[1,10]和其他机器学习任务[51]生成图像时也取得了成功的结果。受到这些想法的启发，[15]提供了一种方法将一个较小的神经网络连接到Stable Diffusion [44]上，以改变其输出图像的艺术风格。在[28]提供了预训练权重后，这种方法变得更加流行。ControlNet和HyperNetwork在它们影响神经网络行为的方式上有相似之处。</p>
+<p>ControlNet使用了一种特殊的卷积层称为“zero convolution”。早期神经网络研究[31,47,32]已经广泛讨论了网络权重的初始化，包括使用高斯分布初始化权重的合理性以及使用零初始化权重可能带来的风险。最近，[37]讨论了一种在扩散模型中缩放多个卷积层的初始权重以改进训练的方法，这与零卷积的思想相似（他们的代码包含一个名为“zero_module”的函数）。ProGAN [21]和StyleGAN [22]，以及Noise2Noise [33]和[65]也讨论了操作初始卷积权重的方法。Stability的模型卡[55]也提到了在神经层中使用零权重的方法。</p>
+<h3 id="diffusion-probabilistic-model">Diffusion Probabilistic Model</h3>
+<h3 id="text-to-image-diffusion">Text-to-Image Diffusion</h3>
+<p>扩散模型可以应用于文本到图像生成任务中，以实现最先进的图像生成结果。通常通过使用预训练的语言模型，如CLIP [41]，将文本输入编码为潜在向量来实现。例如，Glide [38]是一个支持图像生成和编辑的文本引导扩散模型。Disco Diffusion是一个基于[9]的Clip引导实现，用于处理文本提示。Stable Diffusion是潜在扩散的大规模实现[44]，用于实现文本到图像的生成。Imagen [49]是一种文本到图像的结构，不使用潜在图像，而是使用金字塔结构直接扩散像素。</p>
+<h3 id="personalizationcustomization-and-control-of-pretrained-diffusion-model">Personalization,Customization, and Control of Pretrained Diffusion Model</h3>
+<h3 id="image-to-image-translation">Image-to-Image Translation</h3>
+<h2 id="method">Method</h2>
+<h3 id="controlnet">ControlNet</h3>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272154005.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272154005.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272154005.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272154005.png 2x" sizes="auto" data-title="image-20230627215413929" data-alt="image-20230627215413929" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272158923.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272158923.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272158923.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272158923.png 2x" sizes="auto" data-title="image-20230627215851846" data-alt="image-20230627215851846" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272200939.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272200939.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272200939.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272200939.png 2x" sizes="auto" data-title="image-20230627220011881" data-alt="image-20230627220011881" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>推导了一下，即使w和b都初始为0，也是可以进行梯度回传的。</p>
+<h3 id="controlnet-in-image-diffusion-model">ControlNet in Image Diffusion Model</h3>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272201245.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272201245.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272201245.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272201245.png 2x" sizes="auto" data-title="上传图片" data-alt="上传图片" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>该模型基本上是一个具有编码器、中间块和跳跃连接解码器的U-net。编码器和解码器均有12个块，完整模型共有25个块（包括中间块）。在这些块中，有8个块是下采样或上采样的卷积层，17个块是主要块，每个块包含四个ResNet层和两个Vision Transformer（ViT）。每个ViT都包含几个交叉注意力和/或自注意力机制。文本由OpenAI CLIP编码，扩散时间步由位置编码编码。</p>
+<p>Stable Diffusion使用了类似于VQ-GAN [11] 的预处理方法，将整个512×512图像数据集转换为更小的64×64“潜在图像”，以实现稳定训练。这需要ControlNets将基于图像的条件转换为64×64的特征空间以匹配卷积大小。我们使用一个小型网络，它由四个带有4×4卷积核和2×2步幅（通过ReLU激活，通道为16、32、64、128，初始化为高斯权重，与完整模型联合训练）的卷积层组成。</p>
+<p>如图3所示，我们使用ControlNet来控制U-net的每个级别。请注意，我们连接ControlNet的方式在计算上是高效的：由于原始权重被锁定，因此不需要对原始编码器进行梯度计算来进行训练。这可以加快训练速度并节省GPU内存，因为可以避免对原始模型的一半梯度计算。使用ControlNet训练稳定扩散模型仅需要约23%的额外GPU内存和34%的更长时间的每次训练迭代（在单个Nvidia A100 PCIE 40G上测试）。</p>
+<p>具体而言，我们使用ControlNet创建Stable Diffusion的12个编码块和1个中间块的可训练副本。这12个块在4个分辨率（64×64、32×32、16×16、8×8）中每个都有3个块。输出被添加到U-net的12个跳跃连接和1个中间块。由于SD是典型的U-net结构，因此该ControlNet架构很可能可用于其他扩散模型。</p>
+<h3 id="training">Training</h3>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272212964.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272212964.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272212964.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306272212964.png 2x" sizes="auto" data-title="image-20230627221229916" data-alt="image-20230627221229916" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>在训练期间，我们随机替换50%的文本提示ct为空字符串。这有助于ControlNet从输入条件映射中识别语义内容，例如Canny边缘映射或人类涂鸦等。这主要是因为当SD模型看不到提示时，编码器倾向于从输入控制映射中学习更多的语义作为提示的替代品。</p>
+<h3 id="improved-training">Improved Training</h3>
+<p>我们讨论了几种策略来改善ControlNets的训练，尤其是在计算设备非常有限（例如在笔记本电脑上）或非常强大（例如在具有大规模GPU的计算集群上）的极端情况下。在我们的实验中，如果使用了这些策略中的任何一个，我们将在实验设置中提到。</p>
+<p><strong>小规模训练</strong>：当计算设备有限时，我们发现部分断开ControlNet和稳定扩散之间的连接可以加速收敛。默认情况下，我们将ControlNet连接到“SD Middle Block”和“SD Decoder Block 1,2,3,4”中，如图3所示。我们发现，断开与 decoder 1,2,3,4的连接，只连接Middle Block，可以将训练速度提高约1.6倍（在RTX 3070TI笔记本电脑GPU上测试）。当模型在结果和条件之间显示出合理的关联后，这些断开的连接可以再次连接，以便在继续训练时实现精确的控制。</p>
+<p><strong>大规模训练</strong>：在这里，大规模训练是指同时具有强大计算集群（至少8个Nvidia A100 80G或同等配置）和大型数据集（至少100万个训练图像对）的情况。这通常适用于数据容易获得的任务，例如Canny检测的边缘映射。在这种情况下，由于过拟合的风险相对较低，我们可以先训练ControlNets足够多的迭代次数（通常超过50k步），然后解锁所有稳定扩散的权重，共同训练整个模型。这将导致更具问题特定性的模型。</p>
+<h3 id="implementation">Implementation</h3></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-06-27 20:30:10">更新于 2023-06-27&nbsp;</span>
+      </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/controlnet/" data-title="Controlnet" data-hashtags="draft"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/controlnet/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/controlnet/" data-title="Controlnet" data-ralateuid="6314435573"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/dl/vscode-ssh/" class="post-nav-item" rel="prev" title="Vscode Ssh"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Vscode Ssh</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric">0%</span>
+        </div></div><a href="https://github.com/Lizhe1228" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/black/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":20},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"typeit-header-desktop":"Lizhe1228's blog","typeit-header-title-mobile":"Lizhe1228's blog"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"},"siteTime":"2023-05-21","typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"typeit-header-desktop":["typeit-header-desktop"],"typeit-header-title-mobile":["typeit-header-title-mobile"]},"duration":-1,"loop":false,"speed":100}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
