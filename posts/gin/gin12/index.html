@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='gin, go web' /><meta itemprop="name" content="go web开发中遇到的小技术与知识点">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-10T16:15:26+08:00" />
 <meta itemprop="dateModified" content="2023-06-10T16:15:26+08:00" />
-<meta itemprop="wordCount" content="12711"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="14052"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="gin,go web," /><meta property="og:title" content="go web开发中遇到的小技术与知识点" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/"
-    },"genre": "posts","keywords": "gin, go web","wordcount":  12711 ,
+    },"genre": "posts","keywords": "gin, go web","wordcount":  14052 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/gin\/gin12\/","datePublished": "2023-06-10T16:15:26+08:00","dateModified": "2023-06-10T16:15:26+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -190,7 +190,7 @@
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>
           <span class="post-category">收录于 <a href="/categories/gin/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Gin</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 12711 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 26 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
+      <div class="post-meta-line"><span title="发布于 2023-06-10 16:15:26"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span title="更新于 2023-06-10 16:15:26"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-10">2023-06-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 14052 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 29 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="go web开发中遇到的小技术与知识点">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -278,6 +278,18 @@
       </ul>
     </li>
     <li><a href="#go_test">go_test</a></li>
+    <li><a href="#常用的http服务压测工具介绍">常用的HTTP服务压测工具介绍</a>
+      <ul>
+        <li><a href="#压测相关术语">压测相关术语</a></li>
+        <li><a href="#压力测试工具">压力测试工具</a>
+          <ul>
+            <li><a href="#ab">ab</a></li>
+            <li><a href="#wrk">wrk</a></li>
+            <li><a href="#go-wrk">go-wrk</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="The END"><h2 id="分布式id生成器">分布式ID生成器</h2>
@@ -2129,7 +2141,253 @@
 </div>
 </div><p>此时如果将环境变量<code>NAME_OF_ENV_VARIABLE</code>设置为任意值，则<code>/swagger/*any</code>将返回404响应，就像未指定路由时一样。</p>
 <h2 id="go_test">go_test</h2>
-<p><a href="https://www.liwenzhou.com/posts/Go/unit-test/"target="_blank" rel="external nofollow noopener noreferrer">https://www.liwenzhou.com/posts/Go/unit-test/</a></p></div><div class="post-footer" id="post-footer">
+<p><a href="https://www.liwenzhou.com/posts/Go/unit-test/"target="_blank" rel="external nofollow noopener noreferrer">https://www.liwenzhou.com/posts/Go/unit-test/</a></p>
+<h2 id="常用的http服务压测工具介绍">常用的HTTP服务压测工具介绍</h2>
+<p><a href="https://www.liwenzhou.com/posts/Go/benchmark-tools/"target="_blank" rel="external nofollow noopener noreferrer">https://www.liwenzhou.com/posts/Go/benchmark-tools/</a></p>
+<p>在项目正式上线之前，我们通常需要通过压测来评估当前系统能够支撑的请求量、排查可能存在的隐藏bug，同时了解了程序的实际处理能力能够帮我们更好的匹配项目的实际需求，节约资源成本。</p>
+<p>在项目正式上线之前，我们通常需要通过压测来评估当前系统能够支撑的请求量、排查可能存在的隐藏bug，同时了解了程序的实际处理能力能够帮我们更好的匹配项目的实际需求，节约资源成本。</p>
+<h3 id="压测相关术语">压测相关术语</h3>
+<ul>
+<li>响应时间(RT) ：指系统对请求作出响应的时间.</li>
+<li>吞吐量(Throughput) ：指系统在单位时间内处理请求的数量</li>
+<li>QPS每秒查询率(Query Per Second) ：“每秒查询率”，是一台服务器每秒能够响应的查询次数，是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。</li>
+<li>TPS(TransactionPerSecond)：每秒钟系统能够处理的交易或事务的数量</li>
+<li>并发连接数：某个时刻服务器所接受的请求总数</li>
+</ul>
+<h3 id="压力测试工具">压力测试工具</h3>
+<h4 id="ab">ab</h4>
+<p>ab全称Apache Bench，是Apache自带的性能测试工具。使用这个工具，只须指定同时连接数、请求数以及URL，即可测试网站或网站程序的性能。</p>
+<p>通过ab发送请求模拟多个访问者同时对某一URL地址进行访问,可以得到每秒传送字节数、每秒处理请求数、每请求处理时间等统计数据。</p>
+<p>命令格式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ab <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>http://<span class="o">]</span>hostname<span class="o">[</span>:port<span class="o">]</span>/path
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>常用参数如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-n requests 总请求数
+</span></span><span class="line"><span class="cl">-c concurrency 一次产生的请求数，可以理解为并发数
+</span></span><span class="line"><span class="cl">-t timelimit 测试所进行的最大秒数, 可以当做请求的超时时间
+</span></span><span class="line"><span class="cl">-p postfile 包含了需要POST的数据的文件
+</span></span><span class="line"><span class="cl">-T content-type POST数据所使用的Content-type头信息
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更多参数请查看<a href="http://httpd.apache.org/docs/2.2/programs/ab.html"target="_blank" rel="external nofollow noopener noreferrer">官方文档</a>。</p>
+<p>例如测试某个GET请求接口：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ab -n <span class="m">10000</span> -c <span class="m">100</span> -t <span class="m">10</span> <span class="s2">&#34;http://127.0.0.1:8080/api/v1/posts?size=10&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>测试POST请求接口：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ab -n <span class="m">10000</span> -c <span class="m">100</span> -t <span class="m">10</span> -p post.json -T <span class="s2">&#34;application/json&#34;</span> <span class="s2">&#34;http://127.0.0.1:8080/api/v1/post&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="wrk">wrk</h4>
+<p><a href="https://github.com/wg/wrk"target="_blank" rel="external nofollow noopener noreferrer">wrk</a>是一款开源的HTTP性能测试工具，它和上面提到的<code>ab</code>同属于HTTP性能测试工具，它比<code>ab</code>功能更加强大，可以通过编写lua脚本来支持更加复杂的测试场景。</p>
+<p>Mac下安装：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install wrk
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>常用命令参数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-c --conections：保持的连接数
+</span></span><span class="line"><span class="cl">-d --duration：压测持续时间<span class="o">(</span>s<span class="o">)</span>
+</span></span><span class="line"><span class="cl">-t --threads：使用的线程总数
+</span></span><span class="line"><span class="cl">-s --script：加载lua脚本
+</span></span><span class="line"><span class="cl">-H --header：在请求头部添加一些参数
+</span></span><span class="line"><span class="cl">--latency 打印详细的延迟统计信息
+</span></span><span class="line"><span class="cl">--timeout 请求的最大超时时间<span class="o">(</span>s<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wrk -t8 -c100 -d30s --latency http://127.0.0.1:8080/api/v1/posts?size<span class="o">=</span><span class="m">10</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Running 30s <span class="nb">test</span> @ http://127.0.0.1:8080/api/v1/posts?size<span class="o">=</span><span class="m">10</span>
+</span></span><span class="line"><span class="cl">  <span class="m">8</span> threads and <span class="m">100</span> connections
+</span></span><span class="line"><span class="cl">  Thread Stats   Avg      Stdev     Max   +/- Stdev
+</span></span><span class="line"><span class="cl">    Latency    14.55ms    2.02ms  31.59ms   76.70%
+</span></span><span class="line"><span class="cl">    Req/Sec   828.16     85.69     0.97k    60.46%
+</span></span><span class="line"><span class="cl">  Latency Distribution
+</span></span><span class="line"><span class="cl">     50%   14.44ms
+</span></span><span class="line"><span class="cl">     75%   15.76ms
+</span></span><span class="line"><span class="cl">     90%   16.63ms
+</span></span><span class="line"><span class="cl">     99%   21.07ms
+</span></span><span class="line"><span class="cl">  <span class="m">198091</span> requests in 30.05s, 29.66MB <span class="nb">read</span>
+</span></span><span class="line"><span class="cl">Requests/sec:   6592.29
+</span></span><span class="line"><span class="cl">Transfer/sec:      0.99MB
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="go-wrk">go-wrk</h4>
+<p><a href="https://github.com/adjust/go-wrk"target="_blank" rel="external nofollow noopener noreferrer">go-wrk</a>是Go语言版本的<code>wrk</code>，Windows同学可以使用它来测试，使用如下命令来安装<code>go-wrk</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go get github.com/adeven/go-wrk
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用方法同<code>wrk</code>类似，基本格式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go-wrk <span class="o">[</span>flags<span class="o">]</span> url
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>常用的参数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-H<span class="o">=</span><span class="s2">&#34;User-Agent: go-wrk 0.1 bechmark\nContent-Type: text/html;&#34;</span>: 由<span class="s1">&#39;\n&#39;</span>分隔的请求头
+</span></span><span class="line"><span class="cl">-c<span class="o">=</span>100: 使用的最大连接数
+</span></span><span class="line"><span class="cl">-k<span class="o">=</span>true: 是否禁用keep-alives
+</span></span><span class="line"><span class="cl">-i<span class="o">=</span>false: <span class="k">if</span> TLS security checks are disabled
+</span></span><span class="line"><span class="cl">-m<span class="o">=</span><span class="s2">&#34;GET&#34;</span>: HTTP请求方法
+</span></span><span class="line"><span class="cl">-n<span class="o">=</span>1000: 请求总数
+</span></span><span class="line"><span class="cl">-t<span class="o">=</span>1: 使用的线程数
+</span></span><span class="line"><span class="cl">-b<span class="o">=</span><span class="s2">&#34;&#34;</span> HTTP请求体
+</span></span><span class="line"><span class="cl">-s<span class="o">=</span><span class="s2">&#34;&#34;</span> 如果指定，它将计算响应中包含搜索到的字符串s的频率
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行测试：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go-wrk -t<span class="o">=</span><span class="m">8</span> -c<span class="o">=</span><span class="m">100</span> -n<span class="o">=</span><span class="m">10000</span> <span class="s2">&#34;http://127.0.0.1:8080/api/v1/posts?size=10&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">==========================</span><span class="nv">BENCHMARK</span><span class="o">==========================</span>
+</span></span><span class="line"><span class="cl">URL:                            http://127.0.0.1:8080/api/v1/posts?size<span class="o">=</span><span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Used Connections:               <span class="m">100</span>
+</span></span><span class="line"><span class="cl">Used Threads:                   <span class="m">8</span>
+</span></span><span class="line"><span class="cl">Total number of calls:          <span class="nv">10000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">===========================</span><span class="nv">TIMINGS</span><span class="o">===========================</span>
+</span></span><span class="line"><span class="cl">Total <span class="nb">time</span> passed:              2.74s
+</span></span><span class="line"><span class="cl">Avg <span class="nb">time</span> per request:           27.11ms
+</span></span><span class="line"><span class="cl">Requests per second:            3644.53
+</span></span><span class="line"><span class="cl">Median <span class="nb">time</span> per request:        26.88ms
+</span></span><span class="line"><span class="cl">99th percentile time:           39.16ms
+</span></span><span class="line"><span class="cl">Slowest <span class="nb">time</span> <span class="k">for</span> request:       45.00ms
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">=============================</span><span class="nv">DATA</span><span class="o">=============================</span>
+</span></span><span class="line"><span class="cl">Total response body sizes:              <span class="m">340000</span>
+</span></span><span class="line"><span class="cl">Avg response body per request:          34.00 Byte
+</span></span><span class="line"><span class="cl">Transfer rate per second:               123914.11 Byte/s <span class="o">(</span>0.12 MByte/s<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">==========================</span><span class="nv">RESPONSES</span><span class="o">==========================</span>
+</span></span><span class="line"><span class="cl">20X Responses:          <span class="m">10000</span>   <span class="o">(</span>100.00%<span class="o">)</span>
+</span></span><span class="line"><span class="cl">30X Responses:          <span class="m">0</span>       <span class="o">(</span>0.00%<span class="o">)</span>
+</span></span><span class="line"><span class="cl">40X Responses:          <span class="m">0</span>       <span class="o">(</span>0.00%<span class="o">)</span>
+</span></span><span class="line"><span class="cl">50X Responses:          <span class="m">0</span>       <span class="o">(</span>0.00%<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Errors:                 <span class="m">0</span>       <span class="o">(</span>0.00%<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
