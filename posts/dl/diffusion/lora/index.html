@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Lora - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
+<meta name="author-link" content="">
+<meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='draft' /><meta itemprop="name" content="Lora">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-29T19:46:55+08:00" />
+<meta itemprop="dateModified" content="2023-06-29T19:46:55+08:00" />
+<meta itemprop="wordCount" content="2343"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="keywords" content="draft," /><meta property="og:title" content="Lora" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lizhe1228.github.io/posts/dl/diffusion/lora/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-29T19:46:55+08:00" />
+<meta property="article:modified_time" content="2023-06-29T19:46:55+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+
+<meta name="twitter:title" content="Lora"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="Lizhe1228">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/diffusion/lora/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/dl/diffusion/controlnet/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Lora",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/lora\/"
+    },"genre": "posts","keywords": "draft","wordcount":  2343 ,
+    "url": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/lora\/","datePublished": "2023-06-29T19:46:55+08:00","dateModified": "2023-06-29T19:46:55+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="I am Lizhe1228" data-alt="I am Lizhe1228" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-desktop" class="typeit"></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/friends/"
+                
+                
+              ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="/nzr-smile.svg" data-alt="/nzr-smile.svg" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-title-mobile" class="typeit"></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/friends/"
+                  
+                  
+                ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">Lora</li>
+    </ol>
+  </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Lora</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      </span></span>
+          <span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2023-06-29 19:46:55"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-29">2023-06-29</time></span>&nbsp;<span title="更新于 2023-06-29 19:46:55"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-06-29">2023-06-29</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2343 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Lora">
+            <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#introduce">Introduce</a></li>
+    <li><a href="#problem-statement">problem statement</a></li>
+    <li><a href="#现有工作">现有工作</a></li>
+    <li><a href="#method">method</a>
+      <ul>
+        <li><a href="#低秩参数化的更新矩阵">低秩参数化的更新矩阵</a></li>
+      </ul>
+    </li>
+    <li><a href="#数学角度">数学角度：</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="The END"><h2 id="abstract">Abstract</h2>
+<p>大模型的预训练，重新训练所有模型参数的完全微调不太可行。Low-Rank Adaptation，即LoRA，它冻结了预先训练好的模型权重，并将可训练的秩解矩阵注入到Transformer架构的每一层，大大减少了下游任务的可训练参数的数量。与用Adam微调的GPT-3 175B相比，LoRA可以将可训练参数的数量减少10,000倍 ，对GPU内存的要求减少3倍 。推理的时间也和原模型保持一致，不会让推理时间边长。我们还对语言模型适配中的rank-deficiency进行了实证调查，这说明了LoRA的功效。</p>
+<h2 id="introduce">Introduce</h2>
+<p>自然语言处理中的许多应用都依赖于将一个大规模的、预先训练好的语言模型适应于多个下游应用。这种适应通常是通过微调完成的，微调会更新预训练模型的所有参数。<strong>微调的主要缺点是，新模型包含的参数与原模型一样多</strong>。随着更大的模型每隔几个月就被训练一次，这对GPT-2（Radford等人，b）或 RoBERTa large（Liu等人，2019）来说仅仅是一个 &ldquo;不便&rdquo;，而对于有着175B参数的GPT-3（Brown等人，2020）来说则是一个关键的挑战。</p>
+<p>许多人试图通过只调整一些参数或为新任务学习外部模块来缓解这一问题。这样，我们只需要在每个任务的预训练模型的基础上，存储和加载少量特定任务的参数，大大提升了部署时的运行效率。然而，现有的技术往往通过扩展模型深度或减少模型的可用序列长度（Li &amp; Liang，2021；Lester等，2021； Ham-bardzumyan等，2020；Liu等，2021）引入推理延迟（Houlsby等，2019；Rebuffi等， 2017）（第3节）。更重要的是，这些方法往往不能与微调基线相匹配，造成了效率和模型质量之间的权衡，很难兼顾。<font color=red>现有的一些微调方法具有局限性，比如推理时间会边长。这些方法的效果也不如全部进行微调好。</font></p>
+<p>我们从Li等人（2018a）；Aghajanyan等人（2020）那里得到启发，他们表明学到的过度参数化模型实际上位于一个低的内在维度上。我们假设模型适应过程中权重的变化也具有较低的&quot;内在秩&quot;，从而导致我们提出的低秩适应（LoRA）方法。LoRA允许我们通过优化密集层在适应过程中的变化的秩分解矩阵来间接地训练神经网络中的一些密集层，而保持预训练的权重冻结，如图1所示。以GPT-3 175B为例，我们表明，即使全秩（即d） 高达12288，一个非常低的秩（即图1中的r可以是1或2）也足够了，这使得LoRA既有存储又有计算效率。<font color=red> 模型学到的知识，不需要那么高的维度去表达，可能很少一部分参数就够了，从矩阵的角度去讲，就是一个低秩的矩阵就能表达出特征，学到这个信息了。</font></p>
+<p><font color=red>在代码中，AB矩阵是可以先乘起来一步完成的，代码的实现是两个全连接层</font></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292006089.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292006089.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292006089.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292006089.png 2x" sizes="auto" data-title="image-20230629200603021" data-alt="image-20230629200603021" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>LoRA拥有几个关键优势。</p>
+<ul>
+<li>一个预先训练好的模型可以被共享，并用于为不同的任务建立许多小的LoRA模块 。我们可以冻结共享模型，并通过替换图1中的矩阵A和B来有效地切换任务，从而大大降低存储需求和任务切换的难度。<font color=red>可以很轻松的切换下游任务，不同的下游任务只需要改变右边矩阵参数，因为左边是冻住的。</font></li>
+<li>LoRA使训练更加有效，在使用自适应优化器时，硬件门槛降低了3倍，因为我们不需要计算梯度或维护大多数参数的优化器状态。相反，我们只优化注入的、小得多的低秩矩阵。</li>
+<li>我们简单的线性设计允许我们在部署时将可训练矩阵与冻结权重合并，与完全微调的模型相比，在结构上没有引入推理延迟。</li>
+<li>LoRA与许多先前的方法是正交的，并且可以与许多方法相结合，例如前缀调整。 我们在附录E中提供了一个例子。</li>
+</ul>
+<h2 id="problem-statement">problem statement</h2>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292021126.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292021126.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292021126.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292021126.png 2x" sizes="auto" data-title="image-20230629202121009" data-alt="image-20230629202121009" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="现有工作">现有工作</h2>
+<ol>
+<li>
+<p>adding adapter layer</p>
+<p>会造成inference latency</p>
+</li>
+<li>
+<p>optimize input activation</p>
+<p>很难。会reduce sequence length</p>
+</li>
+</ol>
+<h2 id="method">method</h2>
+<h3 id="低秩参数化的更新矩阵">低秩参数化的更新矩阵</h3>
+<p>矩阵的低秩分解</p>
+<p>A的初始化是随机的高斯，B是零。好处和controlNet一样，在网络刚开始训练之前，让输出和源网络保持一致。</p>
+<p>完全微调的一般化：就是说比如我的r很大，那么就是完全微调了。</p>
+<p>没有额外的推理延迟：计算的时候W0先加上BA，最后再乘x。那么和原来的W0乘x没有区别。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292035812.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292035812.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292035812.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292035812.png 2x" sizes="auto" data-title="image-20230629203532704" data-alt="image-20230629203532704" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>其他层也做了试验，用于transform层最有效。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292036290.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292036290.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292036290.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292036290.png 2x" sizes="auto" data-title="image-20230629203640195" data-alt="image-20230629203640195" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<hr>
+<p>大语言模型的一种低秩的调节方法，做微调是为了适应下游任务</p>
+<p>为了适配不同的下游任务，训练模型。lora是一个fine-tune的分支，只是他的这个规模要小很多。即使说是有prompt去提示，模型还是需要去训练，要不还是学不到内容。</p>
+<p>实现细节</p>
+<ol>
+<li>adaptor 是小的</li>
+<li>pretrained model是大的</li>
+<li>冻结预训练模型权重</li>
+<li>在transform中self-attention的每个layer上注入可学习的低秩的矩阵</li>
+</ol>
+<p>基本思想：</p>
+<ol>
+<li>transformer中self attention 的Wq、Wk、Wv、Wo（是多头里面的）是可学习的矩阵，将他们记为Φ</li>
+<li>如果全部参数都进行微调的话，每次Φ+ΔΦ，每一个下游任务都需要学习ΔΦ，规模是|Φ|</li>
+<li>而LORA 将ΔΦ编码，为ΔΦ=ΔΦ(Θ)，参数Θ规模更小，编码的方式是低秩的表示。</li>
+</ol>
+<p><code>ΔW=BA</code>  W0冻结住不接受梯度的更新，AB是可学习的矩阵。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292119148.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292119148.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292119148.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292119148.png 2x" sizes="auto" data-title="image-20230629211929088" data-alt="image-20230629211929088" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>经典的finetune过程</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292125791.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292125791.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292125791.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292125791.png 2x" sizes="auto" data-title="image-20230629212507707" data-alt="image-20230629212507707" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>LORA，左侧灰色的W是冻结住的。</p>
+<p>d^2  &mdash;-&gt;  2dr</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292125453.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292125453.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292125453.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292125453.png 2x" sizes="auto" data-title="image-20230629212555404" data-alt="image-20230629212555404" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292128387.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292128387.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292128387.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292128387.png 2x" sizes="auto" data-title="image-20230629212801319" data-alt="image-20230629212801319" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>r是一个超参，需要平衡模型的复杂能力，适应下游任务的能力和过拟合、欠拟合。显然，如果r更小，学习的参数量就越小，训练更快，减少计算硬件的要求，但是他捕捉下游任务相关的信息的能力也随之变小。</p>
+<p>对A使用随机高斯初始化(uniform)，对B使用零初始化</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292134671.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292134671.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292134671.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292134671.png 2x" sizes="auto" data-title="image-20230629213420609" data-alt="image-20230629213420609" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292135026.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292135026.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292135026.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292135026.png 2x" sizes="auto" data-title="image-20230629213526952" data-alt="image-20230629213526952" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292135991.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292135991.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292135991.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292135991.png 2x" sizes="auto" data-title="image-20230629213537916" data-alt="image-20230629213537916" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="数学角度">数学角度：</h2>
+<p>3个问题探究LORA的本质</p>
+<ol>
+<li>固定参数量大小，如何把我的参数分配到我需要微调的模块上去 ？</li>
+<li>rank选多少合适？</li>
+<li>ΔW和W的关系?</li>
+</ol>
+<p>固定参数量大小，如何把我的参数分配到我需要微调的模块上去 ？给不同的矩阵加LORA，设的r值不一样，这样保证总参数量是一致的。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292235258.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292235258.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292235258.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292235258.png 2x" sizes="auto" data-title="image-20230629223512188" data-alt="image-20230629223512188" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>r选多少</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292237818.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292237818.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292237818.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202306292237818.png 2x" sizes="auto" data-title="image-20230629223726767" data-alt="image-20230629223726767" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>r取不同值的时候</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-06-29 19:46:55">更新于 2023-06-29&nbsp;</span>
+      </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/lora/" data-title="Lora" data-hashtags="draft"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/lora/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/lora/" data-title="Lora" data-ralateuid="6314435573"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/dl/diffusion/controlnet/" class="post-nav-item" rel="prev" title="Controlnet"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Controlnet</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric">0%</span>
+        </div></div><a href="https://github.com/Lizhe1228" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/black/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":20},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"typeit-header-desktop":"Lizhe1228's blog","typeit-header-title-mobile":"Lizhe1228's blog"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"},"siteTime":"2023-05-21","typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"typeit-header-desktop":["typeit-header-desktop"],"typeit-header-title-mobile":["typeit-header-title-mobile"]},"duration":-1,"loop":false,"speed":100}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
