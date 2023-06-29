@@ -13,6 +13,14 @@
   <description><![CDATA[]]></description>
 </item>
 <item>
+  <title>Go Exercises(Day41-50)</title>
+  <link>http://Lizhe1228.github.io/posts/go/day41-50/</link>
+  <pubDate>Mon, 19 Jun 2023 10:06:56 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/day41-50/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Go Exercises(Day21-30)</title>
   <link>http://Lizhe1228.github.io/posts/go/day21-30/</link>
   <pubDate>Thu, 08 Jun 2023 10:40:55 &#43;0800</pubDate>
@@ -75,18 +83,6 @@
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/go/day1-10/</guid>
   <description><![CDATA[<p>题目来源于 <a href="https://www.topgoer.cn/docs/gomianshiti/mianshiti"target="_blank" rel="external nofollow noopener noreferrer">https://www.topgoer.cn/docs/gomianshiti/mianshiti</a></p>]]></description>
-</item>
-<item>
-  <title>Gin入门</title>
-  <link>http://Lizhe1228.github.io/posts/gin/gin01/</link>
-  <pubDate>Sun, 21 May 2023 21:05:56 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/gin/gin01/</guid>
-  <description><![CDATA[<p>学习链接：</p>
-<p><a href="https://learnku.com/articles/69259"target="_blank" rel="external nofollow noopener noreferrer">https://learnku.com/articles/69259</a></p>
-<p><a href="https://www.liwenzhou.com/posts/Go/gin/"target="_blank" rel="external nofollow noopener noreferrer">https://www.liwenzhou.com/posts/Go/gin/</a></p>
-<p><a href="https://gin-gonic.com/zh-cn/docs/"target="_blank" rel="external nofollow noopener noreferrer">https://gin-gonic.com/zh-cn/docs/</a></p>
-<p><a href="https://github.com/gin-gonic/gin"target="_blank" rel="external nofollow noopener noreferrer">Gin</a>是一个用Go语言编写的web框架。它是一个类似于<code>martini</code>但拥有更好性能的API框架, 由于使用了<code>httprouter</code>，速度提高了近40倍。<code>Gin</code>是Go世界里最流行的Web框架，<a href="https://github.com/gin-gonic/gin"target="_blank" rel="external nofollow noopener noreferrer">Github</a>上有<code>68K+</code>star。 基于<a href="https://github.com/julienschmidt/httprouter"target="_blank" rel="external nofollow noopener noreferrer">httprouter</a>开发的Web框架。 <a href="https://gin-gonic.com/zh-cn/docs/"target="_blank" rel="external nofollow noopener noreferrer">中文文档</a>齐全，简单易用的轻量级框架</p>]]></description>
 </item>
 </channel>
 </rss>
