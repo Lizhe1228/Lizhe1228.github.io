@@ -4,7 +4,15 @@
     <link>http://Lizhe1228.github.io/posts/</link>
     <description>所有文章 | I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sun, 02 Jul 2023 10:58:25 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sun, 02 Jul 2023 14:40:22 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Lecture01</title>
+  <link>http://Lizhe1228.github.io/posts/6824/01/</link>
+  <pubDate>Sun, 02 Jul 2023 14:40:22 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/6824/01/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Day01</title>
   <link>http://Lizhe1228.github.io/posts/rpc_protobuf/day01/</link>
   <pubDate>Sun, 02 Jul 2023 10:58:25 &#43;0800</pubDate>
@@ -75,15 +83,6 @@
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/papers/mine/</guid>
   <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>DiffAttack</title>
-  <link>http://Lizhe1228.github.io/posts/papers/0619-1/</link>
-  <pubDate>Mon, 19 Jun 2023 18:50:23 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/papers/0619-1/</guid>
-  <description><![CDATA[<p>Diffusion Models for Imperceptible and Transferable Adversarial Attack</p>
-<p>不可感知和可转移对抗性攻击的扩散模型</p>]]></description>
 </item>
 </channel>
 </rss>
