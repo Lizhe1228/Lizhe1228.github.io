@@ -4,9 +4,17 @@
     <link>http://Lizhe1228.github.io/</link>
     <description>一个东北不知名211研究生的个人博客，分享记录笔记</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sun, 02 Jul 2023 14:40:22 &#43;0800</lastBuildDate>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Mon, 03 Jul 2023 20:52:16 &#43;0800</lastBuildDate>
       <atom:link href="http://Lizhe1228.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>DiffusionFinetune</title>
+  <link>http://Lizhe1228.github.io/posts/dl/diffusion/finetune/</link>
+  <pubDate>Mon, 03 Jul 2023 20:52:16 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/dl/diffusion/finetune/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Lecture01</title>
   <link>http://Lizhe1228.github.io/posts/6824/01/</link>
   <pubDate>Sun, 02 Jul 2023 14:40:22 &#43;0800</pubDate>
@@ -76,14 +84,6 @@
   <pubDate>Tue, 20 Jun 2023 21:00:50 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/dl/transformer/self_attention/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Mine</title>
-  <link>http://Lizhe1228.github.io/posts/papers/mine/</link>
-  <pubDate>Mon, 19 Jun 2023 19:09:39 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/papers/mine/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
