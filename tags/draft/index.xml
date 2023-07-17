@@ -4,7 +4,31 @@
     <link>http://Lizhe1228.github.io/tags/draft/</link>
     <description>draft - 标签 - I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Mon, 03 Jul 2023 20:52:16 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/draft/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sat, 15 Jul 2023 10:18:38 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/tags/draft/" rel="self" type="application/rss+xml" /><item>
+  <title>Low Level</title>
+  <link>http://Lizhe1228.github.io/posts/dl/diffusion/low-level/</link>
+  <pubDate>Sat, 15 Jul 2023 10:18:38 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/dl/diffusion/low-level/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>CVPR2023</title>
+  <link>http://Lizhe1228.github.io/posts/cvpr2023/01/</link>
+  <pubDate>Sat, 15 Jul 2023 09:40:48 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/cvpr2023/01/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Limu</title>
+  <link>http://Lizhe1228.github.io/posts/dl/diffusion/limu/</link>
+  <pubDate>Tue, 04 Jul 2023 20:23:38 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/dl/diffusion/limu/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>DiffusionFinetune</title>
   <link>http://Lizhe1228.github.io/posts/dl/diffusion/finetune/</link>
   <pubDate>Mon, 03 Jul 2023 20:52:16 &#43;0800</pubDate>
@@ -58,14 +82,6 @@
   <pubDate>Mon, 26 Jun 2023 17:39:17 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/dl/diffusion/sd/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Mine</title>
-  <link>http://Lizhe1228.github.io/posts/papers/mine/</link>
-  <pubDate>Mon, 19 Jun 2023 19:09:39 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/papers/mine/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
