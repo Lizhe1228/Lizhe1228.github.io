@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Dreambooth - I am Lizhe1228</title><meta name="author" content="Lizhe1228">
+<meta name="author-link" content="">
+<meta name="description" content="DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation
+DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
+环境和主题，让主题更好的融入环境之中。" /><meta name="keywords" content='draft' /><meta itemprop="name" content="Dreambooth">
+<meta itemprop="description" content="DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation
+DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
+环境和主题，让主题更好的融入环境之中。"><meta itemprop="datePublished" content="2023-07-24T09:56:00+08:00" />
+<meta itemprop="dateModified" content="2023-07-24T09:56:00+08:00" />
+<meta itemprop="wordCount" content="10535"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="keywords" content="draft," /><meta property="og:title" content="Dreambooth" />
+<meta property="og:description" content="DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation
+DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
+环境和主题，让主题更好的融入环境之中。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-24T09:56:00+08:00" />
+<meta property="article:modified_time" content="2023-07-24T09:56:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+
+<meta name="twitter:title" content="Dreambooth"/>
+<meta name="twitter:description" content="DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation
+DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
+环境和主题，让主题更好的融入环境之中。"/>
+<meta name="application-name" content="Lizhe1228">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/go/day61-70/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Dreambooth",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/dreambooth\/"
+    },"genre": "posts","keywords": "draft","wordcount":  10535 ,
+    "url": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/dreambooth\/","datePublished": "2023-07-24T09:56:00+08:00","dateModified": "2023-07-24T09:56:00+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="I am Lizhe1228" data-alt="I am Lizhe1228" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-desktop" class="typeit"></span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/friends/"
+                
+                
+              ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="I am Lizhe1228"><img loading="lazy" src="/nzr-smile.svg" srcset="/nzr-smile.svg, /nzr-smile.svg 1.5x, /nzr-smile.svg 2x" sizes="auto" data-title="/nzr-smile.svg" data-alt="/nzr-smile.svg" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span id="typeit-header-title-mobile" class="typeit"></span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                ><i class="fa-solid fa-home fa-fw fa-sm" aria-hidden="true"></i> 首页</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                ><i class="fa-solid fa-address-card fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/friends/"
+                  
+                  
+                ><i class="fa-solid fa-users fa-fw fa-sm" aria-hidden="true"></i> 友链</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="/" title="I am Lizhe1228">主页</a></li><li class="breadcrumb-item"><a href="/posts/" title="Posts">Posts</a></li><li class="breadcrumb-item active" aria-current="page">Dreambooth</li>
+    </ol>
+  </nav><main class="container container-reverse"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Dreambooth</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      </span></span>
+          <span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2023-07-24 09:56:00"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-24">2023-07-24</time></span>&nbsp;<span title="更新于 2023-07-24 09:56:00"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-24">2023-07-24</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 10535 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 22 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Dreambooth">
+            <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstracrt">Abstracrt</a></li>
+    <li><a href="#1introduction">1.Introduction</a></li>
+    <li><a href="#2related-work">2.Related work</a>
+      <ul>
+        <li><a href="#image-composition">Image Composition</a></li>
+        <li><a href="#text-to-image-editing-and-synthesis">Text-to-Image Editing and Synthesis</a></li>
+        <li><a href="#controllable-generative-models">Controllable Generative Models</a></li>
+      </ul>
+    </li>
+    <li><a href="#3method">3.Method</a>
+      <ul>
+        <li><a href="#31-text-to-image-diffusion-models">3.1. Text-to-Image Diffusion Models</a></li>
+        <li><a href="#32-personalization-of-text-to-image-models">3.2. Personalization of Text-to-Image Models</a>
+          <ul>
+            <li><a href="#designing-prompts-for-few-shot-personalization">Designing Prompts for Few-Shot Personalization</a></li>
+            <li><a href="#rare-token-identifiers">Rare-token Identifiers</a></li>
+          </ul>
+        </li>
+        <li><a href="#33-class-specific-prior-preservation-loss">3.3. Class-specific Prior Preservation Loss</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-experiments">4. Experiments</a>
+      <ul>
+        <li><a href="#41-dataset-and-evaluation">4.1. Dataset and Evaluation</a>
+          <ul>
+            <li><a href="#dataset">Dataset</a></li>
+            <li><a href="#evaluation-metrics">Evaluation Metrics</a></li>
+          </ul>
+        </li>
+        <li><a href="#42-comparisons">4.2. Comparisons</a></li>
+        <li><a href="#43-ablation-studies">4.3. Ablation Studies</a>
+          <ul>
+            <li><a href="#prior-preservation-loss-ablation">Prior Preservation Loss Ablation</a></li>
+            <li><a href="#class-prior-ablation">Class-Prior Ablation</a></li>
+          </ul>
+        </li>
+        <li><a href="#44-applications">4.4. Applications</a>
+          <ul>
+            <li><a href="#recontextualization">Recontextualization</a></li>
+            <li><a href="#art-renditions">Art Renditions</a></li>
+            <li><a href="#novel-view-synthesis">Novel View Synthesis</a></li>
+            <li><a href="#property-modification">Property Modification</a></li>
+          </ul>
+        </li>
+        <li><a href="#45-limitations">4.5. Limitations</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-conclusions">5. Conclusions</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content" data-end-flag="The END"><p>DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation</p>
+<p>DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成</p>
+<p>环境和主题，让主题更好的融入环境之中。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241009213.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241009213.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241009213.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241009213.png 2x" sizes="auto" data-title="image-20230724100856382" data-alt="image-20230724100856382" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>dreambooth——我们的 AI-powered photo booth——只需要几张主题的图片(通常是3-5张)(左图)，就可以在文本提示的引导下，在不同的背景下(右图)生成大量特定主题的图片。结果展示了与环境的自然相互作用，以及新颖的衔接和照明条件的变化，同时保持了对主体关键视觉特征的高保真度。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252148715.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252148715.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252148715.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252148715.png 2x" sizes="auto" data-title="image-20230725214851660" data-alt="image-20230725214851660" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>dreambooth的核心是用一个唯一标识符将用户想要的输入主体编码进输出域，并且在编码的过程中要避免overfitting和language drift，在推理时，当输入唯一标识符时，扩散模型就会去输出域的键值对中找出之前的主体。在操作中，同时对带有标识符的text和不带标识符的text进行finetune，主要是对text侧的编码能力的一次微调。</p>
+<h2 id="abstracrt">Abstracrt</h2>
+<p>大型文本到图像模型在人工智能的发展中实现了显著的飞跃，从给定的文本提示中实现了高质量和多样化的图像合成。<strong>然而，这些模型缺乏模仿给定参考集中subject的外观和在不同上下文中合成新图片的能力</strong>。在这项工作中，我们提出了一种新的文本到图像扩散模型的“个性化”方法。给定一个主题的几张图像作为输入，我们对预训练的文本到图像模型进行微调，使其学会将唯一标识符identifier与特定subject绑定。一旦subject嵌入到模型的输出域中，就可以使用唯一标识符合成在不同场景中背景化的主题的新颖逼真图像。通过利用嵌入在模型中的语义先验和新的autogenous class-specific prior preservation loss（自生类特定先验保存损失），我们的技术能够综合参考图像中未出现的不同场景、姿势、视图和光照条件下的主体。我们将我们的技术应用于几个以前无坚不摧的任务，包括subject重新语境化，文本引导视图合成和艺术渲染，都能保留subject的关键特征。我们还为subject驱动生成的新任务提供了新的数据集和评估协议。</p>
+<h2 id="1introduction">1.Introduction</h2>
+<p>你能想象自己的狗在世界各地旅行，或者你最喜欢的包在巴黎最高档的陈列室展出吗?你的鹦鹉成为一本插图故事书的主角怎么样?渲染这样的虚构场景是一项具有挑战性的任务，需要在新的环境中合成特定主题(例如，对象，动物)的实例，以便它们自然无缝地融入场景。</p>
+<p>最近开发的大型文本到图像模型显示出前所未有的能力，通过基于以自然语言编写的文本提示实现高质量和多样化的图像合成[51,58]。这种模型的主要优点之一是从大量图像标题对中学习到的强语义先验。例如，这样的先验学习将“狗”这个词与可以在图像中以不同姿势和上下文出现的狗的各种实例绑定在一起。<strong>虽然这些模型的综合能力是前所未有的，但它们缺乏模仿给定参考集中主题外观的能力，以及在不同上下文中合成相同主题的新表现的能力</strong>。<strong>主要原因是其输出域的表达性有限；即使是对一个物体最详细的文字描述也可能产生具有不同外观的实例。</strong><font color=red>（我的理解是，prompt的描述 描述不明白）</font>此外，即使是文本嵌入在共享语言视觉空间中的模型[50]也不能准确地重建给定主题的外观，而只能创建图像内容的变体(图2)。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241042670.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241042670.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241042670.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241042670.png 2x" sizes="auto" data-title="image-20230724104214546" data-alt="image-20230724104214546" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>图2：Subject-driven 生成。给定一个特定的时钟(左)，很难在保持其关键视觉特征的高保真度的情况下生成它(第二列和第三列显示DALLE2[51]图像引导生成和Imagen[58]文本引导生成;用于Imagen的文本提示:“复古风格的黄色闹钟，时钟面为白色，时钟面右侧为黄色数字3，位于丛林中”)retro style yellow alarm
+clock with a white clock face and a yellow number three on the
+right part of the clock face in the jungle。我们的方法(右)可以在新的环境中以高保真度合成时钟(文本提示:“丛林中的一个[V]时钟”a [V] clock in the jungle)。</p>
+<p>在这项工作中，我们提出了一种“个性化”文本到图像扩散模型的新方法(使其适应用户特定的图像生成需求)。我们的目标是<strong>扩展模型的语言视觉词典</strong>，<strong>这样它就可以将新单词与用户想要生成的特定主题绑定在一起。一旦新字典被嵌入到模型中，它就可以使用这些单词合成新的逼真的主题图像，将其置于不同的场景中，同时保留其关键的识别特征。<strong>这种效果类似于一个“神奇的照相亭”——一旦拍摄了几张被摄者的照片，在</strong>简单直观</strong>的文字提示的引导下，照相亭就会生成被摄者在不同条件和场景下的照片(图1)。</p>
+<p>更正式地说，给定主题的一些图像(3到5张)，<strong>我们的目标是将主题植入模型的输出域</strong>，以便它可以用唯一标识符unique identifier合成。为此，我们提出了一种技术，用<strong>罕见的令牌</strong>标识符来表示给定的主题，并对预训练的、基于扩散的文本到图像框架进行微调。To that end, we propose a technique to represent a given subject with <strong>rare token identifiers</strong> and <strong>fine-tune</strong> a pre-trained, diffusion-based text-to-image framework.</p>
+<p>我们对文本到图像模型进行微调，输入图像和文本提示包含一个唯一标识符和主题的类名(例如，“a [V] dog”)。后者使模型能够使用其关于主题类的先验知识，而特定于类的实例则与唯一标识符绑定。为了防止<strong>语言漂移</strong>[32,38]导致模型将类名(例如“dog”)与特定实例相关联，我们提出了一种自生的、特定于类的先验保存损失autogenous, class-specific prior preservation loss，它利用嵌入在模型中的类的语义先验，并鼓励它生成与我们的主题相同的类的不同实例。</p>
+<p>我们将我们的方法应用于无数基于文本的图像生成应用程序，包括主题的重新语境化，修改其属性，原始艺术再现等等，为以前无懈可击的任务的新流铺平了道路。我们通过消融研究强调了我们方法中每个组成部分的贡献，并与其他基线和相关工作进行了比较。与其他方法相比，我们还进行了一项用户研究，以评估我们合成图像中的主题和提示保真度。</p>
+<p>据我们所知，我们的技术是第一个解决主题驱动生成这一新的挑战问题的技术，允许用户从一些随意捕获的主题图像中，在不同的背景下合成主题的新版本，同时保持其独特的特征。</p>
+<p>为了评估这个新任务，我们还构建了一个新的数据集，包含了在不同环境中捕获的各种subject，并提出了一种新的评估方案，测量生成结果的subject保真度和prompt保真度。</p>
+<h2 id="2related-work">2.Related work</h2>
+<h3 id="image-composition">Image Composition</h3>
+<p>图像合成技术[13,36,67]旨在将给定的主体克隆到新的背景中，从而使主体融入场景。为了考虑新姿势的构图，人们可以应用3D重建技术[6,8,39,47,65]，这些技术通常适用于刚性物体，需要更多的视图。一些缺点包括场景集成(照明，阴影，接触)和无法生成新的场景。相比之下，我们的方法能够在新姿势和新环境中生成主体。</p>
+<h3 id="text-to-image-editing-and-synthesis">Text-to-Image Editing and Synthesis</h3>
+<p>文本驱动的图像处理最近取得了重大进展，使用gan[9,22,27 - 29]结合图像-文本表示，如CLIP[50]，产生使用文本的逼真操作[2,7,21,41,46,68]。这些方法在结构化场景中（例如人脸编辑）工作得很好，但是在不同的主题不同的数据集中应用起来有一点困难。Crowson等人[14]使用VQ-GAN[18]并在更多样化的数据上进行训练来缓解这种担忧。其他工作[4,30]利用了最近的扩散模型[25,25,43,55,57,59 - 63]，这些模型在高度多样化的数据集上实现了最先进的生成质量，通常超过了gan[15]。虽然大多数只需要文本的工作仅限于全局编辑[14,31]，但Bar-Tal等[5]提出了一种不使用maks的基于文本的局部编辑技术，结果令人印象深刻。虽然这些编辑方法中的大多数都允许修改给定图像的全局属性或本地编辑，但没有一种方法能够<strong>在新的上下文中</strong>生成给定主题的新版本。</p>
+<p>也有关于文本到图像合成的研究[14,16,19,24,26,33,34,48,49,52,55,64,71]。最近的大型文本到图像模型，如Imagen[58]、DALL-E2[51]、Parti[69]、CogView2[17]和Stable Diffusion[55]展示了前所未有的语义生成。<strong>这些模型不提供对生成的图像的细粒度控制，并且只使用文本引导。具体来说，在合成图像中始终保持subject的特点是具有挑战性或不可能的。</strong></p>
+<h3 id="controllable-generative-models">Controllable Generative Models</h3>
+<p>有各种各样的方法来控制生成模型，其中一些可能被证明是主题驱动、提示引导图像合成的可行方向。Liu等人[37]提出了一种基于扩散的技术，允许在参考图像或文本的指导下进行图像变化。为了克服主题修改，一些工作[3,42]通过用户提供的掩码来限制修改的区域。Inversion[12,15,51]可用于在修改上下文的同时保留主题。Prompt-to-prompt[23]允许在没有输入掩码的情况下进行局部和全局编辑。这些方法不能保证subject的新样本生成的特点。</p>
+<p>在GAN的背景下，Pivotal Tuning[54]允许通过使用inverted latent code anchor（倒置的潜在代码锚）来微调模型来进行真实的图像编辑，Nitzan等人[44]将这项工作扩展到人脸上的GAN微调以训练个性化先验，<strong>这需要大约100张图像，并且仅限于人脸域</strong>。Casanova等人[11]提出了一种实例条件GAN，它可以生成实例的变体，<strong>尽管它可以处理唯一的主题，并且不能保留所有主题的细节</strong>。</p>
+<p>最后，Gal等人[20]的并行工作提出了一种方法，通过固定文本到图像模型的嵌入空间中的新标记来表示视觉概念，如对象或风格，从而产生小型个性化标记嵌入。<strong>虽然这种方法受到冻结扩散模型的表现力的限制，但我们的微调方法使我们能够将subject嵌入模型的输出域中，从而生成subject的新图像，并保留其关键视觉特征。</strong></p>
+<h2 id="3method">3.Method</h2>
+<p>给定只有<strong>少数</strong>(通常3-5)随意捕获的特定subject的图像，<strong>没有任何文本描述</strong>，<strong>我们的目标是生成具有高细节保真度的主题的新图像，并由文本提示引导变化</strong>。这种变化如包括更改主体位置、更改主体属性(如颜色或形状)、修改主体的姿势、视点和其他语义修改。我们不会对输入图像捕获设置施加任何限制（随意捕获），并且主题图像可以具有不同的上下文。接下来，我们提供了一些关于文本-图像扩散模型的背景知识(第3.1节)，然后介绍了我们的微调技术，将唯一标识符与少数图像中描述的主题绑定在一起(第3.2节)，最后提出了一个<strong>class-specific prior-preservation loss特定于类别</strong>的<strong>先验保存</strong>损失，使我们能够克服我们微调模型中的语义漂移(第3.3节)。</p>
+<h3 id="31-text-to-image-diffusion-models">3.1. Text-to-Image Diffusion Models</h3>
+<p>扩散模型是一种概率生成模型，通过对从高斯分布中采样的变量进行逐渐去噪来学习数据分布。具体来说，我们对预训练的文本到图像扩散模型(xθ)感兴趣，该模型给定初始噪声映射λ ~ N (0, I)和使用文本编码器Γ和文本提示符P生成的条件向量c = Γ(P)，生成图像xgen = φ xθ(λ， c)。它们使用平方误差损失进行训练以去噪变噪图像或潜在代码zt:= αtx + σ t，如下所示：</p>
+<p><font color=red>这里loss没有明白</font></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307251631297.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307251631297.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307251631297.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307251631297.png 2x" sizes="auto" data-title="image-20230725163123168" data-alt="image-20230725163123168" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>其中x是真实图像，c是条件向量(例如，从文本提示符获得)，αt， σt, wt是控制noise schedule和sample quality的项，和扩散过程时间t ~ U([0,1])的函数。在补充材料中给出了更详细的描述。</p>
+<h3 id="32-personalization-of-text-to-image-models">3.2. Personalization of Text-to-Image Models</h3>
+<p><strong>我们的第一个任务是将subject实例植入到模型的输出域中，这样我们就可以在模型中查询主题的各种新图像。<strong>一个自然的想法是使用主体的few-shot数据集来微调模型。在微调生成模型(如GANs)时，必须非常小心，因为它</strong>可能导致过拟合和模型崩溃</strong>，以及不能很好地捕获目标分布。已经有一些技术研究可以避免这些陷阱[35,40,45,53,66]，尽管与我们的工作相反，这方面的工作主要是寻求生成与目标分布相似但不需要主体保存的图像。关于这些陷阱，我们观察到一个奇特的发现，给予一个仔细的微调设置通过使用公式1中的扩散损失，大型文本到图像的扩散模型似乎擅长于将新信息整合到他们的领域，而不会忘记先验或过度拟合到一小组训练图像。</p>
+<h4 id="designing-prompts-for-few-shot-personalization">Designing Prompts for Few-Shot Personalization</h4>
+<p>为few-shot个性化设计提示。</p>
+<p>我们的目标是在扩散模型的“字典”中“植入”一个新的(unique identifier，subject)对。为了<strong>绕过为给定图像集编写详细图像描述的开销</strong>，我们选择了一种更简单的方法，并将主题的所有输入图像标记为“一个a [identifier] [class noun]”，其中[identifier]是链接到主题的唯一标识符，[类名词]是主题的粗略类描述符(例如猫，狗，手表等)。class noun可以由用户提供，也可以使用分类器获得。**我们在句子中使用class noun是为了将类的先验性与我们唯一的主题联系起来，并发现使用错误的类描述符或没有类描述符会增加训练时间和语言漂移，同时降低性能。**从本质上讲，我们寻求利用特定类的模型的先验，并将其与我们主题的唯一标识符的嵌入纠缠在一起，这样我们就可以利用视觉先验来生成不同背景下主题的新姿势和新样子。</p>
+<h4 id="rare-token-identifiers">Rare-token Identifiers</h4>
+<p>Rare-token标识符。</p>
+<p>我们通常发现现有的英语单词(例如“unique”，“special”)不是最优的，因为模型必须学会将它们从原始含义中解脱出来，并重新纠缠它们以引用我们的主题。<font color=red>就是说我这里的唯一标识符必须没有什么异议，举个极端的例子说，如果这里是yellow，他本来就有自己的语义了，我们不想这样。</font>这激发了对在语言模型和扩散模型中都具有弱先验的标识符的需求。这样做的一个危险的方法（就是说下面这个方法是不可取的）是在英语语言中选择随机字符并将它们连接起来以生成一个罕见的标识符(例如“xxy5syt00”)。实际上，标记器可能会单独标记每个字母，扩散模型的先验对这些字母是强的。<strong>我们经常发现这些标记会产生与使用普通英语单词相似的弱点</strong>。<strong>我们的方法是在词汇表中找到罕见的标记，然后将这些标记倒转到文本空间中，以最小化具有强先验的标识符的概率</strong>。我们在词汇表中对rare-token查找，并获得 rare token序列f(V)，其中f是tokenizer；一个将字符序列character sequences映射到tokens的函数，V是从标记f(V)中得到解码后的文本。序列长度为k，并且发现k ={1，…， 3}工作得很好。然后，通过使用f(V)上的去标记器反转词汇表，我们获得了定义唯一标识符V的字符序列。对于Imagen，我们发现对对应于3个或更少的Unicode字符(不含空格)的标记进行统一随机抽样，并使用T5-XXL标记器范围内的标{5000，…， 10000}效果很好。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252047931.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252047931.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252047931.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252047931.png 2x" sizes="auto" data-title="image-20230725204739829" data-alt="image-20230725204739829" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>Fine-tuning. Given ∼ 3−5 images of a subject we finetune a text-to-image diffusion model with the input images paired with a text prompt containing a unique identifier and the name of the class the subject belongs to (e.g., “A [V] dog”), in parallel, we apply a class-specific prior preservation loss, which leverages the semantic prior that the model has on the class and encourages it to generate diverse instances belong to the subject’s class using the class name in a text prompt (e.g., “A dog”).</p>
+<h3 id="33-class-specific-prior-preservation-loss">3.3. Class-specific Prior Preservation Loss</h3>
+<p>根据我们的经验，通过<strong>微调模型的所有层</strong>能获得最大主体保真度的最佳结果。这包括以文本嵌入为条件的微调层，这导致了语义漂移Language drift的问题。语言漂移一直是语言模型中观察到的一个问题[32,38]，语义漂移是说模型在大型文本语料库上进行预训练，然后针对特定任务进行微调，逐渐失去语言的语法和语义知识。据我们所知，我们是第一个发现影响扩散模型的类似现象的人，在扩散模型中，模型慢慢地忘记了如何生成与目标主体相同类别的主体。（就比如我们这个任务中，训练他生成黄色的闹钟，如果你再让他生成一个闹钟，他就不会生成闹钟了。所有语义信息都集中到了V上。）</p>
+<p>另一个问题是产出多样性降低的可能性。文本到图像扩散模型具有大量的输出多样性。当对一小部分图像进行微调时，我们希望能够以新颖的视角，姿势和清晰度生成主题。因此，有一个风险是，减少了多样性，在拍摄对象的输出姿势和视角中存在减少可变性的风险(例如，捕捉到少数镜头的视角)。我们观察到，这种情况经常发生，特别是当模型训练时间过长时。</p>
+<p>为了缓解上述两个问题，我们提出了一种autogenous class-specific prior preservation loss ，以鼓励多样性并防止语言漂移。从本质上讲，我们的方法是用自己生成的样本来监督模型，以便在几次微调开始后保持先验。这使它能够生成类先验的不同图像，并保留关于类先验的知识，<strong>它可以将这些知识与关于主题实例的知识结合使用</strong>。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252106409.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252106409.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252106409.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252106409.png 2x" sizes="auto" data-title="image-20230725210613357" data-alt="image-20230725210613357" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>其中第二项是先验保存项，它用自己生成的图像监督模型，λ控制这一项的相对权重。图3演示了使用类生成的样本和先验保存损失进行的模型微调。尽管很简单，但我们发现这种先验保存损失在鼓励输出多样性和克服语言漂移方面是有效的。我们还发现，我们可以训练模型进行更多的迭代，而不会有过拟合的风险。我们发现，对于Imagen [58]， λ = 1，学习率为10−5，对于Stable Diffusion[56]，学习率为5 × 10−6，并且使用3-5张图像的主题数据集大小足以获得良好的结果。<font color=red>这是什么意思</font><strong>在此过程中，生成约1000个“a[类名词]”样本-但可以使用的更少</strong>。Imagen的TPUv4训练过程大约需要5分钟，NVIDIA A100的稳定扩散训练过程大约需要5分钟。</p>
+<h2 id="4-experiments">4. Experiments</h2>
+<p>在本节中，我们将展示实验和应用程序。我们的方法能够对我们的主题实例进行大量的文本引导语义修改，包括重新语境化、主题属性(如材料和物种)的修改、艺术再现和观点修改。重要的是，在所有这些修改中，<strong>我们能够保留赋予主题身份和本质的独特视觉特征</strong>。如果任务是重新语境化，那么主题特征是不变的，但外观(例如，姿势)可能会改变。如果任务是一个更强的语义修饰，例如我们的主语和另一个物种/对象之间的交叉，那么主语的关键特征在修饰后被保留。在本节中，我们使用[V]引用主体的唯一标识符。我们在素材中包含了具体的Imagen和Stable Diffusion实现细节。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252135901.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252135901.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252135901.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252135901.png 2x" sizes="auto" data-title="image-20230725213522694" data-alt="image-20230725213522694" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252135885.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252135885.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252135885.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252135885.png 2x" sizes="auto" data-title="image-20230725213529841" data-alt="image-20230725213529841" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261016984.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261016984.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261016984.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261016984.png 2x" sizes="auto" data-title="image-20230726101628828" data-alt="image-20230726101628828" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="41-dataset-and-evaluation">4.1. Dataset and Evaluation</h3>
+<h4 id="dataset">Dataset</h4>
+<p>我们收集了30个主题的数据集，包括独特的物品和宠物，如背包、毛绒玩具、狗、猫、太阳镜、卡通等。该数据集的图像由作者收集或来自Unsplash[1]。我们还收集了25个提示：20个重新上下文化提示和5个subject属性修改提示，10个重新语境化，10个配饰，5个属性修改提示。完整的图像和提示列表可以在补充材料中找到。</p>
+<p>对于评估套件，我们为每个主题和每个提示生成四张图像，总共3,000（30*25*4）张图像。这允许我们稳健地度量方法的性能和泛化能力。我们在项目网页上公开了我们的数据集和评估协议，以便将来在评估主题驱动生成时使用。</p>
+<h4 id="evaluation-metrics">Evaluation Metrics</h4>
+<p>要评估的一个重要方面是<strong>主体保真度</strong>：在生成的图像中保留主体细节。为此，我们计算了两个指标：CLIP-I和DINO[10]。CLIP- I是生成图像与真实图像的CLIP[50]嵌入之间的平均两两余弦相似度。尽管这一指标已在其他工作中使用[20]，但它并不是用来区分可能具有高度相似文本描述的不同主题的。（例如：两个不同的黄色时钟)。我们提出的DINO度量是生成图像和真实图像的ViTS/16 DINO嵌入之间的平均两两余弦相似度。这是我们首选的度量，因为，通过构造和与有监督网络相比，DINO不会被训练为忽略同一类主题之间的差异（DINO不会忽略同一subject的差距）。相反，自我监督训练目标鼓励区分主题或图像的<strong>独特特征</strong>。要评估的第二个重要方面是<strong>提示保真度</strong>，以提示和图像CLIP嵌入之间的平均余弦相似度来衡量。我们把它记作CLIP-T。</p>
+<h3 id="42-comparisons">4.2. Comparisons</h3>
+<p>我们使用Gal等人[20]中提供的超参数，将我们的结果与Textual Inversion进行比较。我们发现这项工作是在文献中唯一可与之相比的工作是主题驱动的，文本引导的，并产生了新颖的图像。我们使用Imagen为DreamBooth生成图像，使用稳定扩散为DreamBooth生成图像，使用稳定扩散为文本反转生成图像。我们计算DINO和CLIP-I受试者保真度指标和CLIP-T提示保真度指标。在表1中，我们显示了DreamBooth和Textual Inversion的主题和提示保真度指标的巨大差距。我们发现DreamBooth (Imagen)在主题保真度和提示保真度方面都比DreamBooth (Stable Diffusion)得分更高，接近真实图像主题保真度的上限。我们认为这是由于Imagen的表现力更强，输出质量更高。</p>
+<p>此外，我们通过进行<strong>用户研究</strong>比较了Textual Inversion(SD)和DreamBooth(SD)。对于subject保真度，我们要求72名用户回答25个比较问题的问卷(每个问卷3名用户)，共计1800个答案。样本是从一个大的池中随机选择的。每个问题都展示一个主题的真实图像集，以及通过每种方法生成的该主题的一个图像(随机提示)。用户被要求回答这样一个问题:“两张图片中哪一张最能再现参考物品的身份(例如，物品类型和细节)?”，我们还包含了一个“不确定/两者相等”选项。类似地，对于提示保真度，我们问“两幅图像中哪一幅最适合参考文本描述?”我们使用多数投票对结果进行平均，并将其呈现在表2中。我们发现DreamBooth对于主题保真度和提示保真度都有压倒性的偏好。这有助于解释表1中的结果，在用户偏好方面，DINO差异约为0.1,CLIP-T差异为0.05（呵呵哒）。最后，我们在图4中展示了定性比较。我们观察到，DreamBooth更好地保留了主体身份，更忠实于提示。我们在供应材料中展示了用户研究的样本。</p>
+<h3 id="43-ablation-studies">4.3. Ablation Studies</h3>
+<h4 id="prior-preservation-loss-ablation">Prior Preservation Loss Ablation</h4>
+<p>我们对来自数据集的15个subject的Imagen进行了微调，有和没有我们提出的先验保存损失(PPL)。PPL旨在<strong>对抗语言漂移并保留先验</strong>。我们计算一个PRES标准（prior preservation metric），这个标准是计算先验类随机subject的生成图像（<strong>普通闹钟</strong>）与我们特定对象的真实图像（<strong>黄3闹钟</strong>）之间的平均成对DINO嵌入。<strong>这个度量越高，即类中的随机subject与我们的特定subject越相似，这表明先验崩溃</strong>。我们在表3中报告了结果，并观察到PPL实质上抵消了语言漂移，并有助于保留生成前一类不同图像的能力。此外，我们计算一个多样性度量DIV，计算方式是同一subject，同一prompt生成的图片平均LPIPS余弦相似度。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261035527.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261035527.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261035527.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261035527.png 2x" sizes="auto" data-title="image-20230726103506484" data-alt="image-20230726103506484" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>我们观察到，使用PPL训练的模型实现了更高的多样性(subject保真度略有降低)，这也可以从图5中定性地观察到，其中使用PPL训练的模型对参考图像环境的过拟合较少，并且可以生成更多样化的姿态和关节的狗。（为什么会这样呢，我的理解是，用了PPL，更能让模型记住dog是什么，防止了所有的信息全到了V上，而忘记了dog是什么，这样的话我知道dog是什么，我生成的dog的样子就会更多一些。）<font color=red>其实这不就是一种权衡嘛，你到底让我去学这个特殊的黄色小闹钟，还是去让我学会生成一个闹钟。但是我觉得，按照应用上来讲，我就是想生成我独特subject在不同场景下的图片，那dreambooth是肯定没有问题的，对吧。</font></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261038600.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261038600.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261038600.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261038600.png 2x" sizes="auto" data-title="image-20230726103857478" data-alt="image-20230726103857478" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="class-prior-ablation">Class-Prior Ablation</h4>
+<p>这里说的是a [V] [class noun] 后面的class noun。这个理解起来很直观。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261053984.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261053984.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261053984.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261053984.png 2x" sizes="auto" data-title="image-20230726105350932" data-alt="image-20230726105350932" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>我们在数据集主题的一个子集(5个主题)上对Imagen进行微调，其中没有类名词，随机抽样一个不正确的类名词和正确的类名词。有了subject,的正确类名词，我们就能忠实地适应subject,，<strong>利用类先验</strong>，使我们能够在各种上下文中生成subject。当一个不正确的类名词(例如，“can”表示一个背包)被使用时，我们就会遇到subject和先前的类之间的争论——有时会得到圆柱形的背包，或者其他畸形的subject。如果我们在没有类名词的情况下训练，模型就不会利用类先验，难以学习subject和收敛，并且可能产生错误的样本。subject保真度结果如表4所示，我们提出的方法具有更高的subject保真度。</p>
+<h3 id="44-applications">4.4. Applications</h3>
+<h4 id="recontextualization">Recontextualization</h4>
+<p>我们可以用描述性提示(“a 【V】【类名词】【上下文描述】”)为不同上下文中的特定主题生成新的图像(图6)。重要的是，我们能够以新的姿势和关节生成主体，具有以前未见过的场景结构和场景中主体的现实集成(例如。接触，阴影，反射)</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261056075.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261056075.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261056075.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261056075.png 2x" sizes="auto" data-title="image-20230726105605823" data-alt="image-20230726105605823" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="art-renditions">Art Renditions</h4>
+<p>给我们提示“一幅[V][类名词]的画，具有[著名画家]的风格”或“一尊[V][类名词]的雕像，具有[著名雕塑家]的风格”，我们就能够生成我们主题的艺术再现。与**风格转移不同，在风格转移中，源结构被保留，只有风格被转移，我们能够根据艺术风格产生有意义的，新颖的变化，同时保持主体身份。**例如，如图7所示，“米开朗基罗”，我们生成了一个在输入图像中没有见过的新姿势。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261058811.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261058811.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261058811.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261058811.png 2x" sizes="auto" data-title="image-20230726105817697" data-alt="image-20230726105817697" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h4 id="novel-view-synthesis">Novel View Synthesis</h4>
+<p>我们能够在新的视角下渲染主题。在图7中，我们生成输入猫的新图像(具有一致的复杂皮毛图案)在新视角下。我们强调，<strong>该模型没有从后面、下面或上面看到这只特定的猫，但它能够从之前的类中推断出知识，从而生成这些新的视图，仅给出4张主体的正面图像。</strong></p>
+<h4 id="property-modification">Property Modification</h4>
+<p>我们可以修改主题属性。例如，我们在图7的底部一行显示了特定的松狮犬与不同动物物种之间的杂交。我们用以下结构的句子提示模型:“[V]狗和[目标物种]的杂交”。特别是，我们可以在这个例子中看到，即使物种发生了变化，狗的身份也被很好地保存了下来——狗的脸上有一些独特的特征，这些特征被很好地保存下来，并与目标物种融合在一起。其他属性修改是可能的，例如材料修改(例如图6中的“透明[V]茶壶”)。有些比其他的更难，并且依赖于基本生成模型的先验。</p>
+<h3 id="45-limitations">4.5. Limitations</h3>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261101367.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261101367.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261101367.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307261101367.png 2x" sizes="auto" data-title="image-20230726110112266" data-alt="image-20230726110112266" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>我们在图8中说明了我们的方法的一些失效模型。第一个问题与不能准确地生成提示上下文有关。可能的原因是这些上下文的弱先验，或者由于训练集中共现的概率低，难以同时生成主题和指定概念。第二种是上下文-外观纠缠，即受试者的外观因提示的上下文而改变，如图8所示，背包的颜色发生了变化。第三，我们还观察到，当提示与看到受试者的原始设置相似时，会发生对真实图像的过度拟合。</p>
+<p>其他限制是一些subject比其他subject更容易学习(例如狗和猫)。偶尔，对于较少的主题，该模型无法支持尽可能多的主题变化。最后，受试者的保真度也存在可变性，根据模型先验的强度和语义修改的复杂性，一些生成的图像可能包含幻觉的受试者特征。</p>
+<h2 id="5-conclusions">5. Conclusions</h2>
+<p>我们提出了一种方法，用于综合的新版本的主题使用主题的一些图像和文本提示的指导。我们的关键思想是通过将主题绑定到唯一标识符，将给定的主题实例嵌入到文本到图像扩散模型的输出域中。值得注意的是，这种微调过程可以只给3-5个主题图像，使技术特别容易使用。我们演示了在生成的逼真场景中对动物和物体的各种应用，在大多数情况下与真实图像无法区分。</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-07-24 09:56:00">更新于 2023-07-24&nbsp;</span>
+      </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" data-title="Dreambooth" data-hashtags="draft"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" data-title="Dreambooth" data-ralateuid="6314435573"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/go/day61-70/" class="post-nav-item" rel="prev" title="Go Exercises(Day51-60)"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Go Exercises(Day51-60)</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric">0%</span>
+        </div></div><a href="https://github.com/Lizhe1228" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/black/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":20},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"typeit-header-desktop":"Lizhe1228's blog","typeit-header-title-mobile":"Lizhe1228's blog"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":30,"type":"lunr"},"siteTime":"2023-05-21","typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"typeit-header-desktop":["typeit-header-desktop"],"typeit-header-title-mobile":["typeit-header-title-mobile"]},"duration":-1,"loop":false,"speed":100}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

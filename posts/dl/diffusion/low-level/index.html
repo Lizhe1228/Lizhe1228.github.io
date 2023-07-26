@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='draft' /><meta itemprop="name" content="Low Level">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-07-15T10:18:38+08:00" />
 <meta itemprop="dateModified" content="2023-07-15T10:18:38+08:00" />
-<meta itemprop="wordCount" content="1270"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="1418"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="draft," /><meta property="og:title" content="Low Level" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -23,7 +23,7 @@
 <meta name="twitter:title" content="Low Level"/>
 <meta name="twitter:description" content=""/>
 <meta name="application-name" content="Lizhe1228">
-<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/diffusion/low-level/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/cvpr2023/01/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/diffusion/low-level/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/cvpr2023/01/" /><link rel="next" href="http://Lizhe1228.github.io/posts/go/day61-70/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/low-level\/"
-    },"genre": "posts","keywords": "draft","wordcount":  1270 ,
+    },"genre": "posts","keywords": "draft","wordcount":  1418 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/low-level\/","datePublished": "2023-07-15T10:18:38+08:00","dateModified": "2023-07-15T10:18:38+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -188,7 +188,7 @@
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
       </span></span>
           <span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-07-15 10:18:38"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span title="更新于 2023-07-15 10:18:38"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1270 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Low Level">
+      <div class="post-meta-line"><span title="发布于 2023-07-15 10:18:38"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span title="更新于 2023-07-15 10:18:38"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1418 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Low Level">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -225,11 +225,13 @@
 <h2 id="denoising-diffusion-models-for-plug-and-play-image-restoration即插即用图像恢复的去噪扩散模型">Denoising Diffusion Models for Plug-and-Play Image Restoration(即插即用图像恢复的去噪扩散模型)</h2>
 <h3 id="abstract">Abstract</h3>
 <p>即插即用图像恢复(IR)被广泛认为是一种灵活且可解释的方法，它利用任何现成的去噪器作为隐式图像先验来解决各种逆问题。然而，现有的方法大多集中在判别高斯去噪上。</p>
-<p>尽管扩散模型在高质量图像合成方面表现出了令人印象深刻的性能，但它们在即插即用图像恢复方法之前作为生成降噪器的潜力仍有待进一步探索。虽然已经有其他一些尝试采用扩散模型进行图像恢复，但它们要么无法获得令人满意的结果，要么通常需要在推理过程中进行不可接受的神经功能评估(nfe)。本文提出了将传统的即插即用方法集成到扩散采样框架中的DiffPIR方法。与依赖于判别高斯去噪的即插即用图像恢复方法相比，DiffPIR有望继承扩散模型的生成能力。</p>
+<p>尽管扩散模型在高质量图像合成方面表现出了令人印象深刻的性能，但它们在即插即用图像恢复方法之前作为生成降噪器的潜力仍有待进一步探索。虽然已经有其他一些尝试采用扩散模型进行图像恢复，但它们要么无法获得令人满意的结果，要么通常需要在推理过程中进行不可接受的神经功能评估(nfe)。本文提出了DiffPIR方法，将传统的即插即用方法集成到扩散采样框架中的。与依赖于判别高斯去噪的即插即用图像恢复方法相比，DiffPIR有望继承扩散模型的生成能力。</p>
 <p>在三个代表性的图像恢复任务(包括超分辨率、图像去模糊和涂漆)上的实验结果表明，在不超过100个nfe的情况下，DiffPIR在FFHQ和ImageNet数据集上的重建信度和感知质量都达到了最先进的水平。</p>
 <h3 id="introduction">Introduction</h3>
 <p>最近的研究表明，即插即用的图像恢复(IR)方法可以有效地处理各种低层次的视觉任务，如图像去噪[5]、图像超分辨率(SR)[16,17,37]、图像去模糊[12]和图像补画[27]，并取得了优异的效果[6,11,54,57,58]。</p>
-<p>借助变量分割算法，如乘法器的交替方向法(ADMM)和半次二分裂（HQS）即插即用图像恢复方法将高斯去噪集成到迭代过程中，从而提高了性能和收敛性。</p></div><div class="post-footer" id="post-footer">
+<p>借助变量分割算法，如乘法器的交替方向法(ADMM)和半次二分裂（HQS）即插即用图像恢复方法将高斯去噪集成到迭代过程中，从而提高了性能和收敛性。即插即用IR方法的主要思想是将以下优化问题的数据项和先验项分开。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307181037339.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307181037339.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307181037339.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307181037339.png 2x" sizes="auto" data-title="image-20230718103750294" data-alt="image-20230718103750294" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>式中，y为给定退化模型y = H(x0) + n下的ground truth x0的测量值，H为已知退化算子，σn为已知高斯噪声n的标准差，λ p(·)为正则化参数λ的先验项。具体地说，数据项确保解决方案遵循退化过程，而前一项则强制解决方案遵循所需的数据分布。</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
@@ -253,7 +255,8 @@
     </section>
   </div>
 
-  <div class="post-nav"><a href="/posts/cvpr2023/01/" class="post-nav-item" rel="prev" title="CVPR2023"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>CVPR2023</a></div>
+  <div class="post-nav"><a href="/posts/cvpr2023/01/" class="post-nav-item" rel="prev" title="CVPR2023"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>CVPR2023</a>
+      <a href="/posts/go/day61-70/" class="post-nav-item" rel="next" title="Go Exercises(Day51-60)">Go Exercises(Day51-60)<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>

@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='draft' /><meta itemprop="name" content="CVPR2023">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-07-15T09:40:48+08:00" />
 <meta itemprop="dateModified" content="2023-07-15T09:40:48+08:00" />
-<meta itemprop="wordCount" content="3133"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="3289"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="draft," /><meta property="og:title" content="CVPR2023" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/cvpr2023\/01\/"
-    },"genre": "posts","keywords": "draft","wordcount":  3133 ,
+    },"genre": "posts","keywords": "draft","wordcount":  3289 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/cvpr2023\/01\/","datePublished": "2023-07-15T09:40:48+08:00","dateModified": "2023-07-15T09:40:48+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -188,7 +188,7 @@
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
       </span></span>
           <span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-07-15 09:40:48"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span title="更新于 2023-07-15 09:40:48"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3133 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="CVPR2023">
+      <div class="post-meta-line"><span title="发布于 2023-07-15 09:40:48"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span title="更新于 2023-07-15 09:40:48"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3289 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="CVPR2023">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -216,6 +216,11 @@
             <li><a href="#x-pruner-explainable-pruning-for-vision-transformers">X-Pruner: eXplainable Pruning for Vision Transformers</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#模型优化">模型优化</a>
+      <ul>
+        <li><a href="#run-dont-walk-chasing-higher-flops-for-faster-neural-networks">Run, Don’t Walk: Chasing Higher FLOPS for Faster Neural Networks</a></li>
       </ul>
     </li>
   </ul>
@@ -298,7 +303,13 @@
 <p>与之前使用二进制掩模来量化每个单元对所有类的贡献的工作不同，本文使用可微掩模来捕获每个单元的重要性。训练后，每个学习到的掩码的总和明确表示其对识别所有类的贡献。通过这种方式学习的可解释性Mask获得了以端到端方式揭示transformer内部推理过程的表示能力，这基本上以直观可解释的方式提供了对每个单个单元重要性的全局检查。值得注意的是，在训练过程中，预训练模型的权值保持固定。因此，从经验上观察到，只需要几个epoch来训练我们提出的可解释性感知掩模。</p>
 <p>以前的工作是通过手动选择每层阈值来衡量单个单元的重要性，由于参数搜索空间是穷举的，这在计算上很棘手。这项工作提出通过设计<strong>一个可微修剪操作和一个阈值正则化器来学习分层阈值</strong>，这优于大多数先前的研究，可以更好地控制非均匀稀疏性。</p>
 </li>
-</ol></div><div class="post-footer" id="post-footer">
+</ol>
+<h2 id="模型优化">模型优化</h2>
+<h3 id="run-dont-walk-chasing-higher-flops-for-faster-neural-networks">Run, Don’t Walk: Chasing Higher FLOPS for Faster Neural Networks</h3>
+<p>为更快的神经网络追求更高的FLOPS</p>
+<p>为了设计快速的神经网络，许多工作都集中在减少浮点运算(FLOPs)的数量上。然而，我们观察到FLOPs的这种减少并不一定会导致类似程度的延迟减少。这主要源于低效率的每秒浮点操作数(FLOPS)。</p>
+<p>提出了一种新的部分卷积，和FasterNet。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307181029725.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307181029725.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307181029725.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307181029725.png 2x" sizes="auto" data-title="image-20230718102937663" data-alt="image-20230718102937663" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">

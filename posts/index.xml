@@ -4,7 +4,25 @@
     <link>http://Lizhe1228.github.io/posts/</link>
     <description>所有文章 | I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Sat, 15 Jul 2023 10:18:38 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Mon, 24 Jul 2023 09:56:00 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Dreambooth</title>
+  <link>http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/</link>
+  <pubDate>Mon, 24 Jul 2023 09:56:00 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/</guid>
+  <description><![CDATA[<p>DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation</p>
+<p>DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成</p>
+<p>环境和主题，让主题更好的融入环境之中。</p>]]></description>
+</item>
+<item>
+  <title>Go Exercises(Day51-60)</title>
+  <link>http://Lizhe1228.github.io/posts/go/day61-70/</link>
+  <pubDate>Tue, 18 Jul 2023 09:19:57 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/go/day61-70/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Low Level</title>
   <link>http://Lizhe1228.github.io/posts/dl/diffusion/low-level/</link>
   <pubDate>Sat, 15 Jul 2023 10:18:38 &#43;0800</pubDate>
@@ -66,22 +84,6 @@
   <pubDate>Thu, 29 Jun 2023 19:46:55 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/dl/diffusion/lora/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Controlnet</title>
-  <link>http://Lizhe1228.github.io/posts/dl/diffusion/controlnet/</link>
-  <pubDate>Tue, 27 Jun 2023 20:30:10 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/dl/diffusion/controlnet/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Vscode Ssh</title>
-  <link>http://Lizhe1228.github.io/posts/dl/vscode-ssh/</link>
-  <pubDate>Tue, 27 Jun 2023 18:49:19 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/dl/vscode-ssh/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
