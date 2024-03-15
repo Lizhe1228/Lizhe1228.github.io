@@ -174,6 +174,24 @@
     </a><a href="/index.xml" title="RSS"target="_blank" rel="external nofollow noopener noreferrer me"><i class="fa-solid fa-rss fa-fw" aria-hidden="true"></i>
     </a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+    <span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><a href="/posts/dl/note/202403/">202403</a>
+  </h1><div class="post-meta"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      </span></span>&nbsp;<span class="post-publish" title='2024-03-15 14:42:35'>发布于 <time datetime="2024-03-15">2024-03-15</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/dl-note/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> dl-note</a></span></div><div class="content"></div><div class="post-footer">
+    <a href="/posts/dl/note/202403/">read more</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/dl-note/' class="post-tag">dl-note</a></div></div>
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+    <span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><a href="/posts/dl/diffusion/dminmi/">Dminmi</a>
+  </h1><div class="post-meta"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      </span></span>&nbsp;<span class="post-publish" title='2023-09-06 09:47:43'>发布于 <time datetime="2023-09-06">2023-09-06</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div><div class="content"></div><div class="post-footer">
+    <a href="/posts/dl/diffusion/dminmi/">read more</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></div></div>
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+    <span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><a href="/posts/dl/diffusion/esssay/">Esssay</a>
+  </h1><div class="post-meta"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      </span></span>&nbsp;<span class="post-publish" title='2023-07-30 09:58:24'>发布于 <time datetime="2023-07-30">2023-07-30</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div><div class="content"></div><div class="post-footer">
+    <a href="/posts/dl/diffusion/esssay/">read more</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></div></div>
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
     <span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><a href="/posts/dl/limu/01/">1</a>
   </h1><div class="post-meta"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
       </span></span>&nbsp;<span class="post-publish" title='2023-07-28 10:07:48'>发布于 <time datetime="2023-07-28">2023-07-28</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div><div class="content"></div><div class="post-footer">
@@ -186,7 +204,9 @@
 <p>DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成</p>
 <p>环境和主题，让主题更好的融入环境之中。</p>
 <p>梦幻的照相亭</p>
-<p>语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。</p></div><div class="post-footer">
+<p>语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。</p>
+<p>本文发现<strong>prompt</strong>模板使用“<strong>a [identifier] [class noun]”<strong>方式效果最好。<strong>identifier</strong>的选取方法是</strong>在词汇表中找到相对稀有的token，采样后映射成相应字符串。<strong>实验发现， 提取</strong>T5-XXL</strong> 分词器范围 {5000, &hellip;, 10000} 中的<strong>token</strong>效果很好，使用随机抽样而不替换的方式，采样 3 个或更少的 Unicode 字符的对应的<strong>token</strong>组成<strong>identifier</strong>字符串。<strong>class noun</strong>选择要符合图像语义，效果最好。</p>
+<p><strong>finetune会产生两个关键问题：过拟合（Overfitting）（需要增加多样性）和语言漂移（ Language Drift）</strong></p></div><div class="post-footer">
     <a href="/posts/dl/diffusion/dreambooth/">read more</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></div></div>
 </article>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
@@ -194,23 +214,6 @@
   </h1><div class="post-meta"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
       </span></span>&nbsp;<span class="post-publish" title='2023-07-18 09:19:57'>发布于 <time datetime="2023-07-18">2023-07-18</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div><div class="content"></div><div class="post-footer">
     <a href="/posts/go/day61-70/">read more</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></div></div>
-</article>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-    <span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><a href="/posts/dl/diffusion/low-level/">Low Level</a>
-  </h1><div class="post-meta"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      </span></span>&nbsp;<span class="post-publish" title='2023-07-15 10:18:38'>发布于 <time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div><div class="content"></div><div class="post-footer">
-    <a href="/posts/dl/diffusion/low-level/">read more</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></div></div>
-</article>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-    <span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><a href="/posts/cvpr2023/01/">CVPR2023</a>
-  </h1><div class="post-meta"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      </span></span>&nbsp;<span class="post-publish" title='2023-07-15 09:40:48'>发布于 <time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div><div class="content"></div><div class="post-footer">
-    <a href="/posts/cvpr2023/01/">read more</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></div></div>
-</article>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-    <span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><a href="/posts/go/day51-60/">Go Exercises(Day51-60)</a>
-  </h1><div class="post-meta"><span class="post-author"><span class="author"><img loading="lazy" src="nzr.png" srcset="/nzr.png, nzr.png 1.5x, /nzr.png 2x" sizes="auto" data-title="Lizhe1228" data-alt="Lizhe1228" width="2048" height="2048" class="avatar" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/>&nbsp;Lizhe1228</span></span>&nbsp;<span class="post-publish" title='2023-07-12 11:59:52'>发布于 <time datetime="2023-07-12">2023-07-12</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/go%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Go每日一练</a></span></div><div class="content"></div><div class="post-footer">
-    <a href="/posts/go/day51-60/">read more</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/go/' class="post-tag">Go</a><a href='/tags/%E9%9D%A2%E8%AF%95/' class="post-tag">面试</a></div></div>
 </article>
 <ul class="pagination"><li class="page-item active">
           <span class="page-link">
@@ -228,12 +231,12 @@
           <span class="page-link" aria-hidden="true">&hellip;</span>
         </li><li class="page-item">
           <span class="page-link">
-            <a href="/page/10/">10</a>
+            <a href="/page/11/">11</a>
           </span>
         </li></ul></div></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
-            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+            <span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">
               <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
           <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
         </div></div>

@@ -10,7 +10,7 @@
 <meta name="description" content="一个东北不知名211研究生的个人博客，分享记录笔记" /><meta name="keywords" content='draft' /><meta itemprop="name" content="1">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-07-28T10:07:48+08:00" />
 <meta itemprop="dateModified" content="2023-07-28T10:07:48+08:00" />
-<meta itemprop="wordCount" content="847"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="3985"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="draft," /><meta property="og:title" content="1" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
@@ -23,7 +23,7 @@
 <meta name="twitter:title" content="1"/>
 <meta name="twitter:description" content=""/>
 <meta name="application-name" content="Lizhe1228">
-<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/limu/01/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/limu/01/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" /><link rel="next" href="http://Lizhe1228.github.io/posts/dl/diffusion/esssay/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -32,7 +32,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/dl\/limu\/01\/"
-    },"genre": "posts","keywords": "draft","wordcount":  847 ,
+    },"genre": "posts","keywords": "draft","wordcount":  3985 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/dl\/limu\/01\/","datePublished": "2023-07-28T10:07:48+08:00","dateModified": "2023-07-28T10:07:48+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -188,7 +188,7 @@
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
       </span></span>
           <span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-07-28 10:07:48"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-28">2023-07-28</time></span>&nbsp;<span title="更新于 2023-07-28 10:07:48"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-28">2023-07-28</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 847 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="1">
+      <div class="post-meta-line"><span title="发布于 2023-07-28 10:07:48"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-28">2023-07-28</time></span>&nbsp;<span title="更新于 2023-07-28 10:07:48"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-28">2023-07-28</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3985 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 8 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="1">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -200,6 +200,18 @@
   <ul>
     <li><a href="#数据操作">数据操作</a></li>
     <li><a href="#数据预处理">数据预处理</a></li>
+    <li><a href="#线性代数">线性代数</a></li>
+    <li><a href="#矩阵计算">矩阵计算</a></li>
+    <li><a href="#自动求导">自动求导</a></li>
+    <li><a href="#线性回归">线性回归</a>
+      <ul>
+        <li><a href="#线性回归-1">线性回归</a></li>
+        <li><a href="#基础优化算法">基础优化算法</a></li>
+        <li><a href="#线性回归的从零实现">线性回归的从零实现</a></li>
+        <li><a href="#线性回归的简洁实现">线性回归的简洁实现</a></li>
+      </ul>
+    </li>
+    <li><a href="#softmax回归">Softmax回归</a></li>
   </ul>
 </nav></div>
       </div><div class="content" id="content" data-end-flag="The END"><p>iamgenet 1000类的图片 约100万张图片；</p>
@@ -247,10 +259,12 @@
 </span><span class="lnt">32
 </span><span class="lnt">33
 </span><span class="lnt">34
+</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># 输出x： tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># torch.Size([12])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="c1"># 获取x的维度</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">numel</span> <span class="c1"># 12</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#tensor([[ 0,  1,  2,  3],[ 4,  5,  6,  7], [ 8,  9, 10, 11]])</span>
@@ -278,7 +292,7 @@
 </span></span><span class="line"><span class="cl"><span class="n">y1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="c1"># 输出的也是一个tensor张量，x、y的shape是多大的 结果就是多大的，每一位上是true或false</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">sun</span><span class="p">()</span> <span class="c1"># 对x这个张量进行求和 例如输出tensor(66.)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># 对x这个张量进行求和 例如输出tensor(66.)</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 指访问最后一个元素 如果是3*4的张量就是说访问最后一行</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 标号为1的行就是第二行 因为下标从0开始，1:3 是左闭右开的</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span> <span class="c1"># 还可以通过这样改变第二行第三列的值为9</span>
@@ -286,14 +300,557 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291004477.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291004477.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291004477.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291004477.png 2x" sizes="auto" data-title="image-20230729100430296" data-alt="image-20230729100430296" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
-<p>广播机制，当两个张量的shape不一致，但是维度一致的时候也可以相加，这个时候用到的是广播机制，如这里a是3*1，b是1*2，a+b时候，a会复制成3*2，a会复制成3*1，然后进行相加。</p>
+<p>广播机制，当两个张量的shape不一致，但是维度一致的时候也可以相加，这个时候用到的是广播机制，如这里a是3*1，b是1*2，a+b时候，a会复制成3*2，a会复制成3*2，然后进行相加。</p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291014051.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291014051.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291014051.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291014051.png 2x" sizes="auto" data-title="image-20230729101434873" data-alt="image-20230729101434873" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291021671.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291021671.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291021671.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291021671.png 2x" sizes="auto" data-title="image-20230729102134524" data-alt="image-20230729102134524" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291021960.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291021960.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291021960.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291021960.png 2x" sizes="auto" data-title="image-20230729102158833" data-alt="image-20230729102158833" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291023266.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291023266.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291023266.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307291023266.png 2x" sizes="auto" data-title="image-20230729102310154" data-alt="image-20230729102310154" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <h2 id="数据预处理">数据预处理</h2>
 <p>对于缺失的数据可以选择删除，也可以选择插值，插值的方法就可以自己定了，比如可以插值其他元素的均值。</p>
-<p>深度学习通常用64位浮点数。而不用32位。</p></div><div class="post-footer" id="post-footer">
+<p>深度学习通常用64位浮点数。而不用32位。</p>
+<h2 id="线性代数">线性代数</h2>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301453179.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301453179.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301453179.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301453179.png 2x" sizes="auto" data-title="image-20230730145322002" data-alt="image-20230730145322002" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301454020.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301454020.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301454020.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301454020.png 2x" sizes="auto" data-title="image-20230730145415900" data-alt="image-20230730145415900" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455979.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455979.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455979.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455979.png 2x" sizes="auto" data-title="image-20230730145505869" data-alt="image-20230730145505869" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>以下α是一个标量</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455569.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455569.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455569.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455569.png 2x" sizes="auto" data-title="image-20230730145529490" data-alt="image-20230730145529490" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455024.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455024.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455024.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301455024.png 2x" sizes="auto" data-title="image-20230730145542937" data-alt="image-20230730145542937" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301457505.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301457505.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301457505.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301457505.png 2x" sizes="auto" data-title="image-20230730145726407" data-alt="image-20230730145726407" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458599.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458599.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458599.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458599.png 2x" sizes="auto" data-title="image-20230730145800464" data-alt="image-20230730145800464" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458665.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458665.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458665.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458665.png 2x" sizes="auto" data-title="image-20230730145823523" data-alt="image-20230730145823523" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458302.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458302.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458302.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301458302.png 2x" sizes="auto" data-title="image-20230730145838215" data-alt="image-20230730145838215" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301459796.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301459796.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301459796.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301459796.png 2x" sizes="auto" data-title="image-20230730145923643" data-alt="image-20230730145923643" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301500144.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301500144.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301500144.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301500144.png 2x" sizes="auto" data-title="image-20230730150025018" data-alt="image-20230730150025018" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301501459.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301501459.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301501459.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301501459.png 2x" sizes="auto" data-title="image-20230730150119325" data-alt="image-20230730150119325" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># 创建一个5行4列的矩阵</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="c1"># A矩阵的转置 对于对称矩阵A A = A的转置</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 给定具有相同形状的任何两个张量，任何按元素二元运算的结果都将是相同形状的张量</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span> <span class="c1"># 通过内存分配，将A的一个副本分配给B</span>
+</span></span><span class="line"><span class="cl"><span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 两个矩阵的按元素乘法称为 哈达玛积 数学符号是个圆中间是个点</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">*</span> <span class="n">B</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 一个标量和一个矩阵做相加，或相乘，就是这个标量加在每个元素上，或乘上每个元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">+</span> <span class="n">X</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># 输出torch.size([2, 5, 4])</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># 输出 tensor(50)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_sum_axis0</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 对第一个维度进行求和 就是把两个5*4的矩阵相加 结果的shape是 torch.Size([5, 4])</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_sum_axis1</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 对第二个维度进行求和 就是把5个2*4的矩阵相加 结果的shape是 torch.Size([2, 4])</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># torch.Size([4])</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="o">.</span><span class="n">mean</span> <span class="c1"># 求均值 等价于A.sum()/A.numel()</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 也可以对某一个维度求均值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算总和或均值时保持轴数不变，就是保持维度不变，因为有的时候需要进行广播机制的运算，如果维度不一致，那么无法计算</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sum_A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 保持了A的维度 例如如果A是(2, 5, 4)对0这个维度求和 那么结果的shape应该是(1, 5, 4)而不会变成(5, 4) 总结一下就是会把求和那个维度上的值变为1</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">/</span> <span class="n">sum_A</span> <span class="c1"># 这时可以进行广播运算</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 累计求和 输出如下，这个例子就是每一行的每个元素是上一行该位置的累加</span>
+</span></span><span class="line"><span class="cl"><span class="n">tensor</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="mf">12.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span> <span class="mf">18.</span><span class="p">,</span> <span class="mf">21.</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="mf">40.</span><span class="p">,</span> <span class="mf">45.</span><span class="p">,</span> <span class="mf">50.</span><span class="p">,</span> <span class="mf">55.</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 点积 相同位置的按元素乘积的和</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># tensor([0., 1., 2., 3.])</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="c1"># tensor([1., 1., 1., 1.])</span>
+</span></span><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 输出 tensor(6.)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 我们也可以通过执行按元素乘法，然后进行求和来表示两个向量的点积。</span>
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># torch.Size([5, 4]) torch.Size([4]) tensor([14.,38.,62.,86,110.])</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">torch</span><span class="p">,</span><span class="n">mv</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># 这里做的是向量乘矩阵</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span> <span class="c1"># 两个矩阵做乘法 mm就是matmul</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># L2范数 是向量元素平方和的平方根，也就是欧式距离</span>
+</span></span><span class="line"><span class="cl"><span class="n">u</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="c1"># 输出tensor(5.)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># L1范数 向量元素的绝对值之和</span>
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># 输出tensor(7.)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 矩阵的F范数 是矩阵元素的平方和的平方根</span>
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)))</span> <span class="c1"># 输出 tensor(6.)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="矩阵计算">矩阵计算</h2>
+<p>各种导数计算的结果是什么。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301631013.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301631013.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301631013.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301631013.png 2x" sizes="auto" data-title="image-20230730163118791" data-alt="image-20230730163118791" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301633299.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301633299.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301633299.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301633299.png 2x" sizes="auto" data-title="image-20230730163312167" data-alt="image-20230730163312167" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>梯度指向的是值最大的方向</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301636790.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301636790.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301636790.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301636790.png 2x" sizes="auto" data-title="image-20230730163616686" data-alt="image-20230730163616686" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301641156.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301641156.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301641156.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301641156.png 2x" sizes="auto" data-title="image-20230730164125043" data-alt="image-20230730164125043" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301645320.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301645320.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301645320.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301645320.png 2x" sizes="auto" data-title="image-20230730164549160" data-alt="image-20230730164549160" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301648030.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301648030.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301648030.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301648030.png 2x" sizes="auto" data-title="image-20230730164829893" data-alt="image-20230730164829893" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301649160.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301649160.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301649160.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301649160.png 2x" sizes="auto" data-title="image-20230730164951057" data-alt="image-20230730164951057" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301651234.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301651234.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301651234.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301651234.png 2x" sizes="auto" data-title="image-20230730165118071" data-alt="image-20230730165118071" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="自动求导">自动求导</h2>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301656805.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301656805.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301656805.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301656805.png 2x" sizes="auto" data-title="image-20230730165602704" data-alt="image-20230730165602704" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301701474.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301701474.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301701474.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301701474.png 2x" sizes="auto" data-title="image-20230730170150389" data-alt="image-20230730170150389" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301703004.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301703004.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301703004.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301703004.png 2x" sizes="auto" data-title="image-20230730170311893" data-alt="image-20230730170311893" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301704548.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301704548.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301704548.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301704548.png 2x" sizes="auto" data-title="image-20230730170445433" data-alt="image-20230730170445433" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301707825.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301707825.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301707825.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301707825.png 2x" sizes="auto" data-title="image-20230730170711735" data-alt="image-20230730170711735" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301708814.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301708814.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301708814.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301708814.png 2x" sizes="auto" data-title="image-20230730170807688" data-alt="image-20230730170807688" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301708180.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301708180.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301708180.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301708180.png 2x" sizes="auto" data-title="image-20230730170847059" data-alt="image-20230730170847059" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301711689.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301711689.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301711689.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301711689.png 2x" sizes="auto" data-title="image-20230730171149552" data-alt="image-20230730171149552" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301712959.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301712959.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301712959.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301712959.png 2x" sizes="auto" data-title="image-20230730171219862" data-alt="image-20230730171219862" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301714265.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301714265.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301714265.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301714265.png 2x" sizes="auto" data-title="image-20230730171402143" data-alt="image-20230730171402143" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 对y=2XTX 求导</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 在我们计算导数之前，需要一个地方来存储梯度</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 通过x.grad可以访问他的梯度（y关于x的导数）也可以写成x = torch.arange(4.0, requires_grad=True)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># 打印这里y，tensor(28., grad_fn=&lt;MulBackward0&gt;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 通过调用反向传播函数自动计算y关于x每个分量的梯度</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># 输出tensor([0., 4., 8., 12.])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 测试一下是不是算对了，我们y=2xx，自己算一下 结果就是4x</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x</span> <span class="c1"># 输出 tensor([True, True, True, True])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 现在让我们计算x的另一个函数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 在默认情况下，pytorch会累计梯度，我们需要清除之前的值 </span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span> <span class="c1"># 输出 tensor([1., 1., 1., 1.])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在深度学习中，我们的目的不是计算微分矩阵，而是批量中每个样本单独计算的偏导数之和。</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span> <span class="c1"># 这里y.sum()没有特别理解，说是让他变成一个标量，对标量进行求导。在深度学习中，向量和矩阵，矩阵和矩阵的求导用到的很少。深度学习中 loss都是标量，所以是用这个标量对向量或矩阵进行求导。</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 下面这个例子也没有很懂，用于将某一部分的参数固定住。阻止梯度回传</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl"><span class="n">u</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="c1"># 让这个导数不在和 y有关系</span>
+</span></span><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="n">u</span> <span class="o">*</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">z</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span> <span class="o">==</span> <span class="n">u</span> <span class="c1"># 输出 tensor([True, True, True, True])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 情况2</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad_zero_</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">grad</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="c1"># 输出 tensor([True, True, True, True])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301745679.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301745679.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301745679.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307301745679.png 2x" sizes="auto" data-title="image-20230730174545513" data-alt="image-20230730174545513" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h2 id="线性回归">线性回归</h2>
+<h3 id="线性回归-1">线性回归</h3>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312014544.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312014544.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312014544.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312014544.png 2x" sizes="auto" data-title="image-20230731201455320" data-alt="image-20230731201455320" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312015906.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312015906.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312015906.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312015906.png 2x" sizes="auto" data-title="image-20230731201525788" data-alt="image-20230731201525788" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312016516.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312016516.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312016516.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312016516.png 2x" sizes="auto" data-title="image-20230731201616419" data-alt="image-20230731201616419" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312017726.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312017726.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312017726.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312017726.png 2x" sizes="auto" data-title="image-20230731201711642" data-alt="image-20230731201711642" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312018331.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312018331.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312018331.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312018331.png 2x" sizes="auto" data-title="image-20230731201803194" data-alt="image-20230731201803194" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>1/2 应该是为了求导方便  等号最后一项是L2的平方</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312019099.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312019099.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312019099.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312019099.png 2x" sizes="auto" data-title="image-20230731201923941" data-alt="image-20230731201923941" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p>只有线性模型才会有最优解。其他的模型都没有最优解。除以2的目的是为了求导方便，平方的导数下来个2，和分母上的2约掉。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312023072.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312023072.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312023072.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312023072.png 2x" sizes="auto" data-title="image-20230731202307924" data-alt="image-20230731202307924" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312025981.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312025981.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312025981.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312025981.png 2x" sizes="auto" data-title="image-20230731202525885" data-alt="image-20230731202525885" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="基础优化算法">基础优化算法</h3>
+<p>当一个模型没有显示解的时候怎么办呢，用梯度下降的方法进行优化。右图是一个二次函数的等高图。每一个圈就是函数值等于一个值的曲线。梯度方向是指向函数的值增加的最快的方向，负梯度方向就是使函数的值下降的最快的方向。最中心的地方是我们想去的地方。</p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312029719.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312029719.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312029719.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312029719.png 2x" sizes="auto" data-title="image-20230731202932650" data-alt="image-20230731202932650" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312026315.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312026315.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312026315.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312026315.png 2x" sizes="auto" data-title="image-20230731202647194" data-alt="image-20230731202647194" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312032506.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312032506.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312032506.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312032506.png 2x" sizes="auto" data-title="image-20230731203209390" data-alt="image-20230731203209390" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312033895.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312033895.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312033895.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312033895.png 2x" sizes="auto" data-title="image-20230731203304773" data-alt="image-20230731203304773" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312034268.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312034268.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312034268.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312034268.png 2x" sizes="auto" data-title="image-20230731203430160" data-alt="image-20230731203430160" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312035724.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312035724.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312035724.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307312035724.png 2x" sizes="auto" data-title="image-20230731203511641" data-alt="image-20230731203511641" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<h3 id="线性回归的从零实现">线性回归的从零实现</h3>
+<ol>
+<li>根据带有噪声的线性模型构造一个人造数据集。我们使用线性模型参数 W = [2, -3. 4]T 、b = 4.2 和噪声项 生成数据集及标签</li>
+<li>定义一个data_iter函数，该函数接收批量大小、特征矩阵和标签向量作为输入，生成大小为batch_size的小批量</li>
+<li>定义初始化模型参数</li>
+<li>定义模型</li>
+<li>定义损失函数</li>
+<li>定义优化算法</li>
+<li>开始训练</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 根据带有噪声的线性模型构造一个人造数据集。我们使用线性模型参数 W = [2, -3. 4]T 、b = 4.2 和噪声项 生成数据集及标签</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">synthetic_data</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num_examples</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 生成 y = Xw + b + 噪声</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">num_examples</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)))</span>  <span class="c1"># 生成均值为0，标准差为1，样本量（多少个样本）和样本长度（多少个属性）这里X的大小是1000*2的</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># 这里y的大小是1000 是一个一维张量</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">+=</span> <span class="n">torch</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 加入的噪声，均值为0，标准差为0.01</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># -1表示自动计算维度,第二个维度是1，第一个是自动计算出来的，最终大小变成了[1000, 1]变成了二维张量，一个列向量</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">true_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">true_b</span> <span class="o">=</span> <span class="mf">4.2</span>
+</span></span><span class="line"><span class="cl"><span class="n">features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">synthetic_data</span><span class="p">(</span><span class="n">true_w</span><span class="p">,</span> <span class="n">true_b</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print(&#39;features:&#39;, features[0], &#39;\nlabel:&#39;, lables[0])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义一个data_iter函数，该函数接收批量大小、特征矩阵和标签向量作为输入，生成大小为batch_size的小批量</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">data_iter</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_examples</span><span class="p">))</span> <span class="c1"># [0, 1, 2, 3......]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 这些样本是随机读取的，没有特定的顺序</span>
+</span></span><span class="line"><span class="cl">    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="c1"># 打乱下标</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_examples</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span> <span class="c1"># 表示从 0 到 num_examples 每次跳batch_size大小</span>
+</span></span><span class="line"><span class="cl">        <span class="n">batch_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_examples</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">features</span><span class="p">[</span><span class="n">batch_indices</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">batch_indices</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># for X, y in data_iter(batch_size, features, labels):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     print(X, &#39;\n&#39;, y)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义初始化模型参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义模型</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">linreg</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 线性回归模型</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义损失函数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">squard_loss</span><span class="p">(</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 均方损失</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_hat</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义优化算法</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sgd</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 小批量随机梯度下降</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>    <span class="c1"># 指的是更新的时候不需要进行梯度计算</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">param</span> <span class="o">-=</span>  <span class="n">lr</span> <span class="o">*</span> <span class="n">param</span><span class="o">.</span><span class="n">grad</span> <span class="o">/</span> <span class="n">batch_size</span>
+</span></span><span class="line"><span class="cl">            <span class="n">param</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 训练过程</span>
+</span></span><span class="line"><span class="cl"><span class="n">lr</span> <span class="o">=</span> <span class="mf">0.03</span>
+</span></span><span class="line"><span class="cl"><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">net</span> <span class="o">=</span> <span class="n">linreg</span>
+</span></span><span class="line"><span class="cl"><span class="n">loss</span> <span class="o">=</span> <span class="n">squard_loss</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">data_iter</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># X 和 y的小批量损失</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 因为 l 的size 是 [&#39;batch_size&#39;, 1] 而不是一个标量，l中的所有元素被加到一起</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 并以此计算关于[w, b]的梯度</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sgd</span><span class="p">([</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">lr</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span> <span class="c1"># 使用参数的梯度更新</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span> <span class="c1"># 这块是训练完这一段之后，评估一下当前训练的情况</span>
+</span></span><span class="line"><span class="cl">        <span class="n">train_l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">net</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;epoch </span><span class="si">{</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s1">, loss </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">train_l</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="si">:</span><span class="s1">f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;w的估计误差: </span><span class="si">{</span><span class="n">true_w</span> <span class="o">-</span> <span class="n">w</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">true_w</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;b的估计误差: </span><span class="si">{</span><span class="n">true_b</span> <span class="o">-</span> <span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们可以自己调整学习率，比如将学习率调整为0.001时，如果只训练3轮，误差非常大。如果将学习率调大，也不行。</p>
+<h3 id="线性回归的简洁实现">线性回归的简洁实现</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">torch.utils</span> <span class="kn">import</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">synthetic_data</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">num_examples</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 生成 y = Xw + b + 噪声</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">num_examples</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)))</span>  <span class="c1"># 生成均值为0，标准差为1，样本量（多少个样本）和样本长度（多少个属性）这里X的大小是1000*2的</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># 这里y的大小是1000 是一个一维张量</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">+=</span> <span class="n">torch</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 加入的噪声，均值为0，标准差为0.01</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># -1表示自动计算维度,第二个维度是1，第一个是自动计算出来的，最终大小变成了[1000, 1]变成了二维张量，一个列向量</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成数据集</span>
+</span></span><span class="line"><span class="cl"><span class="n">true_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">true_b</span> <span class="o">=</span> <span class="mf">4.2</span>
+</span></span><span class="line"><span class="cl"><span class="n">features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">synthetic_data</span><span class="p">(</span><span class="n">true_w</span><span class="p">,</span> <span class="n">true_b</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 调用框架中现有的API来实现读取数据</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_array</span><span class="p">(</span><span class="n">data_arrays</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1">#@save</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;构造一个PyTorch数据迭代器&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">TensorDataset</span><span class="p">(</span><span class="o">*</span><span class="n">data_arrays</span><span class="p">)</span>   <span class="c1"># * 表示与list进行解开入参数 给元组解包</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_iter</span> <span class="o">=</span> <span class="n">load_array</span><span class="p">((</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义模型</span>
+</span></span><span class="line"><span class="cl"><span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># 指定的是输入的维度是多少，输出的维度是多少</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 初始化模型参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义损失函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">loss</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 定义优化算法</span>
+</span></span><span class="line"><span class="cl"><span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 训练</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">data_iter</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">trainer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">net</span><span class="p">(</span><span class="n">features</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;epoch </span><span class="si">{</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s1">, loss </span><span class="si">{</span><span class="n">l</span><span class="si">:</span><span class="s1">f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># w = net[0].weight.data </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print(&#39;w的估计误差：&#39;, true_w - w.reshape(true_w.shape))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># b = net[0].bias.data</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print(&#39;b的估计误差：&#39;, true_b - b)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="softmax回归">Softmax回归</h2>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291212249.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291212249.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291212249.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291212249.png 2x" sizes="auto" data-title="image-20230829121241032" data-alt="image-20230829121241032" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291214245.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291214245.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291214245.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291214245.png 2x" sizes="auto" data-title="image-20230829121409123" data-alt="image-20230829121409123" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291215552.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291215552.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291215552.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291215552.png 2x" sizes="auto" data-title="image-20230829121517398" data-alt="image-20230829121517398" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291215921.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291215921.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291215921.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291215921.png 2x" sizes="auto" data-title="image-20230829121556799" data-alt="image-20230829121556799" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291216922.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291216922.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291216922.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291216922.png 2x" sizes="auto" data-title="image-20230829121639796" data-alt="image-20230829121639796" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291219674.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291219674.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291219674.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291219674.png 2x" sizes="auto" data-title="image-20230829121906522" data-alt="image-20230829121906522" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
+<p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291223938.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291223938.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291223938.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202308291223938.png 2x" sizes="auto" data-title="image-20230829122316851" data-alt="image-20230829122316851" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
@@ -317,12 +874,13 @@
     </section>
   </div>
 
-  <div class="post-nav"><a href="/posts/dl/diffusion/dreambooth/" class="post-nav-item" rel="prev" title="Dreambooth"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Dreambooth</a></div>
+  <div class="post-nav"><a href="/posts/dl/diffusion/dreambooth/" class="post-nav-item" rel="prev" title="Dreambooth"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Dreambooth</a>
+      <a href="/posts/dl/diffusion/esssay/" class="post-nav-item" rel="next" title="Esssay">Esssay<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
-            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+            <span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">
               <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
           <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
         </div></div>

@@ -11,20 +11,26 @@
 DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
 环境和主题，让主题更好的融入环境之中。
 梦幻的照相亭
-语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。" /><meta name="keywords" content='draft' /><meta itemprop="name" content="Dreambooth">
+语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。
+本文发现prompt模板使用“a [identifier] [class noun]”方式效果最好。identifier的选取方法是在词汇表中找到相对稀有的token，采样后映射成相应字符串。实验发现， 提取T5-XXL 分词器范围 {5000, &hellip;, 10000} 中的token效果很好，使用随机抽样而不替换的方式，采样 3 个或更少的 Unicode 字符的对应的token组成identifier字符串。class noun选择要符合图像语义，效果最好。
+finetune会产生两个关键问题：过拟合（Overfitting）（需要增加多样性）和语言漂移（ Language Drift）" /><meta name="keywords" content='draft' /><meta itemprop="name" content="Dreambooth">
 <meta itemprop="description" content="DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation
 DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
 环境和主题，让主题更好的融入环境之中。
 梦幻的照相亭
-语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。"><meta itemprop="datePublished" content="2023-07-24T09:56:00+08:00" />
+语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。
+本文发现prompt模板使用“a [identifier] [class noun]”方式效果最好。identifier的选取方法是在词汇表中找到相对稀有的token，采样后映射成相应字符串。实验发现， 提取T5-XXL 分词器范围 {5000, &hellip;, 10000} 中的token效果很好，使用随机抽样而不替换的方式，采样 3 个或更少的 Unicode 字符的对应的token组成identifier字符串。class noun选择要符合图像语义，效果最好。
+finetune会产生两个关键问题：过拟合（Overfitting）（需要增加多样性）和语言漂移（ Language Drift）"><meta itemprop="datePublished" content="2023-07-24T09:56:00+08:00" />
 <meta itemprop="dateModified" content="2023-07-24T09:56:00+08:00" />
-<meta itemprop="wordCount" content="11057"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
+<meta itemprop="wordCount" content="11309"><meta itemprop="image" content="http://Lizhe1228.github.io/nzr.jpg"/>
 <meta itemprop="keywords" content="draft," /><meta property="og:title" content="Dreambooth" />
 <meta property="og:description" content="DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation
 DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
 环境和主题，让主题更好的融入环境之中。
 梦幻的照相亭
-语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。" />
+语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。
+本文发现prompt模板使用“a [identifier] [class noun]”方式效果最好。identifier的选取方法是在词汇表中找到相对稀有的token，采样后映射成相应字符串。实验发现， 提取T5-XXL 分词器范围 {5000, &hellip;, 10000} 中的token效果很好，使用随机抽样而不替换的方式，采样 3 个或更少的 Unicode 字符的对应的token组成identifier字符串。class noun选择要符合图像语义，效果最好。
+finetune会产生两个关键问题：过拟合（Overfitting）（需要增加多样性）和语言漂移（ Language Drift）" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" /><meta property="og:image" content="http://Lizhe1228.github.io/nzr.jpg"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-07-24T09:56:00+08:00" />
@@ -37,7 +43,9 @@ DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
 DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
 环境和主题，让主题更好的融入环境之中。
 梦幻的照相亭
-语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。"/>
+语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。
+本文发现prompt模板使用“a [identifier] [class noun]”方式效果最好。identifier的选取方法是在词汇表中找到相对稀有的token，采样后映射成相应字符串。实验发现， 提取T5-XXL 分词器范围 {5000, &hellip;, 10000} 中的token效果很好，使用随机抽样而不替换的方式，采样 3 个或更少的 Unicode 字符的对应的token组成identifier字符串。class noun选择要符合图像语义，效果最好。
+finetune会产生两个关键问题：过拟合（Overfitting）（需要增加多样性）和语言漂移（ Language Drift）"/>
 <meta name="application-name" content="Lizhe1228">
 <meta name="apple-mobile-web-app-title" content="Lizhe1228"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/nzr-smile.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://Lizhe1228.github.io/posts/dl/diffusion/dreambooth/" /><link rel="prev" href="http://Lizhe1228.github.io/posts/go/day61-70/" /><link rel="next" href="http://Lizhe1228.github.io/posts/dl/limu/01/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
@@ -48,7 +56,7 @@ DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/dreambooth\/"
-    },"genre": "posts","keywords": "draft","wordcount":  11057 ,
+    },"genre": "posts","keywords": "draft","wordcount":  11309 ,
     "url": "http:\/\/Lizhe1228.github.io\/posts\/dl\/diffusion\/dreambooth\/","datePublished": "2023-07-24T09:56:00+08:00","dateModified": "2023-07-24T09:56:00+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"description": ""
@@ -204,7 +212,7 @@ DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
       </span></span>
           <span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div>
-      <div class="post-meta-line"><span title="发布于 2023-07-24 09:56:00"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-24">2023-07-24</time></span>&nbsp;<span title="更新于 2023-07-24 09:56:00"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-24">2023-07-24</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 11057 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 23 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Dreambooth">
+      <div class="post-meta-line"><span title="发布于 2023-07-24 09:56:00"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-24">2023-07-24</time></span>&nbsp;<span title="更新于 2023-07-24 09:56:00"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-24">2023-07-24</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 11309 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 23 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Dreambooth">
             <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
           </span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
@@ -269,6 +277,8 @@ DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成
 <p>环境和主题，让主题更好的融入环境之中。</p>
 <p>梦幻的照相亭</p>
 <p>语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。</p>
+<p>本文发现<strong>prompt</strong>模板使用“<strong>a [identifier] [class noun]”<strong>方式效果最好。<strong>identifier</strong>的选取方法是</strong>在词汇表中找到相对稀有的token，采样后映射成相应字符串。<strong>实验发现， 提取</strong>T5-XXL</strong> 分词器范围 {5000, &hellip;, 10000} 中的<strong>token</strong>效果很好，使用随机抽样而不替换的方式，采样 3 个或更少的 Unicode 字符的对应的<strong>token</strong>组成<strong>identifier</strong>字符串。<strong>class noun</strong>选择要符合图像语义，效果最好。</p>
+<p><strong>finetune会产生两个关键问题：过拟合（Overfitting）（需要增加多样性）和语言漂移（ Language Drift）</strong></p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241009213.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241009213.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241009213.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307241009213.png 2x" sizes="auto" data-title="image-20230724100856382" data-alt="image-20230724100856382" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>dreambooth——我们的 AI-powered photo booth——只需要几张主题的图片(通常是3-5张)(左图)，就可以在文本提示的引导下，在不同的背景下(右图)生成大量特定主题的图片。结果展示了与环境的自然相互作用，以及新颖的衔接和照明条件的变化，同时保持了对主体关键视觉特征的高保真度。</p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252148715.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252148715.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252148715.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252148715.png 2x" sizes="auto" data-title="image-20230725214851660" data-alt="image-20230725214851660" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
@@ -312,7 +322,7 @@ right part of the clock face in the jungle。我们的方法(右)可以在新的
 <p>我们的目标是在扩散模型的“字典”中“植入”一个新的(unique identifier，subject)对。为了<strong>绕过为给定图像集编写详细图像描述的开销</strong>，我们选择了一种更简单的方法，并将主题的所有输入图像标记为“一个a [identifier] [class noun]”，其中[identifier]是链接到主题的唯一标识符，[类名词]是主题的粗略类描述符(例如猫，狗，手表等)。class noun可以由用户提供，也可以使用分类器获得。**我们在句子中使用class noun是为了将类的先验性与我们唯一的主题联系起来，并发现使用错误的类描述符或没有类描述符会增加训练时间和语言漂移，同时降低性能。**从本质上讲，我们寻求利用特定类的模型的先验，并将其与我们主题的唯一标识符的嵌入纠缠在一起，这样我们就可以利用视觉先验来生成不同背景下主题的新姿势和新样子。</p>
 <h4 id="rare-token-identifiers">Rare-token Identifiers</h4>
 <p>Rare-token标识符。</p>
-<p>我们通常发现现有的英语单词(例如“unique”，“special”)不是最优的，因为模型必须学会将它们从原始含义中解脱出来，并重新纠缠它们以引用我们的主题。<font color=red>就是说我这里的唯一标识符必须没有什么异议，举个极端的例子说，如果这里是yellow，他本来就有自己的语义了，我们不想这样，或者说慢慢的就任务yellow就是了。</font>这激发了对在语言模型和扩散模型中都具有<strong>弱先验</strong>的标识符的需求。这样做的一个危险的方法（就是说下面这个方法是不可取的）是在英语语言中选择随机字符并将它们连接起来以生成一个罕见的标识符(例如“xxy5syt00”)。实际上，标记器可能会单独标记每个字母，扩散模型的先验对这些字母是强的。<strong>我们经常发现这些标记会产生与使用普通英语单词相似的弱点</strong>。<strong>我们的方法是在词汇表中找到罕见的标记，然后将这些标记倒转到文本空间中，以最小化具有强先验的标识符的概率</strong>（对于文本模型来讲，输入的text和token是一一对应的，找到稀有的token再反向得到文本）。我们在词汇表中对rare-token查找，并获得 rare token序列f(V)，其中f是tokenizer；一个将字符序列character sequences映射到tokens的函数，V是从标记f(V)中得到解码后的文本。序列长度为k，并且发现k ={1，…， 3}工作得很好。然后，通过使用f(V)上的去标记器反转词汇表，我们获得了定义唯一标识符V的字符序列。对于Imagen，我们发现对对应于3个或更少的Unicode字符(不含空格)的标记进行统一随机抽样，并使用T5-XXL标记器范围内的标{5000，…， 10000}效果很好。</p>
+<p>我们通常发现现有的英语单词(例如“unique”，“special”)不是最优的，因为模型必须学会将它们从原始含义中解脱出来，并重新纠缠它们以引用我们的主题。<font color=red>就是说我这里的唯一标识符必须没有什么异议，举个极端的例子说，如果这里是yellow，他本来就有自己的语义了，我们不想这样，或者说慢慢的就任务yellow就是了。</font>这激发了对在语言模型和扩散模型中都具有<strong>弱先验</strong>的标识符的需求。这样做的一个危险的方法（就是说下面这个方法是不可取的）是在英语语言中选择随机字符并将它们连接起来以生成一个罕见的标识符(例如“xxy5syt00”)。实际上，<strong>标记器可能会单独标记每个字母</strong>（分词器把每个字母分开），扩散模型的先验对这些字母是强的。<strong>我们经常发现这些标记会产生与使用普通英语单词相似的弱点</strong>。<strong>我们的方法是在词汇表中找到罕见的标记，然后将这些标记倒转到文本空间中，以最小化具有强先验的标识符的概率</strong>（对于文本模型来讲，输入的text和token是一一对应的，找到稀有的token再反向得到文本）。我们在词汇表中对rare-token查找，并获得 rare token序列f(V)，其中f是tokenizer；一个将字符序列character sequences映射到tokens的函数，V是从标记f(V)中得到解码后的文本。序列长度为k，并且发现k ={1，…， 3}工作得很好。然后，通过使用f(V)上的去标记器反转词汇表，我们获得了定义唯一标识符V的字符序列。对于Imagen，我们发现对对应于3个或更少的Unicode字符(不含空格)的标记进行统一随机抽样，并使用T5-XXL标记器范围内的标{5000，…， 10000}效果很好。</p>
 <p><img loading="lazy" src="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252047931.png" srcset="https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252047931.png, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252047931.png 1.5x, https://lizhe1228-img-1301547619.cos.ap-beijing.myqcloud.com/img/202307252047931.png 2x" sizes="auto" data-title="image-20230725204739829" data-alt="image-20230725204739829" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/></p>
 <p>Fine-tuning. Given ∼ 3−5 images of a subject we finetune a text-to-image diffusion model with the input images paired with a text prompt containing a unique identifier and the name of the class the subject belongs to (e.g., “A [V] dog”), in parallel, we apply a class-specific prior preservation loss, which leverages the semantic prior that the model has on the class and encourages it to generate diverse instances belong to the subject’s class using the class name in a text prompt (e.g., “A dog”).</p>
 <h3 id="33-class-specific-prior-preservation-loss创新点">3.3. Class-specific Prior Preservation Loss（创新点）</h3>
@@ -394,7 +404,7 @@ right part of the clock face in the jungle。我们的方法(右)可以在新的
 </article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
-            <span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">
+            <span itemprop="copyrightYear">2023 - 2024</span><span class="author" itemprop="copyrightHolder">
               <a href="/">Lizhe1228</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
           <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
         </div></div>

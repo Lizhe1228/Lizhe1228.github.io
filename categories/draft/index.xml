@@ -4,7 +4,23 @@
     <link>http://Lizhe1228.github.io/categories/draft/</link>
     <description>draft - 分类 - I am Lizhe1228</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>2181426542@qq.com (Lizhe1228)</managingEditor>
-      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Fri, 28 Jul 2023 10:07:48 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/categories/draft/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2181426542@qq.com (Lizhe1228)</webMaster><lastBuildDate>Wed, 06 Sep 2023 09:47:43 &#43;0800</lastBuildDate><atom:link href="http://Lizhe1228.github.io/categories/draft/" rel="self" type="application/rss+xml" /><item>
+  <title>Dminmi</title>
+  <link>http://Lizhe1228.github.io/posts/dl/diffusion/dminmi/</link>
+  <pubDate>Wed, 06 Sep 2023 09:47:43 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/dl/diffusion/dminmi/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Esssay</title>
+  <link>http://Lizhe1228.github.io/posts/dl/diffusion/esssay/</link>
+  <pubDate>Sun, 30 Jul 2023 09:58:24 &#43;0800</pubDate>
+  <author>Lizhe1228</author>
+  <guid>http://Lizhe1228.github.io/posts/dl/diffusion/esssay/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>1</title>
   <link>http://Lizhe1228.github.io/posts/dl/limu/01/</link>
   <pubDate>Fri, 28 Jul 2023 10:07:48 &#43;0800</pubDate>
@@ -22,7 +38,9 @@
 <p>DreamBooth:微调文本到图像的扩散模型，用于主题驱动的生成</p>
 <p>环境和主题，让主题更好的融入环境之中。</p>
 <p>梦幻的照相亭</p>
-<p>语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。</p>]]></description>
+<p>语义漂移：只知道了特定的狗是什么，而忘记了一个dog是什么了。</p>
+<p>本文发现<strong>prompt</strong>模板使用“<strong>a [identifier] [class noun]”<strong>方式效果最好。<strong>identifier</strong>的选取方法是</strong>在词汇表中找到相对稀有的token，采样后映射成相应字符串。<strong>实验发现， 提取</strong>T5-XXL</strong> 分词器范围 {5000, &hellip;, 10000} 中的<strong>token</strong>效果很好，使用随机抽样而不替换的方式，采样 3 个或更少的 Unicode 字符的对应的<strong>token</strong>组成<strong>identifier</strong>字符串。<strong>class noun</strong>选择要符合图像语义，效果最好。</p>
+<p><strong>finetune会产生两个关键问题：过拟合（Overfitting）（需要增加多样性）和语言漂移（ Language Drift）</strong></p>]]></description>
 </item>
 <item>
   <title>Go Exercises(Day51-60)</title>
@@ -70,22 +88,6 @@
   <pubDate>Sun, 02 Jul 2023 14:40:22 &#43;0800</pubDate>
   <author>Lizhe1228</author>
   <guid>http://Lizhe1228.github.io/posts/6824/01/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Day01</title>
-  <link>http://Lizhe1228.github.io/posts/rpc_protobuf/day01/</link>
-  <pubDate>Sun, 02 Jul 2023 10:58:25 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/rpc_protobuf/day01/</guid>
-  <description><![CDATA[<p>RPC</p>]]></description>
-</item>
-<item>
-  <title>Lora</title>
-  <link>http://Lizhe1228.github.io/posts/dl/diffusion/lora/</link>
-  <pubDate>Thu, 29 Jun 2023 19:46:55 &#43;0800</pubDate>
-  <author>Lizhe1228</author>
-  <guid>http://Lizhe1228.github.io/posts/dl/diffusion/lora/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
